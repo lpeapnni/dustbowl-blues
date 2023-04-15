@@ -36,33 +36,12 @@
 	//Handle species-specific deaths.
 	species.handle_death(src)
 
-	//Handle brain slugs.
-	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	var/mob/living/simple_animal/borer/B
-
-	if(head)
-		for(var/I in head.implants)
-			if(istype(I,/mob/living/simple_animal/borer))
-				B = I
-		if(B)
-			if(!B.ckey && ckey && B.controlling)
-				B.ckey = ckey
-				B.controlling = 0
-			if(B.host_brain?.ckey)
-				ckey = B.host_brain.ckey
-				B.host_brain.ckey = null
-				B.host_brain.name = "host brain"
-				B.host_brain.real_name = "host brain"
-			verbs -= /mob/living/proc/release_control
-
 	callHook("death", list(src, gibbed))
 
 	if(wearing_rig)
 		wearing_rig.notify_ai(
 			SPAN_DANGER("Warning: user death event. Mobility control passed to integrated intelligence system.")
 		)
-
-	learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/rebound_case, "REBOUND_CASE", skill_gained = 1, learner = src)
 
 	if(stats.getPerk(PERK_TERRIBLE_FATE))
 		visible_message(SPAN_WARNING("their inert body emits a strange sensation and a cold invades your body. Their screams before dying recount in your mind."))

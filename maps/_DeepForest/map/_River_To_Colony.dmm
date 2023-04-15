@@ -340,7 +340,6 @@
 /area/colony/exposedsun/crashed_shop/bottom_floor)
 "ir" = (
 /obj/structure/table/woodentable,
-/obj/item/cardholder,
 /turf/simulated/floor/carpet/bcarpet,
 /area/colony/exposedsun/crashed_shop/workshop)
 "is" = (
@@ -683,7 +682,6 @@
 	desc = "Old cup of coffee. Very cold.  ";
 	name = "Old Robust Coffee"
 	},
-/obj/item/scale,
 /turf/simulated/floor/carpet/bcarpet,
 /area/colony/exposedsun/crashed_shop/workshop)
 "rc" = (
@@ -1737,7 +1735,6 @@
 /area/colony/exposedsun/crashed_shop)
 "MT" = (
 /obj/structure/table/woodentable,
-/obj/item/pack_card_carp,
 /turf/simulated/floor/carpet/bcarpet,
 /area/colony/exposedsun/crashed_shop/workshop)
 "MU" = (
@@ -1816,7 +1813,6 @@
 /area/colony/exposedsun/crashed_shop)
 "Ok" = (
 /obj/structure/table/woodentable,
-/obj/item/cardholder/squirl,
 /turf/simulated/floor/carpet/bcarpet,
 /area/colony/exposedsun/crashed_shop/workshop)
 "Ol" = (

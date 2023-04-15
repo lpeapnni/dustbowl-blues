@@ -60,8 +60,6 @@
 		return
 	completed = TRUE
 	var/mob/living/carbon/human/H = owner.current
-	H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/self_value, "MASTER_QUEST_COMPLETER", skill_gained = 5, learner = H)
-	H.learnt_tasks.get_task_mastery_and_proc("MASTER_QUEST_COMPLETER")
 	update_faction_score()
 	to_chat(owner,  SPAN_NOTICE("You have completed the personal objective: [name]"))
 	H.sanity.give_insight(insight_reward)

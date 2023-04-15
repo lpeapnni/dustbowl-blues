@@ -234,17 +234,6 @@
 
 	nano_ui_interact(owner)
 
-/obj/item/organ/internal/carrion/core/removed(mob/living/user)
-	if(!associated_spider && owner)
-		for(var/obj/item/implant/carrion_spider/control/CS in active_spiders)
-			CS.return_mind()
-
-		owner.faction = initial(owner.faction)
-		associated_spider = new /mob/living/simple_animal/spider_core(owner.loc)
-		owner.mind?.transfer_to(associated_spider)
-		..()
-		forceMove(associated_spider)
-
 /obj/item/organ/internal/carrion/core/proc/GetDNA(var/dna_owner)
 	var/datum/dna/chosen_dna
 	for(var/datum/dna/DNA in absorbed_dna)

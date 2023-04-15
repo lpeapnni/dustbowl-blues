@@ -16809,7 +16809,6 @@
 /area/nadezhda/engineering/atmos)
 "dYC" = (
 /obj/structure/table/woodentable,
-/obj/item/cardholder,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/wild1,
 /area/nadezhda/maintenance/undergroundfloor1north)
@@ -75557,7 +75556,6 @@
 /obj/structure/table/standard,
 /obj/machinery/recharger,
 /obj/item/device/psionic_catalyst/dull,
-/obj/item/circuitboard/puncher,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/nadezhda/engineering/workshop)
 "rqF" = (

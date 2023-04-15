@@ -175,8 +175,7 @@
 	unlocks_designs = list(/datum/design/research/item/weapon/temp_gun,
 							/datum/design/research/item/weapon/slimegun,
 							/datum/design/research/item/ammo/shotgun_fire,
-							/datum/design/research/item/ammo/shotgun_laser,
-							/datum/design/research/item/weapon/bastion
+							/datum/design/research/item/ammo/shotgun_laser
 							)
 
 /datum/technology/adv_exotic_weaponry

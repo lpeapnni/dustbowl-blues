@@ -1140,15 +1140,6 @@ mob/proc/yank_out_object()
 		slowdown = max(slowdown-1, 0)
 	return slowdown
 
-//Check for brain worms in head.
-/mob/proc/has_brain_worms()
-
-	for(var/I in contents)
-		if(istype(I,/mob/living/simple_animal/borer))
-			return I
-
-	return FALSE
-
 /mob/proc/updateicon()
 	return
 

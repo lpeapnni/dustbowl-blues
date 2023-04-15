@@ -238,7 +238,6 @@ obj/item/scroll/sealed
 		/obj/item/oddity/common/book_omega,
 		/obj/item/tool/knife/ritual, // This means both the knife and sickle...
 		/obj/item/paper/alchemy_recipes,
-		/obj/item/card_carp,
 		/obj/item/device/camera_film)
 	cant_hold = list(/obj/item/tool/knife/ritual/blade) // ...but not the sword. No cheating!
 
@@ -443,14 +442,6 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 
 				if(spell.message == "Drain." && candle_amount >= 5)
 					drain_spell(M, able_to_cast)
-					continue
-
-				if(spell.message == "Cards To Life." && candle_amount >= 3)
-					cards_to_life_spell(M)
-					continue
-
-				if(spell.message == "Cards." && candle_amount >= 3)
-					cards_spell(M)
 					continue
 
 				if(spell.message == "Equalize." && candle_amount >= 6)
@@ -878,111 +869,6 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 		M.sanity.changeLevel(-20)
 		return
 	return
-
-// Cards: Invokes a random carp card, to use with other spells
-/obj/effect/decal/cleanable/crayon/proc/cards_spell(mob/living/carbon/human/M)
-	var/datum/reagent/organic/blood/B = M.get_blood()
-	to_chat(M, "<span class='warning'>A voice whispers in front of you: Any foils?</span>")
-	for(var/obj/item/device/camera_film in oview(1)) // Must be on the spell circle
-		B.remove_self(10)
-		new /obj/random/card_carp(src.loc)
-		M.sanity.changeLevel(-3)
-	return
-
-// Cards to Life: Consumes a Carp card of a certain type to summon an animal accordingly.
-// The animal in question is tamed, friendly to the colony, but are incredibly frail and weak.
-// Pelt cards can be turned into scroll pouches, Warren turns into a burrow
-/obj/effect/decal/cleanable/crayon/proc/cards_to_life_spell(mob/living/carbon/human/M)
-	var/datum/reagent/organic/blood/B = M.get_blood()
-	var /mob/living/simple_animal/simplemob = /mob/living/simple_animal/hostile/creature
-	var /mob/living/carbon/superior_animal/superiormob = null
-	for(var/obj/item/card_carp/carpy in oview(1))
-		to_chat(M, "<span class='warning'>The card rotates 90 degrees then begins to fold, twisting untill it breaks open with a reality-ripping sound. Something crawls out of its interior!</span>")
-
-		// Nonhostile simplemobs. The pets of the colony.
-		if(istype(carpy, /obj/item/card_carp/crab)) simplemob = /mob/living/simple_animal/crab
-		if(istype(carpy, /obj/item/card_carp/cat)) simplemob = /mob/living/simple_animal/cat
-		if(istype(carpy, /obj/item/card_carp/geck)) simplemob = /mob/living/simple_animal/lizard
-		if(istype(carpy, /obj/item/card_carp/goat)) simplemob = /mob/living/simple_animal/hostile/retaliate/goat
-		if(istype(carpy, /obj/item/card_carp/larva)) simplemob = /mob/living/simple_animal/light_geist
-		// Corgi
-		if(istype(carpy, /obj/item/card_carp/stunted_wolf) || istype(carpy, /obj/item/card_carp/coyote) ||istype(carpy, /obj/item/card_carp/wolf)) simplemob = /mob/living/simple_animal/corgi
-		// RATS, RATS, WE'RE THE RATS
-		if(istype(carpy, /obj/item/card_carp/ratking) || istype(carpy, /obj/item/card_carp/plaguerat) || istype(carpy, /obj/item/card_carp/kangaroorat) || istype(carpy, /obj/item/card_carp/chipmunk) || istype(carpy, /obj/item/card_carp/fieldmice)) simplemob = /mob/living/simple_animal/mouse
-		// Retaliation and hostile mobs
-		if(istype(carpy, /obj/item/card_carp/croaker_lord)) simplemob = /mob/living/simple_animal/hostile/retaliate/croakerlord
-		if(istype(carpy, /obj/item/card_carp/lost_rabbit)) simplemob = /mob/living/simple_animal/hostile/diyaab
-		if(istype(carpy, /obj/item/card_carp/adder)) simplemob = /mob/living/simple_animal/hostile/snake
-		if(istype(carpy, /obj/item/card_carp/grizzly)) simplemob = /mob/living/simple_animal/hostile/bear
-		if(istype(carpy, /obj/item/card_carp/bat)) simplemob = /mob/living/simple_animal/hostile/scarybat
-		if(istype(carpy, /obj/item/card_carp/great_white)) simplemob = /mob/living/simple_animal/hostile/carp/greatwhite
-		// Birbs
-		if(istype(carpy, /obj/item/card_carp/kingfisher) || istype(carpy, /obj/item/card_carp/sparrow) || istype(carpy, /obj/item/card_carp/turkey_vulture) || istype(carpy, /obj/item/card_carp/magpie)) simplemob = /mob/living/simple_animal/jungle_bird
-		// Sentient tree
-		if(istype(carpy, /obj/item/card_carp/tree) || istype(carpy, /obj/item/card_carp/pinetree)) simplemob = /mob/living/simple_animal/hostile/tree
-		// Tindalos
-		if(istype(carpy, /obj/item/card_carp/manti) || istype(carpy, /obj/item/card_carp/manti_lord)) simplemob = /mob/living/simple_animal/tindalos
-
-		// Superior mobs below
-
-		//roaches
-		if(istype(carpy, /obj/item/card_carp/pupa)) superiormob =  /mob/living/carbon/superior_animal/roach/roachling
-		if(istype(carpy, /obj/item/card_carp/cockroach)) superiormob = /mob/living/carbon/superior_animal/roach
-		if(istype(carpy, /obj/item/card_carp/stinkbug)) superiormob = /mob/living/carbon/superior_animal/roach/toxic
-		//termites for ants
-		if(istype(carpy, /obj/item/card_carp/ant)) superiormob = /mob/living/carbon/superior_animal/termite_no_despawn/iron
-		if(istype(carpy, /obj/item/card_carp/antqueen)) superiormob = /mob/living/carbon/superior_animal/termite_no_despawn/diamond
-		//superior beasties
-		if(istype(carpy, /obj/item/card_carp/wyrm)) superiormob = /mob/living/carbon/superior_animal/wurm/diamond
-		if(istype(carpy, /obj/item/card_carp/daus)) superiormob = /mob/living/carbon/superior_animal/genetics/fratellis //genetics beastie
-		//golem
-		if(istype(carpy, /obj/item/card_carp/rock) || istype(carpy, /obj/item/card_carp/bloodrock)) superiormob = /mob/living/carbon/superior_animal/ameridian_golem
-
-		// End of mob spawns
-
-		// Turned it into a carrying bag
-		if(istype(carpy, /obj/item/card_carp/rpelt) || istype(carpy, /obj/item/card_carp/dpelt) || istype(carpy, /obj/item/card_carp/pinepelt) || istype(carpy, /obj/item/card_carp/gpelt))
-			new /obj/item/storage/pouch/scroll(carpy.loc)
-			qdel(carpy)
-			B.remove_self(50)
-			M.sanity.changeLevel(1)
-			return
-
-		// Burrow
-		if(istype(carpy, /obj/item/card_carp/warren))
-			var/obj/structure/burrow/diggy_hole = new /obj/structure/burrow(carpy.loc)
-			diggy_hole.deepmaint_entry_point = TRUE
-			diggy_hole.isRevealed = TRUE
-			diggy_hole.isSealed = FALSE
-			diggy_hole.invisibility = 0
-			diggy_hole.collapse()
-			qdel(carpy)
-			B.remove_self(50)
-			M.sanity.changeLevel(1)
-			return
-
-		// Code that takes superiormob var and spawns whatever it was set too.
-		if(superiormob != null)
-			var /mob/living/carbon/superior_animal/editme = new superiormob(carpy.loc)
-			editme.colony_friend = TRUE
-			editme.friendly_to_colony = TRUE
-			editme.faction = "Living Dead"
-			editme.maxHealth = 5
-			editme.health = 5
-			qdel(carpy)
-			B.remove_self(50)
-			M.sanity.changeLevel(1)
-			return //we returned out so it shouldn't double up.
-
-		var /mob/living/simple_animal/changemeupinside = new simplemob(carpy.loc)
-		changemeupinside.colony_friend = TRUE
-		changemeupinside.friendly_to_colony = TRUE
-		changemeupinside.faction = "Living Dead"
-		changemeupinside.maxHealth = 5
-		changemeupinside.health = 5
-		B.remove_self(50)
-		M.sanity.changeLevel(1)
-		qdel(carpy)
 
 // Equalize: This spell pools together the entire average percentage of blood from all mobs in sight
 // and distributes it equally among the number of mobs, "equalizing" it.

@@ -11,7 +11,6 @@ var/list/ventcrawl_machinery = list(
 	/obj/item/device/radio/borg,
 	/obj/item/holder,
 	/obj/machinery/camera,
-	/mob/living/simple_animal/borer,
 	/obj/item/paper/,
 	/obj/item/pen
 	)

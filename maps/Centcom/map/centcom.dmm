@@ -213,7 +213,6 @@
 "aP" = (
 /obj/structure/table/woodentable,
 /obj/item/device/camera_film,
-/obj/item/pack_card_carp,
 /turf/simulated/floor/wood/wild1,
 /area/centcom/evac)
 "aQ" = (

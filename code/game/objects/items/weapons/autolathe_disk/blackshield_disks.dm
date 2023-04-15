@@ -22,7 +22,6 @@
 		//Misc
 		/datum/design/autolathe/device/landmine = 0,
 		/datum/design/autolathe/sec/riot = 2,
-		/datum/design/autolathe/sec/bastion = 1,
 		/datum/design/autolathe/sec/buckler,
 		/datum/design/autolathe/container/ammocan_ih = 0,
 		)

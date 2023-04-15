@@ -101,9 +101,6 @@
 	if(language_blackout)
 		return 0
 
-	if(has_brain_worms()) //Brain worms translate everything. Even mice and alien speak.
-		return 1
-
 	if(species.can_understand(other))
 		return 1
 

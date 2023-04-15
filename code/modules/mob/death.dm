@@ -78,9 +78,6 @@
 			O.forceMove(loc)
 		embedded = list()
 
-	for(var/obj/item/implant/carrion_spider/control/C in src)
-		C.return_mind()
-
 	for(var/mob/living/carbon/human/H in oviewers(src))
 		H.sanity.onSeeDeath(src)
 		LEGACY_SEND_SIGNAL(H, COMSIG_MOB_DEATH, src) //im not going to use this for the mob spawner becuase i dont understand signals enough

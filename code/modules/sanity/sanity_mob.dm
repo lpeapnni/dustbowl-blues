@@ -478,29 +478,9 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
 	var/smoking_change = SANITY_GAIN_SMOKE * S.quality_multiplier
-	var/smoking_allowed = FALSE
-	var/smoking_no = FALSE
-	for(var/obj/structure/sign/warning/nosmoking/dont in oview(owner, 7))
-
-		smoking_no = TRUE
-	for(var/obj/structure/sign/warning/smoking/undont in oview(owner, 7))
-		smoking_allowed = TRUE
-
-	if(smoking_no && !owner.stats.getPerk(PERK_CHAINGUN_SMOKER))
-		smoking_message += 1
-		if(smoking_message >= 50)
-			to_chat(owner, "Smoking in a non-smoking zone does not rest my nerves!")
-			smoking_message = -1 //takes 51 puffs before we get a new warning about smoking in a non-smoker zone
-		return
 
 	if(resting)
 		add_rest(INSIGHT_DESIRE_SMOKING, 0.4 * S.quality_multiplier)
-
-	if(smoking_allowed && !smoking_no)
-		changeLevel(1) //1+ for smoking in the correct area
-		if(ishuman(owner))
-			var/mob/living/carbon/human/H = owner
-			H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/proper_area_smoker, "PROPER_AREA_SMOKER", skill_gained = 0.1, learner = H)
 
 	changeLevel(smoking_change)
 

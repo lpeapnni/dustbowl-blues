@@ -318,14 +318,6 @@
 		else
 			fail_modifer += 10//below 5% is -10 precision. Good luck!
 
-	//If a hooman does this with a the tool_breaker tasks they get less odds of failer
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/task_level = H.learnt_tasks.get_task_mastery_level("TOOL_BREAKER")
-		if(task_level)
-			fail_modifer -= task_level
-
-
 	return fail_modifer
 
 //Use this proc if you want to handle all types of failure yourself. It used in surgery, for example, to deal damage to patient.
@@ -509,10 +501,6 @@
 	isbroken = TRUE
 
 	if(user)
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/tool_breaker, "TOOL_BREAKER", skill_gained = 1, learner = H)
-
 		to_chat(user, SPAN_DANGER("Your [src] broke!"))
 		new /obj/item/material/shard/shrapnel(user.loc)
 		playsound(get_turf(src), 'sound/effects/impacts/thud1.ogg', 50, 1 -3)

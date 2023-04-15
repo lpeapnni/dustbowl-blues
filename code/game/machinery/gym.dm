@@ -60,13 +60,9 @@
 			occupant.playsound_local(get_turf(occupant), 'sound/sanity/rest.ogg', 100)
 			occupant.stats.changeStat(stat_used, rand(15, 20))
 			occupant.rest_points--
-
-			occupant.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/gym_goer, "GYM_GOER", skill_gained = 5, learner = occupant)
-
 		else
 			to_chat(occupant, SPAN_NOTICE("You did become stronger, you think... But not permanently. Perhaps you need to rest first?"))
 			occupant.stats.addTempStat(stat_used, 15, 10 MINUTES)
-			occupant.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/gym_goer, "GYM_GOER", skill_gained = 1, learner = occupant)
 
 
 		occupant.stats.addPerk(PERK_COOLDOWN_EXERTION)
