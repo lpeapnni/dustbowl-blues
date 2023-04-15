@@ -107,7 +107,7 @@
 		. += SPAN_WARNING("Warning: Blood Level ERROR: --% --cl.</span> <span class='notice'>Type: ERROR")
 		. += span("highlight", "Subject's pulse: <font color='red'>-- bpm.</font>")
 		return
-	
+
 	var/mob/living/carbon/human/H = M
 
 	var/fake_oxy = max(rand(1, 40), M.getOxyLoss(), (300 - (M.getFireLoss() + M.getBruteLoss())))
@@ -231,8 +231,6 @@
 					dat += SPAN_WARNING("Warning: Pathogen [V.fields["name"]] detected in subject's blood. Known antigen : [V.fields["antigen"]]")
 	if (M.getCloneLoss())
 		dat += SPAN_WARNING("Subject appears to have cellular corruption.")
-	if (M.has_brain_worms())
-		dat += SPAN_WARNING("Subject suffering from aberrant brain activity. Recommend further scanning.")
 	else if (M.getBrainLoss() >= 60 || !M.has_brain())
 		dat += SPAN_WARNING("Subject is brain dead.")
 	else if (M.getBrainLoss() >= 25)

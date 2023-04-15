@@ -568,7 +568,6 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 	if(!isRevealed)
 		return
 
-	var/success = FALSE
 	var/list/usable_qualities = list()
 	usable_qualities.Add(QUALITY_WELDING)
 	usable_qualities.Add(QUALITY_HAMMERING)
@@ -580,7 +579,6 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 			if(!I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC) && isSealed)
 				return
 			user.visible_message("[user] welds [src] with \the [I].", "You weld [src] with \the [I].")
-			success = TRUE
 			if(recieving && !prob(33))
 				//false welding, critters will create new cracks
 				invisibility = 101
@@ -593,18 +591,12 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 			if(!I.use_tool(user, src, WORKTIME_DELAYED, QUALITY_HAMMERING, FAILCHANCE_NORMAL, required_stat = STAT_ROB) && isSealed) //You are quite literally hammering the floor, slow and tedious
 				return
 			user.visible_message("[user] seals [src] with \the [I].", "You seal [src] with \the [I].")
-			success = TRUE
 			if(recieving && !prob(33))
 				//false hammering, critters will create new cracks
 				invisibility = 101
 				addtimer(CALLBACK(src, .proc/false_removal), rand(3,10)SECONDS)
 			else
 				qdel(src)
-
-	//Soj Edit
-	if(ishuman(user) && dug_out && success)
-		var/mob/living/carbon/human/H = user
-		H.learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/proper_sealer, "PROPER_SEALER", skill_gained = 1, learner = H)
 
 /obj/structure/burrow/proc/false_removal()
 	invisibility = 101

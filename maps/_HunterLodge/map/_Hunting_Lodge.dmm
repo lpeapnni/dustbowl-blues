@@ -3768,7 +3768,6 @@
 /area/nadezhda/outside/forest/hunting_lodge_dark)
 "MD" = (
 /obj/structure/table/woodentable,
-/obj/random/card_carp,
 /turf/simulated/floor/carpet/bcarpet,
 /area/nadezhda/outside/forest/hunting_lodge_dark)
 "MG" = (
@@ -3906,8 +3905,6 @@
 /area/nadezhda/outside/forest/hunting_lodge_dark)
 "Or" = (
 /obj/structure/table/woodentable,
-/obj/random/card_carp,
-/obj/random/card_carp,
 /turf/simulated/floor/wood/wild2,
 /area/nadezhda/outside/forest/hunting_lodge_dark)
 "OA" = (

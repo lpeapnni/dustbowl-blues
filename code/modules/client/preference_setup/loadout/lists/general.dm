@@ -17,10 +17,6 @@
 	display_name = "christian bible"
 	path = /obj/item/book/manual/religion/c_bible
 
-/datum/gear/cardholder
-	display_name = "card holder"
-	path = /obj/item/cardholder
-
 /datum/gear/cigar
 	display_name = "cigar selection"
 	path = /obj/item/clothing/mask/smokable/cigarette/cigar

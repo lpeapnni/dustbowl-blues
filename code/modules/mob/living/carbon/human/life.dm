@@ -837,7 +837,6 @@
 				AdjustSleeping(rand(20,30))
 				updatehealth()
 				stats.removePerk(PERK_UNFINISHED_DELIVERY)
-				learnt_tasks.attempt_add_task_mastery(/datum/task_master/task/return_to_sender, "RETURN_TO_SENDER", skill_gained = 1, learner = src)
 			else
 				death()
 				blinded = 1
@@ -1032,12 +1031,6 @@
 			holder.icon_state = "hudxeno"
 		else if(foundVirus)
 			holder.icon_state = "hudill"
-		else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = has_brain_worms()
-			if(B.controlling)
-				holder.icon_state = "hudbrainworm"
-			else
-				holder.icon_state = "hudhealthy"
 		else
 			holder.icon_state = "hudhealthy"
 
@@ -1046,8 +1039,6 @@
 			holder2.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder2.icon_state = "hudxeno"
-		else if(has_brain_worms())
-			holder2.icon_state = "hudbrainworm"
 		else if(virus2.len)
 			holder2.icon_state = "hudill"
 		else
