@@ -38,11 +38,11 @@ jobs:
           tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
-          bash tools/ci/check_filedirs.sh sunny-day.dme
+          bash tools/ci/check_filedirs.sh dustbowl-blues.dme
           bash tools/ci/check_changelogs.sh
           bash tools/ci/check_grep.sh
           bash tools/ci/check_misc.sh
-          tools/bootstrap/python tools/validate_dme.py <sunny-day.dme
+          tools/bootstrap/python tools/validate_dme.py <dustbowl-blues.dme
           tools/build/build --ci lint tgui-test
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test

@@ -1,4 +1,4 @@
-environment = "sunny-day.dme"
+environment = "dustbowl-blues.dme"
 
 [langserver]
 dreamchecker = true
