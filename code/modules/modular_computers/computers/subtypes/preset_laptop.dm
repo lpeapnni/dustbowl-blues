@@ -30,7 +30,6 @@
 	hard_drive.store_file(new/datum/computer_file/program/email_client())
 	hard_drive.store_file(new/datum/computer_file/program/chatclient())
 	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
-	hard_drive.store_file(new/datum/computer_file/program/newsbrowser())
 	install_default_programs_by_job(get(src, /mob/living/carbon/human))
 
 //Map presets
@@ -48,7 +47,6 @@
 	hard_drive.store_file(new/datum/computer_file/program/email_client())
 	hard_drive.store_file(new/datum/computer_file/program/chatclient())
 	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
-	hard_drive.store_file(new/datum/computer_file/program/newsbrowser())
 	hard_drive.store_file(new/datum/computer_file/program/records())
 
 //Atmos
@@ -63,7 +61,6 @@
 	..()
 	hard_drive.store_file(new/datum/computer_file/program/email_client())
 	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/newsbrowser())
 	hard_drive.store_file(new/datum/computer_file/program/alarm_monitor())
 	hard_drive.store_file(new/datum/computer_file/program/atmos_control())
 
@@ -106,7 +103,6 @@
 	hard_drive.store_file(new/datum/computer_file/program/uplink())
 	hard_drive.store_file(new/datum/computer_file/program/card_mod())
 	hard_drive.store_file(new/datum/computer_file/program/shield_control())
-	hard_drive.store_file(new/datum/computer_file/program/newsbrowser())
 	hard_drive.store_file(new/datum/computer_file/program/crew_manifest())
 	hard_drive.store_file(new/datum/computer_file/program/game())
 	hard_drive.store_file(new/datum/computer_file/program/reports())

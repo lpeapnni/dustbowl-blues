@@ -317,10 +317,6 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		"nano/images/modular_computers/",
 	)
 
-/datum/asset/directories/images_news
-	dirs = list("news_articles/images/")
-
-
 /datum/asset/images_map/register()
 	var/list/mapnames = list()
 	for(var/z in GLOB.maps_data.station_levels)

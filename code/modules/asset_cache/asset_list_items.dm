@@ -491,9 +491,6 @@
 		"nano/images/modular_computers/",
 	)
 
-/datum/asset/simple/directories/images_news
-	dirs = list("news_articles/images/")
-
 /datum/asset/simple/directories
 	keep_local_name = TRUE
 	var/list/dirs = list()
