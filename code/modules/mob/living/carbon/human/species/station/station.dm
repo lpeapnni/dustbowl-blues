@@ -393,7 +393,7 @@
 	poison_type = "oxygen"                        // Poisonous air.
 	exhale_type = "carbon_dioxide"
 	siemens_coefficient = 0.5
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 	hunger_factor = 0.5
 
 	stat_modifiers = list(
