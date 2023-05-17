@@ -91,7 +91,7 @@
 		OP_EYES         = /obj/item/organ/internal/eyes
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/exalt_human/get_bodytype()
 	return "Exalt Human"
@@ -139,7 +139,7 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 	stat_modifiers = list(
 		STAT_ROB = 5,
@@ -203,7 +203,7 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 	stat_modifiers = list(
 		STAT_BIO = 10,
@@ -257,7 +257,7 @@
 	dark_color = "#ff0000"
 	light_color = "#990000"
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 	stat_modifiers = list(
 		STAT_TGH = 5,
@@ -323,7 +323,7 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 	dark_color = "#0000ff"
 	light_color = "#0000ff"
@@ -356,7 +356,7 @@
 	blurb = "no."
 	darksight = 2
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 	stat_modifiers = list(
 		STAT_TGH = 10,
@@ -432,7 +432,7 @@
 	max_age = 120
 	blurb = "no."
 	flags = NO_PAIN
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 	taste_sensitivity = TASTE_HYPERSENSITIVE
 	darksight = 4
 
@@ -520,7 +520,7 @@
 	name_language = null
 	min_age = 18
 	max_age = 90
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 	total_health = 130                    // Burn damage multiplier.
 	radiation_mod = 0
 	darksight = 3
@@ -638,7 +638,7 @@
 		STAT_VIG = 10
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/folken/get_bodytype()
 	return "Folken"
@@ -690,7 +690,7 @@
 		STAT_VIG = 0
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/mycus/get_bodytype()
 	return "Mycus"
@@ -740,7 +740,7 @@
 		"System analysis reports dangerous levels of cold!."
 		)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/full_body_prosthetic/get_bodytype()
 	return "Full Body Prosthetic"
@@ -790,7 +790,7 @@
 		"System analysis reports dangerous levels of cold!."
 		)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/unbranded_synth/get_bodytype()
 	return "Unbranded Full Body Prosthetic"
@@ -854,7 +854,7 @@
 		STAT_MEC = 5
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/soteria_synthetic/get_bodytype()
 	return "Soteria Synthetic"
@@ -916,7 +916,7 @@
 		STAT_MEC = 10
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/artificer_guild_synthetic/get_bodytype()
 	return "Artificer Guild Synthetic"
@@ -976,7 +976,7 @@
 		STAT_TGH = 10
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/blackshield_synthetic/get_bodytype()
 	return "Blackshield Synthetic"
@@ -1037,7 +1037,7 @@
 		STAT_BIO = 10
 	)
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = IS_RESTRICTED
 
 /datum/species/church_synthetic/get_bodytype()
 	return "Absolute Synthetic"
