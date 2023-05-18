@@ -12,7 +12,7 @@
 	charge_per_use = 5
 
 /obj/item/device/scanner/gas/is_valid_scan_target(atom/O)
-	if(!usr.stat_check(STAT_MEC, STAT_LEVEL_BASIC))
+	if(!usr.stat_check(STAT_MEC, SKILL_LEVEL_BASIC))
 		to_chat(usr, SPAN_WARNING("Your understanding of the mechanical isn't enough to operate this!"))
 		return
 

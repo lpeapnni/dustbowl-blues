@@ -1,7 +1,7 @@
 /datum/craft_recipe/soteria
 	category = "Soteria"
 	time = 100
-	related_stats = list(STAT_BIO)
+	related_stats = list(SKILL_SCI)
 	requiredPerk = PERK_NERD //Give me your lunch money.
 
 //Soteria healing kits

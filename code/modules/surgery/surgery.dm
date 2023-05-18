@@ -85,10 +85,10 @@
 	if(inflict_agony)
 		var/strength = inflict_agony
 
-		// At STAT_LEVEL_GODLIKE, there is no pain from the surgery at all
+		// At SKILL_LEVEL_GODLIKE, there is no pain from the surgery at all
 		// This supports negative stat values
 		if(user && user.stats)
-			strength *= max((STAT_LEVEL_GODLIKE - user.stats.getStat(required_stat)) / STAT_LEVEL_GODLIKE, 0)
+			strength *= max((SKILL_LEVEL_GODLIKE - user.stats.getStat(required_stat)) / SKILL_LEVEL_GODLIKE, 0)
 
 		organ.owner_pain(strength)
 
@@ -327,7 +327,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 		if(!BP_IS_ROBOTIC(src) && user == owner && is_carrion(user))
 			diagnosed = TRUE
 			return TRUE
-		if(user.stats.getStat(BP_IS_ROBOTIC(src) ? STAT_MEC : STAT_BIO) >= STAT_LEVEL_EXPERT)
+		if(user.stats.getStat(BP_IS_ROBOTIC(src) ? STAT_MEC : STAT_BIO) >= SKILL_LEVEL_EXPERT)
 			to_chat(user, SPAN_NOTICE("One brief look at [get_surgery_name()] is enough for you to see all the issues immediately."))
 			diagnosed = TRUE
 			return TRUE
@@ -360,12 +360,12 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 proc/calculate_expert_surgery_bonus(mob/living/user)
 	var/user_stat = user.stats.getStat(STAT_BIO)
 	var/stat_bonus = 0
-	if(user_stat > STAT_LEVEL_EXPERT && user_stat <= STAT_LEVEL_PROF)
-		stat_bonus = user_stat - STAT_LEVEL_EXPERT
-	else if(user_stat > STAT_LEVEL_PROF && user_stat <= STAT_LEVEL_GODLIKE)
-		stat_bonus = 20 + (user_stat - STAT_LEVEL_PROF) * 0.5
-	else if(user_stat > STAT_LEVEL_GODLIKE)
-		stat_bonus = 30 + (user_stat - STAT_LEVEL_GODLIKE) * 0.1
+	if(user_stat > SKILL_LEVEL_EXPERT && user_stat <= SKILL_LEVEL_PROF)
+		stat_bonus = user_stat - SKILL_LEVEL_EXPERT
+	else if(user_stat > SKILL_LEVEL_PROF && user_stat <= SKILL_LEVEL_GODLIKE)
+		stat_bonus = 20 + (user_stat - SKILL_LEVEL_PROF) * 0.5
+	else if(user_stat > SKILL_LEVEL_GODLIKE)
+		stat_bonus = 30 + (user_stat - SKILL_LEVEL_GODLIKE) * 0.1
 	return stat_bonus
 
 // Same logic as above, but instead gives a bonus to reduce surgery step duration
@@ -376,12 +376,12 @@ proc/calculate_expert_surgery_bonus(mob/living/user)
 proc/bio_time_bonus(mob/living/user)
 	var/user_stat = max(user.stats.getStat(STAT_BIO), user.stats.getStat(STAT_MEC)) // Pick the highest between MEC and BIO, so that roboticists may also benefit.
 	var/time_bonus = 0 // Maximum of 80
-	if(user_stat > STAT_LEVEL_EXPERT && user_stat <= STAT_LEVEL_PROF) // Average doctor gets 40 BIO, bonuses start from 41 MEC/BIO onwards
+	if(user_stat > SKILL_LEVEL_EXPERT && user_stat <= SKILL_LEVEL_PROF) // Average doctor gets 40 BIO, bonuses start from 41 MEC/BIO onwards
 		time_bonus = (user_stat - 40) // Minimum of 1 up to 20 at 60 MEC/BIO
-	else if(user_stat > STAT_LEVEL_PROF && user_stat <= STAT_LEVEL_GODLIKE)
-		time_bonus = 20 + (user_stat - STAT_LEVEL_PROF) // 21 up to 40 at 80 MEC/BIO
-	else if(user_stat > STAT_LEVEL_GODLIKE && user_stat <= 120) // Soft cap to prevent going over the surgical step duration
-		time_bonus = 40 + (user_stat - STAT_LEVEL_GODLIKE) // 41 to 80 (instant!) at 120 MEC/BIO and over
+	else if(user_stat > SKILL_LEVEL_PROF && user_stat <= SKILL_LEVEL_GODLIKE)
+		time_bonus = 20 + (user_stat - SKILL_LEVEL_PROF) // 21 up to 40 at 80 MEC/BIO
+	else if(user_stat > SKILL_LEVEL_GODLIKE && user_stat <= 120) // Soft cap to prevent going over the surgical step duration
+		time_bonus = 40 + (user_stat - SKILL_LEVEL_GODLIKE) // 41 to 80 (instant!) at 120 MEC/BIO and over
 	else if(user_stat >= 120) // Sanity check
 		time_bonus = 80 // Hardcap met at 120 MEC/BIO already, don't ever make it go over this no matter how insane our stats are
 	return time_bonus

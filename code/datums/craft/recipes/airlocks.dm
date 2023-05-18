@@ -5,7 +5,7 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),
 	)
-	related_stats = list(STAT_MEC)
+	related_stats = list(SKILL_REP)
 	requiredPerk = PERK_HANDYMAN
 
 /datum/craft_recipe/airlock/standard

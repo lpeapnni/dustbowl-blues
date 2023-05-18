@@ -19,7 +19,7 @@
 		return
 
 	// User gains more and loses less if the base stat is fairly low
-	if(user.stats.getStat(stat, pure=TRUE) <= STAT_LEVEL_BASIC)
+	if(user.stats.getStat(stat, pure=TRUE) <= SKILL_LEVEL_BASIC)
 		user.stats.changeStat(stat, stat_increase * 2)
 		user.sanity.onPsyDamage(apply_sanity_damage / 2)
 	else

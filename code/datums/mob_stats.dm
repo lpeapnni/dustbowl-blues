@@ -119,8 +119,8 @@
 	return avg / namesList.len
 
 // return value from 0 to 1 based on value of stat, more stat value less return value
-// use this proc to get multiplier for decreasing delay time (exaple: "50 * getMult(STAT_ROB, STAT_LEVEL_ADEPT)"  this will result in 5 seconds if stat STAT_ROB = 0 and result will be 0 if STAT_ROB = STAT_LEVEL_ADEPT)
-/datum/stat_holder/proc/getMult(statName, statCap = STAT_LEVEL_MAX, pure = FALSE)
+// use this proc to get multiplier for decreasing delay time (exaple: "50 * getMult(STAT_ROB, SKILL_LEVEL_ADEPT)"  this will result in 5 seconds if stat STAT_ROB = 0 and result will be 0 if STAT_ROB = SKILL_LEVEL_ADEPT)
+/datum/stat_holder/proc/getMult(statName, statCap = SKILL_LEVEL_MAX, pure = FALSE)
     if(!statName)
         return
     return 1 - max(0,min(1,getStat(statName, pure)/statCap))
@@ -171,9 +171,9 @@
 
 
 /datum/stat
-	var/name = "Character stat"
+	var/name = "Character skill"
 	var/desc = "Basic characteristic, you are not supposed to see this. Report to admins."
-	var/value = STAT_VALUE_DEFAULT
+	var/value = SKILL_VALUE_DEFAULT
 	var/list/mods = list()
 
 /datum/stat/proc/addModif(delay, affect, id)
@@ -205,11 +205,11 @@
 	value = value + affect
 
 /datum/stat/proc/changeValue_withcap(affect)
-	if(value > STAT_VALUE_MAXIMUM)
+	if(value > SKILL_VALUE_MAXIMUM)
 		return
 
-	if(value + affect > STAT_VALUE_MAXIMUM)
-		value = STAT_VALUE_MAXIMUM
+	if(value + affect > SKILL_VALUE_MAXIMUM)
+		value = SKILL_VALUE_MAXIMUM
 	else
 		value = value + affect
 
@@ -232,58 +232,130 @@
 
 //Unused but might be good for later additions
 /datum/stat/proc/setValue_withcap(value)
-	if(value > STAT_VALUE_MAXIMUM)
-		src.value = STAT_VALUE_MAXIMUM
+	if(value > SKILL_VALUE_MAXIMUM)
+		src.value = SKILL_VALUE_MAXIMUM
 	else
 		src.value = value
 
-/datum/stat/productivity
-	name = STAT_MEC
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+/datum/stat/athletics
+	name = SKILL_ATH
+	desc = "Life is a constant race against time, with obstacles at every turn. Mastery of athletic skills grants the character unparalleled agility, speed, and endurance, allowing them to push their physical limits and navigate treacherous terrains with ease."
 
-/datum/stat/cognition
-	name = STAT_COG
-	desc = "Too many dots, not enough lines. Knowledge and ability to create new items."
+/datum/stat/lockpick
+	name = SKILL_LOC
+	desc = "Locks are like secrets, waiting to be unraveled. With nimble fingers and a keen eye for detail, you excel at manipulating mechanisms and opening doors to the unknown."
 
-/datum/stat/biology
-	name = STAT_BIO
-	desc = "What's the difference between being dead, and just not knowing you're alive? Competence in physiology and chemistry."
+/datum/stat/medicine
+	name = SKILL_MED
+	desc = "Life hangs by a thread, and you possess the knowledge to weave it back together. Skilled in the art of healing, you mend wounds, alleviate suffering, and understand the intricacies of the human body."
 
-/datum/stat/robustness
-	name = STAT_ROB
-	desc = "Violence is what people do when they run out of good ideas. Increases your damage in unarmed combat, and your proficiency at it."
+/datum/stat/pilot
+	name = SKILL_PIL
+	desc = "(Pilot)"
 
-/datum/stat/toughness
-	name = STAT_TGH
-	desc = "You're a tough guy, but I'm a nightmare wrapped in the apocalypse. Enhances your resistance to gases and poisons, and helps you stand your ground when they try to knock you down."
+/datum/stat/repair
+	name = SKILL_REP
+	desc = "Every piece has its place, and every broken thing yearns to be whole again. Aptitude in repairing and restoring a wide range of mechanical and technological devices, allowing you to mend, improve and create equipment and machinery."
 
-/datum/stat/aiming
-	name = STAT_VIG
-	desc = "Be pure! Be vigilant! But never behave. Having sharp eyes and nerves of steel improves your proficiency with guns and overcoming fear from creatures' roars, among other feats."
+/datum/stat/science
+	name = SKILL_SCI
+	desc = "(Science)"
 
-/datum/stat/vivification
-	name = STAT_VIV
-	desc = "The body can take only so much stimulation under normal circumstances. It takes a lot to train the body to handle drugs, be they helpful or harmful."
+/datum/stat/survival
+	name = SKILL_SUR
+	desc = "In the wilderness, instincts guide your every move. You can read the signs of nature, find sustenance in the harshest environments, and adapt to any circumstance. Your expertise in survival skills keeps you alive against all odds."
 
-/datum/stat/anatomy
-	name = STAT_ANA
-	desc = "The body itself; the more you know about how far you can push it, the easier it becomes to edge closer towards death's door."
+/datum/stat/big_guns
+	name = SKILL_BIG
+	desc = "Amidst the chaos, you emerge as the wielder of immense power. Your mastery of big guns grants you the ability to harness the fury of heavy weaponry. From heavy machineguns to flamethrowers and miniguns, you rain devastation upon your foes with unmatched precision and overwhelming firepower."
 
+/datum/stat/energy_guns
+	name = SKILL_ENE
+	desc = "Harness the power of the stars and wield beams of pure energy. With proficiency in energy guns, you become a force to be reckoned with, disintegrating targets and searing through armor with futuristic weapons."
+
+/datum/stat/explosives
+	name = SKILL_EXP
+	desc = "Embrace the controlled chaos of destruction. Skilled in explosives, you strategically deploy bombs, mines, and grenades, turning the tide of battle with devastating blasts and calculated explosions."
+
+/datum/stat/melee_weapons
+	name = SKILL_MEL
+	desc = "When steel clashes and sweat fills the air, you stand firm as a master of close-quarters combat. Your proficiency in melee weapons grants deadly precision, strength, and agility, allowing you to carve through enemies with lethal strikes."
+
+/datum/stat/small_guns
+	name = SKILL_SMA
+	desc = "In the realm of quick-draw and sharp aim, you embody deadly accuracy. Proficient with pistols, rifles, and compact firearms, you unleash a storm of bullets, taking down enemies with calculated shots."
+
+/datum/stat/unarmed
+	name = SKILL_UNA
+	desc = "When all weapons are stripped away, you remain an unyielding force. Skilled in unarmed combat, you deliver bone-crushing punches, lightning-fast strikes, and devastating kicks. Utilize your body as the ultimate weapon and overpower opponents with sheer skill."
 
 // Use to perform stat checks
 /mob/proc/stat_check(stat_path, needed)
 	var/points = src.stats.getStat(stat_path)
 	return points >= needed
 
-/proc/statPointsToLevel(var/points)
+/proc/skillPointsToLevel(var/points)
 	switch(points)
-		if (STAT_LEVEL_NONE to STAT_LEVEL_BASIC)
+		if (SKILL_LEVEL_NONE to SKILL_LEVEL_BASIC)
 			return "Untrained"
-		if (STAT_LEVEL_BASIC to STAT_LEVEL_ADEPT)
+		if (SKILL_LEVEL_BASIC to SKILL_LEVEL_ADEPT)
 			return "Basic"
-		if (STAT_LEVEL_ADEPT to STAT_LEVEL_EXPERT)
+		if (SKILL_LEVEL_ADEPT to SKILL_LEVEL_EXPERT)
 			return "Adept"
-		if (STAT_LEVEL_EXPERT to STAT_LEVEL_PROF)
+		if (SKILL_LEVEL_EXPERT to SKILL_LEVEL_PROF)
 			return "Expert"
-		if (STAT_LEVEL_PROF to INFINITY)
+		if (SKILL_LEVEL_PROF to INFINITY)
 			return "Master"
+
+/datum/stat/special
+	value = SPECIAL_VALUE_DEFAULT
+	var/list/special_desc
+
+/datum/stat/special/changeValue_withcap(affect)
+	if(value > SPECIAL_VALUE_MAXIMUM)
+		return
+
+	if(value + affect > SPECIAL_VALUE_MAXIMUM)
+		value = SPECIAL_VALUE_MAXIMUM
+	else if(value + affect < SPECIAL_VALUE_MINIMUM)
+		value = SPECIAL_VALUE_MINIMUM
+	else
+		value = value + affect
+
+/datum/stat/special/strength
+	name = SPECIAL_S
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Wet Noodle","Beached Jellyfish","Doughy Baby","Lightweight","Average Joe","Barrel Chested","Beach Bully","Circus Strongman","Doomsday Pecs","Hercules' Bigger Cousin")
+
+/datum/stat/special/perception
+	name = SPECIAL_P
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Deaf Bat","Senile Mole","Squinting Newt","Unsuspecting Trout","Wary Trout","Alert Coyote","Big-Eyed Tiger","Monocled Falcon","Sniper Hawk","Eagle with Telescope")
+
+/datum/stat/special/endurance
+	name = SPECIAL_E
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Basically Dead","Crumbly","Do Not Bend","Handle With Care","Stain-Resistant","Hardy","Tough-as-nails","Flame Retardant","Bullet Proof","Unstoppable")
+
+/datum/stat/special/charisma
+	name = SPECIAL_C
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Misanthrope","Old Hermit","Creepy Undertaker","Peevish Librarian","Substitute Teacher","Cheery Salesman","Diplomat","Movie Star","Casanova","Cult Leader")
+
+/datum/stat/special/intelligence
+	name = SPECIAL_I
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Sub-Brick","Vegetable","Cretin","Knuckle Head","Knowledgeable","Gifted","Smartypants","Know-It-All","Genius","Omniscient")
+
+/datum/stat/special/agility
+	name = SPECIAL_A
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("Walking Disaster","Accident Prone","Oaf","Butterfingers","Under Control","Catlike","Knife Thrower","Knife Catcher","Acrobatic Marvel","Walks on Water")
+
+/datum/stat/special/luck
+	name = SPECIAL_L
+	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	special_desc = list("13 Pitch-Black Cats","Broken Gypsy Mirror","Sickly Albatross","Spilled Salt","Coin Flip","Stacked Deck","Lucky 7","Leprechaun's Foot","21 Leaf Clover","Two-Headed Coin Flip")
+
+/datum/stat/special/proc/specialToLevel(var/points)
+	return special_desc[points]

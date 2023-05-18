@@ -44,7 +44,7 @@
 		var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
 		//log_debug("try_to_pain 1, H = [H], user = [user], affecting [affecting]")
 
-		if(user && user.stats.getStat(STAT_BIO) > STAT_LEVEL_ADEPT)
+		if(user && user.stats.getStat(STAT_BIO) > SKILL_LEVEL_ADEPT)
 			//log_debug("try_to_pain 1.5,  biocheck passed")
 			return
 
@@ -102,7 +102,7 @@
 	//	log_debug("medical 3, halfway")
 		if(BP_IS_ROBOTIC(affecting))
 			// user is clueless
-			if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(STAT_BIO) < STAT_LEVEL_BASIC)
+			if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(STAT_BIO) < SKILL_LEVEL_BASIC)
 				user.visible_message( \
 				SPAN_NOTICE("[user] starts applying [src] to [M]."), \
 				SPAN_NOTICE("You start applying [src] to [M].") \

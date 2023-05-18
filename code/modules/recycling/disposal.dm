@@ -166,7 +166,7 @@
 				V.show_message("[usr] starts stuffing [target.name] into the disposal.", 3)
 
 		var/delay = 20
-		if(!do_after(usr, max(delay * usr.stats.getMult(STAT_VIG, STAT_LEVEL_EXPERT), delay * 0.66), src))
+		if(!do_after(usr, max(delay * usr.stats.getMult(STAT_VIG, SKILL_LEVEL_EXPERT), delay * 0.66), src))
 			return
 		if(target_loc != target.loc)
 			return
@@ -601,9 +601,9 @@
 				// Hurt any living creature jumping down disposals
 				var/multiplier = 1
 
-				// STAT_MEC or STAT_TGH help you reduce disposal damage, with no damage being recieved at all at STAT_LEVEL_EXPERT
+				// STAT_MEC or STAT_TGH help you reduce disposal damage, with no damage being recieved at all at SKILL_LEVEL_EXPERT
 				//if(H.stats)
-				//	multiplier = min(H.stats.getMult(STAT_MEC, STAT_LEVEL_EXPERT), H.stats.getMult(STAT_TGH, STAT_LEVEL_EXPERT))
+				//	multiplier = min(H.stats.getMult(STAT_MEC, SKILL_LEVEL_EXPERT), H.stats.getMult(STAT_TGH, SKILL_LEVEL_EXPERT))
 				//Soj edit we want these to be REALLY deadly and not good for fast travel
 				if(multiplier > 0)
 					H.take_overall_damage(8 * multiplier, 0, "Blunt Trauma")

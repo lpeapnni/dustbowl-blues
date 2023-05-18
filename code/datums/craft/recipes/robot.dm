@@ -1,7 +1,7 @@
 /datum/craft_recipe/robotic
 	category = "Robots"
 	time = 100
-	related_stats = list(STAT_MEC)
+	related_stats = list(SKILL_SCI)
 	requiredPerk = PERK_ROBOTICS_EXPERT
 
 // Control Module used in all the custom bots.

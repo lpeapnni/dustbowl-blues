@@ -6,7 +6,7 @@
 	install_sound = 'sound/effects/squelch1.ogg'
 
 	mod_time = WORKTIME_FAST
-	mod_tool_quality = QUALITY_LASER_CUTTING			
+	mod_tool_quality = QUALITY_LASER_CUTTING
 	mod_difficulty = FAILCHANCE_HARD
 	mod_stat = STAT_BIO
 	mod_sound = 'sound/effects/squelch1.ogg'
@@ -18,7 +18,7 @@
 
 	bypass_perk = PERK_ADVANCED_MEDICAL
 
-	destroy_on_removal = FALSE 
+	destroy_on_removal = FALSE
 	removable = TRUE
 	breakable = FALSE
 
@@ -26,7 +26,7 @@
 
 	examine_msg = "Can be attached to organ scaffolds and aberrant organs."
 	examine_stat = STAT_BIO
-	examine_difficulty = STAT_LEVEL_EXPERT
+	examine_difficulty = SKILL_LEVEL_EXPERT
 
 	// Internal organ stuff
 	var/list/owner_verb_adds = list()
@@ -59,7 +59,7 @@
 
 /datum/component/modification/organ/apply_values(obj/item/organ/internal/holder)
 	ASSERT(holder)
-	
+
 	var/using_generated_name = FALSE
 	var/using_generated_color = FALSE
 
@@ -91,7 +91,7 @@
 			else
 				holder.organ_efficiency.Add(organ)
 				holder.organ_efficiency[organ] = round(added_efficiency, 1)
-		
+
 		if(holder.owner && istype(holder.owner, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = holder.owner
 			for(var/process in organ_efficiency_mod)
@@ -154,7 +154,7 @@
 /datum/component/modification/organ/on_examine(mob/user)
 	var/using_sci_goggles = FALSE
 	var/details_unlocked = FALSE
-	
+
 	if(ishuman(user))
 		// Goggles check
 		var/mob/living/carbon/human/H = user

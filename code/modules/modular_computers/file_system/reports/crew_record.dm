@@ -107,7 +107,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 		var/stats = list()
 		for(var/statName in ALL_STATS)
 			var/points = H.stats.getStat(statName,pure = TRUE)
-			if(points > STAT_LEVEL_NONE)
+			if(points > SKILL_LEVEL_NONE)
 				stats += "[statName]: [points] ([statPointsToLevel(points)])"
 
 		set_skillset(jointext(stats,"\n"))

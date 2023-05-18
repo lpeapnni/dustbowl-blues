@@ -73,12 +73,12 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 /datum/wires/proc/examine(index, mob/user)
 	. = "You aren't sure what this wire does."
-	var/mec_stat = user.stats.getStat(STAT_MEC)
+	var/rep_skill = user.stats.getStat(SKILL_REP)
 
 	var/datum/wire_description/wd = get_description(index)
 	if(!wd)
 		return
-	if(wd.skill_level > mec_stat)
+	if(wd.skill_level > rep_skill)
 		return
 	return wd.description
 
@@ -117,7 +117,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 		user = usr
 
 	if(istype(user))
-		user_skill = user.stats.getStat(STAT_MEC)
+		user_skill = user.stats.getStat(SKILL_REP)
 
 	for(var/colour in wires)
 		html += "<tr>"

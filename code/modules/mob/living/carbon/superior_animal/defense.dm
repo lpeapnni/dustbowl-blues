@@ -67,7 +67,7 @@
 /mob/living/carbon/superior_animal/attackby(obj/item/I, mob/living/user, params)
 	activate_ai() //If were attacked by something and havent woken up yet. Were awake now >:T
 	if (meat_type && (stat == DEAD) && (QUALITY_CUTTING in I.tool_qualities) && user.a_intent ==  I_HELP)
-		if (I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_CUTTING, FAILCHANCE_NORMAL, required_stat = STAT_BIO))
+		if (I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_CUTTING, FAILCHANCE_NORMAL, required_stat = SKILL_SUR))
 			harvest(user)
 	else
 
@@ -119,7 +119,7 @@
 			return TRUE
 
 		if (I_DISARM)
-			if (!weakened && (prob(30 + (H.stats.getStat(STAT_ROB) * 0.1))))
+			if (!weakened && (prob(30 + (H.stats.getStat(SKILL_UNA) * 0.1))))
 				M.visible_message("\red [M] has knocked \the [src] over!")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 				Weaken(3)
@@ -139,7 +139,7 @@
 				M.visible_message("\red [M] missed \the [src]")
 			else
 				if (istype(H))
-					damage += max(0, (H.stats.getStat(STAT_ROB) / 10))
+					damage += max(0, (H.stats.getStat(SKILL_UNA) / 10))
 					if (HULK in H.mutations)
 						damage *= 2
 

@@ -70,7 +70,7 @@
 	icon ='icons/obj/crafts.dmi'
 	icon_state = "gun_frame"
 	matter = list()
-	var/req_sat = STAT_MEC
+	var/req_sat = SKILL_REP
 	var/suitable_part
 	var/view_only = 0
 	var/tags_to_spawn = list()

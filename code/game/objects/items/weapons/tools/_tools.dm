@@ -447,11 +447,11 @@
 		T.breakTool(user)
 		return TOOL_USE_FAIL
 	else if(T && !T.health_threshold)
-		if(user.stats.getStat(STAT_MEC) >= STAT_LEVEL_BASIC && T.health < T.max_health/100 * 5)// tool health is < 5%
+		if(user.stats.getStat(SKILL_REP) >= SKILL_LEVEL_BASIC && T.health < T.max_health/100 * 5)// tool health is < 5%
 			if(T.lastNearBreakMessage > world.time + 60 SECONDS) // once in 1 minute
 				T.lastNearBreakMessage = world.time
 				to_chat(user, SPAN_DANGER("Your [src.name] is about to fall apart."))
-		else if(user.stats.getStat(STAT_MEC) >= STAT_LEVEL_ADEPT && T.health < T.max_health/100 * 15) // tool health is < 15%
+		else if(user.stats.getStat(SKILL_REP) >= SKILL_LEVEL_ADEPT && T.health < T.max_health/100 * 15) // tool health is < 15%
 			if(T.lastNearBreakMessage > world.time + 300 SECONDS) // once in 5 minutes
 				T.lastNearBreakMessage = world.time
 				to_chat(user, SPAN_WARNING("Some parts in your [src.name] are reeling."))
@@ -998,12 +998,12 @@
 			if(T.health)
 				user.visible_message(SPAN_NOTICE("[user] begins repairing \the [O] with the [src]!"))
 				//Toolception!
-				if(use_tool(user, T, 60, QUALITY_ADHESIVE, FAILCHANCE_EASY, STAT_MEC))
-					var/tool_repair = T.max_health * 0.8 + (user.stats.getStat(STAT_MEC)/2)/100
+				if(use_tool(user, T, 60, QUALITY_ADHESIVE, FAILCHANCE_EASY, SKILL_REP))
+					var/tool_repair = T.max_health * 0.8 + (user.stats.getStat(SKILL_REP)/2)/100
 					var/perma_health_loss = (tool_repair *= 0.02) //2%
 					T.max_health -= perma_health_loss
 					T.adjustToolHealth(tool_repair, user)
-					if(user.stats.getStat(STAT_MEC) > STAT_LEVEL_BASIC/2)
+					if(user.stats.getStat(SKILL_REP) > SKILL_LEVEL_BASIC/2)
 						to_chat(user, SPAN_NOTICE("You knowledge in tools helped you repair it better."))
 					refresh_upgrades()
 				return
@@ -1071,10 +1071,10 @@
 			if(S.brute_dam)
 				var/robotics_expert = user.stats.getPerk(PERK_ROBOTICS_EXPERT)
 				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP || robotics_expert)
-					if(use_tool(user, H, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
+					if(use_tool(user, H, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = SKILL_REP))
 						var/repair_amount = 15
 						if(robotics_expert)
-							repair_amount = user.stats.getStat(STAT_MEC)
+							repair_amount = user.stats.getStat(SKILL_REP)
 						S.heal_damage(repair_amount,0,TRUE)
 						user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 						user.visible_message(SPAN_NOTICE("\The [user] [robotics_expert ? "expertly" : ""] patches some dents on \the [H]'s [S.name] with \the [src]."))

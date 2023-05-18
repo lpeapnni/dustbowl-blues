@@ -354,7 +354,7 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	experiments = new
 
 /obj/item/device/science_tool/attack(mob/living/M, mob/living/user)
-	if(!usr.stats?.getPerk(PERK_SI_SCI) || !user.stat_check(STAT_COG, STAT_LEVEL_ADEPT))
+	if(!usr.stats?.getPerk(PERK_SI_SCI) || !user.stat_check(STAT_COG, SKILL_LEVEL_ADEPT))
 		to_chat(user, SPAN_WARNING("Your cognitive understanding isn't high enough to use this!"))
 		return
 

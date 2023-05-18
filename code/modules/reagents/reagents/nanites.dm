@@ -240,9 +240,9 @@
 
 /datum/reagent/nanites/uncapped/control_booster_utility/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
-		M.stats.addTempStat(STAT_MEC, STAT_LEVEL_EXPERT, STIM_TIME, "CBU")
-		M.stats.addTempStat(STAT_BIO, STAT_LEVEL_EXPERT, STIM_TIME, "CBU")
-		M.stats.addTempStat(STAT_COG, STAT_LEVEL_EXPERT, STIM_TIME, "CBU")
+		M.stats.addTempStat(STAT_MEC, SKILL_LEVEL_EXPERT, STIM_TIME, "CBU")
+		M.stats.addTempStat(STAT_BIO, SKILL_LEVEL_EXPERT, STIM_TIME, "CBU")
+		M.stats.addTempStat(STAT_COG, SKILL_LEVEL_EXPERT, STIM_TIME, "CBU")
 
 /datum/reagent/nanites/uncapped/control_booster_combat
 	name = "Control Booster Combat"
@@ -254,9 +254,9 @@
 
 /datum/reagent/nanites/uncapped/control_booster_combat/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
-		M.stats.addTempStat(STAT_VIG, STAT_LEVEL_EXPERT, STIM_TIME, "CBC")
-		M.stats.addTempStat(STAT_TGH, STAT_LEVEL_EXPERT, STIM_TIME, "CBC")
-		M.stats.addTempStat(STAT_ROB, STAT_LEVEL_EXPERT, STIM_TIME, "CBC")
+		M.stats.addTempStat(STAT_VIG, SKILL_LEVEL_EXPERT, STIM_TIME, "CBC")
+		M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_EXPERT, STIM_TIME, "CBC")
+		M.stats.addTempStat(STAT_ROB, SKILL_LEVEL_EXPERT, STIM_TIME, "CBC")
 
 /datum/reagent/nanites/uncapped/voice_mimic
 	name = "Voice mimics"

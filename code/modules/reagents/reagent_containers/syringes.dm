@@ -177,7 +177,7 @@
 					else if(!H.can_inject(user, FALSE))
 						// lets check if user is easily fooled
 						var/obj/item/organ/external/affected = H.get_organ(user.targeted_organ)
-						if(BP_IS_LIFELIKE(affected) && user && user.stats.getStat(STAT_BIO) < STAT_LEVEL_BASIC)
+						if(BP_IS_LIFELIKE(affected) && user && user.stats.getStat(STAT_BIO) < SKILL_LEVEL_BASIC)
 							break_syringe(user = user)
 							to_chat(user, SPAN_WARNING("\The [src] have broken while trying to inject [target]."))
 							return
@@ -214,7 +214,7 @@
 				var/mob/living/carbon/human/H = target
 				if(istype(H))
 					var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
-					if(user && user.stats.getStat(STAT_BIO) < STAT_LEVEL_BASIC)
+					if(user && user.stats.getStat(STAT_BIO) < SKILL_LEVEL_BASIC)
 						if(prob(affecting.get_damage() - user.stats.getStat(STAT_BIO)))
 							var/pain = rand(min(30,affecting.get_damage()), max(affecting.get_damage() + 30,60) - user.stats.getStat(STAT_BIO))
 							H.pain(affecting, pain)

@@ -116,7 +116,7 @@
 	switch(tool_type)
 		if(QUALITY_SCREW_DRIVING)
 			to_chat(user, SPAN_NOTICE("You begin dismantling \the [src]."))
-			if(O.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
+			if(O.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_VERY_EASY, required_stat = SKILL_REP))
 				to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 				drop_materials(drop_location())
 				for(var/obj/item/book/b in contents)
@@ -124,7 +124,7 @@
 				qdel(src)
 		if(QUALITY_BOLT_TURNING)
 			to_chat(user, SPAN_NOTICE("You begin unwrenching \the [src]."))
-			if(O.use_tool(user, src, WORKTIME_NORMAL, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
+			if(O.use_tool(user, src, WORKTIME_NORMAL, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = SKILL_REP))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 				to_chat(user, (anchored ? SPAN_NOTICE("You unfasten \the [src] from the floor.") : SPAN_NOTICE("You secure \the [src] to the floor.")))
 				anchored = !anchored
