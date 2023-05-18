@@ -1,155 +1,185 @@
 //Many thanks to Jamini/Occulus-Eris for coding and bug testing/improving this stat via cilent system
 
 /datum/preferences
-	var/BIOMOD = 0
-	var/COGMOD = 0
-	var/MECMOD = 0
-	var/ROBMOD = 0
-	var/TGHMOD = 0
-	var/VIGMOD = 0
-	var/VIVMOD = 0
-	var/ANAMOD = 0
+	var/SCORE_S = 1
+	var/SCORE_P = 1
+	var/SCORE_E = 1
+	var/SCORE_C = 1
+	var/SCORE_I = 1
+	var/SCORE_A = 1
+	var/SCORE_L = 1
+
+	var/SCORE_ATH = 0
+	var/SCORE_LOC = 0
+	var/SCORE_MED = 0
+	var/SCORE_PIL = 0
+	var/SCORE_REP = 0
+	var/SCORE_SCI = 0
+	var/SCORE_SUR = 0
+
+	var/SCORE_BIG = 0
+	var/SCORE_ENE = 0
+	var/SCORE_EXP = 0
+	var/SCORE_MEL = 0
+	var/SCORE_SMA = 0
+	var/SCORE_UNA = 0
 
 /datum/category_item/player_setup_item/background/education
 	name = "Skills"
 	sort_order = 7
 
 /datum/category_item/player_setup_item/background/education/load_character(var/savefile/S)
-	from_file(S["BIOMOD"],pref.BIOMOD)
-	from_file(S["COGMOD"],pref.COGMOD)
-	from_file(S["MECMOD"],pref.MECMOD)
-	from_file(S["ROBMOD"],pref.ROBMOD)
-	from_file(S["TGHMOD"],pref.TGHMOD)
-	from_file(S["VIGMOD"],pref.VIGMOD)
-	from_file(S["VIVMOD"],pref.VIVMOD)
-	from_file(S["ANAMOD"],pref.ANAMOD)
+	from_file(S["SCORE_S"],pref.SCORE_S)
+	from_file(S["SCORE_P"],pref.SCORE_P)
+	from_file(S["SCORE_E"],pref.SCORE_E)
+	from_file(S["SCORE_C"],pref.SCORE_C)
+	from_file(S["SCORE_I"],pref.SCORE_I)
+	from_file(S["SCORE_A"],pref.SCORE_A)
+	from_file(S["SCORE_L"],pref.SCORE_L)
+
+	from_file(S["SCORE_ATH"],pref.SCORE_ATH)
+	from_file(S["SCORE_LOC"],pref.SCORE_LOC)
+	from_file(S["SCORE_MED"],pref.SCORE_MED)
+	from_file(S["SCORE_PIL"],pref.SCORE_PIL)
+	from_file(S["SCORE_REP"],pref.SCORE_REP)
+	from_file(S["SCORE_SCI"],pref.SCORE_SCI)
+	from_file(S["SCORE_SUR"],pref.SCORE_SUR)
+
+	from_file(S["SCORE_BIG"],pref.SCORE_BIG)
+	from_file(S["SCORE_ENE"],pref.SCORE_ENE)
+	from_file(S["SCORE_EXP"],pref.SCORE_EXP)
+	from_file(S["SCORE_MEL"],pref.SCORE_MEL)
+	from_file(S["SCORE_SMA"],pref.SCORE_SMA)
+	from_file(S["SCORE_UNA"],pref.SCORE_UNA)
 
 /datum/category_item/player_setup_item/background/education/save_character(var/savefile/S)
-	to_file(S["BIOMOD"],pref.BIOMOD)
-	to_file(S["COGMOD"],pref.COGMOD)
-	to_file(S["MECMOD"],pref.MECMOD)
-	to_file(S["ROBMOD"],pref.ROBMOD)
-	to_file(S["TGHMOD"],pref.TGHMOD)
-	to_file(S["VIGMOD"],pref.VIGMOD)
-	to_file(S["VIVMOD"],pref.VIVMOD)
-	to_file(S["ANAMOD"],pref.ANAMOD)
+	to_file(S["SCORE_S"],pref.SCORE_S)
+	to_file(S["SCORE_P"],pref.SCORE_P)
+	to_file(S["SCORE_E"],pref.SCORE_E)
+	to_file(S["SCORE_C"],pref.SCORE_C)
+	to_file(S["SCORE_I"],pref.SCORE_I)
+	to_file(S["SCORE_A"],pref.SCORE_A)
+	to_file(S["SCORE_L"],pref.SCORE_L)
+
+	to_file(S["SCORE_ATH"],pref.SCORE_ATH)
+	to_file(S["SCORE_LOC"],pref.SCORE_LOC)
+	to_file(S["SCORE_MED"],pref.SCORE_MED)
+	to_file(S["SCORE_PIL"],pref.SCORE_PIL)
+	to_file(S["SCORE_REP"],pref.SCORE_REP)
+	to_file(S["SCORE_SCI"],pref.SCORE_SCI)
+	to_file(S["SCORE_SUR"],pref.SCORE_SUR)
+
+	from_file(S["SCORE_BIG"],pref.SCORE_BIG)
+	from_file(S["SCORE_ENE"],pref.SCORE_ENE)
+	from_file(S["SCORE_EXP"],pref.SCORE_EXP)
+	from_file(S["SCORE_MEL"],pref.SCORE_MEL)
+	from_file(S["SCORE_SMA"],pref.SCORE_SMA)
+	from_file(S["SCORE_UNA"],pref.SCORE_UNA)
 
 /datum/category_item/player_setup_item/background/education/sanitize_character()
-	pref.BIOMOD             = sanitize_integer(pref.BIOMOD, -10, 15, initial(pref.BIOMOD))
-	pref.COGMOD             = sanitize_integer(pref.COGMOD, -10, 15, initial(pref.COGMOD))
-	pref.MECMOD             = sanitize_integer(pref.MECMOD, -10, 15, initial(pref.MECMOD))
-	pref.ROBMOD             = sanitize_integer(pref.ROBMOD, -10, 15, initial(pref.ROBMOD))
-	pref.TGHMOD             = sanitize_integer(pref.TGHMOD, -10, 15, initial(pref.TGHMOD))
-	pref.VIGMOD             = sanitize_integer(pref.VIGMOD, -10, 15, initial(pref.VIGMOD))
-	pref.VIVMOD             = sanitize_integer(pref.VIVMOD, -10, 15, initial(pref.VIVMOD))
-	pref.ANAMOD             = sanitize_integer(pref.ANAMOD, -10, 15, initial(pref.ANAMOD))
-	if(calculatetotalpoints() > 15)
-		pref.BIOMOD = 0
-		pref.COGMOD = 0
-		pref.MECMOD = 0
-		pref.ROBMOD = 0
-		pref.TGHMOD = 0
-		pref.VIGMOD = 0
-		pref.VIVMOD = 0
-		pref.ANAMOD = 0
+	pref.SCORE_S = sanitize_integer(pref.SCORE_S, 1, 10, initial(pref.SCORE_S))
+	pref.SCORE_P = sanitize_integer(pref.SCORE_P, 1, 10, initial(pref.SCORE_P))
+	pref.SCORE_E = sanitize_integer(pref.SCORE_E, 1, 10, initial(pref.SCORE_E))
+	pref.SCORE_C = sanitize_integer(pref.SCORE_C, 1, 10, initial(pref.SCORE_C))
+	pref.SCORE_I = sanitize_integer(pref.SCORE_I, 1, 10, initial(pref.SCORE_I))
+	pref.SCORE_A = sanitize_integer(pref.SCORE_A, 1, 10, initial(pref.SCORE_A))
+	pref.SCORE_L = sanitize_integer(pref.SCORE_L, 1, 10, initial(pref.SCORE_L))
+
+	if(calculatetotalpoints() > 40)
+		pref.SCORE_S = 1
+		pref.SCORE_P = 1
+		pref.SCORE_E = 1
+		pref.SCORE_C = 1
+		pref.SCORE_I = 1
+		pref.SCORE_A = 1
+		pref.SCORE_L = 1
 
 /datum/category_item/player_setup_item/background/education/content(var/mob/user)
 	. = list()
-	. += "<br/><b>Skills</b>:<br/>"
-	. += "Biology: <a href='?src=\ref[src];biomod=1'>[pref.BIOMOD]</a><br>"
-	. += "Cognition: <a href='?src=\ref[src];cogmod=1'>[pref.COGMOD]</a><br>"
-	. += "Mechanical: <a href='?src=\ref[src];mecmod=1'>[pref.MECMOD]</a><br>"
-	. += "Robustness:  <a href='?src=\ref[src];robmod=1'>[pref.ROBMOD]</a><br>"
-	. += "Toughness:  <a href='?src=\ref[src];tghmod=1'>[pref.TGHMOD]</a><br>"
-	. += "Vigilance:  <a href='?src=\ref[src];vigmod=1'>[pref.VIGMOD]</a><br>"
-	. += "Vivification:  <a href='?src=\ref[src];vivmod=1'>[pref.VIVMOD]</a><br>"
-	. += "Anatomy:  <a href='?src=\ref[src];anamod=1'>[pref.ANAMOD]</a><br>"
+	. += "<br/><b>SPECIAL</b>:<br/>"
+	. += "Strength: <a href='?src=\ref[src];score_s=1'>[pref.SCORE_S]</a><br>"
+	. += "Perception: <a href='?src=\ref[src];score_p=1'>[pref.SCORE_P]</a><br>"
+	. += "Endurance: <a href='?src=\ref[src];score_e=1'>[pref.SCORE_E]</a><br>"
+	. += "Charisma:  <a href='?src=\ref[src];score_c=1'>[pref.SCORE_C]</a><br>"
+	. += "Intelligence:  <a href='?src=\ref[src];score_i=1'>[pref.SCORE_I]</a><br>"
+	. += "Agility:  <a href='?src=\ref[src];score_a=1'>[pref.SCORE_A]</a><br>"
+	. += "Luck:  <a href='?src=\ref[src];score_l=1'>[pref.SCORE_L]</a><br>"
 	. += "<br/>"
-	. += "You have used [pref.BIOMOD + round(pref.COGMOD/2) + pref.MECMOD + pref.ROBMOD + pref.TGHMOD + pref.VIGMOD + pref.VIVMOD  + round(pref.ANAMOD*5)] / 15 skill points"
+	. += "You have used [calculatetotalpoints()] / 40 SPECIAL points"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/background/education/proc/calculatetotalpoints()
-	return (pref.BIOMOD + round(pref.COGMOD/2) + pref.MECMOD + pref.ROBMOD + pref.TGHMOD + pref.VIGMOD + pref.VIVMOD + round(pref.ANAMOD*5))
+	return (pref.SCORE_S + pref.SCORE_P + pref.SCORE_E + pref.SCORE_C + pref.SCORE_I + pref.SCORE_A + pref.SCORE_L)
 
 /datum/category_item/player_setup_item/background/education/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(href_list["biomod"])
-		var/new_bio = 0
-		new_bio = input(user, "Enter a value between -10 and 15 for your biology", CHARACTER_PREFERENCE_INPUT_TITLE, pref.BIOMOD) as num
+	if(href_list["score_s"])
+		var/new_s = 0
+		new_s = input(user, "Enter a value between 1 and 10 for your Strength.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_S) as num
 		if(CanUseTopic(user))
-			var/old_bio = pref.BIOMOD
-			pref.BIOMOD = max(min(round(new_bio), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.BIOMOD = old_bio
+			var/old_s = pref.SCORE_S
+			pref.SCORE_S = max(min(round(new_s), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_S = old_s
 			return TOPIC_REFRESH
 
-	else if(href_list["cogmod"])
-		var/new_cog = 0
-		new_cog = input(user, "Enter a value between -10 and 15 for your cognition. (Cognition 50% the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.COGMOD) as num
+	else if(href_list["score_p"])
+		var/new_p = 0
+		new_p = input(user, "Enter a value between 1 and 10 for your Perception.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_P) as num
 		if(CanUseTopic(user))
-			var/old_cog = pref.COGMOD
-			pref.COGMOD = max(min(round(new_cog),15),-10)
-			if(calculatetotalpoints() > 15)
-				pref.COGMOD = old_cog
+			var/old_p = pref.SCORE_P
+			pref.SCORE_P = max(min(round(new_p), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_P = old_p
 			return TOPIC_REFRESH
 
-	else if(href_list["mecmod"])
-		var/new_mec = 0
-		new_mec = input(user, "Enter a value between -10 and 15 for your mechanical.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.MECMOD) as num
+	else if(href_list["score_e"])
+		var/new_e = 0
+		new_e = input(user, "Enter a value between -10 and 15 for your Endurance.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_E) as num
 		if(CanUseTopic(user))
-			var/old_mec = pref.MECMOD
-			pref.MECMOD = max(min(round(new_mec), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.MECMOD = old_mec
+			var/old_e = pref.SCORE_E
+			pref.SCORE_E = max(min(round(new_e), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_E = old_e
 			return TOPIC_REFRESH
 
-	else if(href_list["robmod"])
-		var/new_rob = 0
-		new_rob = input(user, "Enter a value between -10 and 15 for your robustness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.ROBMOD) as num
+	else if(href_list["score_c"])
+		var/new_c = 0
+		new_c = input(user, "Enter a value between -10 and 15 for your Charisma.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_C) as num
 		if(CanUseTopic(user))
-			var/old_rob = pref.ROBMOD
-			pref.ROBMOD = max(min(round(new_rob), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.ROBMOD = old_rob
+			var/old_c = pref.SCORE_C
+			pref.SCORE_C = max(min(round(new_c), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_C = old_c
 			return TOPIC_REFRESH
 
-	else if(href_list["tghmod"])
-		var/new_tgh = 0
-		new_tgh = input(user, "Enter a value between -10 and 15 for your toughness.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.TGHMOD) as num
+	else if(href_list["score_i"])
+		var/new_i = 0
+		new_i = input(user, "Enter a value between -10 and 15 for your Intelligence.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_I) as num
 		if(CanUseTopic(user))
-			var/old_tgh = pref.TGHMOD
-			pref.TGHMOD = max(min(round(new_tgh), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.TGHMOD = old_tgh
+			var/old_i = pref.SCORE_I
+			pref.SCORE_I = max(min(round(new_i), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_I = old_i
 			return TOPIC_REFRESH
 
-	else if(href_list["vigmod"])
-		var/new_vig = 0
-		new_vig = input(user, "Enter a value between -10 and 15 for your vigilance.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.VIGMOD) as num
+	else if(href_list["score_a"])
+		var/new_a = 0
+		new_a = input(user, "Enter a value between -10 and 15 for your Agility.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_A) as num
 		if(CanUseTopic(user))
-			var/old_vig = pref.VIGMOD
-			pref.VIGMOD = max(min(round(new_vig), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.VIGMOD = old_vig
+			var/old_a = pref.SCORE_A
+			pref.SCORE_A = max(min(round(new_a), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_A = old_a
 			return TOPIC_REFRESH
 
-	else if(href_list["vivmod"])
-		var/new_viv = 0
-		new_viv = input(user, "Enter a value between -10 and 15 for your vivification.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.VIVMOD) as num
+	else if(href_list["score_l"])
+		var/new_l = 0
+		new_l = input(user, "Enter a value between -10 and 15 for your Luck.", CHARACTER_PREFERENCE_INPUT_TITLE, pref.SCORE_L) as num
 		if(CanUseTopic(user))
-			var/old_viv = pref.VIVMOD
-			pref.VIVMOD = max(min(round(new_viv), 15), -10)
-			if(calculatetotalpoints() > 15)
-				pref.VIVMOD = old_viv
-			return TOPIC_REFRESH
-
-	else if(href_list["anamod"])
-		var/new_ana = 0
-		new_ana = input(user, "Enter a value between -3 and 5 for your anatomy  (Anatomy 500% the cost of other stats).", CHARACTER_PREFERENCE_INPUT_TITLE, pref.ANAMOD) as num
-		if(CanUseTopic(user))
-			var/old_ana = pref.ANAMOD
-			pref.ANAMOD = max(min(round(new_ana), 5), -3)
-			if(calculatetotalpoints() > 15)
-				pref.ANAMOD = old_ana
+			var/old_l = pref.SCORE_L
+			pref.SCORE_L = max(min(round(new_l), 10), 1)
+			if(calculatetotalpoints() > 40)
+				pref.SCORE_L = old_l
 			return TOPIC_REFRESH
 
 	return ..()

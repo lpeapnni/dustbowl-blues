@@ -1052,7 +1052,7 @@ assassination method if you time it right*/
 	switch(tool_type)
 
 		if(QUALITY_BOLT_TURNING)
-			if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+			if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 				to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 				return
 			if(state == 1)
@@ -1071,7 +1071,7 @@ assassination method if you time it right*/
 
 		if(QUALITY_WELDING)
 			if(user.a_intent != I_HURT)
-				if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+				if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 					to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 					return
 				if(src.health >= initial(src.health))
@@ -1094,7 +1094,7 @@ assassination method if you time it right*/
 			return
 
 		if(QUALITY_PRYING)
-			if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+			if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 				to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 				return
 			if(state == 2)
@@ -1112,7 +1112,7 @@ assassination method if you time it right*/
 			return
 
 		if(QUALITY_SCREW_DRIVING)
-			if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+			if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 				to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 				return
 			if(hasInternalDamage(MECHA_INT_TEMP_CONTROL))
@@ -1135,7 +1135,7 @@ assassination method if you time it right*/
 			return
 
 		if(QUALITY_PULSING)
-			if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+			if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 				to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 				return
 			if(state >= 3 && src.occupant)
@@ -1163,7 +1163,7 @@ assassination method if you time it right*/
 			return
 
 	if(istype(I, /obj/item/mecha_parts/mecha_equipment))
-		if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+		if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 			to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 			return
 
@@ -1189,7 +1189,7 @@ assassination method if you time it right*/
 			to_chat(user, SPAN_WARNING("Maintenance protocols disabled by operator."))
 
 	else if(istype(I, /obj/item/stack/cable_coil))
-		if(!user.stat_check(STAT_MEC, STAT_LEVEL_ADEPT))
+		if(!user.stat_check(STAT_MEC, SKILL_LEVEL_ADEPT))
 			to_chat(usr, SPAN_WARNING("You lack the mechanical knowledge to do this!"))
 			return
 

@@ -295,5 +295,5 @@
 /obj/item/modular_computer/CtrlAltClick(mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
-	if(user.stat_check(STAT_COG, STAT_LEVEL_BASIC)) // Make sure the user can at least do the exit command.
+	if(user.stat_check(STAT_COG, SKILL_LEVEL_BASIC)) // Make sure the user can at least do the exit command.
 		open_terminal(user)

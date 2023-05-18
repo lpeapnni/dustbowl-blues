@@ -42,10 +42,10 @@
 		H.flash(3, FALSE , TRUE , TRUE, 15)
 	else
 		M.flash(5, FALSE, TRUE , TRUE)
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT, 10 SECONDS, "flashbang")
-	M.stats.addTempStat(STAT_COG, -STAT_LEVEL_ADEPT, 10 SECONDS, "flashbang")
-	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT, 10 SECONDS, "flashbang")
-	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_ADEPT, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_ADEPT, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_ADEPT, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_BIO, -SKILL_LEVEL_ADEPT, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_MEC, -SKILL_LEVEL_ADEPT, 10 SECONDS, "flashbang")
 	M.update_icons()
 
 /obj/item/proc/flashbang_bang(var/turf/T, var/mob/living/carbon/M, var/explosion_text = "BANG", var/stat_reduction = TRUE, var/intensity = FALSE) //Bang made into an item proc so lot's of stuff can use it wtihout copy - paste
@@ -56,7 +56,7 @@
 //Checking for protections
 	var/eye_safety = 0
 	var/ear_safety = 0
-	var/stat_def = -STAT_LEVEL_ADEPT
+	var/stat_def = -SKILL_LEVEL_ADEPT
 	if(iscarbon(M))
 		eye_safety = M.eyecheck()
 		if(ishuman(M))

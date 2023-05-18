@@ -284,7 +284,7 @@
 
 /mob/living/simple_animal/hostile/renderpatriarch/proc/thunderhowl(var/turf/T, var/mob/living/carbon/M)
 	var/ear_safety = 0
-	var/stat_def = -STAT_LEVEL_ADEPT
+	var/stat_def = -SKILL_LEVEL_ADEPT
 	if(iscarbon(M))
 		if(ishuman(M))
 			if(istype(M:l_ear, /obj/item/clothing/ears/earmuffs) || istype(M:r_ear, /obj/item/clothing/ears/earmuffs))

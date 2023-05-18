@@ -38,15 +38,15 @@
 		if(user.stats.getPerk(PERK_GUNSMITH))
 			material_points += 11
 		switch(user.stats.getStat(STAT_MEC))
-			if(STAT_LEVEL_BASIC to STAT_LEVEL_ADEPT)
+			if(SKILL_LEVEL_BASIC to SKILL_LEVEL_ADEPT)
 				material_points += 3
-			if(STAT_LEVEL_ADEPT to STAT_LEVEL_EXPERT)
+			if(SKILL_LEVEL_ADEPT to SKILL_LEVEL_EXPERT)
 				material_points += 6
-			if(STAT_LEVEL_EXPERT to STAT_LEVEL_PROF)
+			if(SKILL_LEVEL_EXPERT to SKILL_LEVEL_PROF)
 				material_points += 9
-			if(STAT_LEVEL_PROF to STAT_LEVEL_GODLIKE)
+			if(SKILL_LEVEL_PROF to SKILL_LEVEL_GODLIKE)
 				material_points += 12
-			if(STAT_LEVEL_GODLIKE to INFINITY)
+			if(SKILL_LEVEL_GODLIKE to INFINITY)
 				material_points += 15
 
 	var/list/array = list(

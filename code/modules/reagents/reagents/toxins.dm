@@ -76,12 +76,12 @@
 
 /datum/reagent/toxin/carpotoxin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.stats.addTempStat(STAT_VIG, STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin")
+	M.stats.addTempStat(STAT_VIG, SKILL_LEVEL_BASIC, STIM_TIME, "carpotoxin")
 
 /datum/reagent/toxin/carpotoxin/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "carpotoxin_w")
 
 /datum/reagent/toxin/carpotoxin/overdose(mob/living/carbon/M, alien)
 	if(prob(80))
@@ -506,9 +506,9 @@
 
 /datum/reagent/toxin/pararein/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
-	M.stats.addTempStat(STAT_COG, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "pararein")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC * effect_multiplier, STIM_TIME, "pararein")
+	M.stats.addTempStat(STAT_COG, SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "pararein")
 
 /datum/reagent/toxin/aranecolmin
 	name = "Aranecolmin"
@@ -552,7 +552,7 @@
 
 /datum/reagent/toxin/diplopterum/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, STIM_TIME, "diplopterum")
+	M.stats.addTempStat(STAT_MEC, SKILL_LEVEL_BASIC, STIM_TIME, "diplopterum")
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		M.adjustOxyLoss(-1.5 * effect_multiplier)
 		M.add_chemical_effect(CE_OXYGENATED, 1)
@@ -563,8 +563,8 @@
 /datum/reagent/toxin/diplopterum/withdrawal_act(mob/living/carbon/M)
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		return
-	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_BASIC, STIM_TIME, "diplopterum_w")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "diplopterum_w")
+	M.stats.addTempStat(STAT_MEC, -SKILL_LEVEL_BASIC, STIM_TIME, "diplopterum_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "diplopterum_w")
 
 /datum/reagent/toxin/diplopterum/overdose(mob/living/carbon/M, alien)
 	var/od_toxicity = (dose / 2) * strength
@@ -599,7 +599,7 @@
 /datum/reagent/toxin/seligitillin/withdrawal_act(mob/living/carbon/M)
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		return
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT, STIM_TIME, "seligitillin_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_ADEPT, STIM_TIME, "seligitillin_w")
 
 /datum/reagent/toxin/seligitillin/overdose(mob/living/carbon/M, alien)
 	if(!ishuman(M))
@@ -628,7 +628,7 @@
 
 /datum/reagent/toxin/starkellin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.stats.addTempStat(STAT_TGH, STAT_LEVEL_BASIC, STIM_TIME, "starkellin")
+	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_BASIC, STIM_TIME, "starkellin")
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		M.heal_organ_damage(0.6 * effect_multiplier, 0, 5 * effect_multiplier)
 		M.add_chemical_effect(CE_BLOODCLOT, 0.15)
@@ -638,8 +638,8 @@
 /datum/reagent/toxin/starkellin/withdrawal_act(mob/living/carbon/M)
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		return
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "starkellin_w")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "starkellin_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "starkellin_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "starkellin_w")
 
 /datum/reagent/toxin/gewaltine
 	name = "Gewaltine"
@@ -658,8 +658,8 @@
 
 /datum/reagent/toxin/gewaltine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.stats.addTempStat(STAT_ROB, STAT_LEVEL_BASIC, STIM_TIME, "gewaltine")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "gewaltine")
+	M.stats.addTempStat(STAT_ROB, SKILL_LEVEL_BASIC, STIM_TIME, "gewaltine")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "gewaltine")
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		M.drowsyness = max(0, M.drowsyness - 0.6 * effect_multiplier)
 		M.adjust_hallucination(-0.9 * effect_multiplier)
@@ -671,8 +671,8 @@
 /datum/reagent/toxin/gewaltine/withdrawal_act(mob/living/carbon/M)
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		return
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT, STIM_TIME, "gewaltine_w")
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC, STIM_TIME, "gewaltine_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_ADEPT, STIM_TIME, "gewaltine_w")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC, STIM_TIME, "gewaltine_w")
 
 /datum/reagent/toxin/gewaltine/overdose(mob/living/carbon/M, alien)
 	M.adjustCloneLoss(2)
@@ -709,8 +709,8 @@
 /datum/reagent/toxin/fuhrerole/withdrawal_act(mob/living/carbon/M)
 	if(M.species?.reagent_tag == IS_CHTMANT)
 		return
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "fuhrerole_w")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "fuhrerole_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "fuhrerole_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "fuhrerole_w")
 
 /datum/reagent/toxin/fuhrerole/overdose(mob/living/carbon/M, alien)
 	M.add_chemical_effect(CE_SPEECH_VOLUME, rand(3,4))
@@ -766,20 +766,20 @@
 	constant_metabolism = TRUE
 
 /datum/reagent/toxin/xenotoxin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
-	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
-	M.stats.addTempStat(STAT_COG, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_MEC, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_BIO, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "xeno_toxin")
 
 /datum/reagent/toxin/xenotoxin/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
-	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
-	M.stats.addTempStat(STAT_COG, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_MEC, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_BIO, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "xeno_toxin_w")
 	if(prob(25 - (5 * M.stats.getMult(STAT_TGH))))
 		M.shake_animation(8)
 

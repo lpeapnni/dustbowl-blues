@@ -295,7 +295,7 @@ see multiz/movement.dm for some info.
 	climbers |= user
 
 	var/delay = (issmall(user) ? 32 : 60) * user.mod_climb_delay
-	var/duration = max(delay * user.stats.getMult(STAT_VIG, STAT_LEVEL_EXPERT), delay * 0.66)
+	var/duration = max(delay * user.stats.getMult(STAT_VIG, SKILL_LEVEL_EXPERT), delay * 0.66)
 	if(!do_after(user, duration, src))
 		climbers -= user
 		return

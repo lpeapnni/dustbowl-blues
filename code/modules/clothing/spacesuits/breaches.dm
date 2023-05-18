@@ -185,7 +185,7 @@ var/global/list/breach_burn_descriptors = list(
 			return
 
 		user.visible_message("[user] starts repairing breaches on their [src] with the [I]", "You start repairing breaches on the [src] with the [I]")
-		if (I.use_tool(user, src, 60 + (damage*10), QUALITY_SEALING, 0, STAT_MEC))
+		if (I.use_tool(user, src, 60 + (damage*10), QUALITY_SEALING, 0, SKILL_REP))
 			to_chat(user, "There we go, that should hold nicely!")
 			repair_breaches(BURN, burn_damage, user)
 			repair_breaches(BRUTE, damage, user)

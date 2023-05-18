@@ -756,7 +756,7 @@
 					total_yield = get_trait(TRAIT_YIELD)
 				else
 					total_yield = get_trait(TRAIT_YIELD) + rand(yield_mod)
-				if(prob(user.stats.getStat(STAT_BIO)))
+				if(prob(user.stats.getStat(SKILL_SUR)))
 					total_yield += 1
 					to_chat(user, SPAN_NOTICE("You have managed to harvest more!"))
 				total_yield = max(1,total_yield)

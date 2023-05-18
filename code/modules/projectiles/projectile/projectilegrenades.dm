@@ -129,7 +129,7 @@
 //Checking for protections
 	var/eye_safety = 0
 	var/ear_safety = 0
-	var/stat_def = -STAT_LEVEL_ADEPT
+	var/stat_def = -SKILL_LEVEL_ADEPT
 	if(iscarbon(M))
 		eye_safety = M.eyecheck()
 		if(ishuman(M))

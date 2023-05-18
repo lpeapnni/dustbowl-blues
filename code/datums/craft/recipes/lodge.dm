@@ -1,7 +1,7 @@
 /datum/craft_recipe/lodge
 	category = "Lodge"
 	time = 100
-	related_stats = list(STAT_BIO)
+	related_stats = list(SKILL_SUR)
 	requiredPerk = PERK_BUTCHER
 
 // Weaponry -----------------

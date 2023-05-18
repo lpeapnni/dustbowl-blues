@@ -67,7 +67,7 @@
 	server = (file in ntnet_global.available_station_software) ? "NTNet Software Repository" : "unspecified server"
 	if(!hacked_download)
 		return "[file.filename].[file.filetype]"
-	var/stealth_chance = max(skill - STAT_LEVEL_BASIC, 0) * 30
+	var/stealth_chance = max(skill - SKILL_LEVEL_BASIC, 0) * 30
 	if(!prob(stealth_chance))
 		return "**ENCRYPTED**.[file.filetype]"
 	var/datum/computer_file/fake_file = pick(ntnet_global.available_station_software)

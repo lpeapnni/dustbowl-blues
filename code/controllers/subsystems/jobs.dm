@@ -415,14 +415,13 @@ SUBSYSTEM_DEF(job)
 					make_antagonist(H.mind, ROLE_INQUISITOR)
 
 		//Occulus Edit, Right here! Custom skills.
-		H.stats.changeStat(STAT_BIO, H.client.prefs.BIOMOD)
-		H.stats.changeStat(STAT_COG, H.client.prefs.COGMOD)
-		H.stats.changeStat(STAT_MEC, H.client.prefs.MECMOD)
-		H.stats.changeStat(STAT_ROB, H.client.prefs.ROBMOD)
-		H.stats.changeStat(STAT_TGH, H.client.prefs.TGHMOD)
-		H.stats.changeStat(STAT_VIG, H.client.prefs.VIGMOD)
-		H.stats.changeStat(STAT_VIV, H.client.prefs.VIVMOD)
-		H.stats.changeStat(STAT_ANA, H.client.prefs.ANAMOD)
+		H.stats.setStat(SPECIAL_S, H.client.prefs.SCORE_S)
+		H.stats.setStat(SPECIAL_P, H.client.prefs.SCORE_P)
+		H.stats.setStat(SPECIAL_E, H.client.prefs.SCORE_E)
+		H.stats.setStat(SPECIAL_C, H.client.prefs.SCORE_C)
+		H.stats.setStat(SPECIAL_I, H.client.prefs.SCORE_I)
+		H.stats.setStat(SPECIAL_A, H.client.prefs.SCORE_A)
+		H.stats.setStat(SPECIAL_L, H.client.prefs.SCORE_L)
 		H.give_health_via_stats()
 		// This could be cleaner and better, however it should apply your stats once on spawn properly if here. If anyone wants to do this in a cleaner manner be my guest.
 

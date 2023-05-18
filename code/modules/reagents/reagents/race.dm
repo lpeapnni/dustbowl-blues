@@ -30,9 +30,9 @@
 	metabolism = REM/5
 
 /datum/reagent/stim/marquatol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(STAT_MEC, STAT_LEVEL_BASIC, STIM_TIME, "marquatol")
-	M.stats.addTempStat(STAT_BIO, STAT_LEVEL_BASIC, STIM_TIME, "marquatol")
-	M.stats.addTempStat(STAT_COG, STAT_LEVEL_BASIC, STIM_TIME, "marquatol")
+	M.stats.addTempStat(STAT_MEC, SKILL_LEVEL_BASIC, STIM_TIME, "marquatol")
+	M.stats.addTempStat(STAT_BIO, SKILL_LEVEL_BASIC, STIM_TIME, "marquatol")
+	M.stats.addTempStat(STAT_COG, SKILL_LEVEL_BASIC, STIM_TIME, "marquatol")
 
 /datum/reagent/medicine/hadrenol
 	name = "Hadrenol"
@@ -92,8 +92,8 @@
 	M.stats.addTempStat(STAT_MEC, -100, STIM_TIME, "robustitol")
 
 /datum/reagent/drug/robustitol/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "robustitol_w")
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "robustitol_w")
+	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "robustitol_w")
+	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "robustitol_w")
 
 /datum/reagent/medicine/sergatonin
 	name = "Naratonin"
