@@ -121,7 +121,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(istype(cform) && cform.variants && cform.variants.len && !cspecies.obligate_form)
 		formstring = "<a href='?src=\ref[src];select_form_variant=[cform.name]'>&#707;</a>" + formstring
 	while(istype(cform))
-		var/mode = (!cform.variantof || cform.name == cform.variantof) ? "select_form=1" : "select_variant=[cform.variantof]"
+		var/mode = (!cform.variantof || cform.name == cform.variantof) ? "select_form=1" : "select_form_variant=[cform.variantof]"
 		var/prefix = ""
 		if(cform.name == cspecies.default_form && cspecies.obligate_form)
 			mode = "reset_form=1"
@@ -218,9 +218,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.species_form = new_form
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["select_form_variant"])
-		var/datum/species_form/old_base = GLOB.playable_species_form_list[href_list["select_variant"]]
+		var/datum/species_form/old_base = GLOB.playable_species_form_list[href_list["select_form_variant"]]
 		if(istype(old_base))
-			var/new_form = input(user, "Choose your character's form:", CHARACTER_PREFERENCE_INPUT_TITLE, href_list["select_variant"]) as null|anything in old_base.variants
+			var/new_form = input(user, "Choose your character's form:", CHARACTER_PREFERENCE_INPUT_TITLE, href_list["select_form_variant"]) as null|anything in old_base.variants
 			if(new_form && CanUseTopic(user))
 				pref.species_form = new_form
 				return TOPIC_REFRESH_UPDATE_PREVIEW
