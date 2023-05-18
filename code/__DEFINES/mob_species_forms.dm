@@ -25,7 +25,7 @@
 #define SPECIES_STATIONXENO     "Xenomorph Hybrid"
 #define SPECIES_CUSTOM			"Custom Species"
 
-#define SPECIES_ANTHRO			"Anthromorph"
+#define SPECIES_ANTHRO			"Anthro"
 
 // Monkey and alien monkeys.
 #define SPECIES_MONKEY			"Monkey"
