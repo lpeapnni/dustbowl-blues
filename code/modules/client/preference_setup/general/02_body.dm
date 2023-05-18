@@ -88,7 +88,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	var/datum/species/cspecies = global.all_species[pref.species]
 	var/datum/species_form/cform = GLOB.all_species_form_list[pref.species_form]
-	if(!pref.species_form || !(pref.species_form in GLOB.playable_species_form_list) || (cspecies.obligate_form && cspecies.default_form != cform.name) )
+	if(!pref.species_form || !(pref.species_form in GLOB.playable_species_form_list) || !(pref.species_form in cspecies.permitted_forms) || (cspecies.obligate_form && cspecies.default_form != cform.name) )
 		pref.species_form = cspecies.default_form
 		if(!pref.species_form)
 			pref.species_form = FORM_HUMAN
@@ -201,7 +201,19 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["select_form"])
 		if(mob_species.obligate_form)
 			return TOPIC_NOACTION
-		var/new_form = input(user, "Choose your character's form:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.species_form) as null|anything in GLOB.selectable_species_form_list
+		var/list/selectable_and_permitted_forms = list()
+		// if the permitted form list is empty, just grab all the selectable species
+		if(!mob_species.permitted_forms)
+			selectable_and_permitted_forms = GLOB.selectable_species_form_list
+		else
+			//assuming there is a permitted form list, make sure theyre also selectable
+			for(var/formname in GLOB.selectable_species_form_list)
+				if(formname in mob_species.permitted_forms)
+					var/datum/species_form/selectable_form = GLOB.selectable_species_form_list[formname]
+					selectable_and_permitted_forms[selectable_form.name] = selectable_form
+		var/new_form = input(user, "Choose your character's form:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.species_form) as null|anything in selectable_and_permitted_forms
+
+
 		if(new_form && CanUseTopic(user))
 			pref.species_form = new_form
 			return TOPIC_REFRESH_UPDATE_PREVIEW

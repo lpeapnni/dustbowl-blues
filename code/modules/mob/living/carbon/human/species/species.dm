@@ -157,6 +157,8 @@
 
 	var/pass_flags = 0
 
+	var/list/permitted_forms  = null
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 

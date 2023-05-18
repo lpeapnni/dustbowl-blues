@@ -2,6 +2,7 @@
 	name = "Human"
 	name_plural = "Humans"
 	default_form = FORM_HUMAN
+	obligate_form = TRUE
 	obligate_name = FALSE
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp,  /datum/unarmed_attack/kick, /datum/unarmed_attack/bite)
 	blurb = "Humanity originated in the Sol system, and over the last five centuries has spread \
@@ -1149,3 +1150,47 @@
 		if(H)
 			H.gib()
 
+// Dustbowl species start here
+
+/datum/species/human/anthro
+	name = "Anthro"
+	name_plural = "Anthros"
+	default_form = FORM_ANTHRO
+	obligate_form = FALSE
+	blurb = "A blank slate for you to make your own species. Go wild!"
+	permitted_forms = list(FORM_ANTHRO, FORM_CANINE, FORM_VULPINE, FORM_FENNEC, FORM_SABLEKYNE, FORM_KRIOSAN, FORM_NARAMAD)
+
+/datum/species/human/aquatic
+	name = "Aquatic"
+	name_plural = "Aquatics"
+	default_form = FORM_SHARK
+	obligate_form = FALSE
+	blurb = "A blank slate for you to make your own species. Go wild!"
+	permitted_forms = list(FORM_SHARK, FORM_SUDAK, FORM_AXOLOTL)
+
+/*
+/datum/species/human/avian
+	name = "Avian"
+	name_plural = "Avians"
+	default_form = FORM_AVIAN
+	obligate_form = TRUE
+	blurb = "A blank slate for you to make your own species. Go wild!"
+*/
+
+/datum/species/human/lizard
+	name = "Lizard"
+	name_plural = "Lizards"
+	default_form = FORM_LIZARD
+	obligate_form = FALSE
+	blurb = "A blank slate for you to make your own species. Go wild!"
+	permitted_forms = list(FORM_LIZARD, FORM_LIZARD_TGSMOOTH, FORM_LIZARD_TGSHARP)
+
+/datum/species/human/bug
+	name = "Insectoid"
+	name_plural = "Insectoids"
+	default_form = FORM_MOTH_WHITE
+	obligate_form = FALSE
+	blurb = "A blank slate for you to make your own species. Go wild!"
+	permitted_forms = list(FORM_SPIDER, FORM_MOTH, FORM_MOTH_WHITE)
+
+// todo: voxes and teshari, their forms are in the code already
