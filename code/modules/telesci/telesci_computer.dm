@@ -516,7 +516,7 @@
 				startPathfinding()
 			else if(properInput)
 				if(user)
-					if(rand(1, 100) < user.stats.getStat(STAT_COG))
+					if(rand(1, 100) < user.stats.getStat(SKILL_SCI))
 						var/pathHint = ""
 						var/identifiedIndex = rand(1, mastermindKey.len)
 						for(var/i in 1 to mastermindKey.len)
@@ -533,7 +533,7 @@
 		if(href_list["startTimer"])
 			addLog("Starting path traversal for bluespace tunnel to ([targetX],[targetY],[targetZ]).")
 			if(user)
-				var/cogBonus = min(user.stats.getStat(STAT_COG)/10, 4)
+				var/cogBonus = min(user.stats.getStat(SKILL_SCI)/10, 4)
 				startTimer(baseDelay = (BS_PATHING_DELAY - cogBonus))
 			else
 				startTimer()

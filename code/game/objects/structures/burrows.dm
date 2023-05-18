@@ -68,10 +68,6 @@
 /obj/structure/burrow/New(var/loc, turf/anchor)
 	.=..()
 	GLOB.all_burrows.Add(src)
-	var/obj/machinery/power/nt_obelisk/obelisk = locate(/obj/machinery/power/nt_obelisk) in range(7, src)
-	if(obelisk && obelisk.active)
-		qdel(src)
-		return
 	if (anchor)
 		offset_to(anchor, 8)
 
@@ -531,7 +527,7 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 	var/start = world.time
 	var/target_time = WORKTIME_FAST+ 2*health
 
-	if (I.use_tool(user, src, target_time, QUALITY_DIGGING, health * 0.66, list(STAT_MEC, STAT_ROB), forced_sound = WORKSOUND_PICKAXE))
+	if (I.use_tool(user, src, target_time, QUALITY_DIGGING, health * 0.66, list(SKILL_REP, SKILL_ATH), forced_sound = WORKSOUND_PICKAXE))
 		//On success, the hole is destroyed!
 		new /obj/random/scrap/sparse_weighted(get_turf(user))
 		user.visible_message("[user] collapses [src] with \the [I] and dumps trash which was in the way.", "You collapse [src] with \the [I] and dump trash which was in the way.")
@@ -576,7 +572,7 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 	switch(tool_type)
 		if(QUALITY_WELDING)
 			user.visible_message("[user] attempts to weld [src] with \the [I]", "You start welding [src] with \the [I]")
-			if(!I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC) && isSealed)
+			if(!I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_VERY_EASY, required_stat = SKILL_REP) && isSealed)
 				return
 			user.visible_message("[user] welds [src] with \the [I].", "You weld [src] with \the [I].")
 			if(recieving && !prob(33))
@@ -588,7 +584,7 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 
 		if(QUALITY_HAMMERING)
 			user.visible_message("[user] starts hammering [src] with \the [I]", "You start hammering out [src] with \the [I]")
-			if(!I.use_tool(user, src, WORKTIME_DELAYED, QUALITY_HAMMERING, FAILCHANCE_NORMAL, required_stat = STAT_ROB) && isSealed) //You are quite literally hammering the floor, slow and tedious
+			if(!I.use_tool(user, src, WORKTIME_DELAYED, QUALITY_HAMMERING, FAILCHANCE_NORMAL, required_stat = SKILL_ATH) && isSealed) //You are quite literally hammering the floor, slow and tedious
 				return
 			user.visible_message("[user] seals [src] with \the [I].", "You seal [src] with \the [I].")
 			if(recieving && !prob(33))

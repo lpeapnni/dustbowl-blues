@@ -1,5 +1,5 @@
 /datum/component/internal_wound/organic
-	diagnosis_stat = STAT_BIO
+	diagnosis_stat = SKILL_MED
 	diagnosis_difficulty = SKILL_LEVEL_ADEPT
 	wound_nature = MODIFICATION_ORGANIC
 

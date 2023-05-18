@@ -15,25 +15,8 @@
 	if(amount < 1)
 		return
 
-	//log_debug("bruise_pack 0, I have started")
-
-	var/holy_healer = FALSE
-	var/holy_healing = FALSE
-
-	if(ishuman(user) && care_about_faith)
-		holy_healer = check_faith_of_healer(user)
-
-
-	//log_debug("bruise_pack 0.5, holy_healer = [holy_healer], holy_healing = [holy_healing]")
-
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
-		///log_debug("bruise_pack 1, holy_healer = [holy_healer], holy_healing = [holy_healing]")
-
-
-		if(care_about_faith)
-			holy_healing = check_faith_of_healing(M)
 
 		var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
 
@@ -51,14 +34,7 @@
 				SPAN_NOTICE("You start treating [M]'s [affecting.name].")
 			)
 			var/used = 0
-			var/healed_by_faith
-			if(care_about_faith && (holy_healer || holy_healing))
-				if(holy_healer)
-					healed_by_faith += heal_brute
-					if(check_for_healer_plus(user))
-						healed_by_faith += bounce_faith_healer_amount //5 extra if your a tessilate or preists
-				if(holy_healing)
-					healed_by_faith += heal_brute
+
 			for (var/datum/wound/W in affecting.wounds)
 				if(W.internal)
 					continue

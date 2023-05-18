@@ -1069,12 +1069,9 @@
 
 		if(get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
 			if(S.brute_dam)
-				var/robotics_expert = user.stats.getPerk(PERK_ROBOTICS_EXPERT)
-				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP || robotics_expert)
+				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
 					if(use_tool(user, H, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = SKILL_REP))
 						var/repair_amount = 15
-						if(robotics_expert)
-							repair_amount = user.stats.getStat(SKILL_REP)
 						S.heal_damage(repair_amount,0,TRUE)
 						user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 						user.visible_message(SPAN_NOTICE("\The [user] [robotics_expert ? "expertly" : ""] patches some dents on \the [H]'s [S.name] with \the [src]."))

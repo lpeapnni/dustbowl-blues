@@ -313,6 +313,7 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 // Proc that controls all Book-type spells
 /obj/effect/decal/cleanable/crayon/attackby(obj/item/I, mob/living/carbon/human/M)
 	..()
+	/*
 	if(istype(I, /obj/item/oddity/common/book_unholy) || istype(I, /obj/item/oddity/common/book_omega))
 		if(M.disabilities&NEARSIGHTED && is_rune && M.species?.reagent_tag != IS_SYNTHETIC)
 			//Anti-Death check
@@ -504,7 +505,7 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 			return
 		return
 	return
-
+*/
 
 /****************************/
 /* BOOK SPELLS PROCS START! */
@@ -518,7 +519,7 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 	log_and_message_admins("[M] has used the example spell! For testing purposes of course!")
 */
 
-
+/*
 // Babel: Grants you knowledge of the Cult language.
 // This is a requirement for the ritual knife spells, perhaps for more complex spells in future too
 /obj/effect/decal/cleanable/crayon/proc/babel_spell(mob/living/carbon/human/M)
@@ -1092,3 +1093,4 @@ obj/item/scroll/proc/example_spell(mob/living/carbon/human/M) //testing spell
 		M.drop_from_inventory(src)
 		M.put_in_inactive_hand(needles)
 	ScrollBurn()
+*/

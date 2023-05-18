@@ -29,10 +29,7 @@
 /obj/item/stack/medical/proc/try_to_save_use(mob/living/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(prob(10 + H.stats.getStat(STAT_BIO)) && H.stats.getPerk(PERK_MEDICAL_EXPERT))
-			to_chat(H, SPAN_NOTICE("You have managed to waste less [src]."))
-			return TRUE
-		if(prob(10 + H.stats.getStat(STAT_BIO)) && H.stats.getPerk(PERK_MASTER_HERBALIST) && natural_remedy == TRUE)
+		if(prob(max(H.stats.getStat(SKILL_MED),0)))
 			to_chat(H, SPAN_NOTICE("You have managed to waste less [src]."))
 			return TRUE
 	return FALSE
@@ -44,12 +41,12 @@
 		var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
 		//log_debug("try_to_pain 1, H = [H], user = [user], affecting [affecting]")
 
-		if(user && user.stats.getStat(STAT_BIO) > SKILL_LEVEL_ADEPT)
+		if(user && user.stats.getStat(SKILL_MED) > SKILL_LEVEL_ADEPT)
 			//log_debug("try_to_pain 1.5,  biocheck passed")
 			return
 
-		if(prob(affecting.get_damage() - user.stats.getStat(STAT_BIO)))
-			var/pain = rand(min(30,affecting.get_damage()), max(affecting.get_damage() + 30,60) - user.stats.getStat(STAT_BIO))
+		if(prob(affecting.get_damage() - user.stats.getStat(SKILL_MED)))
+			var/pain = rand(min(30,affecting.get_damage()), max(affecting.get_damage() + 30,60) - user.stats.getStat(SKILL_MED))
 			H.pain(affecting, pain)
 			//log_debug("try_to_pain 2,  PAIN [pain]")
 
@@ -80,7 +77,7 @@
 	//log_debug("medical 0, I have started")
 	if(ishuman(M))
 		if(perk_required && (!user.stats.getPerk(needed_perk) && !user.stats.getPerk(needed_perk_alt)))
-			if(user.stats.getStat(STAT_BIO) < bio_requirement)
+			if(user.stats.getStat(SKILL_MED) < bio_requirement)
 				to_chat(user, SPAN_WARNING("You lack the biological skill or training to figure out how to properly use this!"))
 				return TRUE
 
@@ -102,7 +99,7 @@
 	//	log_debug("medical 3, halfway")
 		if(BP_IS_ROBOTIC(affecting))
 			// user is clueless
-			if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(STAT_BIO) < SKILL_LEVEL_BASIC)
+			if(BP_IS_LIFELIKE(affecting) && user.stats.getStat(SKILL_MED) < SKILL_LEVEL_BASIC)
 				user.visible_message( \
 				SPAN_NOTICE("[user] starts applying [src] to [M]."), \
 				SPAN_NOTICE("You start applying [src] to [M].") \
@@ -158,7 +155,7 @@
 	if(!(ishuman(user) || issilicon(user)))
 		return 1
 
-	var/med_skill = user.stats.getStat(STAT_BIO)
+	var/med_skill = user.stats.getStat(SKILL_MED)
 	if(med_skill <= 0)
 		return 0
 
@@ -169,44 +166,6 @@
 	med_skill *= 1.5
 	med_skill = round(med_skill, 1)
 	return med_skill
-
-
-/obj/item/stack/medical/proc/check_faith_of_healing(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
-	var/obj/item/implant/core_implant/cruciform/CI = user.get_core_implant(/obj/item/implant/core_implant/cruciform)
-//	log_debug("check_faith_of_healing 0, I have started user = [user]")
-	if(!CI || !CI.active || !CI.wearer)
-		return FALSE
-//	log_debug("check_faith_of_healing 1, ended = [user]")
-	return TRUE
-
-/obj/item/stack/medical/proc/check_faith_of_healer(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
-	var/obj/item/implant/core_implant/cruciform/CI = user.get_core_implant(/obj/item/implant/core_implant/cruciform)
-
-//	log_debug("check_faith_of_healer 0, I have started user = [user]")
-	if(!CI || !CI.active || !CI.wearer)
-		return FALSE
-//	log_debug("check_faith_of_healer 1, ended = [user]")
-	return TRUE
-
-/obj/item/stack/medical/proc/check_for_healer_plus(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
-	var/obj/item/implant/core_implant/cruciform/CI = user.get_core_implant(/obj/item/implant/core_implant/cruciform)
-
-//	log_debug("check_faith_of_healer 0, I have started user = [user]")
-	if(!CI || !CI.active || !CI.wearer)
-		return FALSE
-
-	if(CI.path == "tess" || CI.path == "omni")
-		return TRUE
-
-	//Redlight is prists only
-	if (CI.get_module(CRUCIFORM_REDLIGHT))
-		return TRUE
-
-	if (CI.get_module(CRUCIFORM_INQUISITOR))
-		return TRUE
-
-	return TRUE
-
 
 /obj/item/stack/medical/update_icon()
 	if(QDELETED(src)) //Checks if the item has been deleted

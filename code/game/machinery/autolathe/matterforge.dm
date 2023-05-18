@@ -633,7 +633,7 @@
 	lst[MATERIAL_AMERIDIAN] = 0.90			//so ameridian is useful to guild now?
 //	lst[MATERIAL_BIOMATTER] = 0.2		//church makes so much of it {does not work, snowflake material code}
 /obj/machinery/matter_nanoforge/proc/check_user(mob/user)
-	if(user.stats?.getPerk(PERK_HANDYMAN))
+	if(user.stat_check(SKILL_REP, SKILL_LEVEL_EXPERT))
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You don't know how to make the [src] work, you lack the training or mechanical skill."))
 	return FALSE

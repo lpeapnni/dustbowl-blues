@@ -228,7 +228,6 @@ SUBSYSTEM_DEF(ticker)
 	GLOB.storyteller.announce()
 
 	setup_economy()
-	setup_nanite_mailer()
 	newscaster_announcements = pick(newscaster_standard_feeds)
 
 	create_characters() //Create player characters and transfer them
@@ -417,69 +416,8 @@ SUBSYSTEM_DEF(ticker)
 				candidates -= contract_type
 			break
 
-/datum/controller/subsystem/ticker/proc/generate_blackshield_contracts(count)
-	var/list/candidates = subtypesof(/datum/antag_contract/blackshield)
-	while(count--)
-		while(candidates.len)
-			var/contract_type = pick(candidates)
-			var/datum/antag_contract/C = new contract_type
-			if(!C.can_place())
-				candidates -= contract_type
-				qdel(C)
-				continue
-			C.place()
-			if(C.unique)
-				candidates -= contract_type
-			break
-
-///datum/controller/subsystem/ticker/proc/blackshield_check()
-
-//	addtimer(CALLBACK(src, .proc/blackshield_check), 3 MINUTES)
-
-/datum/controller/subsystem/ticker/proc/generate_excel_contracts(count)
-	var/list/candidates = subtypesof(/datum/antag_contract/excel)
-	while(count--)
-		while(candidates.len)
-			var/contract_type = pick(candidates)
-			var/datum/antag_contract/C = new contract_type
-			if(!C.can_place())
-				candidates -= contract_type
-				qdel(C)
-				continue
-			C.place()
-			if(C.unique)
-				candidates -= contract_type
-			break
-
-/datum/controller/subsystem/ticker/proc/excel_check()
-
-	for(var/datum/antag_contract/excel/targeted/overthrow/M in GLOB.excel_antag_contracts)
-		var/mob/living/carbon/human/H = M.target_mind.current
-		if (H.stat == DEAD || is_excelsior(H))
-			M.complete()
-
-	for(var/datum/antag_contract/excel/targeted/liberate/M in GLOB.excel_antag_contracts)
-		var/mob/living/carbon/human/H = M.target_mind.current
-		if (is_excelsior(H))
-			M.complete()
-
-	for(var/datum/antag_contract/excel/propaganda/M in GLOB.excel_antag_contracts)
-		var/list/area/targets = M.targets
-		var/marked_areas = 0
-		if(M.completed)
-			return
-		for (var/obj/item/device/propaganda_chip/C in ship_areas)
-			if (C.active)
-				if (get_area(C) in targets)
-					marked_areas += 1
-		if (marked_areas >= 3)
-			M.complete()
-	addtimer(CALLBACK(src, .proc/excel_check), 3 MINUTES)
-
 /datum/controller/subsystem/ticker/proc/contract_tick()
 	generate_contracts(1)
-	generate_blackshield_contracts(1)
-	generate_excel_contracts(1)
 	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
 
 /datum/controller/subsystem/ticker/proc/equip_characters()

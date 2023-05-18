@@ -114,15 +114,6 @@
 		return FALSE
 	if(!L || !L.mind || (L.mind && player_is_antag(L.mind)))
 		return FALSE
-	if(is_neotheology_disciple(L))
-		if(!allow_cruciform)
-			return FALSE
-	if(L.stats.getPerk(PERK_PSION))
-		if(!allow_psion)
-			return FALSE
-	else
-		if(req_cruciform)
-			return FALSE
 	if(req_department.len && (!L.mind.assigned_job || !(L.mind.assigned_job.department in req_department)))
 		return FALSE
 	return TRUE

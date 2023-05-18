@@ -127,11 +127,11 @@ var/list/channel_to_radio_key = new
 		var/last_symbol = copytext(message, length(message))
 		if(stat == DEAD)
 			return say_dead(message)
-		else if(last_symbol=="@")
+		/*else if(last_symbol=="@")
 			if(src.stats.getPerk(PERK_CODESPEAK))
 				return
 			else
-				to_chat(src, "You don't know the codes, pal.")
+				to_chat(src, "You don't know the codes, pal.")*/
 		return
 
 	if(HUSK in mutations)

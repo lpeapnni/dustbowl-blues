@@ -18,30 +18,14 @@
 	if(amount < 1)
 		return
 
-	var/holy_healer = FALSE
-	var/holy_healing = FALSE
-
-	if(ishuman(user) && care_about_faith)
-		holy_healer = check_faith_of_healer(user)
-
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
-		if(care_about_faith)
-			holy_healing = check_faith_of_healing(M)
 
 		var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
 
 		if(!affecting)
 			to_chat(user, SPAN_WARNING("What [user.targeted_organ]?"))
 			return TRUE
-
-		var/healed_by_faith
-		if(care_about_faith && (holy_healer || holy_healing))
-			if(holy_healer)
-				healed_by_faith += heal_burn
-			if(holy_healing)
-				healed_by_faith += heal_burn
 
 		if(affecting.open == 0)
 			if(affecting.is_salved())

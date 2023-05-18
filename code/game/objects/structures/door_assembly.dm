@@ -59,7 +59,7 @@
 					new /obj/item/stack/material/glass/reinforced(src.loc)
 					glass = 0
 			else if(!anchored)
-				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
+				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_NORMAL, required_stat = SKILL_REP))
 					to_chat(user, SPAN_NOTICE("You disassembled the airlock assembly!"))
 					new /obj/item/stack/material/steel(src.loc, 8)
 					qdel (src)

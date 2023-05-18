@@ -197,7 +197,7 @@
 		)
 		playsound(src, pick(climb_sound), 100, 1, 5,5)
 
-		delay = max(delay * M.stats.getMult(STAT_VIG, STAT_LEVEL_EXPERT), delay * 0.66)
+		delay = max(delay * M.stats.getMult(SKILL_ATH, SKILL_LEVEL_EXPERT), delay * 0.66)
 
 
 	if(do_after(M, delay, src))

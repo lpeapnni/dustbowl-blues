@@ -259,8 +259,8 @@
 	M.add_chemical_effect(CE_TOXIN, 1)
 
 /datum/reagent/mind_exspander/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(STAT_COG, SKILL_LEVEL_ADEPT, STIM_TIME, "mind_exspander")
-	M.stats.addTempStat(STAT_BIO, SKILL_LEVEL_ADEPT, STIM_TIME, "mind_exspander")
+	M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_ADEPT, STIM_TIME, "mind_exspander")
+	M.stats.addTempStat(SKILL_MED, SKILL_LEVEL_ADEPT, STIM_TIME, "mind_exspander")
 
 /datum/reagent/work_tonic
 	name = "Work Tonic"
@@ -281,7 +281,7 @@
 	M.add_chemical_effect(CE_TOXIN, 1)
 
 /datum/reagent/work_tonic/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(STAT_MEC, SKILL_LEVEL_EXPERT, STIM_TIME, "work_tonic")
+	M.stats.addTempStat(SKILL_REP, SKILL_LEVEL_EXPERT, STIM_TIME, "work_tonic")
 
 /datum/reagent/ethanol/combat_brew
 	name = "Medvesila Brew"

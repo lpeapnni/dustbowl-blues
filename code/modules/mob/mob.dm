@@ -1414,5 +1414,5 @@ mob/proc/yank_out_object()
 
 /mob/proc/give_health_via_stats()
 	if(stats)
-		health += src.stats.getStat(STAT_ANA)
-		maxHealth += src.stats.getStat(STAT_ANA)
+		health += src.stats.getStat(SPECIAL_E) - 50
+		maxHealth += src.stats.getStat(SPECIAL_E) - 50

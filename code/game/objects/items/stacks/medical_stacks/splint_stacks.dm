@@ -49,7 +49,7 @@
 				SPAN_DANGER("You start to apply \the [src] to your [limb]."),
 				SPAN_DANGER("You hear something being wrapped.")
 			)
-		if(do_after(user, max(0, 60 - user.stats.getStat(STAT_BIO)), M))
+		if(do_after(user, max(0, 60 - user.stats.getStat(SKILL_MED)), M))
 			if (M != user)
 				user.visible_message(
 					SPAN_DANGER("[user] finishes applying \the [src] to [M]'s [limb]."),
@@ -57,7 +57,7 @@
 					SPAN_DANGER("You hear something being wrapped.")
 				)
 			else
-				if(prob(25 + user.stats.getStat(STAT_BIO)))
+				if(prob(25 + user.stats.getStat(SKILL_MED)))
 					user.visible_message(
 						SPAN_DANGER("[user] successfully applies \the [src] to their [limb]."),
 						SPAN_DANGER("You successfully apply \the [src] to your [limb]."),

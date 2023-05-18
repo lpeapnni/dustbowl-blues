@@ -1,3 +1,4 @@
+/*
 #define ERR_OK 0
 #define ERR_NOTFOUND "not found"
 #define ERR_NOMATERIAL "no material"
@@ -369,3 +370,4 @@
 #undef ERR_PAUSED
 #undef ERR_NOINSIGHT
 
+*/

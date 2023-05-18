@@ -194,7 +194,7 @@
 	var/tool_type = I.get_tool_type(user, list(QUALITY_PRYING, QUALITY_WELDING), src)
 	switch(tool_type)
 		if(QUALITY_PRYING)
-			if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY,  required_stat = list(STAT_MEC, STAT_ROB)))
+			if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY,  required_stat = list(SKILL_REP, SKILL_ATH)))
 				if(locked)
 					to_chat(user, SPAN_NOTICE("The door's bolts prevent it from being forced."))
 				else if(stat & BROKEN)
@@ -210,7 +210,7 @@
 
 		if(QUALITY_WELDING)
 			if(!(operating > 0) && density)
-				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
+				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY, required_stat = SKILL_REP))
 					if(!welded)
 						welded = 1
 					else

@@ -2,7 +2,7 @@
 	category = "Guild"
 	time = 100
 	related_stats = list(SKILL_REP)
-	requiredPerk = PERK_HANDYMAN
+	//requiredPerk = PERK_HANDYMAN
 
 //Materal Craft ------------------
 

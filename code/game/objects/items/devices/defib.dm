@@ -249,8 +249,6 @@
 	var/use_on_synthetic = 0 //If 1, this is only useful on FBPs, if 0, this is only useful on fleshies
 
 	var/advanced_pads = FALSE
-	var/si_only = FALSE
-
 
 	var/wieldedm = 0
 	var/cooldown = 0
@@ -286,10 +284,6 @@
 		icon_state = "defibpaddles[wielded]_cooldown"
 
 /obj/item/shockpaddles/proc/can_use(mob/user, mob/M)
-	if(si_only)
-		if(!user.stats?.getPerk(PERK_ADVANCED_MEDICAL) && !user.stats?.getPerk(PERK_ADVANCED_MEDICAL) && !user.stats?.getPerk(PERK_MEDICAL_EXPERT))
-			to_chat(user, "<span class='warning'>\The [src] is so complex your need training to use this.</span>")
-			return 0
 	if(busy)
 		return 0
 	if(!check_charge(chargecost()))
@@ -546,6 +540,7 @@
 	M.updatehealth()
 	apply_brain_damage(M, deadtime)
 
+	/*
 	if(!M.stats.getPerk(PERK_REZ_SICKNESS))
 		var/rngStatRemoved
 		switch(M.stats.getStat(STAT_MEC))
@@ -614,7 +609,7 @@
 				rngStatRemoved = pick(12,13,14,15,16,17,18,19,20)
 				M.stats.changeStat(STAT_VIG, -rngStatRemoved)
 		log_and_message_admins("Removed [-rngStatRemoved] to the VIG stat of [M]")
-
+	*/
 	if(!advanced_pads)
 		switch(M.stats.getStat(STAT_TGH))
 			if(-200 to 40)

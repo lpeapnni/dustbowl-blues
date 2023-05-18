@@ -266,24 +266,3 @@
 	..()
 	create_reagents(80)
 
-/obj/item/tool/knife/dagger/assassin/resolve_attackby(atom/target, mob/user)
-	.=..()
-	if(!target.reagents || !isliving(target))
-		return
-
-	if(!reagents.total_volume)
-		return
-
-	if(!target.reagents.get_free_space())
-		return
-	var/modifier = 1
-	var/reagent_modifier = 1
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		modifier += min(30,H.stats.getStat(STAT_ROB))
-		reagent_modifier = CLAMP(round(H.stats.getStat(STAT_BIO)/10), 1, 5)
-	var/mob/living/L = target
-	if(prob(min(100,(100-L.getarmor(user.targeted_organ, ARMOR_MELEE))+modifier)))
-		var/trans = reagents.trans_to_mob(target, rand(1,3)*reagent_modifier, CHEM_BLOOD)
-		admin_inject_log(user, target, src, reagents.log_list(), trans)
-		to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. [src] now contains [src.reagents.total_volume] units."))

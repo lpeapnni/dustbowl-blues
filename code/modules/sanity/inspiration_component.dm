@@ -160,7 +160,7 @@
 	var/power = 0
 	if(perk)
 		var/list/L = calculate_statistics()
-		switch(L[STAT_MEC])
+		switch(L[SKILL_REP])
 			if(1 to 3)
 				power = 1
 			if(3 to 5)

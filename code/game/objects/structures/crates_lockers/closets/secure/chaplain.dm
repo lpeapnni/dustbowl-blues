@@ -20,7 +20,6 @@
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
-	new /obj/item/storage/sheath/joyeuse(src)
 	new /obj/item/gun/projectile/revolver/lemant(src)
 	new /obj/item/ammo_magazine/ammobox/magnum_40/biomatter(src)
 	new /obj/item/gun/projectile/mk58/wood(src)
@@ -35,6 +34,5 @@
 	new /obj/item/clothing/head/helmet/prime(src)
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/shield_projector/rectangle/church_personal(src)
-	new /obj/item/gun/matter/holybook/staff(src)
 
 

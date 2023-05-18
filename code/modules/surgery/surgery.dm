@@ -10,7 +10,7 @@
 	var/perk_drug = PERK_ULTRASURGEON
 
 	var/difficulty = FAILCHANCE_HARD
-	var/required_stat = STAT_BIO
+	var/required_stat = SKILL_MED
 	var/duration = 60
 	var/requires_perk = FALSE
 
@@ -101,7 +101,7 @@
 	var/datum/surgery_step/S = GLOB.surgery_steps[step_type]
 
 	if(S.requires_perk)
-		if(!(user.stats.getPerk(S.perk_i_need) || user.stats.getPerk(S.perk_i_need_alt) || user.stats.getPerk(S.perk_drug) || user.stats.getStat(STAT_BIO) >= 50))
+		if(!(user.stats.getPerk(S.perk_i_need) || user.stats.getPerk(S.perk_i_need_alt) || user.stats.getPerk(S.perk_drug) || user.stats.getStat(SKILL_MED) >= 50))
 			to_chat(user, SPAN_WARNING("You do not have the necessary training to do this surgery!"))
 			return FALSE
 
@@ -124,7 +124,7 @@
 		return FALSE
 
 	if (istype(tool,/obj/item/stack/medical/bruise_pack/advanced))
-		if (tool.icon_state == "traumakit" && (!(user.stats.getPerk(PERK_ADVANCED_MEDICAL) || user.stats.getPerk(PERK_SURGICAL_MASTER) || user.stats.getStat(STAT_BIO) >= 50)))
+		if (tool.icon_state == "traumakit" && user.stats.getStat(SKILL_MED) < 50)
 			to_chat(user, SPAN_WARNING("You do not have the training to use an Advanced Trauma Kit in this way."))
 			return FALSE
 
@@ -327,7 +327,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 		if(!BP_IS_ROBOTIC(src) && user == owner && is_carrion(user))
 			diagnosed = TRUE
 			return TRUE
-		if(user.stats.getStat(BP_IS_ROBOTIC(src) ? STAT_MEC : STAT_BIO) >= SKILL_LEVEL_EXPERT)
+		if(user.stats.getStat(BP_IS_ROBOTIC(src) ? SKILL_REP : SKILL_MED) >= SKILL_LEVEL_EXPERT)
 			to_chat(user, SPAN_NOTICE("One brief look at [get_surgery_name()] is enough for you to see all the issues immediately."))
 			diagnosed = TRUE
 			return TRUE
@@ -358,7 +358,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 // Returns a bonus to apply to flat surgery values for various stat levels.
 // Soft caps at 80 bio, providing only 1/10 of the stat value exceeding 80.
 proc/calculate_expert_surgery_bonus(mob/living/user)
-	var/user_stat = user.stats.getStat(STAT_BIO)
+	var/user_stat = user.stats.getStat(SKILL_MED)
 	var/stat_bonus = 0
 	if(user_stat > SKILL_LEVEL_EXPERT && user_stat <= SKILL_LEVEL_PROF)
 		stat_bonus = user_stat - SKILL_LEVEL_EXPERT
@@ -374,7 +374,7 @@ proc/calculate_expert_surgery_bonus(mob/living/user)
 // - Sebastian Schrader
 
 proc/bio_time_bonus(mob/living/user)
-	var/user_stat = max(user.stats.getStat(STAT_BIO), user.stats.getStat(STAT_MEC)) // Pick the highest between MEC and BIO, so that roboticists may also benefit.
+	var/user_stat = max(user.stats.getStat(SKILL_MED), user.stats.getStat(SKILL_REP)) // Pick the highest between MEC and BIO, so that roboticists may also benefit.
 	var/time_bonus = 0 // Maximum of 80
 	if(user_stat > SKILL_LEVEL_EXPERT && user_stat <= SKILL_LEVEL_PROF) // Average doctor gets 40 BIO, bonuses start from 41 MEC/BIO onwards
 		time_bonus = (user_stat - 40) // Minimum of 1 up to 20 at 60 MEC/BIO

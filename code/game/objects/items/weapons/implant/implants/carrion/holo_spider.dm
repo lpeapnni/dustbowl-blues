@@ -167,10 +167,10 @@
 					size = "titanic"
 			message += "\nIt is a [size] item."
 
-			if(ishuman(user))
+			/*if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				if(H.stats.getPerk(PERK_MARKET_PROF))
-					message += SPAN_NOTICE("\nThis item cost: [get_item_cost(saved_item)][CREDITS]")
+					message += SPAN_NOTICE("\nThis item cost: [get_item_cost(saved_item)][CREDITS]")*/
 
 		var/full_name = "\a [src]."
 		if(blood_DNA)

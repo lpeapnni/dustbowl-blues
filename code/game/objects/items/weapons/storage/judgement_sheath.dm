@@ -25,7 +25,7 @@
 	examine(mob/user, distance = -1, infix, suffix)
 		. = ..()
 		if(length(ChargeNarrative))
-			var/mistake_radius = max(3 - round(user.stats.getStat(STAT_COG)/20), 0)
+			var/mistake_radius = max(3 - round(user.stats.getStat(SKILL_SCI)/20), 0)
 			var/charge = clamp((6 - CEILING((next_rift - world.time) / RiftCooldown * 5, 1)) + rand(-mistake_radius, mistake_radius), 1, length(ChargeNarrative))
 			if(ChargeNarrative[charge])
 				to_chat(user, SPAN_NOTICE(replacetext("You can see [ChargeNarrative[charge]].", "%self", name)))

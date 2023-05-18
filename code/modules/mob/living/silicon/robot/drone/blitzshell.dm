@@ -81,9 +81,9 @@
 	modules += new /obj/item/device/nanite_container(src) //For self repair. Get more charges via the contract system
 
 	//We are stronk so we get less no knockdowns
-	R.stats.addPerk(PERK_ASS_OF_CONCRETE)
+	/*R.stats.addPerk(PERK_ASS_OF_CONCRETE)
 	//So we cant be escaped as quickly
-	R.stats.addPerk(PERK_PARKOUR)
+	R.stats.addPerk(PERK_PARKOUR)*/
 
 	..()
 
