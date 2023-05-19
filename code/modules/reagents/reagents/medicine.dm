@@ -1137,9 +1137,11 @@ We don't use this but we might find use for it. Porting it since it was updated 
 			var/datum/reagent/toxin/R = current
 			if(!istype(R, src))
 				R.remove_self(effect_multiplier * pick(list(2,4,6)))
+			/*
 			var/datum/reagent/stim/S = current
 			if(!istype(S, src))
 				S.remove_self(effect_multiplier * pick(list(2,4,6)))
+			*/
 	var/effective_dose = dose
 	if(issmall(M))
 		effective_dose *= 2
@@ -1200,6 +1202,7 @@ We don't use this but we might find use for it. Porting it since it was updated 
 	overdose = REAGENTS_OVERDOSE
 	nerve_system_accumulations = -50
 
+/*
 /datum/reagent/medicine/suppressital/affect_ingest/(mob/living/carbon/M)
 	if(!M.stats.getPerk(PERK_NJOY))
 		M.stats.addPerk(PERK_NJOY)
@@ -1207,6 +1210,7 @@ We don't use this but we might find use for it. Porting it since it was updated 
 /datum/reagent/medicine/suppressital/on_mob_delete(mob/living/M)
 	..()
 	M.stats.removePerk(PERK_NJOY)
+*/
 
 /datum/reagent/medicine/fun_gas
 	name = "N2O"

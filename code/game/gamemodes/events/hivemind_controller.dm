@@ -213,11 +213,5 @@ GLOBAL_VAR_INIT(hivemind_panel, new /datum/hivemind_panel)
 	if(href_list["toggle_slime_pop_lock"])
 		GLOB.hive_data_bool["slime_pop_lock"] = !GLOB.hive_data_bool["slime_pop_lock"]
 
-	if(href_list["toggle_inquisitors"])
-		GLOB.hive_data_bool["all_church_to_battle"] = !GLOB.hive_data_bool["all_church_to_battle"]
-		if(GLOB.hive_data_bool["all_church_to_battle"])
-			for(var/mob/M in disciples)
-				if(M.client &&  M.stat != DEAD && ishuman(M))
-					make_antagonist(M.mind, ROLE_INQUISITOR)
 
 	main_interact()

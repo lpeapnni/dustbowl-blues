@@ -721,17 +721,6 @@
 	)*/
 
 //Machines
-/datum/craft_recipe/guild/turretcircuit
-	name = "Circuit: Artificer Turret"
-	result = /obj/item/circuitboard/artificer_turret
-	icon_state = "electronic"
-	steps = list(
-		list(/obj/item/computer_hardware/processor_unit/adv, 1, "time" = 30),
-		list(/obj/item/stack/cable_coil, 5, "time" = 20),
-		list(QUALITY_SCREW_DRIVING, 40, "time" = 90),
-		list(QUALITY_WELDING, 40, "time" = 90)
-	)
-
 /datum/craft_recipe/guild/matter_nanoforge
 	name = "Circuit: Matter Nano-Forge"
 	result = /obj/item/circuitboard/matter_nanoforge

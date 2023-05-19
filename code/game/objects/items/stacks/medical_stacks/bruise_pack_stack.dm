@@ -67,7 +67,7 @@
 						SPAN_NOTICE("\The [user] places a bandaid over \a [W.desc] on [M]'s [affecting.name]."),
 						SPAN_NOTICE("You place a bandaid over \a [W.desc] on [M]'s [affecting.name].")
 					)
-				W.heal_damage(heal_brute + healed_by_faith)
+				W.heal_damage(heal_brute)
 				W.bandage()
 				// user's stat check that causing pain if they are amateurs
 				try_to_pain(M, user)

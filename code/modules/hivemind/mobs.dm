@@ -25,6 +25,7 @@
 
 	mob_classification = CLASSIFICATION_SYNTHETIC
 
+	/*
 	// Loot
 	var/drop_chance = 20
 	var/list/loot_possibilities = list(
@@ -37,6 +38,7 @@
 		/obj/item/organ/internal/scaffold/aberrant/teratoma/output/rare = 1,
 		/obj/item/organ/internal/scaffold/aberrant/teratoma/special = 3
 	)
+	*/
 
 	//internals
 	var/obj/machinery/hivemind_machine/master
@@ -169,10 +171,12 @@
 		GLOB.hivemind_mobs.Remove(real_name)
 	if(master) //for spawnable mobs
 		master.spawned_creatures.Remove(src)
+	/*
 	if(prob(drop_chance))
 		var/loot_type = pickweight(loot_possibilities)
 		if(loot_type)
 			new loot_type(get_turf(src))
+	*/
 	. = ..()
 
 

@@ -25,9 +25,10 @@
 
 /mob/living/carbon/proc/get_constant_pain()
 	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + min(stats.getStat(SPECIAL_E), 100)
+	/*
 	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
 		hard_crit_threshold += 20
-
+	*/
 	. = get_limb_damage()
 
 	//Constant Pain above 80% of the crit treshold gets converted to dynamic pain (hallos)
@@ -74,10 +75,11 @@
 	//Get crit treshold
 	var/soft_crit_threshold = SOFTCRIT_TRAUMATIC_SHOCK + stats.getStat(SPECIAL_E)
 	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + stats.getStat(SPECIAL_E)
+	/*
 	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
 		soft_crit_threshold += 20
 		hard_crit_threshold += 20
-
+	*/
 	//Get shock speed
 	var/shock_stage_speed = 1
 	if(traumatic_shock > soft_crit_threshold + SHOCK_STAGE_BUFFER)

@@ -139,6 +139,7 @@
 	var/difficulty_adjust = 0
 	var/time_adjust = 0
 
+	/*
 	if(user.stats.getPerk(PERK_SURGICAL_MASTER) && !S.is_robotic)
 		difficulty_adjust = -90
 		time_adjust = -130
@@ -146,6 +147,7 @@
 	if(user.stats.getPerk(PERK_MASTER_HERBALIST) && !S.is_robotic)
 		difficulty_adjust = -80 // Negates the difficulty of most basic surgical steps, but not as good as a professional at this
 		time_adjust = -100
+	*/
 
 	// Self-surgery increases failure chance
 	if(owner && user == owner)
@@ -157,15 +159,11 @@
 			difficulty_adjust = 60
 			time_adjust = 20
 
-		// ...unless you are a carrion
-		// It makes sense that carrions have a way of making their flesh cooperate
-		if(is_carrion(user))
-			difficulty_adjust = -300
-			time_adjust = -80
-
+	/*
 	if(user.stats.getPerk(PERK_ROBOTICS_EXPERT) && S.is_robotic)
 		difficulty_adjust = -90
 		time_adjust = -130
+	*/
 
 	if(S.required_tool_quality)
 		success = tool.use_tool_extended(
@@ -323,10 +321,6 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 
 /obj/item/organ/external/proc/try_autodiagnose(mob/living/user)
 	if(istype(user) && user.stats)
-		// Carrions control their whole body so they auto base this check
-		if(!BP_IS_ROBOTIC(src) && user == owner && is_carrion(user))
-			diagnosed = TRUE
-			return TRUE
 		if(user.stats.getStat(BP_IS_ROBOTIC(src) ? SKILL_REP : SKILL_MED) >= SKILL_LEVEL_EXPERT)
 			to_chat(user, SPAN_NOTICE("One brief look at [get_surgery_name()] is enough for you to see all the issues immediately."))
 			diagnosed = TRUE
@@ -344,12 +338,6 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M, mob/living/user)
 	if(M == user)	// Self-surgery
-
-		//Carrions dont need a chair to do self surgery
-		if(is_carrion(user))
-			return TRUE
-
-		//normal humans do
 		var/atom/chair = locate(/obj/structure/bed/chair, M.loc)
 		return chair && chair.buckled_mob == M
 

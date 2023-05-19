@@ -149,9 +149,7 @@
 	var/known_implants = list(
 		/obj/item/implant/chem,
 		/obj/item/implant/death_alarm,
-		/obj/item/implant/tracking,
-		/obj/item/implant/core_implant/cruciform,
-		/obj/item/implant/excelsior
+		/obj/item/implant/tracking
 	)
 	var/delete
 	var/temphtml

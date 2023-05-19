@@ -74,6 +74,7 @@
 	if(spent)
 		to_chat(user, SPAN_WARNING("It is spent."))//What message should show when we are examining it
 
+/*
 /obj/item/device/hardware_imprinter/smartlink
 	name = "smartlink imprinter"
 	desc = "An installer for augment favored by professional mercenaries linking your brain throught your arms directly into your weapons allowing for god-like precision even from beginners."
@@ -92,3 +93,4 @@
 	perk_imprinting = PERK_CHEMNEUTRAL
 	perk_imprinting_forbidden = PERK_ADDICT//Not a way to cure your addiction sorry bud
 	has_nsa_downside = FALSE //dosnt have the nsa limits as it affects nsa directly
+*/

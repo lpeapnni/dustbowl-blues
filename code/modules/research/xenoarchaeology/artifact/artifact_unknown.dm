@@ -75,8 +75,6 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
-	if(prob(psi_power_chance)) // Roll of the dice to decide if we get a power
-		turn_psion()
 
 /obj/machinery/artifact/Process()
 

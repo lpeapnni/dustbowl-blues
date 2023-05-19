@@ -28,7 +28,7 @@
 	)
 	darksight = 2
 
-	perks = list(PERK_IWILLSURVIVE, PERK_BATTLECRY, PERK_TENACITY, PERK_DIVERSE_CULTURE)
+	//perks = list(PERK_IWILLSURVIVE, PERK_BATTLECRY, PERK_TENACITY, PERK_DIVERSE_CULTURE)
 
 	spawn_flags = CAN_JOIN
 
@@ -68,7 +68,7 @@
 
 	darksight = 3
 
-	perks = list(PERK_DEBTOR, PERK_SPLICER, PERK_DIVERSE_CULTURE)
+	//perks = list(PERK_DEBTOR, PERK_SPLICER, PERK_DIVERSE_CULTURE)
 
 	has_limbs = list(
 		BP_CHEST =  new /datum/organ_description/chest/exalt,
@@ -170,7 +170,7 @@
 	permitted_wings = list()
 
 	darksight = 3 //Cat eyes
-	perks = list(PERK_LASTSTAND, PERK_BONE, PERK_BRAWN, PERK_CARNIVORE)
+	//perks = list(PERK_LASTSTAND, PERK_BONE, PERK_BRAWN, PERK_CARNIVORE)
 
 /datum/species/sablekyne/get_bodytype()
 	return "Sablekyne"
@@ -228,7 +228,7 @@
 	permitted_tail  = list()
 	permitted_wings = list()
 
-	perks = list(PERK_SUDDENBRILLIANCE, PERK_INSPIRED, PERK_ALIEN_NERVES)
+	//perks = list(PERK_SUDDENBRILLIANCE, PERK_INSPIRED, PERK_ALIEN_NERVES)
 
 /datum/species/marqua/get_bodytype()
 	return "Mar'Qua"
@@ -293,7 +293,7 @@
 		)
 	permitted_wings = list()
 
-	perks = list(PERK_PERFECT_SHOT, PERK_ENHANCEDSENSES)
+	//perks = list(PERK_PERFECT_SHOT, PERK_ENHANCEDSENSES)
 
 /datum/species/kriosan/get_bodytype()
 	return "Kriosan"
@@ -337,7 +337,7 @@
 	permitted_tail  = list("Akula Tail")
 	permitted_wings = list()
 
-	perks = list(PERK_RECKLESSFRENZY, PERK_IRON_FLESH, PERK_CARNIVORE)
+	//perks = list(PERK_RECKLESSFRENZY, PERK_IRON_FLESH, PERK_CARNIVORE)
 
 /datum/species/akula/get_bodytype()
 	return "Akula"
@@ -373,7 +373,7 @@
 	permitted_tail  = list("Naramad Tail", "Naramad Tail 2")
 	permitted_wings = list()
 
-	perks = list(PERK_ADRENALINEBURST, PERK_BORN_WARRIOR, PERK_STAY_HYDRATED)
+	//perks = list(PERK_ADRENALINEBURST, PERK_BORN_WARRIOR, PERK_STAY_HYDRATED)
 
 /datum/species/naramad/get_bodytype()
 	return "Naramad"
@@ -415,7 +415,7 @@
 		"Feathered Wings, Large"
 		)
 
-	perks = list(PERK_OPIFEX_TURRET, PERK_OPIFEX_PATCHKIT)
+	//perks = list(PERK_OPIFEX_TURRET, PERK_OPIFEX_PATCHKIT)
 
 /datum/species/vox/get_bodytype()
 	return "Opifex"
@@ -589,7 +589,7 @@
 		"Spines, Short Membrane",
 		)
 
-	perks = list(PERK_PURGEINFECTIONS, PERK_PURGETOXINS, PERK_SECOND_SKIN)
+	//perks = list(PERK_PURGEINFECTIONS, PERK_PURGETOXINS, PERK_SECOND_SKIN)
 
 /datum/species/cindarite/get_bodytype()
 	return "Cindarite"
@@ -628,7 +628,7 @@
 		OP_EYES =     /obj/item/organ/internal/eyes/plant
 		)
 
-	perks = list(PERK_FOLKEN_HEALING)
+	//perks = list(PERK_FOLKEN_HEALING)
 
 	stat_modifiers = list(
 		STAT_BIO = 10,
@@ -680,7 +680,7 @@
 		OP_KIDNEY_RIGHT = /obj/item/organ/internal/kidney/right,
 		)
 
-	perks = list(PERK_DARK_HEAL)
+	//perks = list(PERK_DARK_HEAL)
 
 	stat_modifiers = list(
 		STAT_BIO = 0,
@@ -1143,7 +1143,7 @@
 		BP_R_LEG =  new /datum/organ_description/leg/right/slime
 	)
 
-	perks = list(PERK_SPEED, PERK_LIMB_REGEN, PERK_MIND_BOOST, PERK_BODY_BOOST)
+	//perks = list(PERK_SPEED, PERK_LIMB_REGEN, PERK_MIND_BOOST, PERK_BODY_BOOST)
 
 /datum/species/slime/handle_death(var/mob/living/carbon/human/H)
 	spawn(1)

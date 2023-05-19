@@ -403,17 +403,6 @@ SUBSYSTEM_DEF(job)
 				var/obj/item/clothing/glasses/G = H.glasses
 				G.prescription = 1
 
-		var/obj/item/implant/core_implant/C = H.get_core_implant()
-		if(C)
-			C.install_default_modules_by_job(job)
-			C.access.Add(job.cruciform_access)
-			C.install_default_modules_by_path(job)
-			C.security_clearance = job.security_clearance
-			//IDK were else to place this so it works when you late join and its active
-			if(GLOB.hive_data_bool["all_church_to_battle"])
-				if(H.client &&  H.stat != DEAD && ishuman(H)) //Basic sanity checks to prevent anything abd
-					make_antagonist(H.mind, ROLE_INQUISITOR)
-
 		//Occulus Edit, Right here! Custom skills.
 		H.stats.setStat(SPECIAL_S, H.client.prefs.SCORE_S)
 		H.stats.setStat(SPECIAL_P, H.client.prefs.SCORE_P)

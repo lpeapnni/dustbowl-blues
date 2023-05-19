@@ -18,7 +18,7 @@
 	human_holder.update_icons()
 
 	//Weaker
-	human_holder.stats.changeStat(STAT_ROB, -20)
+	human_holder.stats.changeStat(SKILL_ATH, -20)
 	human_holder.stats.changeStat(STAT_TGH, -15)
 
 	brute_mod_delta = (human_holder.brute_mod_perk * 0.2)
@@ -38,7 +38,7 @@
 	human_holder.update_icons()
 
 	//Weaker
-	human_holder.stats.changeStat(STAT_ROB, 20)
+	human_holder.stats.changeStat(SKILL_ATH, 20)
 	human_holder.stats.changeStat(STAT_TGH, 15)
 
 	human_holder.brute_mod_perk -= brute_mod_delta

@@ -162,16 +162,18 @@
 			breakdowns -= B
 
 /datum/sanity/proc/handle_Insight()
-	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier) * (owner.stats.getPerk(PERK_INSPIRED) ? 1.5 : 1) * (owner.stats.getPerk(PERK_NANOGATE) ? 0.4 : 1) * (owner.stats.getPerk(PERK_COGENHANCE) ? 1.1 : 1))
+	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier))
 	if(resting < max_resting && insight >= 100)
 		if(!rest_timer_active)//Prevent any exploits(timer is only active for one minute tops)
 			give_resting(1)
+			/*
 			if(owner.stats.getPerk(PERK_ARTIST))
 				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
 			else
-				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
-				pick_desires()
-				insight -= 100
+			*/
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+			pick_desires()
+			insight -= 100
 			owner.playsound_local(get_turf(owner), 'sound/sanity/level_up.ogg', 100)
 
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
@@ -260,20 +262,22 @@
 		)
 
 	if(rest == "Focus on an oddity")
+		/*
 		if(owner.stats.getPerk(PERK_ARTIST))
 			to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
 			rest = "Internalize your recent experiences"
 		else
-			var/oddity_in_posession = FALSE
+		*/
+		var/oddity_in_posession = FALSE
 
-			for(var/obj/item/I in owner.get_contents())
-				if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-					oddity_in_posession = TRUE
-					break
+		for(var/obj/item/I in owner.get_contents())
+			if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
+				oddity_in_posession = TRUE
+				break
 
-			if(!oddity_in_posession)
-				to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
-				rest = "Internalize your recent experiences"
+		if(!oddity_in_posession)
+			to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
+			rest = "Internalize your recent experiences"
 
 	switch(rest)
 
@@ -336,12 +340,13 @@
 /datum/sanity/proc/finish_rest()
 	desires.Cut()
 	if(!rest_timer_active)
-		to_chat(owner, "<font color='purple'>[owner.stats.getPerk(PERK_ARTIST) ? "You have created art." : "You have rested well."]\
+		to_chat(owner, "<font color='purple'>You have rested well.\
 					<br>Select what you wish to do with your fulfilled insight <a HREF=?src=\ref[src];here_and_now=TRUE>here and now</a> or get to safety first if you are in danger.\
 					<br>The prompt will appear in one minute.</font>")
-
+		/*
 		if(owner.stats.getPerk(PERK_ARTIST))
 			resting = 0
+		*/
 		rest_timer_active = TRUE
 		rest_timer_time = 60 SECONDS
 		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
@@ -432,7 +437,7 @@
 	var/list/possible_results
 	if(prob(positive_prob))
 		possible_results = subtypesof(/datum/breakdown/positive)
-	if(prob(negative_prob) && !owner.stats.getPerk(PERK_NJOY))
+	if(prob(negative_prob))
 		possible_results = subtypesof(/datum/breakdown/negative)
 
 	possible_results += subtypesof(/datum/breakdown/common)

@@ -118,11 +118,6 @@
 		if(maw_efficiency > 1)
 			stat("Gnawing hunger", "[carrion_hunger]/[round(maw_efficiency/10)]")
 
-		var/obj/item/implant/core_implant/cruciform/C = get_core_implant(/obj/item/implant/core_implant/cruciform)
-		if(C)
-			stat("Faith", "[C.power]/[C.max_power]")
-			stat("Channeling Boost", "[C.channeling_boost]")
-
 		var/obj/item/organ/internal/psionic_tumor/B = random_organ_by_process(BP_PSION)
 		if(B)
 			stat("Psi Essence", "[B.psi_points]/[B.max_psi_points]")
@@ -1150,18 +1145,7 @@ var/list/rank_prefix = list(\
 
 	status_flags |= REBUILDING_ORGANS
 
-	var/obj/item/organ/internal/carrion/core = random_organ_by_process(BP_SPCORE)
 	var/list/organs_to_readd = list()
-	if(core) //kinda wack, this whole proc should be remade
-		for(var/obj/item/organ/internal/carrion/C in internal_organs)
-			C.removed()
-			organs_to_readd += C
-
-	var/obj/item/implant/core_implant/CI = get_core_implant()
-	var/checkprefcruciform = FALSE	// To reset the cruciform to original form
-	if(CI)
-		checkprefcruciform = TRUE
-		qdel(CI)
 
 	if(from_preference)
 		for(var/obj/item/organ/organ in (organs|internal_organs))
@@ -1203,30 +1187,6 @@ var/list/rank_prefix = list(\
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
 
-		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
-		if(I)
-			if(I.implant_type)
-				var/obj/item/implant/core_implant/C = new I.implant_type
-				C.install(src)
-				C.activate()
-				if(mind)
-					C.install_default_modules_by_job(mind.assigned_job)
-					C.access.Add(mind.assigned_job.cruciform_access)
-					C.install_default_modules_by_path(mind.assigned_job)
-					C.security_clearance = mind.assigned_job.security_clearance
-
-			switch(I.implant_organ_type)
-				if("psionic tumor")
-					src.make_psion()
-				if("cultured tumor")
-					src.make_psion_psych()
-				if("nanogate")
-					src.give_nanogate("Standard")
-				if("artificer nanogate")
-					src.give_nanogate("Artificer")
-				if("opifex nanogate")
-					src.give_nanogate("Opifex")
-
 	else
 		var/organ_type
 
@@ -1243,21 +1203,6 @@ var/list/rank_prefix = list(\
 			if(I && I.type == organ_type)
 				continue
 			new organ_type(src)
-
-		if(checkprefcruciform)
-			if(client)
-				var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
-				if(I.implant_type && (!mind || mind.assigned_role != "Robot"))
-					var/obj/item/implant/core_implant/C = new I.implant_type
-					C.install(src)
-					C.activate()
-					C.install_default_modules_by_job(mind.assigned_job)
-					C.access.Add(mind.assigned_job.cruciform_access)
-					C.install_default_modules_by_path(mind.assigned_job)
-					C.security_clearance = mind.assigned_job.security_clearance
-
-	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
-		C.replaced(get_organ(C.parent_organ_base))
 
 	status_flags &= ~REBUILDING_ORGANS
 	species.organs_spawned(src)

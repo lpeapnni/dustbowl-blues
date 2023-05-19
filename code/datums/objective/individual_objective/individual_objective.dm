@@ -98,7 +98,7 @@
 			continue
 		if(!ignore_departmen && H.mind.assigned_job && (H.mind.assigned_job.department in GLOB.all_faction_items[faction_item]))
 			continue
-		if(!ignore_departmen && GLOB.all_faction_items[faction_item] == GLOB.department_church && is_neotheology_disciple(H))
+		if(!ignore_departmen && GLOB.all_faction_items[faction_item] == GLOB.department_church)
 			continue
 		if(!locate(faction_item.type))
 			continue

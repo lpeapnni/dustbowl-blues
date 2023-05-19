@@ -62,15 +62,12 @@
 		var/obj/item/tool/T = I
 		if(T.has_quality(QUALITY_PRYING))
 			user.visible_message(SPAN_NOTICE("[user] starts opening the [src]. Something stirs within the [src]..."), SPAN_NOTICE("You start opening \the [src]. Something stirs within the [src]..."))
-			if(!I.use_tool(user = user, target =  src, base_time = WORKTIME_NORMAL, required_quality = QUALITY_PRYING, fail_chance = FAILCHANCE_NORMAL, required_stat = STAT_ROB, forced_sound = WORKSOUND_EASY_CROWBAR))
+			if(!I.use_tool(user = user, target =  src, base_time = WORKTIME_NORMAL, required_quality = QUALITY_PRYING, fail_chance = FAILCHANCE_NORMAL, required_stat = SKILL_ATH, forced_sound = WORKSOUND_EASY_CROWBAR))
 				return
 			go_out()
 
 /obj/machinery/sleeper/sarcophagus/on_deconstruction()
 	go_out()
-
-/obj/machinery/sleeper/sarcophagus/hive
-	accompanying_loot = /obj/item/storage/freezer/medical/contains_teratomas
 
 /obj/machinery/sleeper/sarcophagus/hive/Initialize()
 	. = ..()
@@ -85,7 +82,6 @@
 	. = ..()
 	if(prob(50))
 		horror_occupant = pick(subtypesof(/mob/living/simple_animal/hostile/hivemind))
-		accompanying_loot = /obj/item/storage/freezer/medical/contains_teratomas
 	else
 		horror_occupant = null
 		desc = "A fancy bed with built-in injectors, a dialysis machine, and a limited health scanner."

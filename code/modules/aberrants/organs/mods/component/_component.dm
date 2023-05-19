@@ -2,21 +2,21 @@
 	install_time = WORKTIME_FAST
 	//install_tool_quality = null
 	install_difficulty = FAILCHANCE_NORMAL
-	install_stat = STAT_BIO
+	install_stat = SKILL_MED
 	install_sound = 'sound/effects/squelch1.ogg'
 
 	mod_time = WORKTIME_FAST
 	mod_tool_quality = QUALITY_LASER_CUTTING
 	mod_difficulty = FAILCHANCE_HARD
-	mod_stat = STAT_BIO
+	mod_stat = SKILL_MED
 	mod_sound = 'sound/effects/squelch1.ogg'
 
 	removal_time = WORKTIME_SLOW
 	removal_tool_quality = QUALITY_LASER_CUTTING
 	removal_difficulty = FAILCHANCE_HARD
-	removal_stat = STAT_BIO
+	removal_stat = SKILL_MED
 
-	bypass_perk = PERK_ADVANCED_MEDICAL
+	//bypass_perk = PERK_ADVANCED_MEDICAL
 
 	destroy_on_removal = FALSE
 	removable = TRUE
@@ -25,7 +25,7 @@
 	apply_to_types = list(/obj/item/organ/internal/scaffold)
 
 	examine_msg = "Can be attached to organ scaffolds and aberrant organs."
-	examine_stat = STAT_BIO
+	examine_stat = SKILL_MED
 	examine_difficulty = SKILL_LEVEL_EXPERT
 
 	// Internal organ stuff

@@ -34,7 +34,7 @@ meteor_act
 
 		var/check_absorb = .
 		//Shrapnel
-		if(P.can_embed() && (check_absorb < 2) && !src.stats.getPerk(PERK_IRON_FLESH))
+		if(P.can_embed() && (check_absorb < 2))
 			var/armor = getarmor_organ(organ, ARMOR_BULLET)
 			if(prob((20 + max(P.damage_types[BRUTE] - armor, -10) * P.embed_mult)))
 				if(!P.shrapnel_type)

@@ -566,7 +566,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			return ..()
 
 		if(S.burn_dam)
-			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP || robotics_expert)
+			if(S.burn_dam < ROBOLIMB_SELF_REPAIR_CAP/* || robotics_expert*/)
 				var/repair_amount = 15
 				S.heal_damage(0,repair_amount,TRUE)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

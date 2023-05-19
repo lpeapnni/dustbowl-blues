@@ -173,24 +173,6 @@
 		/obj/item/device/lighting/glowstick/flare/torch
 	)
 
-/obj/item/storage/belt/utility/neotheology
-	name = "Absolutism utility belt"
-	desc = "Waist-held holy items."
-	icon_state = "utility_neotheology"
-	can_hold_extra = list(
-		/obj/item/book/ritual/cruciform,
-		/obj/item/implant/core_implant/cruciform,
-		/obj/item/soap,
-		/obj/item/reagent_containers/spray/cleaner,
-		/obj/item/tool/knife/dagger/nt,
-		/obj/item/reagent_containers/food/drinks/bottle/ntcahors,
-		/obj/item/gun/projectile/boltgun/flare_gun,
-		/obj/item/ammo_casing/flare,
-		/obj/item/gun/energy/plasma/martyr,
-		/obj/item/gun/energy/ntpistol,
-		/obj/item/device/binoculars
-	)
-
 /obj/item/storage/belt/utility/handmade
 	name = "handmade tool belt"
 	desc = "Can hold various tools, its made from wire. It somehow always ends up the same color no matter what it is made from."
@@ -444,25 +426,6 @@
 	new /obj/item/grenade/spawnergrenade/manhacks/opifex(src)
 	new /obj/item/grenade/smokebomb(src)
 	new /obj/item/grenade/chem_grenade/teargas(src)
-
-/obj/item/storage/belt/security/neotheology
-	name = "Absolutism tactical belt"
-	desc = "Can hold various military and security equipment for the awakened crusader or skilled divisor. Deus Vult."
-	icon_state = "tactical_neotheology"
-	can_hold_extra = list(
-		/obj/item/book/ritual/cruciform,
-		/obj/item/implant/core_implant/cruciform,
-		/obj/item/tool/knife/neotritual,
-		/obj/item/gun/energy/crossbow,
-		/obj/item/gun/energy/taser, //specially fitted to hold the counselor
-		/obj/item/tool/knife/dagger/nt,
-		/obj/item/reagent_containers/food/drinks/bottle/ntcahors,
-		/obj/item/gun/projectile/boltgun/flare_gun,
-		/obj/item/ammo_casing/flare,
-		/obj/item/gun/energy/plasma/martyr,
-		/obj/item/gun/energy/ntpistol,
-		/obj/item/device/binoculars
-	)
 
 /obj/item/storage/belt/champion
 	name = "championship belt"

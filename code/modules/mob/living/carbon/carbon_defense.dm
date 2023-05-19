@@ -44,9 +44,13 @@ true, and the mob is not yet deleted, so we need to check that as well*/
 		//The user's robustness stat adds to the threshold, allowing you to use more powerful weapons without embedding risk
 		embed_threshold += user.stats.getStat(SKILL_MEL)
 		var/embed_chance = (damage - embed_threshold)*I.embed_mult
+		/*
 		if(user.stats.getPerk(PERK_BORN_WARRIOR))
 			return TRUE
 		if (embed_chance > 0 && prob(embed_chance) && !src.stats.getPerk(PERK_IRON_FLESH))
+			src.embed(I, hit_zone)
+		*/
+		if (embed_chance > 0 && prob(embed_chance))
 			src.embed(I, hit_zone)
 
 	return TRUE

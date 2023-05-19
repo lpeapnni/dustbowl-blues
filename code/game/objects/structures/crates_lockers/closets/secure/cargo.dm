@@ -655,7 +655,6 @@
 	new /obj/item/clothing/glasses/artist(src)
 	new /obj/item/clothing/mask/gas/artist_hat(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
-	new /obj/item/circuitboard/artist_bench(src)
 	new /obj/item/storage/pouch/grow_a_gun(src)
 	new /obj/item/toy/badtothebone(src) // They should be able to use this just as much.
 

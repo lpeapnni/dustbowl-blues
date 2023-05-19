@@ -344,15 +344,6 @@ var/global/list/hair_gradients_list = list(
 		var/datum/hud/C = new T
 		GLOB.HUDdatums[C.name] = C
 
-	//Rituals
-	paths = typesof(/datum/ritual)
-	for(var/T in paths)
-		var/datum/ritual/R = new T
-
-		//Rituals which are just categories for subclasses will have a null phrase
-		if (R.phrase)
-			GLOB.all_rituals[R.name] = R
-
 	return 1
 
 

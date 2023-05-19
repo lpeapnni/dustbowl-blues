@@ -19,7 +19,9 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 100
-	circuit = /obj/item/circuitboard/jukebox
+	// circuit = /obj/item/circuitboard/jukebox
+	// MFER we better be keeping the jukebox
+	circuit = null
 
 	// Vars for hacking
 	var/datum/wires/jukebox/wires

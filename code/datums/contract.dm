@@ -207,9 +207,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H))
 			candidates -= target_mind
 			continue
-		target = H.get_core_implant(/obj/item/implant/core_implant/cruciform)
-		if(!target)
-			target = H.organs_by_name[BP_HEAD]
+		target = H.organs_by_name[BP_HEAD]
 		desc = "Assassinate [target_mind.current.real_name] and dispatch their [target.name] via BSDM as a proof."
 		break
 

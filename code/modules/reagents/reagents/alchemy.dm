@@ -309,7 +309,7 @@
 /datum/reagent/ethanol/combat_brew/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
 	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "combat_brew")
-	M.stats.addTempStat(STAT_ROB, SKILL_LEVEL_ADEPT, STIM_TIME, "combat_brew")
+	M.stats.addTempStat(SKILL_ATH, SKILL_LEVEL_ADEPT, STIM_TIME, "combat_brew")
 
 /datum/reagent/ethanol/eye_lid // It's a liquor
 	name = "Gwalch Liquor"

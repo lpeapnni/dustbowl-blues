@@ -226,9 +226,11 @@
 	if(M.species.reagent_tag == IS_CHTMANT)
 		M.add_chemical_effect(CE_TOXIN, 0.1) //Small damage to Chtmants nothing too too lethal
 
+	/*
 	if(M.stats.getPerk(PERK_NANITE_METAL_EATER))
 		M.add_chemical_effect(CE_BLOODCLOT, 0.2)
 		M.adjustNutrition(1.2) //King Midas!
+	*/
 
 /datum/reagent/metal/silver
 	name = "Silver"
@@ -242,10 +244,11 @@
 	if(M.species.reagent_tag == IS_CHTMANT)
 		M.add_chemical_effect(CE_TOXIN, 0.1) //Small damage to Chtmants nothing too too lethal
 
+	/*
 	if(M.stats.getPerk(PERK_NANITE_METAL_EATER))
 		M.add_chemical_effect(CE_BLOODCLOT, 0.2)
 		M.adjustNutrition(0.8) //used in a lot of crafting
-
+	*/
 /datum/reagent/metal/uranium
 	name ="Uranium"
 	id = "uranium"

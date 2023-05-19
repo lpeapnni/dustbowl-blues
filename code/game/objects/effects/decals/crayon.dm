@@ -261,6 +261,7 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 		wax_on.message = message
 		qdel(src)
 
+	/*
 	if(QUALITY_WELDING in I.tool_qualities || istype(I, /obj/item/flame)) //casts effects or just burns away if no spell works.
 
 		/*
@@ -304,7 +305,7 @@ obj/item/scroll/attackby(obj/item/I, mob/living/carbon/human/M)
 			to_chat(M, "<span class='warning'>You ignite the scroll. It burns to ash with a world twisting aura.</span>")
 			mightier_spell(M)
 			return
-
+	*/
 // If we don't cast anything then we end up doing a normal burn.
 		to_chat(M, "<span class='warning'>You ignite the scroll. It burns for a few moments before becoming ash.</span>")
 		ScrollBurn()

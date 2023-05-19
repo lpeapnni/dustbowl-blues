@@ -223,7 +223,6 @@
 /obj/item/shockpaddles/linked/combat/advanced
 	name = "advanced defibrillator paddles"
 	desc = "A pair of ploymore-gripped paddles with flat metals surfaces that are used to deliver powerful controled electric shocks."
-	si_only = TRUE
 	advanced_pads = TRUE
 
 //paddles
@@ -611,14 +610,14 @@
 		log_and_message_admins("Removed [-rngStatRemoved] to the VIG stat of [M]")
 	*/
 	if(!advanced_pads)
-		switch(M.stats.getStat(STAT_TGH))
-			if(-200 to 40)
+		switch(M.stats.getStat(SPECIAL_E))
+			if(-10 to 3)
 				M.stats.addPerk(PERK_REZ_SICKNESS_FATAL)
 				log_and_message_admins("Added fatal rez sickness to [M].")
-			if(40 to 60)
+			if(4 to 7)
 				M.stats.addPerk(PERK_REZ_SICKNESS_SEVERE)
 				log_and_message_admins("Added severe rez sickness to [M].")
-			if(60 to INFINITY)
+			if(8 to INFINITY)
 				M.stats.addPerk(PERK_REZ_SICKNESS)
 				log_and_message_admins("Added mild rez sickness to [M].")
 	else

@@ -268,9 +268,6 @@ SUBSYSTEM_DEF(ticker)
 		N.new_player_panel_proc()
 
 	generate_contracts(min(6 + round(minds.len / 5), 12))
-	generate_excel_contracts(min(6 + round(minds.len / 5), 12))
-	generate_blackshield_contracts(min(6 + round(minds.len / 5), 12))
-	excel_check()
 	//blackshield_check() - does nothing FOR NOWWWW!!!! - likely ever
 	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
 
@@ -402,7 +399,7 @@ SUBSYSTEM_DEF(ticker)
 			SSticker.minds |= player.mind
 
 /datum/controller/subsystem/ticker/proc/generate_contracts(count)
-	var/list/candidates = (subtypesof(/datum/antag_contract) - typesof(/datum/antag_contract/excel) - typesof(/datum/antag_contract/blackshield))
+	var/list/candidates = (subtypesof(/datum/antag_contract))
 	while(count--)
 		while(candidates.len)
 			var/contract_type = pick(candidates)
