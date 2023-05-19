@@ -51,18 +51,18 @@
 	holder.burn_mod_perk += 0.15
 	holder.oxy_mod_perk += 0.15
 	holder.toxin_mod_perk += 0.15
-	holder.stats.changeStat(SPECIAL_S, -1)
-	holder.stats.changeStat(SPECIAL_E, -1)
-	holder.stats.changeStat(SPECIAL_A, -1)
+	holder.stats.addTempStat(SPECIAL_S, -2, INFINITY, "rezsickness_severe")
+	holder.stats.addTempStat(SPECIAL_E, -2, INFINITY, "rezsickness_severe")
+	holder.stats.addTempStat(SPECIAL_A, -2, INFINITY, "rezsickness_severe")
 
 /datum/perk/rezsickness/severe/remove()
 	holder.brute_mod_perk -= 0.15
 	holder.burn_mod_perk -= 0.15
 	holder.oxy_mod_perk -= 0.15
 	holder.toxin_mod_perk -= 0.15
-	holder.stats.changeStat(SPECIAL_S, 1)
-	holder.stats.changeStat(SPECIAL_E, 1)
-	holder.stats.changeStat(SPECIAL_A, 1)
+	holder.stats.removeTempStat(SPECIAL_S, "rezsickness_severe")
+	holder.stats.removeTempStat(SPECIAL_E, "rezsickness_severe")
+	holder.stats.removeTempStat(SPECIAL_A, "rezsickness_severe")
 	..()
 
 /datum/perk/rezsickness/severe/fatal
@@ -75,20 +75,20 @@
 	holder.burn_mod_perk += 0.25
 	holder.oxy_mod_perk += 0.25
 	holder.toxin_mod_perk += 0.25
-	holder.stats.changeStat(SPECIAL_S, -2)
-	holder.stats.changeStat(SPECIAL_P, -2)
-	holder.stats.changeStat(SPECIAL_E, -2)
-	holder.stats.changeStat(SPECIAL_A, -2)
+	holder.stats.addTempStat(SPECIAL_S, -3, INFINITY, "rezsickness_severe")
+	holder.stats.addTempStat(SPECIAL_P, -3, INFINITY, "rezsickness_severe")
+	holder.stats.addTempStat(SPECIAL_E, -3, INFINITY, "rezsickness_severe")
+	holder.stats.addTempStat(SPECIAL_A, -3, INFINITY, "rezsickness_severe")
 
 /datum/perk/rezsickness/severe/fatal/remove()
 	holder.brute_mod_perk -= 0.25
 	holder.burn_mod_perk -= 0.25
 	holder.oxy_mod_perk -= 0.25
 	holder.toxin_mod_perk -= 0.25
-	holder.stats.changeStat(SPECIAL_S, 2)
-	holder.stats.changeStat(SPECIAL_P, 2)
-	holder.stats.changeStat(SPECIAL_E, 2)
-	holder.stats.changeStat(SPECIAL_A, 2)
+	holder.stats.removeTempStat(SPECIAL_S, "rezsickness_fatal")
+	holder.stats.removeTempStat(SPECIAL_P, "rezsickness_fatal")
+	holder.stats.removeTempStat(SPECIAL_E, "rezsickness_fatal")
+	holder.stats.removeTempStat(SPECIAL_A, "rezsickness_fatal")
 	..()
 
 /datum/perk/rezsickness/on_process()

@@ -1240,7 +1240,7 @@ mob/proc/yank_out_object()
 /mob/proc/getStatStats(typeOfStat)
 	if (SSticker.current_state != GAME_STATE_PREGAME)
 		if(stats)
-			return stats.getStat(typeOfStat)
+			return stats.getStat(typeOfStat, FALSE, "NO")
 		return 0
 
 /mob/proc/set_face_dir(var/newdir)
@@ -1427,5 +1427,5 @@ mob/proc/yank_out_object()
 
 /mob/proc/give_health_via_stats()
 	if(stats)
-		health += src.stats.getStat(SPECIAL_E) - 50
-		maxHealth += src.stats.getStat(SPECIAL_E) - 50
+		health += src.stats.getSpecial(SPECIAL_E)
+		maxHealth += src.stats.getSpecial(SPECIAL_E)

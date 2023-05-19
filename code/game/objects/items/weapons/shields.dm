@@ -103,7 +103,7 @@
 				defender.visible_message(SPAN_DANGER("\The [defender] is too tired to block!"))
 				return 0
 			else
-				var/damage_received = CLAMP(damage * (CLAMP(100-user.stats.getStat(SPECIAL_E)/2,0,100) / 100) - user.stats.getStat(SPECIAL_E)/5,1,100)
+				var/damage_received = CLAMP(damage * (CLAMP(100-user.stats.getSpecial(SPECIAL_E)/2,0,100) / 100) - user.stats.getSpecial(SPECIAL_E)/5,1,100)
 				if(damage_received <= 0)
 					damage_received = 1 //Alawys small amount of damage
 				if(istype(attacker, /mob/living/carbon/superior_animal/roach/))

@@ -24,7 +24,7 @@
 /mob/living/carbon/var/last_tick_pain
 
 /mob/living/carbon/proc/get_constant_pain()
-	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + min(stats.getStat(SPECIAL_E), 100)
+	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + min(stats.getSpecial(SPECIAL_E), 100)
 	/*
 	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
 		hard_crit_threshold += 20
@@ -73,8 +73,8 @@
 		return
 
 	//Get crit treshold
-	var/soft_crit_threshold = SOFTCRIT_TRAUMATIC_SHOCK + stats.getStat(SPECIAL_E)
-	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + stats.getStat(SPECIAL_E)
+	var/soft_crit_threshold = SOFTCRIT_TRAUMATIC_SHOCK + stats.getSpecial(SPECIAL_E)
+	var/hard_crit_threshold = HARDCRIT_TRAUMATIC_SHOCK + stats.getSpecial(SPECIAL_E)
 	/*
 	if(stats.getPerk(PERK_BALLS_OF_PLASTEEL))
 		soft_crit_threshold += 20

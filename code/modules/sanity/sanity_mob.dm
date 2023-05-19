@@ -142,7 +142,7 @@
 	activate_mobs_in_range(owner, SANITY_MOB_DISTANCE_ACTIVATION)
 	if(sanity_invulnerability)//Sorry, but that needed to be added here :C
 		return
-	var/vig = owner.stats.getStat(SPECIAL_P)
+	var/vig = owner.stats.getSpecial(SPECIAL_P)
 	for(var/atom/A in view(owner.client ? owner.client : owner))
 		if(A.sanity_damage)
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
@@ -153,7 +153,7 @@
 		return 0
 	. = my_area.sanity.affect
 	if(. < 0)
-		. *= owner.stats.getStat(SPECIAL_P) / SPECIAL_VALUE_MAXIMUM
+		. *= owner.stats.getSpecial(SPECIAL_P) / SPECIAL_VALUE_MAXIMUM
 
 /datum/sanity/proc/handle_breakdowns()
 	for(var/datum/breakdown/B in breakdowns)
@@ -270,7 +270,7 @@
 			owner.give_health_via_stats()
 			while(stat_pool > 0)
 				stat_pool--
-				LAZYAPLUS(stat_change, pick(ALL_STATS_FOR_LEVEL_UP), 3)
+				LAZYAPLUS(stat_change, pick(ALL_SKILLS), 3)
 
 			for(var/stat in stat_change)
 				owner.stats.changeStat(stat, stat_change[stat])
@@ -301,18 +301,18 @@
 		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 
 /datum/sanity/proc/onDamage(amount)
-	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(SPECIAL_P)))
+	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 /datum/sanity/proc/onPsyDamage(amount)
-	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getStat(SPECIAL_P)))
+	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
-		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(SPECIAL_P))
+		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getSpecial(SPECIAL_P))
 		changeLevel(penalty*death_view_multiplier)
 
 /datum/sanity/proc/onShock(amount)
-	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getStat(SPECIAL_P)))
+	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 
 /datum/sanity/proc/onDrug(datum/reagent/drug/R, multiplier)

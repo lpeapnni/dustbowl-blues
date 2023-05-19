@@ -611,7 +611,7 @@
 	*/
 	if(!advanced_pads)
 		switch(M.stats.getStat(SPECIAL_E))
-			if(-10 to 3)
+			if(1 to 3)
 				M.stats.addPerk(PERK_REZ_SICKNESS_FATAL)
 				log_and_message_admins("Added fatal rez sickness to [M].")
 			if(4 to 7)

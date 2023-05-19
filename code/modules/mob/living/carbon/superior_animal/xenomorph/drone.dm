@@ -194,7 +194,7 @@ var/datum/xenomorph/xenomorph_ai
 				M.visible_message("\red [M] missed \the [src]")
 			else
 				if (istype(H))
-					damage += max(0, (H.stats.getStat(SPECIAL_S) / 10))
+					damage += max(0, (H.stats.getStat(SPECIAL_S)))
 					if (HULK in H.mutations)
 						damage *= 2
 

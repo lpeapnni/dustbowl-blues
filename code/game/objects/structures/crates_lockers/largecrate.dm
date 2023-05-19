@@ -12,7 +12,7 @@
 
 /obj/structure/largecrate/attackby(obj/item/I, mob/user)
 	if(QUALITY_PRYING in I.tool_qualities)
-		if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_PRYING, FAILCHANCE_EASY, required_stat = SPECIAL_S))
+		if(I.use_tool(user, src, WORKTIME_NORMAL, QUALITY_PRYING, FAILCHANCE_EASY, required_stat = SKILL_ATH))
 			drop_materials(drop_location())
 			var/turf/T = get_turf(src)
 			for(var/atom/movable/AM in contents)

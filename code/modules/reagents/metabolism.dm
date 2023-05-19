@@ -63,7 +63,7 @@
 //Must be called WHENEVER you modify nsa_bonus, nsa_chem_bonus, nsa_mult, or when you change nerve efficiency.
 //calc_nerves: Activates nerve efficiency recalculation, so its not recalculated every time.
 /datum/metabolism_effects/proc/calculate_nsa(calc_nerves = FALSE)
-	nsa_viv = parent.stats.getStat(SPECIAL_C) / 2
+	nsa_viv = parent.stats.getSpecial(SPECIAL_C) / 2
 	if(calc_nerves && ishuman(parent))
 		var/mob/living/carbon/human/parent_human = parent
 		nsa_organ_bonus = (parent_human.get_organ_efficiency(OP_NERVE) - 700) / 2
