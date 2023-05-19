@@ -267,14 +267,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 /datum/antag_contract/item/steal/check_contents(list/contents)
 	return locate(target_type) in contents
 
-
-/datum/antag_contract/item/steal/docs
-	unique = TRUE
-	reward = 12
-	target_type = /obj/item/oddity/secdocs
-	desc = "Steal a folder of secret documents and send them via BSDM."
-
-
 /datum/antag_contract/item/dump
 	name = "Dump"
 	unique = TRUE

@@ -168,7 +168,6 @@
 		/obj/item/soap,
 		/obj/item/gun/projectile/boltgun/flare_gun,
 		/obj/item/ammo_casing/flare,
-		/obj/item/oddity/chimeric_fang_trophy,
 		/obj/item/device/binoculars,
 		/obj/item/device/lighting/glowstick/flare/torch
 	)
@@ -364,7 +363,6 @@
 /obj/item/storage/belt/holding/New()
 	..()
 	item_flags |= BLUESPACE
-	bluespace_entropy(4, get_turf(src))
 
 /obj/item/storage/belt/holding/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.item_flags & BLUESPACE)

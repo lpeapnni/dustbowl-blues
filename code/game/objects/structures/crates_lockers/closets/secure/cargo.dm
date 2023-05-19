@@ -57,16 +57,6 @@
 		new /obj/item/reagent_containers/syringe/stim/turbo(src)
 		new /obj/item/reagent_containers/syringe/stim/boxer(src)
 		new /obj/item/reagent_containers/syringe/stim/violence_ultra(src)
-	if(prob(15))
-		new /obj/item/oddity/common/old_money(src)
-	if(prob(15))
-		new /obj/item/oddity/common/old_id(src)
-	if(prob(15))
-		new /obj/item/oddity/common/old_newspaper(src)
-	if(prob(15))
-		new /obj/item/oddity/common/old_pda(src)
-	if(prob(15))
-		new /obj/item/oddity/common/old_radio(src)
 	new /obj/item/clothing/accessory/armband/cargo(src)
 
 /obj/structure/closet/secure_closet/reinforced/quartermaster

@@ -103,9 +103,9 @@
 			continue
 		if(!AM.anchored)
 			if(prob(offset_chance))
-				go_to_bluespace(source, entropy_value, TRUE, AM, get_turf(pick(orange(teleport_offset,source))))
+				do_teleport(AM, get_turf(pick(orange(teleport_offset,source))))
 			else
-				go_to_bluespace(source, entropy_value, TRUE, AM, target)
+				do_teleport(AM, target)
 
 /obj/item/bluespace_harpoon/attack_self(mob/living/user as mob)
 	return change_fire_mode(user)

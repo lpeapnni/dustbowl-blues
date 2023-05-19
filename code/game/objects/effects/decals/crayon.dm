@@ -234,8 +234,6 @@ obj/item/scroll/sealed
 	max_storage_space = DEFAULT_NORMAL_STORAGE
 	can_hold = list(
 		/obj/item/scroll,
-		/obj/item/oddity/common/book_unholy,
-		/obj/item/oddity/common/book_omega,
 		/obj/item/tool/knife/ritual, // This means both the knife and sickle...
 		/obj/item/paper/alchemy_recipes,
 		/obj/item/device/camera_film)

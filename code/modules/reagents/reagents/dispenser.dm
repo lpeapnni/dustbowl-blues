@@ -403,8 +403,6 @@
 		M.take_organ_damage(0, units_for_this_part * power * 0.1)
 
 /datum/reagent/acid/touch_obj(obj/O)
-	if(istype(O, /obj/effect/plant/hivemind))
-		qdel(O)
 	if(O.unacidable)
 		return
 	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (volume > meltdose))

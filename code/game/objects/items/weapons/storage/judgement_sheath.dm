@@ -191,7 +191,6 @@
 		for(var/atom/movable/M in T)
 			if(!istype(M, /atom/movable/SpatialCut) && !istype(M, /obj/item/storage))
 				MyCutter.resolve_attackby(M, user)
-		bluespace_entropy(0.5, T)
 	qdel_timer = QDEL_IN(src, 2.6)
 
 /atom/movable/SpatialCut/Destroy()

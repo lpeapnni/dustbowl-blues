@@ -7,6 +7,7 @@
   * (This would've been better as an element instead of a component, but currently elements don't exist on cev eris. F)
 */
 
+/*
 /datum/component/inspiration
 	/// Simple list defined as list(STAT_DEFINE = number).
 	var/list/stats
@@ -172,3 +173,4 @@
 			if(7 to INFINITY)
 				power = 4
 	return power
+*/

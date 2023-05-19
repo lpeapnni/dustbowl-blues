@@ -18,11 +18,10 @@
 /turf/simulated/floor,
 /area/testmap)
 "ak" = (
-/obj/machinery/autolathe/excelsior,
+/obj/machinery/autolathe,
 /turf/simulated/floor,
 /area/testmap)
 "al" = (
-/obj/machinery/complant_maker,
 /turf/simulated/floor,
 /area/testmap)
 "am" = (
@@ -35,7 +34,6 @@
 /turf/simulated/floor,
 /area/testmap)
 "ao" = (
-/obj/item/implantcase/excelsior,
 /turf/simulated/floor,
 /area/testmap)
 "ap" = (
@@ -65,7 +63,6 @@
 /turf/simulated/floor,
 /area/testmap)
 "au" = (
-/obj/item/implanter/excelsior,
 /turf/simulated/floor,
 /area/testmap)
 "av" = (
@@ -554,7 +551,6 @@
 /turf/simulated/floor/hull,
 /area/space)
 "bW" = (
-/obj/item/book/ritual,
 /obj/landmark/join/late/cryo,
 /turf/simulated/floor,
 /area/testmap)

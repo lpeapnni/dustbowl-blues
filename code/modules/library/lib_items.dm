@@ -22,15 +22,6 @@
 	opacity = TRUE
 	var/list/allowed_book_items = list(
 	/obj/item/book,
-	/obj/item/oddity/common/blueprint,
-	/obj/item/oddity/common/book_eyes,
-	/obj/item/oddity/common/book_omega,
-	/obj/item/oddity/common/book_bible,
-	/obj/item/oddity/common/book_log,
-	/obj/item/oddity/common/book_unholy,
-	/obj/item/oddity/chem_book,
-	/obj/item/oddity/code_book,
-	/obj/item/oddity/ls/manual,
 	/obj/item/folder,
 	/obj/item/paper,
 	/obj/item/paper_bundle,

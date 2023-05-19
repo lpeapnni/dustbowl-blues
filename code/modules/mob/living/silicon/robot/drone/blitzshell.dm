@@ -98,7 +98,6 @@
 		/obj/item/spacecash,
 		/obj/item/device/mind_fryer,
 		/obj/item/organ/external/head,
-		/obj/item/oddity/secdocs,
 		/obj/item/stack/telecrystal //To reload the uplink
 		)
 
