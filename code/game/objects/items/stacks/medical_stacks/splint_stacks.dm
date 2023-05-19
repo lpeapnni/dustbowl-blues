@@ -5,7 +5,6 @@
 	amount = 5
 	max_amount = 5
 	fancy_icon = FALSE
-	bio_requirement = -25
 
 /obj/item/stack/medical/splint/improvised
 	name = "improvised bone splint"

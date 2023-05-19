@@ -41,8 +41,8 @@
 			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay) && !istype(O,/obj/effect/overlay/water))
 				amt++
 				qdel(O)
-		if(user && user.stats)
-			/*if(user.stats.getPerk(PERK_NEAT))
+		/*if(user && user.stats)
+			if(user.stats.getPerk(PERK_NEAT))
 				if(ishuman(user))
 					var/mob/living/carbon/human/H = user
 					if(H.sanity)

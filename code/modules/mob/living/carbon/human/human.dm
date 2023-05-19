@@ -118,14 +118,6 @@
 		if(maw_efficiency > 1)
 			stat("Gnawing hunger", "[carrion_hunger]/[round(maw_efficiency/10)]")
 
-		var/obj/item/organ/internal/psionic_tumor/B = random_organ_by_process(BP_PSION)
-		if(B)
-			stat("Psi Essence", "[B.psi_points]/[B.max_psi_points]")
-
-		var/obj/item/organ/internal/nanogate/N = random_organ_by_process(BP_NANOGATE)
-		if(N)
-			stat("Nanites Point", "[N.nanite_points]")
-
 	else if(statpanel("Perks"))
 		for(var/obj/effect/statclick/perkHolder in src.stats.perk_stats)
 			perkHolder.update()
@@ -1145,7 +1137,7 @@ var/list/rank_prefix = list(\
 
 	status_flags |= REBUILDING_ORGANS
 
-	var/list/organs_to_readd = list()
+	//var/list/organs_to_readd = list()
 
 	if(from_preference)
 		for(var/obj/item/organ/organ in (organs|internal_organs))

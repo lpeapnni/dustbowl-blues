@@ -43,8 +43,8 @@
 	affect_ingest(M, alien, effect_multiplier * 1.2)
 
 /datum/reagent/organic/nutriment/affect_ingest(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	if(ishuman(M))
-		/*if(M.stats.getPerk(PERK_HERBIVORE))
+	/*if(ishuman(M))
+		if(M.stats.getPerk(PERK_HERBIVORE))
 			nutriment_factor = 7
 		if(M.stats.getPerk(PERK_CARNIVORE))
 			nutriment_factor = 1*/
@@ -72,8 +72,8 @@
 	common = TRUE //Protein Shake
 
 /datum/reagent/organic/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	if(ishuman(M))
-		/*if(M.stats.getPerk(PERK_CARNIVORE))
+	/*if(ishuman(M))
+		if(M.stats.getPerk(PERK_CARNIVORE))
 			nutriment_factor = 7
 		if(M.stats.getPerk(PERK_HERBIVORE))
 			nutriment_factor = 1*/

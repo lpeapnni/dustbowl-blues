@@ -1014,7 +1014,7 @@ There are 9 wires.
 			return
 		used_now = TRUE
 		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+			//var/mob/living/carbon/human/H = usr
 			if(istype(I, /obj/item/keys/lockpicks))
 				playsound(loc, 'sound/items/keychainrattle.ogg', 30, 1, -2)
 			else

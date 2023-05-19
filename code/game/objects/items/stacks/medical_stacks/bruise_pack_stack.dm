@@ -110,10 +110,9 @@
 	splittable = FALSE	// Is the stack capable of being splitted?
 	preloaded_reagents = list("silicon" = 4, "ethanol" = 10, "lithium" = 4)
 	w_class = ITEM_SIZE_SMALL
-	perk_required = TRUE
-	needed_perk = PERK_MEDICAL_EXPERT
-	needed_perk_alt = PERK_SURGICAL_MASTER
-	bio_requirement = 25
+	skill_required = TRUE
+	needed_skill = SKILL_MED
+	needed_skill_level = SKILL_LEVEL_ADEPT
 	stacktype_alt = /obj/item/stack/medical/bruise_pack/advanced
 	disinfectant  = TRUE
 	fancy_icon = FALSE
@@ -136,9 +135,9 @@
 	consumable = TRUE
 	matter = list(MATERIAL_BIOMATTER = 2.5)
 	natural_remedy = TRUE
-	perk_required = TRUE
-	needed_perk = PERK_BUTCHER
-	bio_requirement = 10 // So simple a tribal can do it, still has a small check to use.
+	skill_required = TRUE
+	needed_skill = SKILL_SUR
+	needed_skill_level = SKILL_LEVEL_BASIC
 	stacktype_alt = null
 
 /obj/item/stack/medical/bruise_pack/advanced/mending_ichor
@@ -151,9 +150,7 @@
 	matter = list(MATERIAL_BIOMATTER = 2.5)
 	natural_remedy = TRUE
 	fancy_icon = FALSE
-	perk_required = FALSE
-	needed_perk = null
-	bio_requirement = 0
+	skill_required = FALSE
 	stacktype_alt = null
 
 /obj/item/stack/medical/bruise_pack/handmade
@@ -187,11 +184,10 @@
 	origin_tech = list(TECH_BIO = 4)
 	fancy_icon = TRUE
 	w_class = ITEM_SIZE_SMALL
-	perk_required = TRUE
-	needed_perk = PERK_MEDICAL_EXPERT
-	bio_requirement = 15
+	skill_required = TRUE
+	needed_skill = SKILL_MED
+	needed_skill_level = SKILL_LEVEL_ADEPT
 	stacktype_alt = null
-	care_about_faith = TRUE
 
 /obj/item/stack/medical/bruise_pack/advanced/nt/update_icon()
 	if(fancy_icon)

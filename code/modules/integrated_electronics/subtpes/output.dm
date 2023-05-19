@@ -293,8 +293,8 @@
 		return
 	if(isrobot(L))
 		message_before_tts = "Your antenna reciving signal: "
-	if(ishuman(L))
-		var/mob/living/carbon/human/h = L
+	/*if(ishuman(L))
+		var/mob/living/carbon/human/h = L*/
 	if(istext(message_before_tts))
 		text_to_speech = sanitize(text_to_speech)
 		to_chat(L, SPAN_NOTICE("[message_before_tts][text_to_speech]"))

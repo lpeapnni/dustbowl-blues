@@ -497,8 +497,7 @@
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(ishuman(mover) && mover.throwing)
-		var/mob/living/carbon/human/H = mover
-		/*
+		/*var/mob/living/carbon/human/H = mover
 		if(H.stats.getPerk(PERK_SPACE_ASSHOLE))
 			H.forceMove(src)
 			visible_message("[H] dives into \the [src]!")

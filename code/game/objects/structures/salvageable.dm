@@ -600,8 +600,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 40,
 		/obj/item/stock_parts/capacitor = 50,
 		/obj/item/trash/material/circuit = 60,
-		/obj/item/reagent_containers/glass/beaker = 40,
-		/obj/item/storage/freezer/medical/contains_teratomas = 10
+		/obj/item/reagent_containers/glass/beaker = 40
 	)
 	var/mob/occupant = null
 	var/on = FALSE

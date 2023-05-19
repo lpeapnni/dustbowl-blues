@@ -170,7 +170,7 @@
 		if(M.faction == "spiders")
 			return 1
 	if(isliving(mover))
-		var/mob/living/carbon/human/H = mover
+		//var/mob/living/carbon/human/H = mover
 		if(prob(50))
 			to_chat(mover, SPAN_WARNING("You get stuck in \the [src] for a moment."))
 			return 0

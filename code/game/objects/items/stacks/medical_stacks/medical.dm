@@ -15,14 +15,10 @@
 	var/charge_sections = 5		// How many indicator blips are there?
 	var/charge_x_offset = 2		//The spacing between each charge indicator. Should be 2 to leave a 1px gap between each blip.
 	var/natural_remedy = FALSE
-	var/perk_required = FALSE
-	var/needed_perk = null
-	var/needed_perk_alt = null
-	var/bio_requirement = 0
+	var/skill_required = FALSE
+	var/needed_skill = null
+	var/needed_skill_level = null
 	var/disinfectant  = FALSE
-	//checks if the person using **and** getting the healing is church
-	var/care_about_faith = FALSE
-	var/bounce_faith_healer_amount = 5
 
 	var/fancy_icon = FALSE //This var is for mulitable icon states that DONT relie on a overlay
 
@@ -76,10 +72,9 @@
 
 	//log_debug("medical 0, I have started")
 	if(ishuman(M))
-		if(perk_required && (!user.stats.getPerk(needed_perk) && !user.stats.getPerk(needed_perk_alt)))
-			if(user.stats.getStat(SKILL_MED) < bio_requirement)
-				to_chat(user, SPAN_WARNING("You lack the biological skill or training to figure out how to properly use this!"))
-				return TRUE
+		if(skill_required && !(user.stats.getStat(needed_skill) >= needed_skill_level))
+			to_chat(user, SPAN_WARNING("You lack the skill to figure out how to properly use this!"))
+			return TRUE
 
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.targeted_organ)
