@@ -94,7 +94,6 @@
 		list(/obj/item/grenade/chem_grenade, 1),
 		list(/obj/item/clothing/head/space/void/riggedvoidsuit, 1),
 		list(/obj/item/computer_hardware/processor_unit, 1),
-		list(/obj/item/oddity, 1), //For the soul!
 		list(/obj/item/stack/cable_coil, 4),
 		list(/obj/item/clothing/suit/hooded/cloak/simple, 1),
 		list(/obj/item/scrap_lump, 1),

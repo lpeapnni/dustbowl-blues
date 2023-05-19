@@ -169,7 +169,7 @@
 			var/excavation_amount = input("How deep are you going to dig?", "Excavation depth", 0)
 			if(excavation_amount)
 				to_chat(user, SPAN_NOTICE("You start exacavating [src]."))
-				if(I.use_tool(user, src, WORKTIME_SLOW, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_COG))
+				if(I.use_tool(user, src, WORKTIME_SLOW, tool_type, FAILCHANCE_NORMAL, required_stat = SKILL_SUR))
 					to_chat(user, SPAN_NOTICE("You finish exacavating [src]."))
 					if(finds && finds.len)
 						var/datum/find/F = finds[1]

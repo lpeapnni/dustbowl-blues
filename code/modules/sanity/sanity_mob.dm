@@ -4,20 +4,20 @@
 
 // Damage received from unpleasant stuff in view
 
-#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
+#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM) * (1 - (dist)/15))
 
 
 // Damage received from body damage
-#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SKILL_LEVEL_MAX), 60))
+#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM), 60))
 
 // Damage received from shock
-#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 // Damage received from psy effects
-#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * (2 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * (2 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 // Damage received from seeing someone die
-#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * (1 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * (1 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 #define SANITY_GAIN_SMOKE 0.05 // A full cig restores 300 times that
 #define SANITY_GAIN_SAY 1
@@ -63,7 +63,6 @@
 	var/rest_timer_active = FALSE
 	var/rest_timer_time
 
-	var/list/valid_inspirations = list(/obj/item/oddity)
 	var/list/desires = list()
 
 	var/positive_prob = 20
@@ -143,7 +142,7 @@
 	activate_mobs_in_range(owner, SANITY_MOB_DISTANCE_ACTIVATION)
 	if(sanity_invulnerability)//Sorry, but that needed to be added here :C
 		return
-	var/vig = owner.stats.getStat(STAT_VIG)
+	var/vig = owner.stats.getSpecial(SPECIAL_P)
 	for(var/atom/A in view(owner.client ? owner.client : owner))
 		if(A.sanity_damage)
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
@@ -154,7 +153,7 @@
 		return 0
 	. = my_area.sanity.affect
 	if(. < 0)
-		. *= owner.stats.getStat(STAT_VIG) / SKILL_LEVEL_MAX
+		. *= owner.stats.getSpecial(SPECIAL_P) / SPECIAL_VALUE_MAXIMUM
 
 /datum/sanity/proc/handle_breakdowns()
 	for(var/datum/breakdown/B in breakdowns)
@@ -162,16 +161,18 @@
 			breakdowns -= B
 
 /datum/sanity/proc/handle_Insight()
-	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier) * (owner.stats.getPerk(PERK_INSPIRED) ? 1.5 : 1) * (owner.stats.getPerk(PERK_NANOGATE) ? 0.4 : 1) * (owner.stats.getPerk(PERK_COGENHANCE) ? 1.1 : 1))
+	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier))
 	if(resting < max_resting && insight >= 100)
 		if(!rest_timer_active)//Prevent any exploits(timer is only active for one minute tops)
 			give_resting(1)
+			/*
 			if(owner.stats.getPerk(PERK_ARTIST))
 				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
 			else
-				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
-				pick_desires()
-				insight -= 100
+			*/
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+			pick_desires()
+			insight -= 100
 			owner.playsound_local(get_turf(owner), 'sound/sanity/level_up.ogg', 100)
 
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
@@ -255,58 +256,10 @@
 	rest_timer_active = FALSE
 	var/rest = input(owner, "How would you like to improve your stats?", "Rest complete", null) in list(
 		"Internalize your recent experiences",
-		"Focus on an oddity",
 		"Convert your fulfilled insight for later use"
 		)
 
-	if(rest == "Focus on an oddity")
-		if(owner.stats.getPerk(PERK_ARTIST))
-			to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
-			rest = "Internalize your recent experiences"
-		else
-			var/oddity_in_posession = FALSE
-
-			for(var/obj/item/I in owner.get_contents())
-				if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-					oddity_in_posession = TRUE
-					break
-
-			if(!oddity_in_posession)
-				to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
-				rest = "Internalize your recent experiences"
-
 	switch(rest)
-
-		if("Focus on an oddity")
-
-			var/list/inspiration_items = list()
-			for(var/obj/item/I in owner.get_contents()) //what oddities do we have?
-				if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-					inspiration_items += I
-
-			if(inspiration_items.len)//should always work, but in case of bug, there is an else
-				var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
-				if(!O)
-					return
-
-				GET_COMPONENT_FROM(I, /datum/component/inspiration, O) // If it's a valid inspiration, it should have this component. If not, runtime
-				var/list/L = I.calculate_statistics()
-				for(var/stat in L)
-					var/stat_up = L[stat] * 2
-					to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
-					owner.stats.changeStat(stat, stat_up)
-
-				if(I.perk)
-					if(owner.stats.addPerk(I.perk))
-						I.perk = null
-
-				SEND_SIGNAL(O, COMSIG_ODDITY_USED)
-				owner.give_health_via_stats()
-				for(var/mob/living/carbon/human/H in viewers(owner))
-					SEND_SIGNAL(H, COMSIG_HUMAN_ODDITY_LEVEL_UP, owner, O)
-
-			else to_chat(owner, SPAN_NOTICE("Something really buggy just happened with your brain."))
-
 		if("Convert your fulfilled insight for later use")
 			owner.rest_points += 1 //yeah... that's it
 
@@ -317,7 +270,7 @@
 			owner.give_health_via_stats()
 			while(stat_pool > 0)
 				stat_pool--
-				LAZYAPLUS(stat_change, pick(ALL_STATS_FOR_LEVEL_UP), 3)
+				LAZYAPLUS(stat_change, pick(ALL_SKILLS), 3)
 
 			for(var/stat in stat_change)
 				owner.stats.changeStat(stat, stat_change[stat])
@@ -336,29 +289,30 @@
 /datum/sanity/proc/finish_rest()
 	desires.Cut()
 	if(!rest_timer_active)
-		to_chat(owner, "<font color='purple'>[owner.stats.getPerk(PERK_ARTIST) ? "You have created art." : "You have rested well."]\
+		to_chat(owner, "<font color='purple'>You have rested well.\
 					<br>Select what you wish to do with your fulfilled insight <a HREF=?src=\ref[src];here_and_now=TRUE>here and now</a> or get to safety first if you are in danger.\
 					<br>The prompt will appear in one minute.</font>")
-
+		/*
 		if(owner.stats.getPerk(PERK_ARTIST))
 			resting = 0
+		*/
 		rest_timer_active = TRUE
 		rest_timer_time = 60 SECONDS
 		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 
 /datum/sanity/proc/onDamage(amount)
-	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 /datum/sanity/proc/onPsyDamage(amount)
-	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
-		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(STAT_VIG))
+		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getSpecial(SPECIAL_P))
 		changeLevel(penalty*death_view_multiplier)
 
 /datum/sanity/proc/onShock(amount)
-	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getSpecial(SPECIAL_P)))
 
 
 /datum/sanity/proc/onDrug(datum/reagent/drug/R, multiplier)
@@ -432,7 +386,7 @@
 	var/list/possible_results
 	if(prob(positive_prob))
 		possible_results = subtypesof(/datum/breakdown/positive)
-	if(prob(negative_prob) && !owner.stats.getPerk(PERK_NJOY))
+	if(prob(negative_prob))
 		possible_results = subtypesof(/datum/breakdown/negative)
 
 	possible_results += subtypesof(/datum/breakdown/common)

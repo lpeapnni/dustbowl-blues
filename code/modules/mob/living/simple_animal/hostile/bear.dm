@@ -33,7 +33,7 @@
 	. = ..()
 	if(.)
 		playsound(src, 'sound/effects/creatures/bear.ogg', 100, 1, -3)
-
+/*
 /mob/living/simple_animal/hostile/bear/proc/rawr_xd()
 	if(health >= 15) //to weak to rawr if less then 15 health
 		visible_message(SPAN_DANGER("[src] stands up and roars!"))
@@ -60,15 +60,15 @@
 
 		anchored = TRUE
 		addtimer(CALLBACK(src, .proc/unanchor), 10)
-
+*/
 
 /mob/living/simple_animal/hostile/bear/proc/unanchor()
 	anchored = FALSE
-	addtimer(CALLBACK(src, .proc/rawr_xd_recharge), 120) //should be tolds of time for people to kill the bear
-
+	//addtimer(CALLBACK(src, .proc/rawr_xd_recharge), 120) //should be tolds of time for people to kill the bear
+/*
 /mob/living/simple_animal/hostile/bear/proc/rawr_xd_recharge()
 	rawr_cooldown = FALSE
-
+*/
 //Copy pasted for hostile.dm more complicated verson
 /mob/living/simple_animal/hostile/bear/MoveToTarget()
 	var/mob/living/targetted_mob = (target_mob?.resolve())
@@ -90,9 +90,9 @@
 				set_glide_size(DELAY2GLIDESIZE(move_to_delay))
 				SSmove_manager.move_to(src, targetted_mob, 1, move_to_delay)
 
-	if(horror_modifer && !rawr_cooldown)
+	/*if(horror_modifer && !rawr_cooldown)
 		rawr_xd()
-		rawr_cooldown = TRUE
+		rawr_cooldown = TRUE*/
 	return FALSE
 
 /mob/living/simple_animal/hostile/bear/hudson

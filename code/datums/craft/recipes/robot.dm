@@ -2,7 +2,7 @@
 	category = "Robots"
 	time = 100
 	related_stats = list(SKILL_SCI)
-	requiredPerk = PERK_ROBOTICS_EXPERT
+	//requiredPerk = PERK_ROBOTICS_EXPERT
 
 // Control Module used in all the custom bots.
 /datum/craft_recipe/robotic/custom_board

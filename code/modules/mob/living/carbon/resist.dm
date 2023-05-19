@@ -126,10 +126,10 @@
 	var/obj/item/handcuffs/HC = handcuffed
 
 	//A default in case you are somehow handcuffed with something that isn't an obj/item/handcuffs type
-	var/breakouttime = 1200 - src.stats.getStat(SPECIAL_S) * 10
+	var/breakouttime = 1200 - src.stats.getSpecial(SPECIAL_S) * 10
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
 	if(istype(HC))
-		breakouttime = HC.breakouttime - src.stats.getStat(SPECIAL_S) * 10
+		breakouttime = HC.breakouttime - src.stats.getSpecial(SPECIAL_S) * 10
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))

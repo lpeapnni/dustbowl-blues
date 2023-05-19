@@ -282,7 +282,7 @@
 
 //Simple form ideal for basic use. That proc will return TRUE only when everything was done right, and FALSE if something went wrong, ot user was unlucky.
 //Editionaly, handle_failure proc will be called for a critical failure roll.
-/obj/item/proc/use_tool(mob/living/user, atom/target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier = 110, forced_sound = null, sound_repeat = 2.5 SECONDS)
+/obj/item/proc/use_tool(mob/living/user, atom/target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier = 110, forced_sound = null, sound_repeat = 2.5 SECONDS, special_override)
 	if(health)//Low health on a tool increases failure chance. Scaling up as it breaks further.
 		fail_chance += get_tool_health_modifer(user)
 
@@ -291,7 +291,7 @@
 		T = src
 		T.tool_in_use = TRUE
 
-	var/result = use_tool_extended(user, target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier, forced_sound)
+	var/result = use_tool_extended(user, target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier, forced_sound, sound_repeat, special_override)
 
 	if(T)
 		T.tool_in_use = FALSE
@@ -321,7 +321,7 @@
 	return fail_modifer
 
 //Use this proc if you want to handle all types of failure yourself. It used in surgery, for example, to deal damage to patient.
-/obj/item/proc/use_tool_extended(mob/living/user, atom/target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier = 110, forced_sound = null, sound_repeat = 2.5 SECONDS)
+/obj/item/proc/use_tool_extended(mob/living/user, atom/target, base_time, required_quality, fail_chance, required_stat, instant_finish_tier = 110, forced_sound = null, sound_repeat = 2.5 SECONDS, special_override)
 	var/obj/item/tool/T
 	if(istool(src))
 		T = src
@@ -356,9 +356,9 @@
 	var/time_to_finish = 0
 	if(base_time)
 		if(islist(required_stat))
-			time_to_finish = base_time - get_tool_quality(required_quality) - user.stats.getMaxStat(required_stat)
+			time_to_finish = base_time - get_tool_quality(required_quality) - user.stats.getMaxStat(required_stat, FALSE, special_override)
 		else
-			time_to_finish = base_time - get_tool_quality(required_quality) - user.stats.getStat(required_stat)
+			time_to_finish = base_time - get_tool_quality(required_quality) - user.stats.getStat(required_stat, FALSE, special_override)
 
 		//Workspeed var, can be improved by upgrades
 		if(T && T.workspeed > 0)
@@ -1069,15 +1069,12 @@
 
 		if(get_tool_type(user, list(QUALITY_WELDING), H)) //Prosthetic repair
 			if(S.brute_dam)
-				var/robotics_expert = user.stats.getPerk(PERK_ROBOTICS_EXPERT)
-				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP || robotics_expert)
+				if(S.brute_dam < ROBOLIMB_SELF_REPAIR_CAP)
 					if(use_tool(user, H, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = SKILL_REP))
 						var/repair_amount = 15
-						if(robotics_expert)
-							repair_amount = user.stats.getStat(SKILL_REP)
 						S.heal_damage(repair_amount,0,TRUE)
 						user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-						user.visible_message(SPAN_NOTICE("\The [user] [robotics_expert ? "expertly" : ""] patches some dents on \the [H]'s [S.name] with \the [src]."))
+						user.visible_message(SPAN_NOTICE("\The [user] patches some dents on \the [H]'s [S.name] with \the [src]."))
 						return 1
 				else if(S.open != 2)
 					to_chat(user, SPAN_DANGER("The damage is far too severe to patch over externally."))

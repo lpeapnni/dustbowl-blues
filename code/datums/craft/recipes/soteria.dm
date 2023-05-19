@@ -2,7 +2,7 @@
 	category = "Soteria"
 	time = 100
 	related_stats = list(SKILL_SCI)
-	requiredPerk = PERK_NERD //Give me your lunch money.
+	//requiredPerk = PERK_NERD //Give me your lunch money.
 
 //Soteria healing kits
 

@@ -20,6 +20,7 @@
 	..()
 	LEGACY_SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_DELETE_DRUG)
 
+/*
 /datum/reagent/drug/space_drugs
 	name = "Space drugs"
 	id = "space_drugs"
@@ -42,7 +43,7 @@
 	if(prob(7 * effect_multiplier))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
 	M.add_chemical_effect(CE_PULSE, -1)
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_BASIC, STIM_TIME, "spacedrugs")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "spacedrugs")
 	..()
 
 /datum/reagent/drug/lean
@@ -101,7 +102,7 @@
 	if(prob(7 * effect_multiplier))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	M.add_chemical_effect(CE_PAINKILLER, 15 * effect_multiplier, TRUE)
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_BASIC, STIM_TIME, "serotrotium")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "serotrotium")
 	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_BASIC, STIM_TIME, "serotrotium")
 	M.add_chemical_effect(CE_ANTITOX, 0.5)
 	..()
@@ -123,7 +124,7 @@
 	M.make_dizzy(4 * effect_multiplier)
 	M.confused = max(M.confused, 20 * effect_multiplier)
 	M.add_chemical_effect(CE_PAINKILLER, 25 * effect_multiplier, TRUE)
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_BASIC, STIM_TIME, "cryptobiolin")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "cryptobiolin")
 	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_BASIC, STIM_TIME, "cryptobiolin")
 	M.add_chemical_effect(CE_ANTITOX, 0.5)
 	..()
@@ -144,7 +145,7 @@
 /datum/reagent/drug/impedrezene/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.jitteriness = max(M.jitteriness - (5 * effect_multiplier), 0)
 	M.add_chemical_effect(CE_PAINKILLER, 40 * effect_multiplier, TRUE)
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene")
 	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene")
 	if(prob(80))
 		M.adjustBrainLoss(0.1 * effect_multiplier)
@@ -188,11 +189,11 @@
 	M.heal_organ_damage(0.1 * effect_multiplier, 0, 0.5 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.15)
 	M.add_chemical_effect(CE_PAINKILLER, 40 * effect_multiplier, TRUE)
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker")
 	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker")
 
 /datum/reagent/drug/mindbreaker/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_COG, SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker_w")
+	M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker_w")
 	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker_w")
 	M.add_chemical_effect(CE_ANTITOX, 0.1)
 
@@ -221,7 +222,7 @@
 		holder.remove_reagent("psi_juice", 5)
 
 /datum/reagent/drug/psi_juice/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(STAT_COG, SKILL_LEVEL_BASIC, STIM_TIME, "psi_juice")
+	M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_BASIC, STIM_TIME, "psi_juice")
 
 /datum/reagent/drug/psi_juice/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC, STIM_TIME, "psi_juice_w")
@@ -252,7 +253,7 @@
 	if(effective_dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
-		M.stats.addTempStat(STAT_COG, SKILL_LEVEL_BASIC, STIM_TIME, "psilocybin")
+		M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_BASIC, STIM_TIME, "psilocybin")
 		M.hallucination(50, 50)
 		if(prob(5))
 			M.emote(pick("twitch", "giggle"))
@@ -268,7 +269,7 @@
 		M.make_jittery(10)
 		M.make_dizzy(10)
 		M.druggy = max(M.druggy, 40)
-		M.stats.addTempStat(STAT_COG, SKILL_LEVEL_ADEPT, STIM_TIME, "psilocybin")
+		M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_ADEPT, STIM_TIME, "psilocybin")
 		M.hallucination(100, 50)
 		if(prob(15))
 			M.emote(pick("twitch", "giggle"))
@@ -404,7 +405,7 @@
 
 /datum/reagent/drug/sanguinum/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
-	M.stats.addTempStat(STAT_COG, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
+	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
 	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
 /*
 /datum/reagent/drug/sanguinum/overdose(var/mob/living/carbon/M, var/alien)
@@ -442,3 +443,4 @@
 
 datum/reagent/drug/nosfernium/overdose(var/mob/living/carbon/human/M, var/alien)
 	M.adjustBrainLoss(5) // This is meant to be lethal. If you survive this give your doctor a pat on the back.
+*/

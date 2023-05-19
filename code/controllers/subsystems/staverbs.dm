@@ -64,8 +64,6 @@ SUBSYSTEM_DEF(statverbs)
 				to_chat(user, SPAN_WARNING("You're not skilled enough in lockpicking to do this!"))
 			if(SKILL_MED)
 				to_chat(user, SPAN_WARNING("You're not skilled enough in medicine to do this!"))
-			if(SKILL_PIL)
-				to_chat(user, SPAN_WARNING("You're not skilled enough in piloting to do this!"))
 			if(SKILL_REP)
 				to_chat(user, SPAN_WARNING("You're not skilled enough in repairing to do this!"))
 			if(SKILL_SCI)
@@ -146,7 +144,7 @@ SUBSYSTEM_DEF(statverbs)
 /datum/statverb/remove_plating
 	name = "Remove plating"
 	required_stat = SPECIAL_S
-	minimal_stat  = SKILL_LEVEL_ADEPT
+	minimal_stat  = SPECIAL_LEVEL_GOOD
 
 /datum/statverb/remove_plating/action(mob/user, turf/simulated/floor/target)
 	if(target.flooring && target.flooring.flags & TURF_REMOVE_CROWBAR)
@@ -217,6 +215,43 @@ SUBSYSTEM_DEF(statverbs)
 
 
 /datum/statverb/hack_console/action(mob/user, obj/machinery/computer/rdconsole/target)
+	if(target.hacked == 1)
+		user.visible_message(
+			SPAN_WARNING("[target] is already hacked!")
+		)
+		return
+	if(target.hacked == 0)
+		var/timer = 220 - (user.stats.getStat(SKILL_SCI) * 2)
+		var/datum/repeating_sound/keyboardsound = new(30, timer, 0.15, target, "keyboard", 80, 1)
+		user.visible_message(
+			SPAN_DANGER("[user] begins hacking into [target]!"),
+			"You start hacking the access requirement on [target]"
+		)
+		if(do_mob(user, target, timer))
+			keyboardsound.stop()
+			keyboardsound = null
+			target.req_access.Cut()
+			target.hacked = 1
+			user.visible_message(
+				SPAN_DANGER("[user] breaks the access encryption on [target]!"),
+				"You break the access encryption on [target]"
+			)
+		else
+			keyboardsound.stop()
+			keyboardsound = null
+			var/target_name = target ? "[target]" : "the research console"
+			user.visible_message(
+				SPAN_DANGER("[user] stopped hacking into [target_name]!"),
+				"You stop hacking into [target_name]."
+			)
+
+/datum/statverb/pick_lock
+	name = "Pick lock"
+	required_stat = SKILL_LOC
+	minimal_stat  = SKILL_LEVEL_NONE
+
+
+/datum/statverb/pick_lock/action(mob/user, obj/machinery/computer/rdconsole/target)
 	if(target.hacked == 1)
 		user.visible_message(
 			SPAN_WARNING("[target] is already hacked!")

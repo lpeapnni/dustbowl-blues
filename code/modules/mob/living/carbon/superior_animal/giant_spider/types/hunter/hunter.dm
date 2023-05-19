@@ -77,8 +77,10 @@
 	if(isliving(A))
 		var/mob/living/L = A
 		if(istype(L) && !L.weakened && prob(15))
+			/*
 			if(L.stats.getPerk(PERK_ASS_OF_CONCRETE) || L.stats.getPerk(PERK_BRAWN))
 				return
+			*/
 			L.Weaken(3)
 			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
@@ -94,8 +96,10 @@
 
 		if (I_GRAB)
 			if(!weakened && stat == CONSCIOUS)
+				/*
 				if(M.stats.getPerk(PERK_ASS_OF_CONCRETE) || M.stats.getPerk(PERK_BRAWN))
 					return 1
+				*/
 				M.Weaken(3)
 				visible_message(SPAN_WARNING("\red [src] breaks the grapple and uses its size to knock [M] over!"))
 				return 1
@@ -131,8 +135,10 @@
 
 				return 1
 			else if(!weakened && stat == CONSCIOUS)
+				/*
 				if(M.stats.getPerk(PERK_ASS_OF_CONCRETE) || M.stats.getPerk(PERK_BRAWN))
 					return 1
+				*/
 				M.visible_message("\red [src] knocks [M] to the ground!")
 				M.Weaken(3)
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)

@@ -343,7 +343,7 @@
 	investigate_log("Input/Output: [input_level]/[output_level] | Charge: [charge] | Output-mode: [output_attempt?"ON":"OFF"] | Input-mode: [input_attempt?"AUTO":"OFF"] by [user ? key_name(user) : "outside forces"]", "singulo")
 
 /obj/machinery/power/smes/proc/check_user(mob/user)
-	if(user.stats?.getPerk(PERK_HANDYMAN) || user.stat_check(STAT_MEC, skill_check))
+	if(user.stat_check(SKILL_REP, skill_check))
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You don't know how to make the [src] work, you lack the training or mechanical skill."))
 	return FALSE
@@ -355,7 +355,7 @@
 
 	var/tool_type = I.get_tool_type(user, usable_qualities, src)
 	if(tool_type == QUALITY_SCREW_DRIVING)
-		if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY, required_stat = STAT_MEC))
+		if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY, required_stat = SKILL_REP))
 			open_hatch = !open_hatch
 			to_chat(user, SPAN_NOTICE("You [open_hatch ? "open" : "close"] the maintenance hatch of \the [src] with [I]."))
 		return
@@ -371,7 +371,7 @@
 				if(!tempTDir.is_plating())
 					to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 					return
-			if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY, required_stat = STAT_MEC))
+			if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY, required_stat = SKILL_REP))
 				building_terminal = 1
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread

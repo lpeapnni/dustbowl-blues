@@ -139,9 +139,6 @@ var/global/list/organ_tag_to_name = list(
 	back  = "back"
 	)
 
-// Boss spawners
-var/list/psi_mega_fauna = list(/mob/living/carbon/superior_animal/psi_monster/dreaming_king, /mob/living/carbon/superior_animal/psi_monster/dreaming_king/hound_crown, /obj/item/paper/psi_log_1, /obj/item/paper/psi_log_2, /obj/item/paper/psi_log_3, /obj/item/paper/psi_log_4, /obj/item/paper/psi_log_5)
-
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
@@ -343,15 +340,6 @@ var/global/list/hair_gradients_list = list(
 	for(var/T in paths)
 		var/datum/hud/C = new T
 		GLOB.HUDdatums[C.name] = C
-
-	//Rituals
-	paths = typesof(/datum/ritual)
-	for(var/T in paths)
-		var/datum/ritual/R = new T
-
-		//Rituals which are just categories for subclasses will have a null phrase
-		if (R.phrase)
-			GLOB.all_rituals[R.name] = R
 
 	return 1
 

@@ -226,7 +226,7 @@ var/global/list/breach_burn_descriptors = list(
 			to_chat(user, SPAN_WARNING("There is no structural damage on \the [src] to repair."))
 			return
 
-		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
+		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_WELDING, FAILCHANCE_NORMAL, required_stat = SKILL_REP))
 			repair_breaches(BRUTE, 3, user)
 			to_chat(user, SPAN_NOTICE("You repair the damage on the [src]."))
 			return

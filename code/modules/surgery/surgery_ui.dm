@@ -156,7 +156,7 @@
 
 			if(istype(usr, /mob/living))
 				var/mob/living/user = usr
-				var/target_stat = BP_IS_ROBOTIC(src) ? STAT_MEC : STAT_BIO
+				var/target_stat = BP_IS_ROBOTIC(src) ? SKILL_REP : SKILL_MED
 				var/diag_time = 70 * usr.stats.getMult(target_stat, SKILL_LEVEL_EXPERT)
 				var/target = get_surgery_target()
 
@@ -192,7 +192,7 @@
 			//soj edits to be insainly easyer for corpsmen
 			if(istype(usr, /mob/living))
 				var/mob/living/user = usr
-				var/target_stat = BP_IS_ROBOTIC(src) ? STAT_MEC : STAT_BIO
+				var/target_stat = BP_IS_ROBOTIC(src) ? SKILL_REP : SKILL_MED
 				var/removal_time = 70 * usr.stats.getMult(target_stat, SKILL_LEVEL_PROF)
 				var/target = get_surgery_target()
 				var/obj/item/I = user.get_active_hand()

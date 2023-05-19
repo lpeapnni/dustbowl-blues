@@ -75,7 +75,7 @@
 		if(running)
 			return 1
 		var/obj/item/computer_hardware/processor_unit/CPU = computer.processor_unit
-		operator_skill = get_operator_skill(usr, STAT_COG)
+		operator_skill = get_operator_skill(usr, SKILL_SCI)
 		if(!istype(CPU) || !CPU.check_functionality())
 			message = "A fatal hardware error has been detected."
 			return
