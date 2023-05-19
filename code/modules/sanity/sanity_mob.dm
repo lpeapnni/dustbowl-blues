@@ -4,20 +4,20 @@
 
 // Damage received from unpleasant stuff in view
 
-#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
+#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM) * (1 - (dist)/15))
 
 
 // Damage received from body damage
-#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SKILL_LEVEL_MAX), 60))
+#define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM), 60))
 
 // Damage received from shock
-#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_SHOCK(shock, vig) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 // Damage received from psy effects
-#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * (2 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_PSY(damage, vig) (damage * SANITY_DAMAGE_MOD * (2 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 // Damage received from seeing someone die
-#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * (1 - (vig) / SKILL_LEVEL_MAX))
+#define SANITY_DAMAGE_DEATH(vig) (10 * SANITY_DAMAGE_MOD * (1 - (vig) / SPECIAL_VALUE_MAXIMUM))
 
 #define SANITY_GAIN_SMOKE 0.05 // A full cig restores 300 times that
 #define SANITY_GAIN_SAY 1
@@ -143,7 +143,7 @@
 	activate_mobs_in_range(owner, SANITY_MOB_DISTANCE_ACTIVATION)
 	if(sanity_invulnerability)//Sorry, but that needed to be added here :C
 		return
-	var/vig = owner.stats.getStat(STAT_VIG)
+	var/vig = owner.stats.getStat(SPECIAL_P)
 	for(var/atom/A in view(owner.client ? owner.client : owner))
 		if(A.sanity_damage)
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
@@ -154,7 +154,7 @@
 		return 0
 	. = my_area.sanity.affect
 	if(. < 0)
-		. *= owner.stats.getStat(STAT_VIG) / SKILL_LEVEL_MAX
+		. *= owner.stats.getStat(SPECIAL_P) / SPECIAL_VALUE_MAXIMUM
 
 /datum/sanity/proc/handle_breakdowns()
 	for(var/datum/breakdown/B in breakdowns)
@@ -352,18 +352,18 @@
 		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 
 /datum/sanity/proc/onDamage(amount)
-	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(SPECIAL_P)))
 
 /datum/sanity/proc/onPsyDamage(amount)
-	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_PSY(amount, owner.stats.getStat(SPECIAL_P)))
 
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
-		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(STAT_VIG))
+		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(SPECIAL_P))
 		changeLevel(penalty*death_view_multiplier)
 
 /datum/sanity/proc/onShock(amount)
-	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getStat(STAT_VIG)))
+	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getStat(SPECIAL_P)))
 
 
 /datum/sanity/proc/onDrug(datum/reagent/drug/R, multiplier)
