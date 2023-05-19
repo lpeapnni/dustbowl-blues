@@ -203,7 +203,7 @@
 					accurate = 1
 				if(I_HURT, I_GRAB)
 					// We're in a fighting stance, there's a chance we block
-					if(src.canmove && src!=H && prob(10 + round(src.stats.getStat(STAT_TGH) / 3)))
+					if(src.canmove && src!=H && prob(10 + round(src.stats.getStat(SKILL_UNA) / 3)))
 						block = 1
 
 			if (M.grabbed_by.len)

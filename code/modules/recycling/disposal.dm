@@ -166,7 +166,7 @@
 				V.show_message("[usr] starts stuffing [target.name] into the disposal.", 3)
 
 		var/delay = 20
-		if(!do_after(usr, max(delay * usr.stats.getMult(STAT_VIG, SKILL_LEVEL_EXPERT), delay * 0.66), src))
+		if(!do_after(usr, max(delay * usr.stats.getMult(SKILL_ATH, SKILL_LEVEL_EXPERT), delay * 0.66), src))
 			return
 		if(target_loc != target.loc)
 			return

@@ -296,7 +296,7 @@
 /datum/reagent/adrenaline/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.SetParalysis(0)
 	M.SetWeakened(0)
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "adrenaline")
+	M.stats.addTempStat(SKILL_ATH, SKILL_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "adrenaline")
 	M.add_chemical_effect(CE_TOXIN, 3)
 
 /datum/reagent/adrenaline/withdrawal_act(mob/living/carbon/M)

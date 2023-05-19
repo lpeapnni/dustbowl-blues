@@ -1195,15 +1195,28 @@ mob/proc/yank_out_object()
 		</style>
 	"}
 	var/table_header = "<th>Stat Name<th>Stat Value"
-	var/list/S = list()
-	for(var/TS in ALL_STATS)
-		S += "<td>[TS]<td>[getStatStats(TS)]"
+	// SPECIAL stats
+	var/list/special_list = list()
+	for(var/TS in ALL_SPECIAL)
+		special_list += "<td>[TS]<td>[getStatStats(TS)]"
 	var/data = {"
 		[additionalcss]
 		[user == src ? "Your stats:" : "[name]'s stats"]<br>
 		<table width=20%>
 			<tr>[table_header]
-			<tr>[S.Join("<tr>")]
+			<tr>[special_list.Join("<tr>")]
+		</table>
+	"}
+	// skills
+	var/list/skill_list = list()
+	for(var/TS in ALL_SKILLS)
+		skill_list += "<td>[TS]<td>[getStatStats(TS)]"
+	data += {"
+		[additionalcss]
+		[user == src ? "Your skills:" : "[name]'s skills"]<br>
+		<table width=20%>
+			<tr>[table_header]
+			<tr>[skill_list.Join("<tr>")]
 		</table>
 	"}
 	// Perks

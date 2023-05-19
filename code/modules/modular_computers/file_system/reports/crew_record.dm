@@ -103,6 +103,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	//set_homeSystem(H ? html_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
 	//set_faction(H ? html_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
 
+	/*
 	if(H)
 		var/stats = list()
 		for(var/statName in ALL_STATS)
@@ -111,6 +112,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 				stats += "[statName]: [points] ([statPointsToLevel(points)])"
 
 		set_skillset(jointext(stats,"\n"))
+	*/
 
 	// Antag record
 	set_antagRecord(H && H.exploit_record && !jobban_isbanned(H, "Records") ? html_decode(H.exploit_record) : "")
