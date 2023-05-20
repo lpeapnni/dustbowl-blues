@@ -403,3 +403,6 @@
         }\
         A.flags &= ~OVERLAY_QUEUED;\
     } while (FALSE)
+
+//Music for when a round ends
+#define END_MUSIC list('sound/music/lobby/end1.ogg','sound/music/lobby/end2.ogg','sound/music/lobby/end3.ogg','sound/music/lobby/end4.ogg','sound/music/lobby/end5.ogg')
