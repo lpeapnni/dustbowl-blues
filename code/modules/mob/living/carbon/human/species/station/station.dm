@@ -18,14 +18,6 @@
 	dark_color = "#ffffff"
 	light_color = "#000000"
 
-	stat_modifiers = list(
-		STAT_BIO = 2,
-		STAT_COG = 2,
-		STAT_MEC = 2,
-		STAT_ROB = 2,
-		STAT_TGH = 2,
-		STAT_VIG = 2
-	)
 	darksight = 2
 
 	//perks = list(PERK_IWILLSURVIVE, PERK_BATTLECRY, PERK_TENACITY, PERK_DIVERSE_CULTURE)
@@ -56,15 +48,6 @@
 
 	dark_color = "#ffffff"
 	light_color = "#000000"
-
-	stat_modifiers = list(
-		STAT_BIO = 5,
-		STAT_COG = 5,
-		STAT_MEC = 5,
-		STAT_ROB = 5,
-		STAT_TGH = 5,
-		STAT_VIG = 5
-	)
 
 	darksight = 3
 
@@ -142,11 +125,6 @@
 		)
 	spawn_flags = IS_RESTRICTED
 
-	stat_modifiers = list(
-		STAT_ROB = 5,
-		STAT_TGH = 5
-	)
-
 	permitted_ears  = list("Sablekyne Large Horns",
 		"Sablekyne Curled Horns",
 		"Sablekyne Curled Horns (small)",
@@ -206,12 +184,6 @@
 		)
 	spawn_flags = IS_RESTRICTED
 
-	stat_modifiers = list(
-		STAT_BIO = 10,
-		STAT_COG = 10,
-		STAT_MEC = 10
-	)
-
 	has_process = list(    // which required-organ checks are conducted.
 		OP_HEART        = /obj/item/organ/internal/heart,
 		OP_LUNGS        = /obj/item/organ/internal/lungs,
@@ -259,11 +231,6 @@
 	light_color = "#990000"
 
 	spawn_flags = IS_RESTRICTED
-
-	stat_modifiers = list(
-		STAT_TGH = 5,
-		STAT_VIG = 5
-	)
 
 	permitted_ears  = list("Fennec Ears",
 		"Fox Ears",
@@ -329,10 +296,6 @@
 	dark_color = "#0000ff"
 	light_color = "#0000ff"
 
-	stat_modifiers = list(
-		STAT_TGH = 10
-	)
-
 	permitted_ears  = list("Sleek Ears")
 	permitted_tail  = list("Akula Tail")
 	permitted_wings = list()
@@ -358,13 +321,6 @@
 	darksight = 2
 
 	spawn_flags = IS_RESTRICTED
-
-	stat_modifiers = list(
-		STAT_TGH = 10,
-		STAT_ROB = 10,
-		STAT_VIG = -10,
-		STAT_COG = -10
-	)
 
 	dark_color = "#ffff00"
 	light_color = "#ffff00"
@@ -396,11 +352,6 @@
 	siemens_coefficient = 0.5
 	spawn_flags = IS_RESTRICTED
 	hunger_factor = 0.5
-
-	stat_modifiers = list(
-		STAT_MEC = 5,
-		STAT_COG = 5
-	)
 
 	dark_color = "#dddddd"
 	light_color = "#dddddd"
@@ -440,11 +391,6 @@
 	brute_mod =     1.25                    // Physical damage multiplier.
 	burn_mod =      0.85                    // Burn damage multiplier.
 	flash_mod =     3
-
-	stat_modifiers = list(
-		STAT_BIO = 5,
-		STAT_COG = 5
-	)
 
 	dark_color = "#5ac18e"
 	light_color = "#5ac18e"
@@ -525,13 +471,6 @@
 	total_health = 130                    // Burn damage multiplier.
 	radiation_mod = 0
 	darksight = 3
-
-	stat_modifiers = list(
-		STAT_BIO = 2,
-		STAT_COG = 2,
-		STAT_MEC = 2,
-		STAT_TGH = 2
-	)
 
 	cold_level_1 = 290 //Default 270
 	cold_level_2 = 265 //Default 230
@@ -630,15 +569,6 @@
 
 	//perks = list(PERK_FOLKEN_HEALING)
 
-	stat_modifiers = list(
-		STAT_BIO = 10,
-		STAT_COG = 0,
-		STAT_MEC = 0,
-		STAT_ROB = 0,
-		STAT_TGH = 0,
-		STAT_VIG = 10
-	)
-
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/folken/get_bodytype()
@@ -681,15 +611,6 @@
 		)
 
 	//perks = list(PERK_DARK_HEAL)
-
-	stat_modifiers = list(
-		STAT_BIO = 0,
-		STAT_COG = 0,
-		STAT_MEC = 0,
-		STAT_ROB = 20,
-		STAT_TGH = 0,
-		STAT_VIG = 0
-	)
 
 	spawn_flags = IS_RESTRICTED
 
@@ -850,11 +771,6 @@
 		"System analysis reports dangerous levels of cold!."
 		)
 
-	stat_modifiers = list(
-		STAT_COG = 5,
-		STAT_MEC = 5
-	)
-
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/soteria_synthetic/get_bodytype()
@@ -913,10 +829,6 @@
 		"System analysis reports dangerous levels of cold!."
 		)
 
-	stat_modifiers = list(
-		STAT_MEC = 10
-	)
-
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/artificer_guild_synthetic/get_bodytype()
@@ -972,10 +884,6 @@
 		"System analysis reports rapidly decreasing tempatures!",
 		"System analysis reports dangerous levels of cold!."
 		)
-
-	stat_modifiers = list(
-		STAT_TGH = 10
-	)
 
 	spawn_flags = IS_RESTRICTED
 
@@ -1034,10 +942,6 @@
 		"System analysis reports dangerous levels of cold!."
 		)
 
-	stat_modifiers = list(
-		STAT_BIO = 10
-	)
-
 	spawn_flags = IS_RESTRICTED
 
 /datum/species/church_synthetic/get_bodytype()
@@ -1093,10 +997,6 @@
 		"System analysis reports rapidly decreasing tempatures!",
 		"System analysis reports dangerous levels of cold!."
 		)
-
-	stat_modifiers = list(
-		STAT_BIO = 10
-	)
 
 	spawn_flags = IS_RESTRICTED
 
