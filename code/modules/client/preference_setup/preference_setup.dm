@@ -21,9 +21,15 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	category_item_type = /datum/category_item/player_setup_item/background
 
 /datum/category_group/player_setup_category/background_preferences/content(var/mob/user)
-	. = ""
+	. = "<table style='width:100%'><tr style='vertical-align:top'><td style='width:50%'>"
+	var/current = 0
+	var/halfway = 3
 	for(var/datum/category_item/player_setup_item/PI in items)
+		if(halfway && current++ >= halfway)
+			halfway = 0
+			. += "</td><td></td><td style='width:50%'>"
 		. += "[PI.content(user)]<br>"
+	. += "</td></tr></table>"
 
 /datum/category_group/player_setup_category/occupation_preferences
 	name = "Occupation"
