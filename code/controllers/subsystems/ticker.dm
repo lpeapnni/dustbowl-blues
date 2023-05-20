@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(ticker)
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
 
-	var/const/restart_timeout = 600
+	var/const/restart_timeout = 1200
 	var/current_state = GAME_STATE_STARTUP
 	// If true, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
@@ -438,6 +438,12 @@ SUBSYSTEM_DEF(ticker)
 
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
+	//We pick an end song and then play it
+	var/end_song = pick(END_MUSIC)
+	GLOB.lobbyScreen.musicTrack = end_song
+	for(var/client/C in clients)
+		GLOB.lobbyScreen.play_music(C)
+
 	to_chat(world, "<br><br><br><H1>A round has ended!</H1>")
 	for(var/mob/Player in GLOB.player_list)
 		if(Player.mind && !isnewplayer(Player))
