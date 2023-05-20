@@ -412,19 +412,21 @@ SUBSYSTEM_DEF(job)
 		H.stats.setStat(SPECIAL_A, H.client.prefs.SCORE_A)
 		H.stats.setStat(SPECIAL_L, H.client.prefs.SCORE_L)
 
-		H.stats.setStat(SKILL_ATH, H.client.prefs.SCORE_ATH)
-		H.stats.setStat(SKILL_LOC, H.client.prefs.SCORE_LOC)
-		H.stats.setStat(SKILL_MED, H.client.prefs.SCORE_MED)
-		H.stats.setStat(SKILL_REP, H.client.prefs.SCORE_REP)
-		H.stats.setStat(SKILL_SCI, H.client.prefs.SCORE_SCI)
-		H.stats.setStat(SKILL_SUR, H.client.prefs.SCORE_SUR)
+		//We use changeStat here because we get bonuses from jobs, backgrounds, and perks on top of this
+		H.stats.changeStat(SKILL_ATH, H.client.prefs.SCORE_ATH)
+		H.stats.changeStat(SKILL_LOC, H.client.prefs.SCORE_LOC)
+		H.stats.changeStat(SKILL_MED, H.client.prefs.SCORE_MED)
+		H.stats.changeStat(SKILL_REP, H.client.prefs.SCORE_REP)
+		H.stats.changeStat(SKILL_SCI, H.client.prefs.SCORE_SCI)
+		H.stats.changeStat(SKILL_SUR, H.client.prefs.SCORE_SUR)
 
-		H.stats.setStat(SKILL_BIG, H.client.prefs.SCORE_BIG)
-		H.stats.setStat(SKILL_ENE, H.client.prefs.SCORE_ENE)
-		H.stats.setStat(SKILL_EXP, H.client.prefs.SCORE_EXP)
-		H.stats.setStat(SKILL_MEL, H.client.prefs.SCORE_MEL)
-		H.stats.setStat(SKILL_SMA, H.client.prefs.SCORE_SMA)
-		H.stats.setStat(SKILL_UNA, H.client.prefs.SCORE_UNA)
+		H.stats.changeStat(SKILL_BIG, H.client.prefs.SCORE_BIG)
+		H.stats.changeStat(SKILL_ENE, H.client.prefs.SCORE_ENE)
+		H.stats.changeStat(SKILL_EXP, H.client.prefs.SCORE_EXP)
+		H.stats.changeStat(SKILL_MEL, H.client.prefs.SCORE_MEL)
+		H.stats.changeStat(SKILL_SMA, H.client.prefs.SCORE_SMA)
+		H.stats.changeStat(SKILL_UNA, H.client.prefs.SCORE_UNA)
+
 		H.give_health_via_stats()
 		// This could be cleaner and better, however it should apply your stats once on spawn properly if here. If anyone wants to do this in a cleaner manner be my guest.
 
