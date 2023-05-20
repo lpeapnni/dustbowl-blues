@@ -1212,8 +1212,6 @@ mob/proc/yank_out_object()
 	for(var/TS in ALL_SKILLS)
 		skill_list += "<td>[TS]<td>[getStatStats(TS)]"
 	data += {"
-		[additionalcss]
-		[user == src ? "Your skills:" : "[name]'s skills"]<br>
 		<table width=20%>
 			<tr>[table_header]
 			<tr>[skill_list.Join("<tr>")]
@@ -1226,7 +1224,7 @@ mob/proc/yank_out_object()
 			var/datum/perk/P = perk
 			Plist += "<td valign='middle'><img src=[SSassets.transport.get_asset_url(P.type)]></td><td><span style='text-align:center'>[P.name]<br>[P.desc]</span></td>"
 	data += {"
-		<table width=80%>
+		<table width=50%>
 			<th colspan=2>Perks</th>
 			<tr>[Plist.Join()]</tr>
 		</table>

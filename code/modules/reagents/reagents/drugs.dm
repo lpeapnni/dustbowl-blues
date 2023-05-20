@@ -20,7 +20,6 @@
 	..()
 	LEGACY_SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_DELETE_DRUG)
 
-/*
 /datum/reagent/drug/space_drugs
 	name = "Space drugs"
 	id = "space_drugs"
@@ -103,7 +102,7 @@
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	M.add_chemical_effect(CE_PAINKILLER, 15 * effect_multiplier, TRUE)
 	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "serotrotium")
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_BASIC, STIM_TIME, "serotrotium")
+	M.stats.addTempStat(SPECIAL_E, 1, STIM_TIME, "serotrotium")
 	M.add_chemical_effect(CE_ANTITOX, 0.5)
 	..()
 
@@ -124,8 +123,8 @@
 	M.make_dizzy(4 * effect_multiplier)
 	M.confused = max(M.confused, 20 * effect_multiplier)
 	M.add_chemical_effect(CE_PAINKILLER, 25 * effect_multiplier, TRUE)
-	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "cryptobiolin")
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_BASIC, STIM_TIME, "cryptobiolin")
+	M.stats.addTempStat(SPECIAL_I, -1, STIM_TIME, "cryptobiolin")
+	M.stats.addTempStat(SPECIAL_E, 1, STIM_TIME, "cryptobiolin")
 	M.add_chemical_effect(CE_ANTITOX, 0.5)
 	..()
 
@@ -145,8 +144,8 @@
 /datum/reagent/drug/impedrezene/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.jitteriness = max(M.jitteriness - (5 * effect_multiplier), 0)
 	M.add_chemical_effect(CE_PAINKILLER, 40 * effect_multiplier, TRUE)
-	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene")
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene")
+	M.stats.addTempStat(SPECIAL_I, -2, STIM_TIME, "impedrezene")
+	M.stats.addTempStat(SPECIAL_E, 2, STIM_TIME, "impedrezene")
 	if(prob(80))
 		M.adjustBrainLoss(0.1 * effect_multiplier)
 	if(prob(50))
@@ -165,8 +164,8 @@
 				C.damage = max(C.damage - 0.5, 0)
 
 /datum/reagent/drug/impedrezene/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_ROB, SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene_w")
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "impedrezene_w") //UNGA!
+	M.stats.addTempStat(SPECIAL_S, 2, STIM_TIME, "impedrezene_w")
+	M.stats.addTempStat(SPECIAL_E, 2, STIM_TIME, "impedrezene_w") //UNGA!
 
 /datum/reagent/drug/mindbreaker
 	name = "Mindbreaker Toxin"
@@ -189,48 +188,13 @@
 	M.heal_organ_damage(0.1 * effect_multiplier, 0, 0.5 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.15)
 	M.add_chemical_effect(CE_PAINKILLER, 40 * effect_multiplier, TRUE)
-	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker")
-	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker")
+	M.stats.addTempStat(SPECIAL_I, -2, STIM_TIME, "mindbreaker")
+	M.stats.addTempStat(SPECIAL_E, -2, STIM_TIME, "mindbreaker")
 
 /datum/reagent/drug/mindbreaker/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker_w")
-	M.stats.addTempStat(STAT_TGH, SKILL_LEVEL_ADEPT, STIM_TIME, "mindbreaker_w")
+	M.stats.addTempStat(SPECIAL_I, 2, STIM_TIME, "mindbreaker_w")
+	M.stats.addTempStat(SPECIAL_E, 2, STIM_TIME, "mindbreaker_w")
 	M.add_chemical_effect(CE_ANTITOX, 0.1)
-
-/datum/reagent/drug/psi_juice
-	name = "Cerebrix"
-	id = "psi_juice"
-	description = "A rare chemical originally developed by the Soteria, this quasi-stimulant enhances the mind of a psion and restores their psi essence. However its highly addictive and highly \
-	dangerous if overdosed. Useless to non-psions. Has a secondary effect when drank that causes the user to enhance their cognitive abilities."
-	taste_description = "ascension"
-	color = "#E700E7"
-	reagent_state = LIQUID
-	overdose = REAGENTS_OVERDOSE
-	metabolism = REM * 0.5
-	addiction_chance = 90
-	nerve_system_accumulations = 40
-	reagent_type = "Drug/Stimulator"
-
-/datum/reagent/drug/psi_juice/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/internal/psionic_tumor/C = H.random_organ_by_process(BP_PSION)
-	var/effective_dose = dose
-	if(effective_dose >= 5 && H.random_organ_by_process(BP_PSION)) //We require 5 or more
-		if(C.psi_points >= C.max_psi_points)
-			return
-		C.psi_points += 1
-		holder.remove_reagent("psi_juice", 5)
-
-/datum/reagent/drug/psi_juice/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
-	M.stats.addTempStat(SKILL_SCI, SKILL_LEVEL_BASIC, STIM_TIME, "psi_juice")
-
-/datum/reagent/drug/psi_juice/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_VIG, -SKILL_LEVEL_BASIC, STIM_TIME, "psi_juice_w")
-
-/datum/reagent/drug/psi_juice/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_side_effect("Headache", 11)
-	M.add_chemical_effect(CE_PULSE, 2)
-	M.adjustBrainLoss(0.5)
 
 /datum/reagent/drug/psilocybin
 	name = "Psilocybin"
@@ -291,17 +255,21 @@
 	..()
 	M.add_chemical_effect(CE_PULSE, 1) //If you inject it into your blood
 	M.add_chemical_effect(CE_PAINKILLER, 5)
+	/*
 	if(M.stats.getPerk(PERK_CHAINGUN_SMOKER))
 		M.add_chemical_effect(CE_ANTITOX, 5)
 		M.heal_organ_damage(0.1, 0.1)
 		M.add_chemical_effect(CE_ONCOCIDAL, 0.5)	// STALKER reference
+	*/
 
 /datum/reagent/drug/nicotine/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
+	/*
 	if(M.stats.getPerk(PERK_CHAINGUN_SMOKER))
 		M.add_chemical_effect(CE_ANTITOX, 5)
 		M.heal_organ_damage(0.1, 0.1)
+	*/
 
 /datum/reagent/drug/nicotine/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_side_effect("Headache", 11)
@@ -326,16 +294,20 @@
 	..()
 	M.add_chemical_effect(CE_PULSE, 1)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
+	/*
 	if(M.stats.getPerk(PERK_CHAINGUN_SMOKER))
 		M.add_chemical_effect(CE_ANTITOX, 10)
 		M.heal_organ_damage(0.2, 0.2)
+	*/
 
 /datum/reagent/drug/nicotineplus/affect_ingest(mob/living/carbon/M, alien, effect_multiplier) // If you smoke it normally...or drink it liquid
 	..()
 	M.add_chemical_effect(CE_PAINKILLER, 15)
+	/*
 	if(M.stats.getPerk(PERK_CHAINGUN_SMOKER))
 		M.add_chemical_effect(CE_ANTITOX, 10)
 		M.heal_organ_damage(0.2, 0.2)
+	*/
 
 /datum/reagent/drug/nicotineplus/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_side_effect("Headache", 11)
@@ -404,9 +376,9 @@
 		M.drip_blood(10)
 
 /datum/reagent/drug/sanguinum/withdrawal_act(mob/living/carbon/M)
-	M.stats.addTempStat(STAT_TGH, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
-	M.stats.addTempStat(SKILL_SCI, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
-	M.stats.addTempStat(STAT_ROB, -SKILL_LEVEL_BASIC, STIM_TIME, "sanguinum_w")
+	M.stats.addTempStat(SPECIAL_E, -1, STIM_TIME, "sanguinum_w")
+	M.stats.addTempStat(SPECIAL_I, -1, STIM_TIME, "sanguinum_w")
+	M.stats.addTempStat(SPECIAL_S, -1, STIM_TIME, "sanguinum_w")
 /*
 /datum/reagent/drug/sanguinum/overdose(var/mob/living/carbon/M, var/alien)
 	var/mob/living/carbon/human/H = M
@@ -443,4 +415,3 @@
 
 datum/reagent/drug/nosfernium/overdose(var/mob/living/carbon/human/M, var/alien)
 	M.adjustBrainLoss(5) // This is meant to be lethal. If you survive this give your doctor a pat on the back.
-*/
