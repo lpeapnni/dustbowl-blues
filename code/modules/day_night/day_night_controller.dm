@@ -42,7 +42,6 @@
 /datum/day_night_controller/proc/register_areas()
 	for(var/area/iterating_area as anything in get_areas(/area))
 		if(iterating_area.z != affected_z_level)
-			to_chat(world, "Epic! [iterating_area.name] [iterating_area.z] [affected_z_level]")
 			continue
 		if(iterating_area.underground)
 			continue
@@ -209,7 +208,6 @@
 	var/luminosity = light_alpha >= MINIMUM_ALPHA_FOR_LUMINOSITY
 	current_luminosity = luminosity
 	for(var/area/iterating_area as anything in area_cache)
-		to_chat(world, "SETTING LUMINOSITY [iterating_area.name] [iterating_area.luminosity] - > [luminosity]")
 		iterating_area.luminosity = luminosity
 
 /**
