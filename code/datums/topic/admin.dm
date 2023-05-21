@@ -797,6 +797,19 @@
 	log_admin("[key_name(usr)] forced [key_name(M)] to say: [speech]")
 	message_admins("\blue [key_name_admin(usr)] forced [key_name_admin(M)] to say: [speech]")
 
+/datum/admin_topic/levelup
+	keyword = "levelup"
+	require_perms = list(R_MOD|R_ADMIN)
+
+/datum/admin_topic/levelup/Run(list/input)
+	var/mob/living/carbon/human/H = locate(input["levelup"])
+	if(!ishuman(H))
+		to_chat(usr, "this can only be used on instances of type /mob/living/carbon/human")
+
+	H.sanity.level_up()
+	log_admin("[key_name(usr)] leveled [key_name(H)] up")
+	message_admins("\blue [key_name(usr)] leveled [key_name(H)] up")
+
 /datum/admin_topic/revive
 	keyword = "revive"
 	require_perms = list(R_FUN)

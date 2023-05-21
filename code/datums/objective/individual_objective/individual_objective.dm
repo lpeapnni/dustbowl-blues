@@ -63,7 +63,7 @@
 	update_faction_score()
 	to_chat(owner,  SPAN_NOTICE("You have completed the personal objective: [name]"))
 	H.sanity.give_insight(insight_reward)
-	H.sanity.finish_rest()
+	//H.sanity.finish_rest()
 
 /datum/individual_objective/proc/get_description()
 	var/n_desc = desc

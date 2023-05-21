@@ -50,6 +50,11 @@
 	var/max_level = 100
 	var/level_change = 0
 
+	var/player_level = 1 //Just so we know if we get perk picks. eventually we'll change this for level, but I can't be assed to do it right now
+	var/perk_points = 0
+	var/skill_points = 0
+	var/list/skill_additions_list = list() //for skill point allocating
+
 	var/insight
 	var/max_insight = INFINITY
 	var/insight_passive_gain_multiplier = 1.5
@@ -149,15 +154,11 @@
 	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier))
 	if(resting < max_resting && insight >= 100)
 		give_resting(1)
-		/*
-		if(owner.stats.getPerk(PERK_ARTIST))
-			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
-		else
-		*/
-		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+
+		to_chat(owner, SPAN_FOBLOCK("You are ready to gain a level.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
 		pick_desires()
 		insight -= 100
-		owner.playsound_local(get_turf(owner), 'sound/sanity/level_up.ogg', 100)
+		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
 	hud?.update_icon()
@@ -236,31 +237,13 @@
 			desire_names += desire
 	to_chat(owner, SPAN_NOTICE("You desire [english_list(desire_names)]."))
 
-/datum/sanity/proc/level_up()
-	var/skill_points_gained = 15 + (3 * SKILL_BOOSTS_PER_INT[owner.stats.getStat(SPECIAL_I, pure = TRUE)])
-	to_chat(owner, "<font color='purple'>You have gained [skill_points_gained] skill points.")
-	owner.skill_points += skill_points_gained
-
-	// owner.pick_individual_objective() //disabling this for now, seems kinda tacky to just do some random task and instantly level up
-	resting = 0
-
 /datum/sanity/proc/add_rest(type, amount)
 	if(!(type in desires))
 		amount /= 4
 	give_insight_rest(amount)
 	if(insight_rest >= 100)
 		insight_rest = 0
-		finish_rest()
-
-/datum/sanity/proc/finish_rest()
-	desires.Cut()
-	to_chat(owner, "<font color='purple'>You have leveled up.")
-	/*
-	if(owner.stats.getPerk(PERK_ARTIST))
-		resting = 0
-	*/
-	level_up()
-	owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
+		level_up()
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getSpecial(SPECIAL_P)))

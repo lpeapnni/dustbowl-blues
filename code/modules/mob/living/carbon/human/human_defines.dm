@@ -109,7 +109,6 @@
 
 
 	var/datum/sanity/sanity = null
-	var/skill_points = 0
 
 	var/shock_resist = 0 // Resistance to paincrit
 
@@ -122,7 +121,4 @@
 	var/momentum_dir = 0 // Direction of run-up
 	var/momentum_reduction_timer
 
-
 	var/added_movedelay = 0 //Used for humans only
-
-	var/list/skill_additions_list = list() // for skill point allocating, i really do not like this being here
