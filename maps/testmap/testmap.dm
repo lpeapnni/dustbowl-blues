@@ -12,3 +12,5 @@
 /area/testmap
 	ship_area = TRUE
 	icon_state = "erisyellow"
+	outdoors = TRUE
+	underground = FALSE

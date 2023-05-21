@@ -16,10 +16,14 @@
 
 	var/needs_update = FALSE
 
+	/// Area which gets linked to a lighting overlay to make it consider the luminosity from the day/night blending from the area. Yes this isn't ideal, but applying luminosity up to 2 (from both sources) on the turf is not ideal either
+	var/area/day_night_area
+
 
 /atom/movable/lighting_overlay/New(var/atom/loc, var/no_update = FALSE)
 	. = ..()
 	verbs.Cut()
+	day_night_area = null
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
 	T.lighting_overlay = src
@@ -85,4 +89,9 @@
 		ca.cache_r, ca.cache_g, ca.cache_b, 0,
 		0, 0, 0, 1
 	)
-	luminosity = max > LIGHTING_SOFT_THRESHOLD
+
+		// Respect daynight blending from an area for luminosity here, this is required as the luminosity can sometimes be overriden to 0 when it's day outside, and day trumps whatever is trying to set it to 0.
+	if(day_night_area?.luminosity)
+		luminosity = 1
+	else
+		luminosity = max > LIGHTING_SOFT_THRESHOLD
