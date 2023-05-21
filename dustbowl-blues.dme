@@ -2972,6 +2972,7 @@
 #include "code\modules\research\xenoarchaeology\tools\tools_coresampler.dm"
 #include "code\modules\research\xenoarchaeology\tools\tools_depthscanner.dm"
 #include "code\modules\research\xenoarchaeology\tools\tools_locater.dm"
+#include "code\modules\sanity\allocateskillpoints.dm"
 #include "code\modules\sanity\breakdown.dm"
 #include "code\modules\sanity\breakdowns.dm"
 #include "code\modules\sanity\inspiration_component.dm"

@@ -109,7 +109,7 @@
 
 
 	var/datum/sanity/sanity = null
-	var/rest_points = 0
+	var/skill_points = 0
 
 	var/shock_resist = 0 // Resistance to paincrit
 
@@ -124,3 +124,5 @@
 
 
 	var/added_movedelay = 0 //Used for humans only
+
+	var/list/skill_additions_list = list() // for skill point allocating, i really do not like this being here
