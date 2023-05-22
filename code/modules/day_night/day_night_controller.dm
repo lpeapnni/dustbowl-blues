@@ -14,8 +14,8 @@
 	var/list/area_cache = list()
 	/// A list of areas that are not affected directly, but still have turf adjacency
 	var/list/unaffected_area_cache = list()
-	/// The affected Z level - Ideally, we will eventually be using a more robust system for loaded planets and such.
-	var/affected_z_level
+	/// The affected Z levels - Ideally, we will eventually be using a more robust system for loaded planets and such.
+	var/list/affected_z_levels
 	/// Our current luminosity
 	var/current_luminosity = FALSE
 	/// Lookup table for the colors for each hour, 24 hour format starting at 0.
@@ -28,10 +28,10 @@
 	var/current_light_alpha
 
 
-/datum/day_night_controller/New(incoming_affected_z_level)
-	if(!incoming_affected_z_level)
+/datum/day_night_controller/New(incoming_affected_z_levels)
+	if(!incoming_affected_z_levels)
 		return
-	affected_z_level = incoming_affected_z_level
+	affected_z_levels = incoming_affected_z_levels
 	register_areas()
 	load_lightzones()
 	compile_transitions()
@@ -41,7 +41,7 @@
  */
 /datum/day_night_controller/proc/register_areas()
 	for(var/area/iterating_area as anything in get_areas(/area))
-		if(iterating_area.z != affected_z_level)
+		if(!(iterating_area.z in affected_z_levels))
 			continue
 		if(iterating_area.underground)
 			continue
@@ -111,7 +111,7 @@
 /datum/day_night_controller/proc/after_shuttle_move(area/area_to_check)
 	SIGNAL_HANDLER
 
-	if(area_to_check.z == affected_z_level)
+	if(area_to_check.z in affected_z_levels)
 		return
 
 	unregister_unaffected_area(area_to_check)

@@ -436,7 +436,10 @@ var/list/mob/living/forced_ambiance_list = new
 	LAZYCLEARLIST(adjacent_day_night_turf_cache)
 	LAZYINITLIST(adjacent_day_night_turf_cache)
 
-	for(var/turf/iterating_turf as anything in get_area_turfs())
+	to_chat(world,"START ADJACENT TURF CACHE")
+
+	for(var/turf/iterating_turf as anything in get_area_turfs(src.type))
+		to_chat(world,"TURF [iterating_turf.name]")
 		var/direction_bitfield = NONE
 		for(var/bit_step in ALL_JUNCTION_DIRECTIONS)
 			var/turf/target_turf
@@ -475,12 +478,16 @@ var/list/mob/living/forced_ambiance_list = new
 			direction_bitfield ^= bit_step
 
 		if(!direction_bitfield)
+			to_chat(world,"NO DIRECTION")
 			continue
+		to_chat(world,"HAS DIRECTION")
 		adjacent_day_night_turf_cache[iterating_turf] = list(DAY_NIGHT_TURF_INDEX_BITFIELD, DAY_NIGHT_TURF_INDEX_APPEARANCE)
 		adjacent_day_night_turf_cache[iterating_turf][DAY_NIGHT_TURF_INDEX_BITFIELD] = direction_bitfield
 		RegisterSignal(iterating_turf, COMSIG_PARENT_QDELETING, PROC_REF(clear_adjacent_turf))
 		if(iterating_turf.lighting_overlay)
+			to_chat(world,"HAS LIGHTING OVERLAY")
 			iterating_turf.lighting_overlay.day_night_area = src
+		to_chat(world,"NO LIGHTING OVERLAY")
 
 	UNSETEMPTY(adjacent_day_night_turf_cache)
 
@@ -541,7 +548,7 @@ var/list/mob/living/forced_ambiance_list = new
 /area/proc/update_day_night_turfs(initialize_turfs = FALSE, search_for_controller = FALSE, datum/day_night_controller/incoming_controller)
 	if(search_for_controller)
 		for(var/datum/day_night_controller/iterating_controller in SSday_night.cached_controllers)
-			if(iterating_controller.affected_z_level == z)
+			if(z in iterating_controller.affected_z_levels)
 				if(outdoors)
 					iterating_controller.register_affected_area(src)
 				else

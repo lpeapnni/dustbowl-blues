@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(day_night)
  * Loads the currently chosen day night controller from config, if there is one.
  */
 /datum/controller/subsystem/day_night/proc/load_day_night_controller()
-	add_controller(/datum/day_night_controller/icebox, 3)
+	add_controller(/datum/day_night_controller/icebox, list(3,4,5))
 
 /**
  * Adds and loads a controller into the subsystem for processing.
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(day_night)
  */
 /datum/controller/subsystem/day_night/proc/get_controller(z_level)
 	for(var/datum/day_night_controller/iterating_controller in cached_controllers)
-		if(iterating_controller.affected_z_level == z_level)
+		if(z_level in iterating_controller.affected_z_levels)
 			return iterating_controller
 
 /**

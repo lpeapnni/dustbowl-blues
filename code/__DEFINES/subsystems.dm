@@ -96,7 +96,7 @@
 #define INIT_ORDER_TICKER 15
 #define INIT_ORDER_SPAWN_DATA 14
 #define INIT_ORDER_MAPPING 13
-#define INIT_ORDER_DAY_NIGHT 12 // Networking and atoms require this as if the subsystem hasn't initialised, there will be no time to get, resulting in runtimes.
+//#define INIT_ORDER_DAY_NIGHT 12 // Networking and atoms require this as if the subsystem hasn't initialised, there will be no time to get, resulting in runtimes.
 #define INIT_ORDER_LANGUAGE 11
 #define INIT_ORDER_INVENTORY 10
 #define INIT_ORDER_CHAR_SETUP 9
@@ -118,6 +118,7 @@
 #define INIT_ORDER_TICKETS -10
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_SHUTTLE -21
+#define INIT_ORDER_DAY_NIGHT -22
 #define INIT_ORDER_SQUEAK -40
 #define INIT_ORDER_PATH -50
 #define INIT_ORDER_XENOARCH	-50

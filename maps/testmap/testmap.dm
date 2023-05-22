@@ -9,7 +9,13 @@
 	is_sealed = TRUE
 	height = 3
 
-/area/testmap
+/area/testmap_indoors
+	ship_area = TRUE
+	icon_state = "erisblue"
+	outdoors = FALSE
+	underground = FALSE
+
+/area/testmap_outdoors
 	ship_area = TRUE
 	icon_state = "erisyellow"
 	outdoors = TRUE
