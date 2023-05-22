@@ -18,7 +18,7 @@
 	var/static/list/exempt_from_apc = typesof(
 		/area/eris/engineering/construction,
 		/area/eris/medical/genetics,
-		/area/turbolift, /area/mine, /area/asteroid, /area/testmap)
+		/area/turbolift, /area/mine, /area/asteroid, /area/testmap_indoors, /area/testmap_outdoors)
 
 	for(var/area/A in GLOB.map_areas)
 		if((A.z in GLOB.maps_data.station_levels) && !(A.type in exempt_areas))
