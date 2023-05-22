@@ -358,37 +358,37 @@
 
 /datum/stat/special/strength
 	name = SPECIAL_S
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "Raw physical strength. A high Strength is good for physical characters."
 	special_desc = list("Wet Noodle","Beached Jellyfish","Doughy Baby","Lightweight","Average Joe","Barrel Chested","Beach Bully","Circus Strongman","Doomsday Pecs","Hercules' Bigger Cousin")
 
 /datum/stat/special/perception
 	name = SPECIAL_P
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "The ability to see, hear, taste and notice unusual things. A high Perception is important for a sharpshooter."
 	special_desc = list("Deaf Bat","Senile Mole","Squinting Newt","Unsuspecting Trout","Wary Trout","Alert Coyote","Big-Eyed Tiger","Monocled Falcon","Sniper Hawk","Eagle with Telescope")
 
 /datum/stat/special/endurance
 	name = SPECIAL_E
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "Stamina and physical toughness. A character with a high Endurance will survive where others may not."
 	special_desc = list("Basically Dead","Crumbly","Do Not Bend","Handle With Care","Stain-Resistant","Hardy","Tough-as-nails","Flame Retardant","Bullet Proof","Unstoppable")
 
 /datum/stat/special/charisma
 	name = SPECIAL_C
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "A combination of appearance and charm. A high Charisma is important for characters that want to influence people with words."
 	special_desc = list("Misanthrope","Old Hermit","Creepy Undertaker","Peevish Librarian","Substitute Teacher","Cheery Salesman","Diplomat","Movie Star","Casanova","Cult Leader")
 
 /datum/stat/special/intelligence
 	name = SPECIAL_I
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "Knowledge, wisdom and the ability to think quickly. A high Intelligence is important for any character."
 	special_desc = list("Sub-Brick","Vegetable","Cretin","Knuckle Head","Knowledgeable","Gifted","Smartypants","Know-It-All","Genius","Omniscient")
 
 /datum/stat/special/agility
 	name = SPECIAL_A
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "Coordination and the ability to move well. A high Agility is important for any active character."
 	special_desc = list("Walking Disaster","Accident Prone","Oaf","Butterfingers","Under Control","Catlike","Knife Thrower","Knife Catcher","Acrobatic Marvel","Walks on Water")
 
 /datum/stat/special/luck
 	name = SPECIAL_L
-	desc = "The world hadn't ever had so many moving parts or so few labels. Character's ability in building and using various tools."
+	desc = "Fate. Karma. An extremely high or low Luck will affect the character - somehow."
 	special_desc = list("13 Pitch-Black Cats","Broken Gypsy Mirror","Sickly Albatross","Spilled Salt","Coin Flip","Stacked Deck","Lucky 7","Leprechaun's Foot","21 Leaf Clover","Two-Headed Coin Flip")
 
 /datum/stat/special/proc/specialToLevel(var/points)
