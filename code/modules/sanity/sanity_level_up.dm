@@ -50,7 +50,7 @@
 
 	data += {"
 		[skill_data]
-		You've allocated [total_points_allocated]/[skill_points] skill points.<br>
+		<br>You've allocated [total_points_allocated]/[skill_points] skill points.<br>
 		<a href='?src=\ref[src];submit_skill_allocation=1'>Submit</a> <a href='?src=\ref[src];reset_skill_allocation=1'>Reset</a>
 	"}
 

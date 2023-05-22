@@ -9,13 +9,16 @@
 	. = ""
 	if(pref.selected_info_stat)
 		. += "<div class = 'roleDescription' style = 'height:150px; width:65%; margin-left:auto; margin-right:auto;'>"
-		. += "<table style='float:left;  table-layout: fixed;' cellpadding='0' cellspacing='0'>"
+		. += "<table style='float:left;table-layout: fixed;' cellpadding='0' cellspacing='0'>"
+		. += "<tr>"
 
 		// little preview image
-		. += "<tr><td style='width: 140px;overflow: hidden;display: inline-block; white-space: nowrap;'><img src='html/images/talisman.png'></td>"
+		user << browse_rsc(pref.selected_info_stat.image, "stat_image_[pref.selected_info_stat.name].png")
+		. += "<td style='width: 140px;overflow: hidden;display: inline-block;white-space: nowrap;'><img src='stat_image_[pref.selected_info_stat.name].png'></td>"
 
-		. += "<td style = 'width: 100%;'>"
-		. += "<h1 style='text-align: center; padding-top: 5px;padding-bottom: 0px;'>[pref.selected_info_stat.name]</h1>" // stat title
+		// stat description
+		. += "<td style = 'width: 100%;vertical-align: top;'>"
+		. += "<h1 style='text-align: center;padding-top: 5px;padding-bottom: 0px;'>[pref.selected_info_stat.name]</h1>" // stat title
 		. += "<hr>"
 		. += "[pref.selected_info_stat.desc]</td></tr></table>" // description
 		. += "</div>"

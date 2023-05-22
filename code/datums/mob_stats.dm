@@ -201,6 +201,7 @@
 	var/value = SKILL_VALUE_DEFAULT
 	var/list/mods = list()
 	var/linked_special //We use this SPECIAL stat as a multiplier
+	var/image = 'html/images/stats/unknown.png' // little image that shows up when selecting stats
 
 /datum/stat/proc/addModif(delay, affect, id)
 	for(var/elem in mods)
@@ -360,36 +361,43 @@
 	name = SPECIAL_S
 	desc = "Raw physical strength. A high Strength is good for physical characters."
 	special_desc = list("Wet Noodle","Beached Jellyfish","Doughy Baby","Lightweight","Average Joe","Barrel Chested","Beach Bully","Circus Strongman","Doomsday Pecs","Hercules' Bigger Cousin")
+	image = 'html/images/stats/special/strength.png'
 
 /datum/stat/special/perception
 	name = SPECIAL_P
 	desc = "The ability to see, hear, taste and notice unusual things. A high Perception is important for a sharpshooter."
 	special_desc = list("Deaf Bat","Senile Mole","Squinting Newt","Unsuspecting Trout","Wary Trout","Alert Coyote","Big-Eyed Tiger","Monocled Falcon","Sniper Hawk","Eagle with Telescope")
+	image = 'html/images/stats/special/perception.png'
 
 /datum/stat/special/endurance
 	name = SPECIAL_E
 	desc = "Stamina and physical toughness. A character with a high Endurance will survive where others may not."
 	special_desc = list("Basically Dead","Crumbly","Do Not Bend","Handle With Care","Stain-Resistant","Hardy","Tough-as-nails","Flame Retardant","Bullet Proof","Unstoppable")
+	image = 'html/images/stats/special/endurance.png'
 
 /datum/stat/special/charisma
 	name = SPECIAL_C
 	desc = "A combination of appearance and charm. A high Charisma is important for characters that want to influence people with words."
 	special_desc = list("Misanthrope","Old Hermit","Creepy Undertaker","Peevish Librarian","Substitute Teacher","Cheery Salesman","Diplomat","Movie Star","Casanova","Cult Leader")
+	image = 'html/images/stats/special/charisma.png'
 
 /datum/stat/special/intelligence
 	name = SPECIAL_I
 	desc = "Knowledge, wisdom and the ability to think quickly. A high Intelligence is important for any character."
 	special_desc = list("Sub-Brick","Vegetable","Cretin","Knuckle Head","Knowledgeable","Gifted","Smartypants","Know-It-All","Genius","Omniscient")
+	image = 'html/images/stats/special/intelligence.png'
 
 /datum/stat/special/agility
 	name = SPECIAL_A
 	desc = "Coordination and the ability to move well. A high Agility is important for any active character."
 	special_desc = list("Walking Disaster","Accident Prone","Oaf","Butterfingers","Under Control","Catlike","Knife Thrower","Knife Catcher","Acrobatic Marvel","Walks on Water")
+	image = 'html/images/stats/special/agility.png'
 
 /datum/stat/special/luck
 	name = SPECIAL_L
 	desc = "Fate. Karma. An extremely high or low Luck will affect the character - somehow."
 	special_desc = list("13 Pitch-Black Cats","Broken Gypsy Mirror","Sickly Albatross","Spilled Salt","Coin Flip","Stacked Deck","Lucky 7","Leprechaun's Foot","21 Leaf Clover","Two-Headed Coin Flip")
+	image = 'html/images/stats/special/luck.png'
 
 /datum/stat/special/proc/specialToLevel(var/points)
 	return special_desc[points]
