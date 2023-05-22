@@ -268,61 +268,73 @@
 	name = SKILL_ATH
 	desc = "Life is a constant race against time, with obstacles at every turn. Mastery of athletic skills grants the character unparalleled agility, speed, and endurance, allowing them to push their physical limits and navigate treacherous terrains with ease."
 	linked_special = SPECIAL_A
+	image = 'html/images/stats/skills/athletics.png'
 
 /datum/stat/lockpick
 	name = SKILL_LOC
 	desc = "Locks are like secrets, waiting to be unraveled. With nimble fingers and a keen eye for detail, you excel at manipulating mechanisms and opening doors to the unknown."
 	linked_special = SPECIAL_P
+	image = 'html/images/stats/skills/lockpicking.png'
 
 /datum/stat/medicine
 	name = SKILL_MED
 	desc = "Life hangs by a thread, and you possess the knowledge to weave it back together. Skilled in the art of healing, you mend wounds, alleviate suffering, and understand the intricacies of the human body."
 	linked_special = SPECIAL_I
+	image = 'html/images/stats/skills/medicine.png'
 
 /datum/stat/repair
 	name = SKILL_REP
 	desc = "Every piece has its place, and every broken thing yearns to be whole again. Aptitude in repairing and restoring a wide range of mechanical and technological devices, allowing you to mend, improve and create equipment and machinery."
 	linked_special = SPECIAL_I
+	image = 'html/images/stats/skills/repair.png'
 
 /datum/stat/science
 	name = SKILL_SCI
 	desc = "(Science)"
 	linked_special = SPECIAL_I
+	image = 'html/images/stats/skills/science.png'
 
 /datum/stat/survival
 	name = SKILL_SUR
 	desc = "In the wilderness, instincts guide your every move. You can read the signs of nature, find sustenance in the harshest environments, and adapt to any circumstance. Your expertise in survival skills keeps you alive against all odds."
 	linked_special = SPECIAL_E
+	image = 'html/images/stats/skills/survival.png'
 
 /datum/stat/big_guns
 	name = SKILL_BIG
 	desc = "Amidst the chaos, you emerge as the wielder of immense power. Your mastery of big guns grants you the ability to harness the fury of heavy weaponry. From heavy machineguns to flamethrowers and miniguns, you rain devastation upon your foes with unmatched precision and overwhelming firepower."
 	linked_special = SPECIAL_E
+	image = 'html/images/stats/skills/bigguns.png'
 
 /datum/stat/energy_guns
 	name = SKILL_ENE
 	desc = "Harness the power of the stars and wield beams of pure energy. With proficiency in energy guns, you become a force to be reckoned with, disintegrating targets and searing through armor with futuristic weapons."
 	linked_special = SPECIAL_P
+	image = 'html/images/stats/skills/energyguns.png'
 
 /datum/stat/explosives
 	name = SKILL_EXP
 	desc = "Embrace the controlled chaos of destruction. Skilled in explosives, you strategically deploy bombs, mines, and grenades, turning the tide of battle with devastating blasts and calculated explosions."
 	linked_special = SPECIAL_P
+	image = 'html/images/stats/skills/explosives.png'
 
 /datum/stat/melee_weapons
 	name = SKILL_MEL
 	desc = "When steel clashes and sweat fills the air, you stand firm as a master of close-quarters combat. Your proficiency in melee weapons grants deadly precision, strength, and agility, allowing you to carve through enemies with lethal strikes."
 	linked_special = SPECIAL_S
+	image = 'html/images/stats/skills/melee.png'
 
 /datum/stat/small_guns
 	name = SKILL_SMA
 	desc = "In the realm of quick-draw and sharp aim, you embody deadly accuracy. Proficient with pistols, rifles, and compact firearms, you unleash a storm of bullets, taking down enemies with calculated shots."
 	linked_special = SPECIAL_A
+	image = 'html/images/stats/skills/smallguns.png'
 
 /datum/stat/unarmed
 	name = SKILL_UNA
 	desc = "When all weapons are stripped away, you remain an unyielding force. Skilled in unarmed combat, you deliver bone-crushing punches, lightning-fast strikes, and devastating kicks. Utilize your body as the ultimate weapon and overpower opponents with sheer skill."
 	linked_special = SPECIAL_S
+	image = 'html/images/stats/skills/unarmed.png'
 
 // Use to perform stat checks
 /mob/proc/stat_check(stat_path, needed)
