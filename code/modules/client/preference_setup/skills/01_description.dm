@@ -1,5 +1,6 @@
 /datum/preferences
 	var/datum/stat/selected_info_stat = null
+	var/datum/stat/selected_info_perk = null
 
 /datum/category_item/player_setup_item/skills/description_box
 	name = "Descriptions"
@@ -13,7 +14,7 @@
 		. += "<tr>"
 
 		// little preview image
-		user << browse_rsc(pref.selected_info_stat.image, "stat_image_[pref.selected_info_stat.name].png")
+		user << browse_rsc(pref.selected_info_stat.img, "stat_image_[pref.selected_info_stat.name].png")
 		. += "<td style='width: 140px;overflow: hidden;display: inline-block;white-space: nowrap;'><img src='stat_image_[pref.selected_info_stat.name].png'></td>"
 
 		// stat description

@@ -1647,6 +1647,7 @@
 #include "code\modules\client\preference_setup\skills\01_description.dm"
 #include "code\modules\client\preference_setup\skills\02_special.dm"
 #include "code\modules\client\preference_setup\skills\03_skills.dm"
+#include "code\modules\client\preference_setup\skills\04_perks.dm"
 #include "code\modules\clothing\chameleon.dm"
 #include "code\modules\clothing\clothing.dm"
 #include "code\modules\clothing\clothing_accessories.dm"

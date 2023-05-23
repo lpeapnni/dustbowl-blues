@@ -227,7 +227,7 @@ var/global/list/hair_gradients_list = list(
 	paths = subtypesof(/datum/perk)
 	for(var/path in paths)
 		var/datum/perk/P = new path
-		GLOB.all_perks[path] = P
+		GLOB.all_perks[P.name] = P
 
 	//List of job department datums
 	paths = subtypesof(/datum/department)
