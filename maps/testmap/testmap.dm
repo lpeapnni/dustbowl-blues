@@ -20,3 +20,15 @@
 	icon_state = "erisyellow"
 	outdoors = TRUE
 	underground = FALSE
+
+/area/testmap_outdoors_up
+	ship_area = TRUE
+	icon_state = "erisyellow"
+	outdoors = TRUE
+	underground = FALSE
+
+/area/testmap_outdoors_very_up
+	ship_area = TRUE
+	icon_state = "erisyellow"
+	outdoors = TRUE
+	underground = FALSE

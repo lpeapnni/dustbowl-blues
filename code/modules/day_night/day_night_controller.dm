@@ -15,7 +15,7 @@
 	/// A list of areas that are not affected directly, but still have turf adjacency
 	var/list/unaffected_area_cache = list()
 	/// The affected Z levels - Ideally, we will eventually be using a more robust system for loaded planets and such.
-	var/list/affected_z_levels
+	var/list/affected_z_levels = list()
 	/// Our current luminosity
 	var/current_luminosity = FALSE
 	/// Lookup table for the colors for each hour, 24 hour format starting at 0.
@@ -179,7 +179,7 @@
 			icon = 'icons/effects/daynight_blend.dmi',
 			icon_state = "white",
 			layer = DAY_NIGHT_LIGHTING_LAYER,
-			plane = LIGHTING_PLANE,
+			plane = calculate_plane(iterating_area.z,LIGHTING_PLANE),
 			alpha = light_alpha,
 		)
 		updated_appearance.color = light_color

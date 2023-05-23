@@ -436,11 +436,10 @@ var/list/mob/living/forced_ambiance_list = new
 	LAZYCLEARLIST(adjacent_day_night_turf_cache)
 	LAZYINITLIST(adjacent_day_night_turf_cache)
 
-	to_chat(world,"START ADJACENT TURF CACHE")
-
 	for(var/turf/iterating_turf as anything in get_area_turfs(src.type))
-		to_chat(world,"TURF [iterating_turf.name]")
 		var/direction_bitfield = NONE
+		var/area/target_area = null
+
 		for(var/bit_step in ALL_JUNCTION_DIRECTIONS)
 			var/turf/target_turf
 			switch(bit_step)
@@ -470,24 +469,21 @@ var/list/mob/living/forced_ambiance_list = new
 					target_turf = locate(iterating_turf.x - 1, iterating_turf.y + 1, iterating_turf.z)
 			if(!target_turf)
 				continue
-			var/area/target_area = target_turf.loc
-			if(target_area == src)
+			var/area/temp_area = target_turf.loc
+			if(temp_area == src)
 				continue
-			if(!target_area.outdoors || target_area.underground)
+			if(!temp_area.outdoors || temp_area.underground)
 				continue
 			direction_bitfield ^= bit_step
+			target_area = temp_area
 
 		if(!direction_bitfield)
-			to_chat(world,"NO DIRECTION")
 			continue
-		to_chat(world,"HAS DIRECTION")
 		adjacent_day_night_turf_cache[iterating_turf] = list(DAY_NIGHT_TURF_INDEX_BITFIELD, DAY_NIGHT_TURF_INDEX_APPEARANCE)
 		adjacent_day_night_turf_cache[iterating_turf][DAY_NIGHT_TURF_INDEX_BITFIELD] = direction_bitfield
 		RegisterSignal(iterating_turf, COMSIG_PARENT_QDELETING, PROC_REF(clear_adjacent_turf))
 		if(iterating_turf.lighting_overlay)
-			to_chat(world,"HAS LIGHTING OVERLAY")
-			iterating_turf.lighting_overlay.day_night_area = src
-		to_chat(world,"NO LIGHTING OVERLAY")
+			iterating_turf.lighting_overlay.day_night_area = target_area
 
 	UNSETEMPTY(adjacent_day_night_turf_cache)
 
