@@ -5,11 +5,18 @@ datum/preferences
 	name = "Perks"
 	sort_order = 4
 
-/datum/category_item/player_setup_item/skills/skill_boosts/load_character(var/savefile/S)
-	from_file(S["perks"],pref.perks)
+/datum/category_item/player_setup_item/skills/perks/load_character(var/savefile/S)
+	pref.perks = list() // reset perks
+	var/list/saved_perks = list()
+	from_file(S["perks"], saved_perks)
+	for(var/perk_to_load in saved_perks)
+		pref.perks[perk_to_load] = GLOB.all_perks[perk_to_load]
 
-/datum/category_item/player_setup_item/skills/skill_boosts/save_character(var/savefile/S)
-	to_file(S["perks"],pref.perks)
+/datum/category_item/player_setup_item/skills/perks/save_character(var/savefile/S)
+	var/list/saved_perks = list()
+	for(var/saveperk in pref.perks)
+		saved_perks.Add(saveperk)
+	to_file(S["perks"], saved_perks)
 
 /datum/category_item/player_setup_item/skills/perks/sanitize_character()
 	if(!islist(pref.perks)) pref.perks = list()

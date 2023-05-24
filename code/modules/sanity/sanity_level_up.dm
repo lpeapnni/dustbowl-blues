@@ -114,7 +114,6 @@
 		var/list/owned_perks = list()
 
 		for(var/datum/perk/current_perk in owner.stats.perks)
-			to_chat(owner, "[current_perk.name]: [current_perk] of type [current_perk.type]")
 			owned_perks[current_perk.name] = current_perk.type
 
 		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks - (perk_additions_list + owned_perks)
