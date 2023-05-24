@@ -5,7 +5,15 @@ datum/preferences
 	name = "Perks"
 	sort_order = 4
 
+/datum/category_item/player_setup_item/skills/skill_boosts/load_character(var/savefile/S)
+	from_file(S["perks"],pref.perks)
+
+/datum/category_item/player_setup_item/skills/skill_boosts/save_character(var/savefile/S)
+	to_file(S["perks"],pref.perks)
+
 /datum/category_item/player_setup_item/skills/perks/sanitize_character()
+	if(!islist(pref.perks)) pref.perks = list()
+
 	if(pref.perks.len > 2)
 		pref.perks = list() // completely reset the perk list
 
@@ -26,9 +34,10 @@ datum/preferences
 
 /datum/category_item/player_setup_item/skills/perks/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["perk_add"])
-		var/new_perk = input(user, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks - pref.perks
-		if(new_perk && CanUseTopic(user))
-			pref.perks[new_perk] = GLOB.all_perks[new_perk]
+		// in the future we need to make a new global list of perks we want the player to be able to select
+		var/datum/perk/perkname = input(user, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks
+		if(perkname && CanUseTopic(user))
+			pref.perks[perkname] = GLOB.all_perks[perkname]
 		return TOPIC_REFRESH
 	else if(href_list["perk"])
 		if(CanUseTopic(user))

@@ -54,6 +54,7 @@
 	var/perk_points = 0
 	var/skill_points = 0
 	var/list/skill_additions_list = list() //for skill point allocating
+	var/list/perk_additions_list = list()
 
 	var/insight
 	var/max_insight = INFINITY
