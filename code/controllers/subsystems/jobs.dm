@@ -428,12 +428,9 @@ SUBSYSTEM_DEF(job)
 		H.stats.changeStat(SKILL_UNA, 15 * H.client.prefs.BOOST_UNA)
 
 		// add character perks
-		for(var/datum/perk/newperk in H.client.prefs.perks)
-			// H.stats.addPerk(perk) // this proc is a fucking piece of shit
-			// "UHGHGHhhghrhrHH You need to pass uhhghhhhh a path huhghgggggg My brain all fucked up from the lobotomy and hhmmmhgghhh"
-			H.stats.perks += newperk
-			newperk.assign(H)
-			H.stats.perk_stats += newperk.statclick
+		for(var/newperk in H.client.prefs.perks)
+			var/datum/perk/perk_to_add = H.client.prefs.perks[newperk] // can byond just be normal about arrays?
+			H.stats.addPerk(perk_to_add.type)
 
 		H.give_health_via_stats()
 		// This could be cleaner and better, however it should apply your stats once on spawn properly if here. If anyone wants to do this in a cleaner manner be my guest.

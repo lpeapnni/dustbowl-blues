@@ -111,9 +111,15 @@
 
 	// perk allocation
 	else if(href_list["perk_add"])
-		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks
-		if(perkname && CanUseTopic(owner))
-			perk_additions_list.Add(GLOB.all_perks[perkname])
+		var/list/owned_perks = list()
+
+		for(var/datum/perk/current_perk in owner.stats.perks)
+			to_chat(owner, "[current_perk.name]: [current_perk] of type [current_perk.type]")
+			owned_perks[current_perk.name] = current_perk.type
+
+		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks - (perk_additions_list + owned_perks)
+		if(perkname && CanUseTopic(owner) && !(locate(GLOB.all_perks[perkname]) in perk_additions_list))
+			perk_additions_list[perkname] = GLOB.all_perks[perkname]
 		allocate_skill_point_draw()
 		return 1
 
@@ -158,10 +164,9 @@
 			for(var/TS in ALL_SKILLS)
 				owner.stats.changeStat_withcap(TS, skill_additions_list[TS])
 
-			for(var/datum/perk/newperk in perk_additions_list)
-				owner.stats.perks += newperk
-				newperk.assign(owner)
-				owner.stats.perk_stats += newperk.statclick
+			for(var/newperk in perk_additions_list)
+				var/datum/perk/perk_to_add = perk_additions_list[newperk] // can byond just be normal about arrays?
+				owner.stats.addPerk(perk_to_add.type)
 
 			skill_points -= total_points_allocated // remove points spent
 			perk_points -= perk_additions_list.len

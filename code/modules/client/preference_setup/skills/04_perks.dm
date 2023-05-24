@@ -35,9 +35,9 @@ datum/preferences
 /datum/category_item/player_setup_item/skills/perks/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["perk_add"])
 		// in the future we need to make a new global list of perks we want the player to be able to select
-		var/datum/perk/perkname = input(user, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks
+		var/datum/perk/perkname = input(user, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks - pref.perks
 		if(perkname && CanUseTopic(user))
-			pref.perks.Add(GLOB.all_perks[perkname])
+			pref.perks[perkname] = GLOB.all_perks[perkname]
 		return TOPIC_REFRESH
 	else if(href_list["perk"])
 		if(CanUseTopic(user))
