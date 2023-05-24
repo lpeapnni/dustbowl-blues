@@ -155,7 +155,7 @@ What is the naming convention for planes or layers?
 #define BYOND_LIGHTING_LAYER 17
 
 ///Area appearances for the day night lighting effect
-#define DAY_NIGHT_LIGHTING_LAYER 80
+#define DAY_NIGHT_LIGHTING_LAYER 100
 
 //HUD layer defines
 

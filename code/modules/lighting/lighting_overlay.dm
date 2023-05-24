@@ -35,7 +35,7 @@
 
 	needs_update = TRUE
 	global.lighting_update_overlays += src;
-	//update_overlay()
+	update_overlay()
 
 
 /datum/lighting_overlay/Destroy()

@@ -60,6 +60,7 @@
 	if(area_to_register in area_cache)
 		return FALSE
 	area_cache += area_to_register
+	area_to_register.initialize_open_turfs_above()
 	RegisterSignal(area_to_register, COMSIG_PARENT_QDELETING, PROC_REF(unregister_affected_area))
 	return TRUE
 
@@ -198,6 +199,7 @@
 /datum/day_night_controller/proc/apply_effect_to_areas()
 	for(var/area/iterating_area as anything in area_cache)
 		iterating_area.underlays += area_cache[iterating_area]
+		iterating_area.update_open_turf_underlays()
 
 /**
  * Intelligently sets the luminosity of our areas providing the light alpha is above the minimum amount of light.

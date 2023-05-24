@@ -33,6 +33,9 @@
 	/// A normally empty cache used to store turf adjacencies for day/night lighting effects.
 	var/list/adjacent_day_night_turf_cache
 
+	/// This caches the openspace turfs above this area that get updated whenever the day/night lighting changes
+	var/list/open_over_area_day_night
+
 /**
  * Called when an area loads
  */
@@ -555,3 +558,27 @@ var/list/mob/living/forced_ambiance_list = new
 		initialize_day_night_adjacent_turfs()
 	if(incoming_controller)
 		apply_day_night_turfs(incoming_controller)
+
+/*
+* Used to add the open turfs above an outdoors area to a cache, so they can be updated with the area's underlay whenever it gets updated.
+*
+* I know. If you're understandably angry and just disgusted at this code, it's alright. I don't know any better.
+* This is a call for help. Please, PLEASE, if you know a better way to do this, let me know, because I was out of ideas. - Lyro
+*/
+
+/area/proc/initialize_open_turfs_above()
+	LAZYCLEARLIST(open_over_area_day_night)
+	LAZYINITLIST(open_over_area_day_night)
+
+	var/turf/above = null
+
+	for(var/turf/iterating_turf as anything in get_area_turfs(src.type))
+		above = GetAbove(iterating_turf)
+		if(above && istype(above,/turf/simulated/open))
+			open_over_area_day_night += above
+
+	UNSETEMPTY(open_over_area_day_night)
+
+/area/proc/update_open_turf_underlays()
+	for(var/turf/iterating_turf in open_over_area_day_night)
+		iterating_turf.underlays = underlays
