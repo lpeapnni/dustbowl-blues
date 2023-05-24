@@ -37,7 +37,7 @@ datum/preferences
 		// in the future we need to make a new global list of perks we want the player to be able to select
 		var/datum/perk/perkname = input(user, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks
 		if(perkname && CanUseTopic(user))
-			pref.perks[perkname] = GLOB.all_perks[perkname]
+			pref.perks.Add(GLOB.all_perks[perkname])
 		return TOPIC_REFRESH
 	else if(href_list["perk"])
 		if(CanUseTopic(user))
