@@ -112,11 +112,18 @@
 	// perk allocation
 	else if(href_list["perk_add"])
 		var/list/owned_perks = list()
+		var/list/character_selectable_perks = list()
 
 		for(var/datum/perk/current_perk in owner.stats.perks)
 			owned_perks[current_perk.name] = current_perk.type
 
-		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in GLOB.all_perks - (perk_additions_list + owned_perks)
+		for(var/selectable_perkname in GLOB.selectable_perks)
+			var/datum/perk/level/selectable_perk = GLOB.selectable_perks[selectable_perkname]
+			if(selectable_perk.check_requirements(owner))
+				character_selectable_perks[selectable_perkname] = GLOB.selectable_perks[selectable_perkname]
+
+
+		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in character_selectable_perks - (perk_additions_list + owned_perks)
 		if(perkname && CanUseTopic(owner) && !(locate(GLOB.all_perks[perkname]) in perk_additions_list))
 			perk_additions_list[perkname] = GLOB.all_perks[perkname]
 		allocate_skill_point_draw()

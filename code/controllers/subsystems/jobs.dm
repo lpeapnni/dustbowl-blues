@@ -429,8 +429,11 @@ SUBSYSTEM_DEF(job)
 
 		// add character perks
 		for(var/newperk in H.client.prefs.perks)
-			var/datum/perk/perk_to_add = H.client.prefs.perks[newperk] // can byond just be normal about arrays?
-			H.stats.addPerk(perk_to_add.type)
+			var/datum/perk/level/perk_to_add = H.client.prefs.perks[newperk] // can byond just be normal about arrays?
+			if(perk_to_add.check_requirements(H))
+				H.stats.addPerk(perk_to_add.type)
+			else
+				H.sanity.perk_points++
 
 		H.give_health_via_stats()
 		// This could be cleaner and better, however it should apply your stats once on spawn properly if here. If anyone wants to do this in a cleaner manner be my guest.

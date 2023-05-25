@@ -230,6 +230,13 @@ var/global/list/hair_gradients_list = list(
 	for(var/path in paths)
 		var/datum/perk/P = new path
 		GLOB.all_perks[P.name] = P
+		if(istype(P, /datum/perk/level))
+			if(P.name == "Perk") // SUBTYPESOF() STILL RETURNS THE PARENT PERK, FUCKING WHY
+				continue
+			var/datum/perk/level/level_perk = P
+			GLOB.selectable_perks[level_perk.name] = level_perk
+			if(level_perk.req_level == 1)
+				GLOB.level_one_perks[level_perk.name] = level_perk
 
 	//List of job department datums
 	paths = subtypesof(/datum/department)
