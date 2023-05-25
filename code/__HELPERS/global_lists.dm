@@ -88,6 +88,8 @@ GLOBAL_LIST_EMPTY(all_stash_datums)
 
 //PERKS
 GLOBAL_LIST_EMPTY(all_perks)
+GLOBAL_LIST_EMPTY(level_one_perks) // For character creation
+GLOBAL_LIST_EMPTY(selectable_perks)
 
 //individual_objectives
 GLOBAL_LIST_EMPTY(all_faction_items)
