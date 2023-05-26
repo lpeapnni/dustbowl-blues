@@ -159,7 +159,7 @@
 			to_chat(owner, SPAN_WARNING("You've allocated more than [skill_points] skill points!"))
 			return 1
 		if(perk_additions_list.len > perk_points)
-			to_chat(owner, SPAN_WARNING("You've chosed more than [perk_points] perks to add!"))
+			to_chat(owner, SPAN_WARNING("You've chosen more than [perk_points] perks to add!"))
 			return 1
 		// the player should be able to not use perk points incase they dont actually wanna do anything with them
 

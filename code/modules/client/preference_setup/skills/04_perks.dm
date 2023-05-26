@@ -34,7 +34,7 @@ datum/preferences
 	else
 		. += "<span class='linkOff'>Add Perk</span><br>"
 	for(counter = pref.perks.len, counter >= 1, counter--)
-		// . += "<a href='?src=\ref[src];perk_info=[counter]'>\[?\]</a><br>"
+		. += "<a href='?src=\ref[src];perk_info=[counter]'>\[?\]</a>"
 		. += "<a href='?src=\ref[src];perk=[counter]'>[pref.perks[counter]]</a><br>"
 
 	. += "<br>You have selected [pref.perks.len] / 2 perks."
@@ -45,9 +45,18 @@ datum/preferences
 		if(perkname && CanUseTopic(user))
 			pref.perks[perkname] = GLOB.all_perks[perkname]
 		return TOPIC_REFRESH
+
 	else if(href_list["perk"])
 		if(CanUseTopic(user))
 			var/pos = text2num(href_list["perk"])
 			if(pos > 0 && pos <= pref.perks.len)
 				pref.perks.Remove(pref.perks[pos])
+		return TOPIC_REFRESH
+
+	else if(href_list["perk_info"])
+		if(CanUseTopic(user))
+			pref.selected_info_stat = null
+			var/pos = text2num(href_list["perk_info"])
+			if(pos > 0 && pos <= pref.perks.len)
+				pref.selected_info_perk = GLOB.all_perks[pref.perks[pos]]
 		return TOPIC_REFRESH

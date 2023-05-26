@@ -102,6 +102,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["skill_info"])
+		pref.selected_info_perk = null
 		switch(href_list["skill_info"])
 			if("ATH")
 				pref.selected_info_stat = new /datum/stat/athletics
