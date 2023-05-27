@@ -427,12 +427,13 @@ SUBSYSTEM_DEF(job)
 		H.stats.changeStat(SKILL_SMA, 15 * H.client.prefs.BOOST_SMA)
 		H.stats.changeStat(SKILL_UNA, 15 * H.client.prefs.BOOST_UNA)
 
-		// add character perks
-		for(var/newperk in H.client.prefs.perks)
-			var/datum/perk/level/perk_to_add = H.client.prefs.perks[newperk] // can byond just be normal about arrays?
+		// add character perk
+		if(H.client.prefs.perk)
+			var/datum/perk/level/perk_to_add = GLOB.level_one_perks[H.client.prefs.perk] // can byond just be normal about arrays?
 			if(perk_to_add.check_requirements(H))
 				H.stats.addPerk(perk_to_add.type)
 			else
+				to_chat(H,SPAN_WARNING("You didn't meet the requirements for the [perk_to_add.name] perk. You have been reimbursed with one perk point."))
 				H.sanity.perk_points++
 
 		H.give_health_via_stats()

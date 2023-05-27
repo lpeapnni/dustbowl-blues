@@ -5,7 +5,7 @@
 	var/list/req_stats = list()
 	/// List of required perks to get this perk.
 	var/list/req_perks = list()
-	/// Image that shows up when selecting perks in the character pref menu. Only needs to be assigned for perks with a required level of 1.
+	/// Image that shows up when selecting perks.
 	var/img = 'html/images/stats/unknown.png'
 
 /datum/perk/level/proc/check_requirements(var/mob/living/carbon/human/H)
