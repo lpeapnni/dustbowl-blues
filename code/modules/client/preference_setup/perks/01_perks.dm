@@ -10,6 +10,7 @@ datum/preferences
 /datum/category_item/player_setup_item/perks/load_character(var/savefile/S)
 	from_file(S["perk"], pref.perk)
 	chosen_perk = pref.perk
+	perk_info_selected = chosen_perk
 
 /datum/category_item/player_setup_item/perks/save_character(var/savefile/S)
 	to_file(S["perk"], chosen_perk)
@@ -19,7 +20,9 @@ datum/preferences
 
 /datum/category_item/player_setup_item/perks/proc/generate_perk_html(var/datum/perk/level/P)
 	var/extra_style = ""
-	if(chosen_perk && P.name == chosen_perk)
+	if(P.name == perk_info_selected)
+		extra_style = ";background-color: darkcyan;"
+	if(P.name == chosen_perk)
 		extra_style = ";background-color: green;"
 	//this is where the check will go for seeing if we qualify for the perk
 	//if(blahblah)
@@ -36,21 +39,20 @@ datum/preferences
 	dat +=  "<script language='javascript'> [js_byjax] function set(param, value) {window.location='?src=\ref[src];'+param+'='+value;}</script>"
 	dat += "<table style='max-height:400px;height:410px; margin-left:250px; margin-right:250px'>"
 	dat += "<tr style='vertical-align:top'>"
-	if(pref.modifications_allowed())
-		dat += "<td><div style='max-width:230px;width:230px;height:100%;overflow-y:auto;border-right:1px solid;padding:3px'>"
-		for(var/datum/perk/level/P as null|anything in GLOB.level_one_perks)
-			dat += generate_perk_html(GLOB.level_one_perks[P])
-		dat += "</div></td>"
+	dat += "<td><div style='max-width:230px;width:230px;height:100%;overflow-y:auto;border-right:1px solid;padding:3px'>"
+	for(var/datum/perk/level/P as null|anything in GLOB.level_one_perks)
+		dat += generate_perk_html(GLOB.level_one_perks[P])
+	dat += "</div></td>"
 	dat += "<td style='margin-left:10px;width-max:400px;width:400px;'>"
 	dat +="<div class = 'roleDescription' style = 'height:400px; width:400px; margin-left:auto; margin-right:auto;'>"
 	dat += "<table style='float:left;table-layout: fixed;' cellpadding='0' cellspacing='0'>"
 	dat += "<tr>"
 
-	if(chosen_perk)
-		var/datum/perk/level/perk_for_info = GLOB.level_one_perks[chosen_perk]
+	if(perk_info_selected)
+		var/datum/perk/level/perk_for_info = GLOB.level_one_perks[perk_info_selected]
 		// little preview image
-		user << browse_rsc(perk_for_info.img, "perk_image_[chosen_perk].png")
-		dat += "<td style='width: 400px;overflow: hidden;display: inline-block;white-space: nowrap; text-align:center;'><img src='perk_image_[chosen_perk].png'></td>"
+		user << browse_rsc(perk_for_info.img, "perk_image_[perk_info_selected].png")
+		dat += "<td style='width: 400px;overflow: hidden;display: inline-block;white-space: nowrap; text-align:center;'><img src='perk_image_[perk_info_selected].png'></td>"
 
 		// stat description
 		dat += "<tr>"
@@ -58,11 +60,18 @@ datum/preferences
 		dat += "<h1 style='text-align: center;padding-top: 5px;padding-bottom: 0px; width: 400px;'>[perk_for_info.name]</h1>" // stat title
 		dat += "<hr>"
 		dat += "[perk_for_info.desc]</td></tr>" // description
-		if(perk_for_info.req_stats)
+		if(perk_for_info.req_stats || perk_for_info.req_level > 1)
 			dat += "<tr><td><hr><b>Requirements:</b><br>"
+			if(perk_for_info.req_level > 1)
+				dat += "Level [perk_for_info.req_level]<br>"
 			for(var/i in perk_for_info.req_stats)
 				dat += "[i] [perk_for_info.req_stats[i]] "
 			dat += "</td></tr>"
+		dat += "<tr><td><br><center>"
+		if(chosen_perk == perk_info_selected)
+			dat += "<a class='linkOn' style='width:100px;' href='?src=\ref[src];choose_perk=[perk_info_selected];'>Selected</a></center>"
+		else
+			dat += "<a style='width:100px;' href='?src=\ref[src];choose_perk=[perk_info_selected];'>Select</a></center>"
 		dat += "</table>"
 
 	dat += "</div></td></tr></tr></table>"
@@ -73,6 +82,8 @@ datum/preferences
 	pref.categoriesChanged = "Perks"
 
 	if(href_list["selected_perk"])
-		chosen_perk = href_list["selected_perk"]
 		perk_info_selected = href_list["selected_perk"]
+		return TOPIC_REFRESH
+	if(href_list["choose_perk"])
+		chosen_perk = href_list["choose_perk"]
 		return TOPIC_REFRESH

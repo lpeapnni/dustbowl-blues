@@ -24,7 +24,7 @@
 	set src = usr
 
 	if(!(src.sanity.skill_points || src.sanity.perk_points))
-		to_chat(src, SPAN_NOTICE("You don't have any skill points!"))
+		to_chat(src, SPAN_NOTICE("You don't have any skill or perk points!"))
 		return
 	else
 		src.sanity.skill_point_window()
@@ -33,46 +33,93 @@
 	for(var/TS in ALL_SKILLS)
 		skill_additions_list[TS] = 0
 	perk_additions_list = list()
+	current_category = skill_points > 0 ? "skills" : "perks"
+	perk_info_selected = null
 
 	allocate_skill_point_draw()
 
+/datum/sanity/proc/generate_perk_html(var/datum/perk/level/P)
+	if(!perk_info_selected) //We select the first perk by default
+		perk_info_selected = P.name
+	var/extra_style = ""
+	if(P.name == perk_info_selected)
+		extra_style = ";background-color: darkcyan;"
+	if(P.name in perk_additions_list)
+		extra_style = ";background-color: green;"
+	if(!P.check_requirements(owner))
+		extra_style = ";background-color: gray;"
+	return "<div style = 'padding:2px[extra_style]' onclick=\"set('selected_perk', '[P.name]');\" class='block'><b>[P.name]</b></div>"
+
 // for drawing the window
 /datum/sanity/proc/allocate_skill_point_draw()
-	var/data = {"
+	var/data = ""
+	var/skill_data = {"
 		Your skills:<br>
 	"}
 
-	var/skill_data
 	var/total_points_allocated = 0
-	var/perk_data
 
 	for(var/TS in ALL_SKILLS)
 		skill_data += "[TS]:  [owner.getStatStats(TS)] + <a href='?src=\ref[src];skill_allocation=[TS]'>[skill_additions_list[TS]]</a><br>"
 		total_points_allocated += skill_additions_list[TS]
 
-	// add perk button
-	if(perk_additions_list.len < perk_points)
-		perk_data += "<a href='?src=\ref[src];perk_add=1'>Add Perk</a><br>"
-	else
-		perk_data += "<span class='linkOff'>Add Perk</span><br>"
+	data += "<center><a [current_category == "skills" ? "class='linkOff'" : ""] href='?src=\ref[src];category=skills'>Skills ([skill_points - total_points_allocated] left)</a>"
+	data += "<a [current_category == "perks" ? "class='linkOff'" : ""] href='?src=\ref[src];category=perks'>Perks ([perk_points - perk_additions_list.len] left)</a></center><hr>"
 
-	// list players current perks
-	for(var/datum/perk/owned_perk in owner.stats.perks)
-		perk_data += "<span class='linkOff'>[owned_perk]</span><br>"
+	if(current_category == "skills")
+		data += "[skill_data]"
+		data += "<br>You've allocated [total_points_allocated] / [skill_points] skill points."
+	if(current_category == "perks")
+		data += "<style>div.block{margin: 3px 0px;padding: 4px 0px;}"
+		data += "span.color_holder_box{display: inline-block; width: 20px; height: 8px; border:1px solid #000; padding: 0px;}</style>"
 
-	// list selected perks
-	for(var/counter = perk_additions_list.len, counter >= 1, counter--)
-		perk_data += "<a href='?src=\ref[src];perk=[counter]'>[perk_additions_list[counter]]</a><br>"
+		data +=  "<script language='javascript'> [js_byjax] function set(param, value) {window.location='?src=\ref[src];'+param+'='+value;}</script>"
+		data += "<table style='max-height:400px;height:410px;'>"
+		data += "<tr style='vertical-align:top'>"
+		data += "<td><div style='max-width:230px;width:230px;height:100%;overflow-y:auto;border-right:1px solid;padding:3px'>"
+		for(var/P as null|anything in GLOB.selectable_perks)
+			if((locate(GLOB.selectable_perks[P]) in owner.stats.perks))
+				continue
+			data += generate_perk_html(GLOB.selectable_perks[P])
+		data += "</div></td>"
+		data += "<td style='margin-left:10px;width-max:400px;width:400px;'>"
+		data +="<div class = 'roleDescription' style = 'height:400px; width:400px; margin-left:auto; margin-right:auto;'>"
+		data += "<table style='float:left;table-layout: fixed;' cellpadding='0' cellspacing='0'>"
+		data += "<tr>"
 
-	data += {"
-		[skill_data]
-		<br>You've allocated [total_points_allocated] / [skill_points] skill points.<hr>
-		[perk_data]
-		<br>You've chosen [perk_additions_list.len] / [perk_points] new perks.<hr>
-		<a href='?src=\ref[src];submit_skill_allocation=1'>Submit</a> <a href='?src=\ref[src];reset_skill_allocation=1'>Reset</a>
-	"}
+		if(perk_info_selected)
+			var/datum/perk/level/perk_for_info = GLOB.selectable_perks[perk_info_selected]
+			// little preview image
+			owner << browse_rsc(perk_for_info.img, "perk_image_[perk_info_selected].png")
+			data += "<td style='width: 400px;overflow: hidden;display: inline-block;white-space: nowrap; text-align:center;'><img src='perk_image_[perk_info_selected].png'></td>"
 
-	var/datum/browser/B = new(owner, "SkillPointBrowser","Allocate skill points", 500, 600)
+			// stat description
+			data += "<tr>"
+			data += "<td style = 'width: 400px;vertical-align: top;'>"
+			data += "<h1 style='text-align: center;padding-top: 5px;padding-bottom: 0px; width: 400px;'>[perk_for_info.name]</h1>" // stat title
+			data += "<hr>"
+			data += "[perk_for_info.desc]</td></tr>" // description
+			if(perk_for_info.req_stats || perk_for_info.req_level > 1)
+				data += "<tr><td><hr><b>Requirements:</b><br>"
+				if(perk_for_info.req_level > 1)
+					data += "Level [perk_for_info.req_level]<br>"
+				for(var/i in perk_for_info.req_stats)
+					data += "[i] [perk_for_info.req_stats[i]] "
+				data += "</td></tr>"
+			data += "<tr><td><br><center>"
+			if(!perk_for_info.check_requirements(owner))
+				data += "<a class='linkOff' style='width:100px;' href='?src=\ref[src];'>You don't meet the requirements for this perk</a></center>"
+			else if(perk_for_info.name in perk_additions_list)
+				data += "<a class='linkOn' style='width:100px;' href='?src=\ref[src];unselect_perk=[perk_info_selected];'>Unselect</a></center>"
+			else
+				data += "<a style='width:100px;' href='?src=\ref[src];choose_perk=[perk_info_selected];'>Select</a></center>"
+			data += "</table>"
+
+		data += "</div></td></tr></tr></table>"
+
+	data += "<a href='?src=\ref[src];submit_skill_allocation=1'>Submit</a> <a href='?src=\ref[src];reset_skill_allocation=1'>Reset</a>"
+
+	var/datum/browser/B = new(owner, "SkillPointBrowser","Level Up", 800, 600)
 	B.set_content(data)
 	B.set_window_options("can_minimize=0")
 	B.open()
@@ -80,6 +127,14 @@
 // for interacting with the window
 /datum/sanity/Topic(href, href_list)
 	// skill point allocation
+	if(href_list["category"])
+		current_category = href_list["category"]
+		allocate_skill_point_draw()
+		return 1
+	if(href_list["selected_perk"])
+		perk_info_selected = href_list["selected_perk"]
+		allocate_skill_point_draw()
+		return 1
 	if(href_list["skill_allocation"])
 		var/new_s = 0
 		var/total_points_allocated = 0
@@ -110,30 +165,19 @@
 		return 1
 
 	// perk allocation
-	else if(href_list["perk_add"])
-		var/list/owned_perks = list()
-		var/list/character_selectable_perks = list()
-
-		for(var/datum/perk/current_perk in owner.stats.perks)
-			owned_perks[current_perk.name] = current_perk.type
-
-		for(var/selectable_perkname in GLOB.selectable_perks)
-			var/datum/perk/level/selectable_perk = GLOB.selectable_perks[selectable_perkname]
-			if(selectable_perk.check_requirements(owner))
-				character_selectable_perks[selectable_perkname] = GLOB.selectable_perks[selectable_perkname]
-
-
-		var/datum/perk/perkname = input(owner, "Choose a perk to add:", CHARACTER_PREFERENCE_INPUT_TITLE, null) as null|anything in character_selectable_perks - (perk_additions_list + owned_perks)
-		if(perkname && CanUseTopic(owner) && !(locate(GLOB.all_perks[perkname]) in perk_additions_list))
-			perk_additions_list[perkname] = GLOB.all_perks[perkname]
+	else if(href_list["choose_perk"])
+		if(perk_points - perk_additions_list.len <= 0)
+			to_chat(owner, SPAN_WARNING("You can't select more perks!"))
+		else
+			var/perkname = href_list["choose_perk"]
+			if(CanUseTopic(owner) && !(locate(GLOB.selectable_perks[perkname]) in perk_additions_list))
+				perk_additions_list[perkname] = GLOB.selectable_perks[perkname]
 		allocate_skill_point_draw()
 		return 1
 
-	else if(href_list["perk"])
+	else if(href_list["unselect_perk"])
 		if(CanUseTopic(owner))
-			var/pos = text2num(href_list["perk"])
-			if(pos > 0 && pos <= perk_additions_list.len)
-				perk_additions_list.Remove(perk_additions_list[pos])
+			perk_additions_list.Remove(href_list["unselect_perk"])
 		allocate_skill_point_draw()
 		return 1
 

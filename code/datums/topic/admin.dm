@@ -806,6 +806,7 @@
 	if(!ishuman(H))
 		to_chat(usr, "this can only be used on instances of type /mob/living/carbon/human")
 
+	H.sanity.give_resting(1)
 	H.sanity.level_up()
 	log_admin("[key_name(usr)] leveled [key_name(H)] up")
 	message_admins("\blue [key_name(usr)] leveled [key_name(H)] up")

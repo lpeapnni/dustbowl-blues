@@ -55,6 +55,8 @@
 	var/skill_points = 0
 	var/list/skill_additions_list = list() //for skill point allocating
 	var/list/perk_additions_list = list()
+	var/current_category //Whether we're browsing skills or perks on the level up screen
+	var/perk_info_selected //More info about the selected perk on the level up screen
 
 	var/insight
 	var/max_insight = INFINITY
