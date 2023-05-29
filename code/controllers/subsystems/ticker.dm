@@ -378,7 +378,7 @@ SUBSYSTEM_DEF(ticker)
 	if(quotes.len)
 		message = pick(quotes)
 	if(message)
-		to_chat(world, SPAN_NOTICE("<font color='purple'><b>Quote of the round: [html_encode(message)]</b></font>"))
+		to_chat(world, SPAN_FOBLOCK("Quote of the round:<br>[html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/create_characters()
 	for(var/mob/new_player/player in GLOB.player_list)

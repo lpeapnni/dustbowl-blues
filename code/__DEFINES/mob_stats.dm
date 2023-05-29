@@ -53,3 +53,6 @@
 #define PERK_SHARED_SEE_COMMON_REAGENTS 0x2
 #define PERK_SHARED_SEE_ILLEGAL_REAGENTS 0x3
 
+// For the extra skill boosts we get from intelligence. Used in char creation outright, multiplied by 2 for extra skill points on level up
+// WHY DOES THIS FUCKING LANGUAGE INDEX LISTS BY 1 AS THE STARTING VALUE
+#define SKILL_BOOSTS_PER_INT list(-3,-2,-2,-1,0,1,1,2,2,3)

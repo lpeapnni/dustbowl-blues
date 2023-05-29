@@ -50,6 +50,14 @@
 	var/max_level = 100
 	var/level_change = 0
 
+	var/player_level = 1 //Just so we know if we get perk picks. eventually we'll change this for level, but I can't be assed to do it right now
+	var/perk_points = 0
+	var/skill_points = 0
+	var/list/skill_additions_list = list() //for skill point allocating
+	var/list/perk_additions_list = list()
+	var/current_category //Whether we're browsing skills or perks on the level up screen
+	var/perk_info_selected //More info about the selected perk on the level up screen
+
 	var/insight
 	var/max_insight = INFINITY
 	var/insight_passive_gain_multiplier = 1.5
@@ -59,9 +67,6 @@
 	var/insight_rest_gain_multiplier = 1
 	var/resting = 0
 	var/max_resting = INFINITY
-
-	var/rest_timer_active = FALSE
-	var/rest_timer_time
 
 	var/list/desires = list()
 
@@ -101,12 +106,6 @@
 	handle_breakdowns()
 	handle_Insight()
 	handle_level()
-	if(rest_timer_active)
-		if(rest_timer_time > 0)
-			rest_timer_time -= 2 SECONDS //since OnLife() procs every 2 seconds
-		else
-			rest_timer_active = FALSE
-			level_up()
 	LEGACY_SEND_SIGNAL(owner, COMSIG_HUMAN_SANITY, level)
 
 /datum/sanity/Destroy()
@@ -130,12 +129,6 @@
 	if(value > 0)
 		new_value = max(0, value * insight_rest_gain_multiplier)
 	insight_rest += new_value
-
-/datum/sanity/Topic(href, href_list)
-	if(href_list["here_and_now"])
-		if(rest_timer_active) //prevent any possible exploits
-			rest_timer_active = FALSE
-			level_up()
 
 /datum/sanity/proc/handle_view()
 	. = 0
@@ -163,17 +156,12 @@
 /datum/sanity/proc/handle_Insight()
 	give_insight((INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier))
 	if(resting < max_resting && insight >= 100)
-		if(!rest_timer_active)//Prevent any exploits(timer is only active for one minute tops)
-			give_resting(1)
-			/*
-			if(owner.stats.getPerk(PERK_ARTIST))
-				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
-			else
-			*/
-			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
-			pick_desires()
-			insight -= 100
-			owner.playsound_local(get_turf(owner), 'sound/sanity/level_up.ogg', 100)
+		give_resting(1)
+
+		to_chat(owner, SPAN_FOBLOCK("You are ready to gain a level.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+		pick_desires()
+		insight -= 100
+		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
 	hud?.update_icon()
@@ -252,53 +240,13 @@
 			desire_names += desire
 	to_chat(owner, SPAN_NOTICE("You desire [english_list(desire_names)]."))
 
-/datum/sanity/proc/level_up()
-	rest_timer_active = FALSE
-	var/rest = input(owner, "How would you like to improve your stats?", "Rest complete", null) in list(
-		"Internalize your recent experiences",
-		"Convert your fulfilled insight for later use"
-		)
-
-	switch(rest)
-		if("Convert your fulfilled insight for later use")
-			owner.rest_points += 1 //yeah... that's it
-
-		else //Cancelling or internalizing
-			var/list/stat_change = list()
-
-			var/stat_pool = resting * 15
-			owner.give_health_via_stats()
-			while(stat_pool > 0)
-				stat_pool--
-				LAZYAPLUS(stat_change, pick(ALL_SKILLS), 3)
-
-			for(var/stat in stat_change)
-				owner.stats.changeStat(stat, stat_change[stat])
-
-	owner.pick_individual_objective()
-	resting = 0
-
 /datum/sanity/proc/add_rest(type, amount)
 	if(!(type in desires))
 		amount /= 4
 	give_insight_rest(amount)
 	if(insight_rest >= 100)
 		insight_rest = 0
-		finish_rest()
-
-/datum/sanity/proc/finish_rest()
-	desires.Cut()
-	if(!rest_timer_active)
-		to_chat(owner, "<font color='purple'>You have rested well.\
-					<br>Select what you wish to do with your fulfilled insight <a HREF=?src=\ref[src];here_and_now=TRUE>here and now</a> or get to safety first if you are in danger.\
-					<br>The prompt will appear in one minute.</font>")
-		/*
-		if(owner.stats.getPerk(PERK_ARTIST))
-			resting = 0
-		*/
-		rest_timer_active = TRUE
-		rest_timer_time = 60 SECONDS
-		owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
+		level_up()
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getSpecial(SPECIAL_P)))
