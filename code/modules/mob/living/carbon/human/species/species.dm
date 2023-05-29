@@ -82,14 +82,7 @@
 	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
 	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature.
 	                                                  // (also affects temperature processing)
-	var/list/stat_modifiers = list(
-		STAT_BIO = 0,
-		STAT_COG = 0,
-		STAT_MEC = 0,
-		STAT_ROB = 0,
-		STAT_TGH = 0,
-		STAT_VIG = 0
-	)
+	var/list/stat_modifiers = list()
 
 	var/list/perks = list()
 

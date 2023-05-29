@@ -1,5 +1,5 @@
 /* Common reactions */
-
+/*
 /datum/chemical_reaction/inaprovaline
 	result = "inaprovaline"
 	required_reagents = list("acetone" = 1, "carbon" = 1, "sugar" = 1)
@@ -931,4 +931,5 @@
 	result = "fbp_replenish"
 	required_reagents = list("nanites" = 1, "oil" = 1)
 	result_amount = 2
+*/
 */

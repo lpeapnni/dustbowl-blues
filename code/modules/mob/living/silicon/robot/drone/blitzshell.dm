@@ -54,13 +54,7 @@
 	hide_on_manifest = TRUE
 	power_efficiency = 1.5 //Antag
 
-	stat_modifiers = list(
-		STAT_ROB = 120,
-		STAT_TGH = 120,
-		STAT_BIO = 75,
-		STAT_COG = 120,
-		STAT_MEC = 60
-	)
+	stat_modifiers = list()
 
 /obj/item/robot_module/blitzshell/New(mob/living/silicon/robot/R)
 	//modules += new /obj/item/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
