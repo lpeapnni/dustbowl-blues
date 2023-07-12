@@ -27,21 +27,22 @@
 	var/dig_amount = 4
 	var/big_item_chance = 40
 	var/obj/big_item
-	var/list/ways = list("pokes around in", "searches", "scours", "digs through", "rummages through", "goes through","picks through")
+	var/list/ways = list("searches", "scours", "tears apart", "rips apart", "goes through")
 	//sanity_damage = 0.1	// no fuck you that's dumb
-	var/rare_item_chance = 33
+	var/rare_item_chance = 33 // literally never used
 	var/rare_item = FALSE
 
 /obj/structure/scrap_car/Initialize()
 	. = ..()
 	icon_state = "car_rubish[rand(1,4)]"
+	update_icon()
 
 /obj/structure/scrap_car/examine(var/mob/user)
 	.=..()
 	if (isliving(user))
 		try_make_loot() //Make the loot when examined so the big item check below will work
 	to_chat(user, SPAN_NOTICE("You could use a welder to rip off parts of the car to uncover more contents."))
-	if (big_item && big_item.loc == src) // make this be a survival check
+	if ((big_item && big_item.loc == src) && (user.stats.getStat(SKILL_SUR) >= SKILL_LEVEL_EXPERT || user.stats.getStat(SKILL_REP) >= SKILL_LEVEL_EXPERT))
 		to_chat(user, SPAN_DANGER("Your gut tells you that there's something hidden within... Keep tearing it apart to find it!"))
 
 /obj/structure/scrap_car/proc/make_big_loot()
@@ -168,7 +169,7 @@
 		visible_message("<span class='notice'>\A hidden [big_item] is uncovered from beneath the [src]!</span>")
 		big_item.forceMove(get_turf(src))
 		big_item = null
-	else if(rare_item && prob(50))
+	else if(rare_item)
 		new /obj/item/stack/sheet/refined_scrap/random(src.loc)
 		visible_message("<span class='notice'><span style='color:orange'>A pile of refined scrap is found beneath the [src]!</span>")
 	qdel(src)
@@ -178,15 +179,13 @@
 	var/list/usable_qualities = list(QUALITY_WELDING)
 	var/tool_type = W.get_tool_type(user, usable_qualities, src)
 	if(tool_type == QUALITY_WELDING)
-		if(W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_VERY_EASY, required_stat = SKILL_ATH))
+		if(W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_WELDING, FAILCHANCE_VERY_EASY, required_stat = SKILL_REP))
 			user.visible_message(SPAN_NOTICE("[user] [pick(ways)] \the [src]."))
 			user.do_attack_animation(src)
-			/*
-			if(user.stats.getPerk(PERK_JUNKBORN))
+			if(prob(user.stats.getStat(SPECIAL_L)*6)) // I PRESENT THE FIRST LUCK SKILL CHECK EVER IMPLEMENTED!!!!!!!!!
 				rare_item = TRUE
 			else
-			*/
-			rare_item = FALSE
+				rare_item = FALSE
 			dig_out_lump(user.loc, 0)
 			shuffle_loot()
 			clear_if_empty()
