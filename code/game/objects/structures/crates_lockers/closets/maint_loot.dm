@@ -5,6 +5,17 @@
 	desc = "Old and rusty closet, probably older than you."
 	icon_state = "oldstyle"
 	old_chance = 50
+	var/roached = FALSE
+
+/obj/structure/closet/random_miscellaneous/dump_contents()
+	..()
+	// instead of spawning the roaches when the closets spawn, we spawn the roaches whenever the content of the locker gets dumped
+	if(!roached)
+		if(oldified)
+			new /obj/random/cluster/roaches(src)
+		else
+			new /obj/random/cluster/roaches/lower_chance(src)
+		roached = TRUE
 
 /obj/structure/closet/random_miscellaneous/populate_contents()
 	new /obj/random/contraband/low_chance(src)
@@ -22,7 +33,7 @@
 	new /obj/random/pack/cloth/low_chance(src)
 	new /obj/random/pack/gun_loot/low_chance(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 	new /obj/random/gun_parts/low(src)
 	if(prob(20))
 		new /obj/random/gun_parts/frames(src)
@@ -46,7 +57,7 @@
 	new /obj/random/pouch/hardcase_scrap(src)
 	new /obj/random/pack/tech_loot/low_chance(src)
 	new /obj/random/pack/tech_loot/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 	if(prob(30))
 		new /obj/random/gun_parts/frames(src)
 
@@ -76,7 +87,7 @@
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
 	new /obj/random/pack/tech_loot/low_chance(src)
 	new /obj/random/pack/tech_loot/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 	if(prob(20))
 		new /obj/random/gun_parts/frames(src)
 
@@ -108,7 +119,7 @@
 	new /obj/random/medical/low_chance(src)
 	new /obj/random/medical/low_chance(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 	new /obj/random/gun_parts/low(src)
 	new /obj/random/gun_parts/low(src)
 	new /obj/random/gun_parts/frames(src)
@@ -137,7 +148,7 @@
 	new /obj/random/medical/low_chance(src)
 	new /obj/random/medical/low_chance(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 
 /obj/structure/closet/secure_closet/rare_loot
 	name = "\improper sealed military supply closet"
@@ -156,7 +167,7 @@
 	new /obj/random/pack/gun_loot(src)
 	new /obj/random/pack/gun_loot(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
-	new /obj/random/cluster/roaches/lower_chance(src)
+	//new /obj/random/cluster/roaches/lower_chance(src)
 	new /obj/random/gun_parts(src)
 	new /obj/random/gun_parts(src)
 	new /obj/random/gun_parts/low(src)
@@ -187,7 +198,7 @@
 	new /obj/random/rations(src)
 	new /obj/random/rations(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
-	new /obj/random/cluster/roaches(src)
+	//new /obj/random/cluster/roaches(src)
 	if(prob(30))
 		new /obj/random/gun_parts/frames(src)
 
@@ -204,6 +215,6 @@
 	new /obj/random/rations(src)
 	new /obj/random/rations(src)
 	new /obj/random/rations(src)
-	new /obj/random/cluster/roaches/beacon(src)
+	//new /obj/random/cluster/roaches/beacon(src)
 	if(prob(15))
 		new /obj/random/gun_parts/frames(src)
