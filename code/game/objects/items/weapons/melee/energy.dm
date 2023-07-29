@@ -53,7 +53,7 @@
 	else
 		activate(user)
 	add_fingerprint(user)
-
+/*
 /*
  * Energy Axe
  */
@@ -165,7 +165,6 @@
 		return 1
 	return 0
 */
-/*
 /obj/item/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."

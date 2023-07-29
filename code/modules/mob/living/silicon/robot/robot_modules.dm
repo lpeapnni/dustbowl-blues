@@ -281,7 +281,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/gps(src)
 	src.modules += new /obj/item/gripper/ammo(src)
 	src.modules += new /obj/item/gun/projectile/makarov/moebius/auto_eject(src)
-	src.emag += new /obj/item/melee/energy/sword(src)
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
 	synths += medicine

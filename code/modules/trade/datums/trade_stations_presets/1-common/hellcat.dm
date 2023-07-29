@@ -86,7 +86,6 @@
 		),
 		"Xanorath Smugged Gear" = list(
 			/obj/item/clothing/suit/space/void/merc/xanorath,
-			/obj/item/melee/energy/sword/pirate,
 			/obj/item/gun/projectile/gyropistol,
 			/obj/item/ammo_magazine/a75,
 			/obj/item/reagent_containers/hypospray/autoinjector/drugs,

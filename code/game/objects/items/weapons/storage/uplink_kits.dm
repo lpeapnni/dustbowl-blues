@@ -32,7 +32,6 @@
 			return
 
 		if("murder")
-			new /obj/item/melee/energy/sword(src)
 			new /obj/item/clothing/glasses/powered/thermal/syndi(src)
 			new /obj/item/card/emag(src)
 			new /obj/item/clothing/shoes/syndigaloshes(src)

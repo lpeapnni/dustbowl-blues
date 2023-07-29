@@ -62,7 +62,6 @@
 	modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
 	modules += new /obj/item/tool/tape_roll/flextape(src) //For blinding/cuff/muting people
 	modules += new /obj/item/tool/baton/robot(src) //LTL for hostages
-	modules += new /obj/item/melee/energy/sword(src) // Lethal option, they can get 1 clicked with a flash
 	//Objective stuff
 	modules += new /obj/item/storage/bsdm/permanent(src) //for sending off item contracts
 	modules += new /obj/item/gripper/antag(src) //For picking up item contracts

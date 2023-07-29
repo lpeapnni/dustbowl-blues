@@ -20,11 +20,6 @@
 	item_cost = 6
 	path = /obj/item/gun/energy/crossbow
 
-/datum/uplink_item/item/visible_weapons/energy_sword
-	name = "Energy Sword"
-	item_cost = 6
-	path = /obj/item/melee/energy/sword
-
 /datum/uplink_item/item/visible_weapons/rafale
 	name = "Silenced 10mm pistol"
 	item_cost = 6

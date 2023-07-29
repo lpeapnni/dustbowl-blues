@@ -45,7 +45,6 @@
 	maxHealth = 250 //Boosted because melee given armor/shield
 	health = 250
 	icon_state = "syndicatemelee"
-	drop_items = list(/obj/item/melee/energy/sword/red, /obj/item/shield/buckler/energy)
 	attacktext = "slashed"
 	status_flags = 0
 	armor = list(
@@ -286,7 +285,7 @@
 	maxHealth = 450 //Boosted because melee given armor/shield
 	health = 450
 	icon_state = "syndicate_stormtrooper_sword"
-	drop_items = list(/obj/item/melee/energy/sword/red, /obj/item/shield/buckler/energy)
+	drop_items = list(/obj/item/shield/buckler/energy)
 	attacktext = "slashed"
 
 //elite range

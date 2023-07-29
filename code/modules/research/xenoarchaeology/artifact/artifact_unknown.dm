@@ -236,7 +236,6 @@
 			if(secondary_effect && secondary_effect.trigger == TRIGGER_TOXIN && prob(25))
 				secondary_effect.ToggleActivate(0)
 	else if(istype(W,/obj/item/tool/baton) && W:status ||\
-			istype(W,/obj/item/melee/energy) ||\
 			istype(W,/obj/item/card/emag) ||\
 			istype(W,/obj/item/tool/multitool))
 		if (my_effect.trigger == TRIGGER_ENERGY)

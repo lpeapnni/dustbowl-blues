@@ -29,7 +29,6 @@
 			/obj/item/storage/backpack/military = good_data("MOLLE pack", list(3, 8), 1000)
 		),
 		"Weapons" = list(
-			/obj/item/melee/energy/sword,
 			/obj/item/organ_module/active/simple/armblade/energy_blade,
 			/obj/item/gun/projectile/revolver/tacticool_revolver
 		)
