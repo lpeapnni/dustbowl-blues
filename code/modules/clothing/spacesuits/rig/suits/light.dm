@@ -167,10 +167,10 @@
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/held/energy_blade,
+		// /obj/item/rig_module/held/energy_blade,
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
-		/obj/item/rig_module/fabricator/energy_net,
+		// /obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/modular_injector,
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/ai_container,

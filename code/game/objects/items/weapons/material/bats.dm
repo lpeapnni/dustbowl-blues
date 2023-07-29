@@ -1,3 +1,4 @@
+/*
 /obj/item/material/baseballbat
 	name = "bat"
 	desc = "HOME RUN!"
@@ -31,3 +32,4 @@
 
 /obj/item/material/baseballbat/diamond/New(var/newloc)
 	..(newloc,MATERIAL_DIAMOND)
+*/

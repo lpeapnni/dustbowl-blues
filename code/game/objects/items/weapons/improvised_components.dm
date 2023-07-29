@@ -1,3 +1,4 @@
+/*
 /obj/item/material/butterflyconstruction
 	name = "unfinished concealed knife"
 	desc = "An unfinished concealed knife, it looks like the screws need to be tightened."
@@ -37,7 +38,7 @@
 		qdel(W)
 		qdel(src)
 		return
-
+*/
 /obj/item/material/wirerod
 	name = "wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."

@@ -40,7 +40,7 @@
 				/obj/item/weedkiller/D24 = 4,
 				/obj/item/phone = 3,
 				/obj/item/cane = 2,
-				/obj/item/cane/concealed = 1,
+				// /obj/item/cane/concealed = 1,
 				/obj/item/staff/broom = 2,
 				/obj/item/circuitboard/apc = 1,
 				/obj/item/tool/shovel = 1,

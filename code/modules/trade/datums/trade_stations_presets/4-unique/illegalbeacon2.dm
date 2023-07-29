@@ -42,8 +42,6 @@
 		"RIG Modules" = list(
 			/obj/item/rig_module/autodoc,
 			/obj/item/rig_module/mounted,
-			/obj/item/rig_module/fabricator,
-			/obj/item/rig_module/fabricator/energy_net
 		),
 		"Software" = list(
 			/obj/item/computer_hardware/hard_drive/portable/advanced/shady = good_data("old data disk", list(1, 1), 900),

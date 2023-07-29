@@ -9,11 +9,6 @@
 	item_cost = 4
 	path = /obj/item/rig_module/vision/thermal
 
-/datum/uplink_item/item/hardsuit_modules/energy_net
-	name = "Net Projector"
-	item_cost = 5
-	path = /obj/item/rig_module/fabricator/energy_net
-
 /datum/uplink_item/item/ewar_voice
 	name = "Electrowarfare Suite and Voice Synthesizer"
 	item_cost = 4

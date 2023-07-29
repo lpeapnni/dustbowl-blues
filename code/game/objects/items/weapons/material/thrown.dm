@@ -1,3 +1,4 @@
+/*
 /obj/item/material/star
 	name = "shuriken"
 	desc = "A sharp, perfectly weighted piece of metal."
@@ -26,3 +27,4 @@
 
 /obj/item/material/star/ninja
 	default_material = MATERIAL_STEEL
+*/

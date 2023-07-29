@@ -168,28 +168,6 @@
 	realign_time = max(world.time, realign_time) + 30
 	return 1
 
-/obj/item/rig_module/fabricator/energy_net
-
-	name = "net projector"
-	desc = "Some kind of complex energy projector with a hardsuit mount."
-	icon_state = "enet"
-
-	interface_name = "energy net launcher"
-	interface_desc = "An advanced energy-patterning projector used to capture targets."
-
-	engage_string = "Fabricate Net"
-
-	fabrication_type = /obj/item/energy_net
-	use_power_cost = 70
-
-/obj/item/rig_module/fabricator/energy_net/engage(atom/target)
-
-	if(holder && holder.wearer)
-		if(..(target) && target)
-			holder.wearer.Beam(target,"n_beam",,10)
-		return 1
-	return 0
-
 /obj/item/rig_module/self_destruct
 
 	name = "self-destruct module"

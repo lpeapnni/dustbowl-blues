@@ -555,7 +555,7 @@ BLIND     // can't see anything
 		knifes = list(
 			/obj/item/tool/knife,
 			/obj/item/material/shard,
-			/obj/item/material/butterfly,
+			// /obj/item/material/butterfly,
 			/obj/item/material/kitchen/utensil,
 			/obj/item/tool/knife/tacknife,
 			/obj/item/tool/knife/shiv

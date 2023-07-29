@@ -1,3 +1,4 @@
+/*
 /obj/item/material/butterfly
 	name = "butterfly knife"
 	desc = "A basic metal blade concealed in a lightweight plasteel grip. Small enough when folded to fit in a pocket."
@@ -73,3 +74,4 @@
 	icon_state = "frenchmen"
 	matter = list(MATERIAL_SILVER = 2, MATERIAL_PLASTEEL = 10, MATERIAL_DIAMOND = 3)
 	backstab_damage = 25
+*/

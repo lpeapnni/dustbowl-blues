@@ -158,6 +158,7 @@
 
 	gun_type = /obj/item/gun/energy/taser/mounted
 
+/*
 /obj/item/rig_module/fabricator
 
 	name = "matter fabricator"
@@ -257,7 +258,7 @@
 	for(var/obj/item/melee/energy/blade/blade in M.contents)
 		M.drop_from_inventory(blade)
 		qdel(blade)
-
+*/
 /obj/item/rig_module/held/shield
 	name = "rig shield module"
 	desc = "A heavy deployable shield installable on a hardsuit."

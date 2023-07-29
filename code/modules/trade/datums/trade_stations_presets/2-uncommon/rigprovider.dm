@@ -21,7 +21,7 @@
 		),
 		"RIG Specialized Modules II" = list(
 			/obj/item/rig_module/grenade_launcher,
-			/obj/item/rig_module/held/energy_blade,
+			// /obj/item/rig_module/held/energy_blade,
 			/obj/item/rig_module/held/shield,
 			/obj/item/rig_module/datajack,
 			/obj/item/rig_module/modular_injector,

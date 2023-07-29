@@ -2,7 +2,7 @@
 	category = "Weapons"
 	time = 60
 	related_stats = list(SKILL_REP)
-
+/*
 /datum/craft_recipe/weapon/baseballbat
 	name = "baseball bat"
 	result = /obj/item/material/baseballbat
@@ -10,7 +10,7 @@
 	steps = list(
 		list(CRAFT_MATERIAL, 6, MATERIAL_WOOD)
 	)
-
+*/
 /datum/craft_recipe/weapon/rollingpin
 	name = "rolling pin"
 	result = /obj/item/material/kitchen/rollingpin
@@ -36,20 +36,6 @@
 		list(QUALITY_WELDING, 10, "time" = 30),
 		list(QUALITY_HAMMERING, 10, "time" = 20),
 		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC, "time" = 10)
-	)
-
-/datum/craft_recipe/weapon/knife_blade
-	name = "butterfly knife blade"
-	result = /obj/item/material/butterflyblade
-	steps = list(
-		list(CRAFT_MATERIAL, 6, MATERIAL_STEEL)
-	)
-
-/datum/craft_recipe/weapon/knife_grip
-	name = "butterfly knife grip"
-	result = /obj/item/material/butterflyhandle
-	steps = list(
-		list(CRAFT_MATERIAL, 4, MATERIAL_PLASTEEL)
 	)
 
 /datum/craft_recipe/weapon/crossbow
@@ -232,7 +218,7 @@
 		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC),
 		list(QUALITY_CUTTING, 10, 10)
 	)
-
+/*
 /datum/craft_recipe/weapon/laser_sabre
 	name = "laser sabre"
 	result = /obj/item/melee/energy/sword/sabre
@@ -262,7 +248,7 @@
 		list(QUALITY_ADHESIVE, 15, 70)
 	)
 	related_stats = list(SKILL_REP, SKILL_SCI)
-
+*/
 /datum/craft_recipe/weapon/mace
 	name = "makeshift mace"
 	result = /obj/item/tool/hammer/mace/makeshift
@@ -357,7 +343,7 @@
 		list(/obj/item/device/assembly/igniter, 1),
 		list(/obj/item/stack/cable_coil, 10, "time" = 10)
 	)
-
+/*
 /datum/craft_recipe/weapon/energy_spear
 	name = "energy spear"
 	result = /obj/item/melee/energy/spear
@@ -380,7 +366,7 @@
 		list(/obj/item/mop, 1, "time" = 30),
 		list(/obj/item/stack/cable_coil, 10, "time" = 10)
 	)
-
+*/
 /datum/craft_recipe/weapon/charge_hammer
 	name = "rocket hammer"
 	result = /obj/item/tool/hammer/charge
