@@ -61,6 +61,7 @@
 	backstab_damage = 14
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 
+/*
 /obj/item/tool/knife/boot/blackshield
 	name = "blackshield tactical knife"
 	desc = "A small fixed-blade knife for putting inside a boot, this version is painted in Blackshield colours and has sawed teeth."
@@ -73,6 +74,7 @@
 	armor_penetration = ARMOR_PEN_MODERATE
 	throwforce = WEAPON_FORCE_LETHAL
 	price_tag = 35
+*/
 
 /obj/item/tool/knife/hook
 	name = "meat hook"
@@ -165,6 +167,7 @@
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_WOOD = 2, MATERIAL_DIAMOND = 3) // 5 plasteel + 2 wood, then +3 plasteel +3 diamond from whetstone.
 	price_tag = 500 // Takes diamond to make and very rare.
 
+/*
 /obj/item/tool/knife/dagger/ceremonial
 	name = "ceremonial dagger"
 	desc = "Given to high ranking officers as a signature of office, while it isn't meant to be a weapon it certainly does the job."
@@ -174,6 +177,7 @@
 	embed_mult = 0.6
 	max_upgrades = 4
 	price_tag = 300 // Fancy expensive paper weight.
+*/
 
 /obj/item/tool/knife/dagger/heirloom_knife
 	name = "heirloom dagger"
@@ -190,3 +194,24 @@
 	tool_qualities = list(QUALITY_CUTTING = 35) //Can't be upgraded. Round start knife. Damage is bad not really good to selling either. Only fair give a good status to cutting things.
 	backstab_damage = 9
 
+/obj/item/tool/knife/cosmic
+	name = "cosmic knife"
+	desc = "Stays sharp & will last a lifetime!"
+	icon = 'icons/fallout/objects/melee/melee.dmi'
+	icon_state = "knife_cosmic_dirty"
+	item_state = "knife"
+	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2)
+
+	force = WEAPON_FORCE_ROBUST
+	backstab_damage = 8
+	armor_penetration = ARMOR_PEN_EXTREME
+
+/obj/item/tool/knife/cosmic/clean
+	name = "clean cosmic knife"
+	desc = "Stays sharp & will last a lifetime! This knife has been cleaned and polished to a mirror sheen!"
+	icon = 'icons/fallout/objects/melee/melee.dmi'
+	icon_state = "knife_cosmic"
+
+	force = WEAPON_FORCE_LETHAL
+	backstab_damage = 10
+	armor_penetration = ARMOR_PEN_EXTREME

@@ -1163,6 +1163,7 @@
 #include "code\game\objects\items\weapons\material\thrown.dm"
 #include "code\game\objects\items\weapons\melee\energy.dm"
 #include "code\game\objects\items\weapons\melee\misc.dm"
+#include "code\game\objects\items\weapons\melee\two_handed.dm"
 #include "code\game\objects\items\weapons\storage\backpack.dm"
 #include "code\game\objects\items\weapons\storage\bags.dm"
 #include "code\game\objects\items\weapons\storage\belt.dm"
