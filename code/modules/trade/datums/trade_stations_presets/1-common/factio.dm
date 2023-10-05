@@ -88,7 +88,7 @@
 			/obj/item/tool/pickaxe = good_data("Pickaxe", list(-100, -50), 60),
 			/obj/item/tool/pickaxe/excavation = good_data("Excavation Pickaxe", list(-100, -50), 50),
 			/obj/item/tool/knife = good_data("Knife", list(-100, -50), 40),
-			/obj/item/tool/knife/tacknife = good_data("Tactical Knife", list(-100, -50), 55),
+			///obj/item/tool/knife/tacknife = good_data("Tactical Knife", list(-100, -50), 55),
 			/obj/item/tool/hatchet = good_data("Hatchet", list(-100, -50), 50),
 			/obj/item/tool/minihoe = good_data("Mini hoe", list(-100, -50), 30),
 			/obj/item/tool/shovel = good_data("Shovel", list(-100, -50), 80),

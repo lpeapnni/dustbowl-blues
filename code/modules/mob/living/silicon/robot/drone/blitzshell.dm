@@ -59,7 +59,7 @@
 /obj/item/robot_module/blitzshell/New(mob/living/silicon/robot/R)
 	//modules += new /obj/item/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
 	modules += new /obj/item/gun/energy/plasma/mounted/blitz(src)
-	modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
+	//modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
 	modules += new /obj/item/tool/tape_roll/flextape(src) //For blinding/cuff/muting people
 	modules += new /obj/item/tool/baton/robot(src) //LTL for hostages
 	//Objective stuff

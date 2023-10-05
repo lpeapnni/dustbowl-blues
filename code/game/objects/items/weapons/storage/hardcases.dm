@@ -134,7 +134,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 /obj/item/storage/hcases/preimer/populate_contents()
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/tool/knife/dagger/ceremonial(src)
+	// new /obj/item/tool/knife/dagger/ceremonial(src)
 
 
 
@@ -227,7 +227,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 	new /obj/item/clothing/accessory/badge/holo/co(src)
 
 /obj/item/storage/hcases/ammo/blackmarket/serg
@@ -238,7 +238,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 
 /obj/item/storage/hcases/ammo/blackmarket/medspec
@@ -249,7 +249,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 /obj/item/storage/hcases/ammo/blackmarket/trooper
 	exspand_when_spawned = FALSE //No exspanding cheats
@@ -259,7 +259,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 /obj/item/storage/hcases/ammo/excel
 	icon_state = "ammo_case_excel"

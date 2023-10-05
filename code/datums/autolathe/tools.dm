@@ -143,9 +143,11 @@
 	name = "kitchen knife"
 	build_path = /obj/item/tool/knife
 
+/*
 /datum/design/autolathe/tool/tacknife
 	name = "tactical knife"
 	build_path = /obj/item/tool/knife/tacknife
+*/
 
 /datum/design/autolathe/tool/hatchet
 	name = "hatchet"

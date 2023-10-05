@@ -6226,7 +6226,6 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "DW" = (
-/obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "Ew" = (
@@ -6812,7 +6811,6 @@
 /turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "PQ" = (
-/obj/machinery/vending/weapon_machine,
 /turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "PT" = (
@@ -6948,7 +6946,6 @@
 /turf/simulated/floor/wood/wild1,
 /area/centcom/evac)
 "Sl" = (
-/obj/machinery/vending/security,
 /turf/simulated/floor/tiled/dark/golden,
 /area/centcom/evac)
 "Ss" = (

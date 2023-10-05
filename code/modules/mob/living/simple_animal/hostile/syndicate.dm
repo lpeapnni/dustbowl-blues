@@ -125,7 +125,7 @@
 	melee_damage_upper = 15
 	maxHealth = 100
 	health = 100
-	drop_items = list(/obj/item/tool/knife/tacknife)
+	//drop_items = list(/obj/item/tool/knife/tacknife)
 
 /mob/living/simple_animal/hostile/syndicate/melee/heavy
 	name = "\improper Mercenary heavy"
@@ -163,7 +163,7 @@
 	melee_damage_upper = 15
 	maxHealth = 100
 	health = 100
-	drop_items = list(/obj/item/tool/knife/tacknife, /obj/item/shield/buckler/energy)
+	//drop_items = list(/obj/item/tool/knife/tacknife, /obj/item/shield/buckler/energy)
 
 //space range
 /mob/living/simple_animal/hostile/syndicate/ranged/space/weak

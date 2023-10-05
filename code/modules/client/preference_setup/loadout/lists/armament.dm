@@ -43,11 +43,12 @@
 	path = /obj/item/device/flash
 	cost = 1
 
+/*
 /datum/gear/armament/tacboot_knife
 	display_name = "tactical knife"
 	path = /obj/item/tool/knife/tacknife
 	cost = 2
-
+*/
 /datum/gear/armament/ritual_knife
 	display_name = "ritual knife"
 	path = /obj/item/tool/knife/ritual

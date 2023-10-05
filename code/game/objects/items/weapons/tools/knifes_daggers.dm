@@ -61,6 +61,7 @@
 	backstab_damage = 14
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 
+/*
 /obj/item/tool/knife/boot/blackshield
 	name = "blackshield tactical knife"
 	desc = "A small fixed-blade knife for putting inside a boot, this version is painted in Blackshield colours and has sawed teeth."
@@ -73,6 +74,7 @@
 	armor_penetration = ARMOR_PEN_MODERATE
 	throwforce = WEAPON_FORCE_LETHAL
 	price_tag = 35
+*/
 
 /obj/item/tool/knife/hook
 	name = "meat hook"
@@ -124,6 +126,7 @@
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 15)
 	price_tag = 14
 
+/*
 /obj/item/tool/knife/tacknife
 	name = "tactical knife"
 	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Space."
@@ -139,6 +142,7 @@
 	max_upgrades = 3
 	embed_mult = 0.6
 	price_tag = 38
+*/
 
 /obj/item/tool/knife/dagger
 	name = "dagger"
@@ -165,6 +169,7 @@
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_WOOD = 2, MATERIAL_DIAMOND = 3) // 5 plasteel + 2 wood, then +3 plasteel +3 diamond from whetstone.
 	price_tag = 500 // Takes diamond to make and very rare.
 
+/*
 /obj/item/tool/knife/dagger/ceremonial
 	name = "ceremonial dagger"
 	desc = "Given to high ranking officers as a signature of office, while it isn't meant to be a weapon it certainly does the job."
@@ -174,6 +179,7 @@
 	embed_mult = 0.6
 	max_upgrades = 4
 	price_tag = 300 // Fancy expensive paper weight.
+*/
 
 /obj/item/tool/knife/dagger/heirloom_knife
 	name = "heirloom dagger"
