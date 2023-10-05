@@ -19,7 +19,6 @@
 		/obj/item/gun/projectile/revolver/mistral = 3,
 		/obj/item/noslipmodule = 90,
 		/obj/item/soap/syndie = 50,
-		/obj/item/storage/box/syndie_kit/cigarette = 10,
 		/obj/item/storage/box/sinpockets = 70,
 		/obj/item/device/spy_bug = 70,
 		/obj/item/device/spy_bug = 60,

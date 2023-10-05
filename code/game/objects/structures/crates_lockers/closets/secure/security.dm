@@ -240,11 +240,3 @@
 	new /obj/item/ammo_magazine/ammobox/shotgun/flashshells(src)
 	new /obj/item/ammo_magazine/ammobox/shotgun/flash(src)
 	new /obj/item/ammo_magazine/ammobox/shotgun/stunshells(src)
-
-/obj/structure/closet/crate/secure/weapon/amr
-	name = "antimateriel rifle crate"
-	desc = "A secure weapons crate."
-	icon_state = "weaponcrate"
-
-/obj/structure/closet/crate/secure/weapon/amr/populate_contents()
-	new /obj/item/storage/box/syndie_kit/antimaterial_rifle(src)
