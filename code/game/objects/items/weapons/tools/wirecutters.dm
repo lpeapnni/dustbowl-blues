@@ -51,22 +51,6 @@
 	tool_qualities = list(QUALITY_WIRE_CUTTING = 15, QUALITY_CLAMPING = 20, QUALITY_BOLT_TURNING = 15, QUALITY_BONE_SETTING = 20)
 	price_tag = 20
 
-/obj/item/tool/wirecutters/onestar_pliers //hybrid of wirecutters, wrench and cautery now in plat!
-	name = "Greyson Positronic pliers"
-	desc = "A multitool from the world of maintenance. Useful for pinching, clamping, and occasional bolt turning. \
-			Being slightly magnetized, the metal coating and refined tip help for balance, making all who use \
-			it know why its considered the best pair of plies to exist in the in the market to date "
-	icon_state = "one_star_pliers"
-	edge = TRUE //We
-	sharp = TRUE//Are
-	tool_qualities = list(QUALITY_WIRE_CUTTING = 35, QUALITY_CLAMPING = 35, QUALITY_BOLT_TURNING = 35, QUALITY_BONE_SETTING = 35, QUALITY_RETRACTING = 20)
-	degradation = 2
-	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PLATINUM = 1)
-	max_upgrades = 2
-	workspeed = 1.5
-	price_tag = 300
-	allow_greyson_mods = TRUE
-
 /obj/item/tool/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob)
 	if(istype(C) && user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		usr.visible_message(

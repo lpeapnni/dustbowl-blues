@@ -17,14 +17,6 @@
 		new /obj/item/ammo_magazine/smg_magnum_40(src)
 		new /obj/item/storage/pouch/ammo(src)
 
-/obj/item/storage/box/m_kit/breacher
-	name = "Breaching Hammer Kit"
-	desc = "The standard Marshal box kit, containing a single heavy-duty breaching hammer. Equally beloved by Marshals more interested in utility than firepower, and those \
-	strange enough to take such an unwieldy thing into close combat"
-
-	populate_contents()
-		new /obj/item/tool/hammer/ironhammer(src)
-
 /obj/item/storage/box/m_kit/mamba
 	name = "Mamba Kit"
 	desc = "The standard Marshal box kit containing a Mamba, a proper carbine for a proper policemen."

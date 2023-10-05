@@ -383,7 +383,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/stock_parts/micro_laser/one_star = 70,
 		/obj/item/stock_parts/matter_bin/one_star = 80,
 		/obj/item/stock_parts/matter_bin/one_star = 80,
-		/obj/random/tool/advanced/onestar = 45,
 		/obj/random/prothesis/one_star = 20,
 		/obj/random/lathe_disk/advanced/onestar = 10,
 		/obj/item/circuitboard/autolathe = 5,

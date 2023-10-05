@@ -70,8 +70,6 @@
 	/obj/item/tool/cautery/adv,
 	/obj/item/tool/retractor,
 	/obj/item/tool/retractor/adv,
-	/obj/item/tool/saw/circular,
-	/obj/item/tool/saw/circular/medical,
 	/obj/item/tool/hemostat,
 	/obj/item/tool/hemostat/adv,
 	/obj/item/reagent_containers/pill,

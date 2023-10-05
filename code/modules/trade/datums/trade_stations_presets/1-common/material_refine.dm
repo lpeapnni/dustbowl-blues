@@ -28,7 +28,6 @@
 			/obj/machinery/mining/drill,
 			/obj/machinery/mining/brace,
 			/obj/structure/ore_box,
-			/obj/item/tool/pickaxe/jackhammer,
 			/obj/item/tool/pickaxe/drill,
 			/obj/item/tool/pickaxe/diamonddrill,
 			/obj/item/device/lighting/toggleable/flashlight/heavy,

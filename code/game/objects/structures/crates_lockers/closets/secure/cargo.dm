@@ -266,8 +266,6 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/hammer/powered_hammer(src)
 		if("CHAINSAW")
 			new /obj/item/tool/saw/chain(src)
 
@@ -453,8 +451,6 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/hammer/powered_hammer(src)
 		if("CHAINSAW")
 			new /obj/item/tool/saw/chain(src)
 
@@ -600,10 +596,8 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/power_fist(src)
 		if("CHAINSAW")
-			new /obj/item/tool/saw/hyper(src)
+			new /obj/item/tool/saw/chain(src)
 
 
 	//Regular spawns

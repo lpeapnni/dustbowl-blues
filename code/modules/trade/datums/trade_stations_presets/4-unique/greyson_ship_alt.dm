@@ -17,21 +17,9 @@
 	inventory = list(
 		"Sheji pan" = list(
 			/obj/item/computer_hardware/hard_drive/portable/design/onestar/stockparts = good_data("GP Stockpart Disk", list(30, 50), 900),
-			/obj/item/computer_hardware/hard_drive/portable/design/onestar = good_data("GP Tool Disk", list(30, 50), 1200)
 		),
 		"Gongju" = list(
-			/obj/item/tool/crowbar/onestar = custom_good_nameprice("GP Crowbar", list(-100, -50)),
-			/obj/item/tool/multitool/advanced/onestar = custom_good_nameprice("GP Multitool", list(-100, -50)),
-			/obj/item/tool/weldingtool/onestar = custom_good_nameprice("GP Welding Tool", list(-100, -50)),
-			/obj/item/tool/screwdriver/combi_driver/onestar = custom_good_nameprice("GP Combination Drill", list(-100, -50)),
-			/obj/item/tool/hammer/powered_hammer/onestar_hammer = custom_good_nameprice("GP Sledgehammer", list(-100, -50)),
-			/obj/item/tool/pickaxe/jackhammer/onestar = custom_good_nameprice("GP Jackhammer", list(-100, -50)),
-			/obj/item/tool/pickaxe/drill/onestar = custom_good_nameprice("GP Mining Drill", list(-100, -50)),
-			/obj/item/tool/pickaxe/onestar = custom_good_nameprice("GP Pickaxe", list(-100, -500)),
-			/obj/item/tool/shovel/onestar_shovel = custom_good_nameprice("GP Shovel", list(-100, -50)),
-			/obj/item/tool/saw/onestar_saw = custom_good_nameprice("GP Handsaw", list(-100, -50)),
 			/obj/item/tool/medmultitool = custom_good_nameprice("GP Medical Multitool", list(-100, -50)),
-			/obj/item/tool/wirecutters/onestar_pliers = custom_good_nameprice("GP Pliers", list(-100, -50))
 		),
 		"Beijian" = list(
 			/obj/item/stock_parts/micro_laser/one_star = custom_good_nameprice("GP Micro Laser", list(-100, -50)),

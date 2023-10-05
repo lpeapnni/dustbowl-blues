@@ -876,7 +876,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
-	src.emag += new /obj/item/tool/pickaxe/onestar/cyborg(src)
 
 	//Seller so quite and knowing the deal!
 	/*R.stats.addPerk(PERK_MARKET_PROF)
@@ -937,7 +936,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/ammo(src)
 	src.modules += new /obj/item/gun/projectile/makarov/moebius/auto_eject(src)
 	src.modules += new /obj/item/device/gps(src)
-	src.emag += new /obj/item/tool/pickaxe/onestar/cyborg(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
 	synths += nanite

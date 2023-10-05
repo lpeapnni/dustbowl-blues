@@ -29,7 +29,3 @@
 	for(var/atom/target in range(1, src))
 		if(target != src)
 			target.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-
-/mob/living/carbon/superior_animal/handmade/hammer/death()
-	new /obj/item/tool/hammer/charge(src.loc)
-	..()

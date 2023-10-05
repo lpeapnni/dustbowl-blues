@@ -9,8 +9,6 @@
 				/obj/item/tool/omnitool = 0.5,
 				/obj/item/tool/screwdriver = 4,
 				/obj/item/tool/screwdriver/improvised = 8,
-				/obj/item/tool/screwdriver/electric = 2,
-				/obj/item/tool/screwdriver/combi_driver = 1,
 				/obj/item/tool/wirecutters = 4,
 				/obj/item/tool/wirecutters/improvised = 6,
 				/obj/item/tool/wirecutters/pliers = 4,
@@ -20,32 +18,25 @@
 				/obj/item/tool/weldingtool/advanced = 2,
 				/obj/item/tool/crowbar = 8,
 				/obj/item/tool/crowbar/improvised = 12,
-				/obj/item/tool/crowbar/pneumatic = 2,
 				/obj/item/tool/wrench = 4,
 				/obj/item/tool/wrench/improvised = 6,
 				/obj/item/tool/wrench/big_wrench = 2,
 				/obj/item/tool/hammer = 8,
 				/obj/item/tool/hammer/deadblow = 4,
 				/obj/item/tool/hammer/homewrecker = 10,
-				/obj/item/tool/hammer/powered_hammer = 2,
 				/obj/item/tool/multitool = 3,
 				/obj/item/tool/multitool/improvised = 4,
 				/obj/item/tool/multitool/uplink = 0.01, //REALLY RARE
 				/obj/item/tool/multitool/advanced = 1,
 				/obj/item/tool/saw = 4,
 				/obj/item/tool/saw/improvised = 6,
-				/obj/item/tool/saw/circular = 2,
-				/obj/item/tool/saw/circular/advanced = 1,
 				/obj/item/tool/saw/chain = 0.5,
-				/obj/item/tool/saw/hyper = 0.5,
 				/obj/item/tool/surgicaldrill = 4,
 				/obj/item/tool/surgicaldrill/adv = 1,
 				/obj/item/tool/shovel = 3,
 				/obj/item/tool/shovel/improvised = 6,
 				/obj/item/tool/shovel/spade = 2.5,
-				/obj/item/tool/shovel/power = 1,
 				/obj/item/tool/pickaxe = 2,
-				/obj/item/tool/pickaxe/jackhammer = 1,
 				/obj/item/tool/pickaxe/drill = 1,
 				/obj/item/tool/pickaxe/diamonddrill = 0.5,
 				/obj/item/tool/pickaxe/excavation = 1,
@@ -112,13 +103,10 @@
 
 /obj/random/tool/advanced/item_to_spawn()
 	return pickweight(list(
-				/obj/item/tool/screwdriver/combi_driver = 3,
 				/obj/item/tool/wirecutters/armature = 3,
 				/obj/item/tool/omnitool = 2,
-				/obj/item/tool/crowbar/pneumatic = 3,
 				/obj/item/tool/wrench/big_wrench = 3,
 				/obj/item/tool/weldingtool/advanced = 3,
-				/obj/item/tool/saw/circular/advanced = 2,
 				/obj/item/tool/saw/chain = 1,
 				/obj/item/tool/saw/hyper = 1,
 				/obj/item/tool/pickaxe/diamonddrill = 2,
@@ -147,28 +135,6 @@
 	name = "low chance random toolbox"
 	icon_state = "box-green-low"
 	spawn_nothing_percentage = 60
-
-/obj/random/tool/advanced/onestar
-	name = "random greyson tool"
-
-/obj/random/tool/advanced/onestar/item_to_spawn()
-	return pickweight(list(/obj/item/tool/crowbar/onestar = 1,
-						/obj/item/tool/medmultitool = 1,
-						/obj/item/tool/pickaxe/onestar = 1,
-						/obj/item/tool/pickaxe/jackhammer/onestar = 1,
-						/obj/item/tool/pickaxe/drill/onestar = 1,
-						/obj/item/tool/shovel/onestar_shovel = 0.5,
-						/obj/item/tool/saw/onestar_saw = 1,
-						/obj/item/tool/hammer/powered_hammer/onestar_hammer = 0.5,
-						/obj/item/tool/screwdriver/combi_driver/onestar = 1,
-						/obj/item/tool/weldingtool/onestar = 1,
-						/obj/item/tool/wirecutters/onestar_pliers = 0.2,
-						/obj/item/tool/multitool/advanced/onestar = 0.1))
-
-/obj/random/tool/advanced/onestar/low_chance
-	icon_state = "tool-orange-low"
-	spawn_nothing_percentage = 60
-
 
 /obj/random/handmade_tool
 	name = "random handmade tool"

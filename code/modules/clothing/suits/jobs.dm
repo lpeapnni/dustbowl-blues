@@ -321,7 +321,7 @@
 	extra_allowed = list(
 		/obj/item/tool/bonesetter,
 		/obj/item/tool/cautery,
-		/obj/item/tool/saw/circular,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/retractor,
 		/obj/item/tool/scalpel,

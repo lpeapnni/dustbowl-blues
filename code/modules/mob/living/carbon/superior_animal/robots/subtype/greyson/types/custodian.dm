@@ -131,7 +131,6 @@
 	tool = "laser"
 	tooltype = "os_red"
 	screen_type = "yellow"
-	drop2 = /obj/random/tool/advanced/onestar/low_chance
 	projectiletype = /obj/item/projectile/beam/drone
 	ranged = TRUE
 	melee_damage_lower = 7

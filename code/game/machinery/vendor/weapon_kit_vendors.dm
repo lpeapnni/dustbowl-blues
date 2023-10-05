@@ -190,7 +190,6 @@
 	icon_state = "trashvend"
 	products = list(
 		/obj/item/storage/box/m_kit/freedom = 5,
-		/obj/item/storage/box/m_kit/breacher = 5,
 		/obj/item/storage/box/m_kit/opshotkit = 5,
 		/obj/item/storage/box/m_kit/mamba = 5,
 		/obj/item/storage/box/m_kit/gear_lasgun = 5,
@@ -204,7 +203,6 @@
 		)
 	prices = list( // 500$ for default marshal stuff, 750 for the rest
 		/obj/item/storage/box/m_kit/freedom = 750,
-		/obj/item/storage/box/m_kit/breacher = 750,
 		/obj/item/storage/box/m_kit/opshotkit = 750,
 		/obj/item/storage/box/m_kit/mamba = 750,
 		/obj/item/storage/box/m_kit/gear_lasgun = 750,
@@ -246,7 +244,6 @@
 /obj/machinery/vending/marshal_kit/proc/RedeemPrimary(obj/item/voucher/voucher, mob/redeemer)
 	var/items = list(
 					"Freedom Kit" = /obj/item/storage/box/m_kit/freedom,
-					"Breacher-hammer Kit" = /obj/item/storage/box/m_kit/breacher,
 					"Operator Kit" = /obj/item/storage/box/m_kit/opshotkit,
 					"Mamba Kit" = /obj/item/storage/box/m_kit/mamba,
 					"Gear Laser Carbine Kit" = /obj/item/storage/box/m_kit/gear_lasgun)

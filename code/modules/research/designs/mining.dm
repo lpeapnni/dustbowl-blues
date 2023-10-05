@@ -1,9 +1,3 @@
-/datum/design/research/item/weapon/mining/jackhammer
-	name = "Jackhammer"
-	desc = "Cracks rocks with controlled blasts, allowing to either destroy them by force or carefully dig through them."
-	build_path = /obj/item/tool/pickaxe/jackhammer
-	category = CAT_TOOLS
-
 /datum/design/research/item/weapon/mining/drill
 	name = "Mining Drill"
 	desc = "Yours is the drill that will pierce through the rock walls."

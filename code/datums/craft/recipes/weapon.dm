@@ -218,37 +218,7 @@
 		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC),
 		list(QUALITY_CUTTING, 10, 10)
 	)
-/*
-/datum/craft_recipe/weapon/laser_sabre
-	name = "laser sabre"
-	result = /obj/item/melee/energy/sword/sabre
-	icon_state = "gun"
-	steps = list(
-		list(/obj/item/trash/material/e_sword_cutlass, 1, "time" = 5), // Recycling!
-		list(CRAFT_MATERIAL, 2, MATERIAL_STEEL),
-		list(QUALITY_WELDING, 10, 10), // Repairing the core e-sword we're using
-		list(/obj/item/cell/small/moebius/nuclear, 1), // Size doesn't justify an M-cell
-		list(/obj/item/stack/cable_coil, 10, "time" = 5),
-		list(QUALITY_ADHESIVE, 15, 70)
-	)
-	related_stats = list(SKILL_REP, SKILL_SCI)
 
-/datum/craft_recipe/weapon/laser_dagger
-	name = "laser dagger"
-	result = /obj/item/melee/energy/sword/sabre/dagger
-	icon_state = "gun"
-	steps = list(
-		list(/obj/item/trash/material/e_sword_cutlass, 1, "time" = 5), // Repurposing!
-		list(CRAFT_MATERIAL, 1, MATERIAL_STEEL),
-		list(QUALITY_SAWING, 15, 10), // Reduce the size
-		list(CRAFT_MATERIAL, 3, MATERIAL_PLASTIC),
-		list(QUALITY_HAMMERING, 10, 10), // Adjust the new shape
-		list(/obj/item/cell/small/moebius/nuclear, 1),
-		list(/obj/item/stack/cable_coil, 5, "time" = 5),
-		list(QUALITY_ADHESIVE, 15, 70)
-	)
-	related_stats = list(SKILL_REP, SKILL_SCI)
-*/
 /datum/craft_recipe/weapon/mace
 	name = "makeshift mace"
 	result = /obj/item/tool/hammer/mace/makeshift
@@ -342,45 +312,6 @@
 		list(/obj/item/stock_parts/subspace/crystal, 1),
 		list(/obj/item/device/assembly/igniter, 1),
 		list(/obj/item/stack/cable_coil, 10, "time" = 10)
-	)
-/*
-/datum/craft_recipe/weapon/energy_spear
-	name = "energy spear"
-	result = /obj/item/melee/energy/spear
-	icon_state = "gun"
-	steps = list(
-		list(/obj/item/stack/rods, 1, "time" = 15),
-		list(/obj/item/trash/material/e_sword_cutlass, 1, "time" = 5), // Let's tape it to a rod and call it a spear!
-		list(QUALITY_ADHESIVE, 15, 10),
-		list(QUALITY_PULSING, 10, 20), // We change the cutlass shape into a three-pronged spear through l33t h4ckz
-		list(/obj/item/cell/small/moebius/nuclear, 1),
-		list(/obj/item/stack/cable_coil, 10, "time" = 5),
-		list(QUALITY_WIRE_CUTTING, 15, 5)
-	)
-	related_stats = list(SKILL_REP, SKILL_SCI)
-
-/datum/craft_recipe/weapon/improvised_maul
-	name = "toolbox maul"
-	result = /obj/item/melee/toolbox_maul
-	steps = list(
-		list(/obj/item/mop, 1, "time" = 30),
-		list(/obj/item/stack/cable_coil, 10, "time" = 10)
-	)
-*/
-/datum/craft_recipe/weapon/charge_hammer
-	name = "rocket hammer"
-	result = /obj/item/tool/hammer/charge
-	icon_state = "electronic"
-	steps = list(
-		list(/obj/item/tool/hammer/homewrecker, 1, "time" = 120), //Get a homewrecker
-		list(CRAFT_MATERIAL, 4, MATERIAL_PLASTEEL), //Shore it up with some plasteel
-		list(/obj/item/tool_upgrade/productivity/rocket_engine, 1, "time" = 30),	//Attach a rocket engine
-		list(QUALITY_WELDING, 10, "time" = 30),//Weld it on
-		list(CRAFT_MATERIAL, 2, MATERIAL_PLASMA),//Fuel it up
-		list(/obj/item/tool_upgrade/augment/cell_mount, 1, "time" = 30),//Attach a cell-mount
-		list(QUALITY_SCREW_DRIVING, 10, "time" = 50), //Secure it
-		list(/obj/item/stack/cable_coil, 2, "time" = 10), //Wire it up
-		list(QUALITY_WIRE_CUTTING, 30, "time" = 50) //Fix the wires
 	)
 
 /datum/craft_recipe/weapon/torch // In radiance may we find victory!

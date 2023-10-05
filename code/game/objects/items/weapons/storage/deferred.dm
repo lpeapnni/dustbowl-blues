@@ -99,7 +99,7 @@
 	item_state = "combat_surgery_kit"
 	initial_contents = list(
 		/obj/item/tool/bonesetter/adv,
-		/obj/item/tool/saw/circular/medical,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat/adv,
 		/obj/item/tool/retractor/adv,
 		/obj/item/tool/scalpel/laser,
@@ -111,7 +111,7 @@
 		)
 	can_hold = list(
 		/obj/item/tool/bonesetter,
-		/obj/item/tool/saw/circular,
+		/obj/item/tool/saw,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/retractor,
 		/obj/item/tool/scalpel,

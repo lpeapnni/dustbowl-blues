@@ -144,54 +144,6 @@
 	build_path = /obj/item/tool_upgrade/augment/ai_tool
 	category = CAT_TOOLMODS
 
-/datum/design/research/item/tool/crowbar_onestar
-	name = "greyson positronic crowbar"
-	build_path = /obj/item/tool/crowbar/onestar
-
-/datum/design/research/item/tool/multitool/multitool_onestar
-	name = "greyson positronic multitool"
-	build_path = /obj/item/tool/multitool/advanced/onestar
-
-/datum/design/research/item/tool/weldertool_onestar
-	name = "greyson positronic welding tool"
-	build_path = /obj/item/tool/weldingtool/onestar
-
-/datum/design/research/item/tool/combi_driver_onestar
-	name = "greyson positronic combination drill"
-	build_path = /obj/item/tool/screwdriver/combi_driver/onestar
-
-/datum/design/research/item/tool/onestar_pliers
-	name = "greyson positronic pliers"
-	build_path = /obj/item/tool/wirecutters/onestar_pliers
-
-/datum/design/research/item/tool/hammer_onestar
-	name = "greyson positronic power hammer"
-	build_path = /obj/item/tool/hammer/powered_hammer/onestar_hammer
-
-/datum/design/research/item/tool/jackhammer_onestar
-	name = "greyson positronic jackhammer"
-	build_path = /obj/item/tool/pickaxe/jackhammer/onestar
-
-/datum/design/research/item/tool/drill_onestar
-	name = "greyson positronic drill"
-	build_path = /obj/item/tool/pickaxe/drill/onestar
-
-/datum/design/research/item/tool/pickaxe_onestar
-	name = "greyson positronic pickaxe"
-	build_path = /obj/item/tool/pickaxe/onestar
-
-/datum/design/research/item/tool/onestar_shovel
-	name = "greyson positronic shovel"
-	build_path = /obj/item/tool/shovel/onestar_shovel
-
-/datum/design/research/item/tool/onestar_saw
-	name = "greyson positronic saw"
-	build_path = /obj/item/tool/saw/onestar_saw
-
-/datum/design/research/item/tool/omni_surgery_onestar
-	name = "greyson positronic medical multitool"
-	build_path = /obj/item/tool/medmultitool
-
 //Upgraded stock parts ========================
 
 /datum/design/research/item/part/greyson_laser

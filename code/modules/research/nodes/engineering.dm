@@ -224,7 +224,6 @@
 	unlocks_designs = list(	/datum/design/research/circuit/miningdrill,
 							/datum/design/research/circuit/miningdrillbrace,
 							/datum/design/research/item/weapon/mining/drill_diamond,
-							/datum/design/research/item/weapon/mining/jackhammer,
 							/datum/design/research/item/weapon/mining/scanner
 							)
 
@@ -242,11 +241,6 @@
 								)
 	required_tech_levels = list()
 	cost = 750
-
-	unlocks_designs = list(	/datum/design/research/item/tool/pneumatic_crowbar,
-							/datum/design/research/item/tool/rcd,
-							/datum/design/research/item/tool/combat_shovel
-							)
 
 /datum/technology/improved_tools
 	name = "Improved-Advanced Tools"

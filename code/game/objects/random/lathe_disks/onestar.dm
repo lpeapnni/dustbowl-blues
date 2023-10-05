@@ -11,7 +11,6 @@
 /obj/random/lathe_disk/advanced/onestar/item_to_spawn()
 	return pickweight(list(/obj/item/computer_hardware/hard_drive/portable/design/onestar/stockparts = 8,
 						/obj/item/computer_hardware/hard_drive/portable/design/onestar/cog = 5,
-						/obj/item/computer_hardware/hard_drive/portable/design/onestar = 5,
 						/obj/item/computer_hardware/hard_drive/portable/design/onestar/armor = 5,
 						/obj/item/computer_hardware/hard_drive/portable/design/onestar/spring = 5,
 						/obj/item/computer_hardware/hard_drive/portable/design/onestar/rivet = 4,

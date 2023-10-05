@@ -107,10 +107,6 @@
 	desc = "Laser reflective armor."
 	build_path = /obj/item/clothing/suit/armor/laserproof/rnd
 
-/datum/design/research/item/weapon/katana
-	name = "Soteria \"Muramasa\" Katana"
-	build_path = /obj/item/tool/sword/katana/nano
-
 /datum/design/research/item/weapon/slimebaton
 	name = "Soteria xenobio baton"
 	build_path = /obj/item/tool/baton/slimebaton

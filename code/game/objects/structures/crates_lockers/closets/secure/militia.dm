@@ -5,8 +5,7 @@
 
 /obj/structure/closet/secure_closet/reinforced/commander/populate_contents()
 	new /obj/item/gunbox/commanding_officer(src) // Secondary on their personal hardcase, primary on the locker.
-	new /obj/item/tool/fireaxe/militia_tomahawk(src)
-	new /obj/item/tool/disciplinary_action(src)
+	new /obj/item/tool/chain(src)
 	new /obj/item/clothing/head/helmet/ballistic/militia/full(src)
 	new /obj/item/clothing/head/rank/milcom(src)
 	new /obj/item/clothing/mask/gas/blackshield_gasmask(src)
@@ -39,7 +38,6 @@
 	new /obj/item/voucher/blackshield/sargprimary(src)
 	new /obj/item/voucher/blackshield/secondary(src)
 	new /obj/item/voucher/blackshield/armor(src)
-	new /obj/item/tool/fireaxe/militia_tomahawk(src)
 	new /obj/item/clothing/accessory/holster/saber/militiasergeant/occupied(src)
 	new /obj/item/clothing/mask/gas/blackshield_gasmask(src)
 	new /obj/item/clothing/gloves/thick/swat/blackshield(src)
@@ -79,7 +77,6 @@
 	new /obj/item/voucher/blackshield/secondary(src)
 	new /obj/item/voucher/blackshield/armor(src)
 	// new /obj/item/tool/knife/boot/blackshield(src)
-	new /obj/item/tool/fireaxe/militia_tomahawk(src)
 	new /obj/item/clothing/glasses/ballistic(src)
 	new /obj/item/clothing/mask/gas/blackshield_gasmask(src)
 	new /obj/item/clothing/mask/balaclava/tactical(src)
@@ -122,7 +119,6 @@
 	new /obj/item/roller(src)
 	new /obj/item/device/radio/headset/headset_blackshield/corps(src)
 	// new /obj/item/tool/knife/boot/blackshield(src)
-	new /obj/item/tool/fireaxe/militia_tomahawk(src)
 	new /obj/item/clothing/glasses/ballistic/med(src)
 	new /obj/item/clothing/mask/gas/blackshield_gasmask(src)
 	new /obj/item/clothing/head/rank/corpsman/beret(src)

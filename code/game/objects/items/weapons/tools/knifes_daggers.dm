@@ -61,21 +61,6 @@
 	backstab_damage = 14
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 
-/*
-/obj/item/tool/knife/boot/blackshield
-	name = "blackshield tactical knife"
-	desc = "A small fixed-blade knife for putting inside a boot, this version is painted in Blackshield colours and has sawed teeth."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "tacknife_blackguard"
-	item_state = "knife"
-	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
-	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5,  QUALITY_SAWING = 1)
-	force = WEAPON_FORCE_DANGEROUS // Serrated teeth
-	armor_penetration = ARMOR_PEN_MODERATE
-	throwforce = WEAPON_FORCE_LETHAL
-	price_tag = 35
-*/
-
 /obj/item/tool/knife/hook
 	name = "meat hook"
 	desc = "A sharp plasteel butcher's hook used to hold dressed game in place to butcher. It has quite the sharpened tip to embed more easily in flesh."
@@ -126,24 +111,6 @@
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 15)
 	price_tag = 14
 
-/*
-/obj/item/tool/knife/tacknife
-	name = "tactical knife"
-	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Space."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "tacknife_guard"
-	item_state = "knife"
-	backstab_damage = 14
-	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
-	force = WEAPON_FORCE_DANGEROUS // Serrated combat knife
-	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5,  QUALITY_SAWING = 5)
-	armor_penetration = ARMOR_PEN_MODERATE
-	throwforce = WEAPON_FORCE_LETHAL
-	max_upgrades = 3
-	embed_mult = 0.6
-	price_tag = 38
-*/
-
 /obj/item/tool/knife/dagger
 	name = "dagger"
 	desc = "A sharp implement; difference between this and a knife: it's sharp on both sides. Good for finding holes in armor and exploiting them."
@@ -168,18 +135,6 @@
 	tool_qualities = list(QUALITY_CUTTING = 50)
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_WOOD = 2, MATERIAL_DIAMOND = 3) // 5 plasteel + 2 wood, then +3 plasteel +3 diamond from whetstone.
 	price_tag = 500 // Takes diamond to make and very rare.
-
-/*
-/obj/item/tool/knife/dagger/ceremonial
-	name = "ceremonial dagger"
-	desc = "Given to high ranking officers as a signature of office, while it isn't meant to be a weapon it certainly does the job."
-	icon_state = "fancydagger"
-	item_state = "fancydagger"
-	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
-	embed_mult = 0.6
-	max_upgrades = 4
-	price_tag = 300 // Fancy expensive paper weight.
-*/
 
 /obj/item/tool/knife/dagger/heirloom_knife
 	name = "heirloom dagger"

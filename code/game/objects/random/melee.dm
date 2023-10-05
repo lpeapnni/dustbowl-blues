@@ -35,7 +35,7 @@
 				/obj/item/tool/nailstick = 2,
 				// /obj/item/melee/toolbox_maul = 2,
 				/obj/item/melee/classic_baton = 1,
-				/obj/item/tool/chainofcommand = 0.3,
+				/obj/item/tool/chain = 0.3,
 				/obj/item/shield/riot = 0.2,
 				/obj/item/shield/buckler/handmade = 0.5,
 				/obj/item/shield/riot/tray = 0.2,

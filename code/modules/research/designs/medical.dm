@@ -192,12 +192,6 @@
 	build_path = /obj/item/tool/retractor/adv/si
 	category = CAT_TOOLS
 
-/datum/design/research/item/medsaw_circular
-	name = "Medical Circular Saw"
-	desc = "For clean bone cutting, but doesn't seem all that durable. Spins slower than the normal saw to allow for higher surgical precision."
-	build_path = /obj/item/tool/saw/circular/medical/si
-	category = CAT_TOOLS
-
 /datum/design/research/item/medical/nanopaste
 	name = "Nanopaste"
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing mechanical body parts, organs, and smart purging of toxic buildup."

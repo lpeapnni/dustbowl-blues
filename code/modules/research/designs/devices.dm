@@ -5,17 +5,9 @@
 	name = "welding mask"
 	build_path = /obj/item/clothing/head/welding
 
-/datum/design/research/item/tool/combat_shovel
-	name = "combat shovel"
-	build_path = /obj/item/tool/shovel/combat
-
 /datum/design/research/item/tool/rcd
 	name = "rapid construction device"
 	build_path = /obj/item/rcd
-
-/datum/design/research/item/tool/pneumatic_crowbar
-	name = "pneumatic crowbar"
-	build_path = /obj/item/tool/crowbar/pneumatic
 
 /datum/design/research/item/light_replacer
 	name = "light replacer"

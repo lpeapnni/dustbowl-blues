@@ -64,7 +64,6 @@
 		),
 		"Printed II" = list(
 			/obj/item/tool/crowbar = good_data("Crowbar", list(-100, -50), 60),
-			/obj/item/tool/crowbar/pneumatic = good_data("Pneumatic Crowbar", list(-100, -50), 750),
 			/obj/item/tool/multitool = good_data("Multitool", list(-100, -50), 60),
 			/obj/item/tool/multitool/advanced = good_data("Advanced Multitool", list(-100, -50), 750),
 			/obj/item/tool/weldingtool = good_data("Welding Tool", list(-100, -50), 60),
@@ -72,8 +71,6 @@
 			/obj/item/clothing/glasses/welding = good_data("Welding Goggles", list(-100, -50), 60),
 			/obj/item/clothing/head/welding = good_data("Welding Mask", list(-100, -50), 65),
 			/obj/item/tool/screwdriver = good_data("Screwdriver", list(-100, -50), 60),
-			/obj/item/tool/screwdriver/electric = good_data("Electric Screwdriver", list(-100, -50), 750),
-			/obj/item/tool/screwdriver/combi_driver = good_data("Combination Driver", list(-100, -50), 750),
 			/obj/item/tool/wirecutters = good_data("Wirecutters", list(-100, -50), 60),
 			/obj/item/tool/wirecutters/pliers = good_data("Pliers", list(-100, -50), 70),
 			/obj/item/tool/wirecutters/armature = good_data("Armature Cutter", list(-100, -50), 750),
@@ -84,21 +81,14 @@
 			/obj/item/tool/wrench/big_wrench = good_data("Big Wrench", list(-100, -50), 750),
 			/obj/item/tool/hammer = good_data("Hammer", list(-100, -50), 60),
 			/obj/item/tool/hammer/deadblow = good_data("Deadblow Hammer", list(-100, -50), 250),
-			/obj/item/tool/hammer/powered_hammer = good_data("Powered Sledgehammer", list(-100, -50), 750),
 			/obj/item/tool/pickaxe = good_data("Pickaxe", list(-100, -50), 60),
 			/obj/item/tool/pickaxe/excavation = good_data("Excavation Pickaxe", list(-100, -50), 50),
 			/obj/item/tool/knife = good_data("Knife", list(-100, -50), 40),
-			///obj/item/tool/knife/tacknife = good_data("Tactical Knife", list(-100, -50), 55),
 			/obj/item/tool/hatchet = good_data("Hatchet", list(-100, -50), 50),
 			/obj/item/tool/minihoe = good_data("Mini hoe", list(-100, -50), 30),
 			/obj/item/tool/shovel = good_data("Shovel", list(-100, -50), 80),
-			/obj/item/tool/shovel/combat = good_data("Combat Crovel", list(-100, -50), 950),
 			/obj/item/tool/shovel/spade = good_data("Spade", list(-100, -50), 50),
-			/obj/item/tool/shovel/power = good_data("Power Shovel 9000", list(-100, -50), 850),
 			/obj/item/tool/saw = good_data("Hand Saw", list(-100, -50), 60),
-			/obj/item/tool/saw/circular/advanced = good_data("Advanced Circular Saw", list(-100, -50), 850),
-			/obj/item/tool/saw/chain = good_data("Chainsaw", list(-100, -50), 300),
-			/obj/item/tool/saw/hyper = good_data("TM Hypersaw", list(-100, -50), 350),
 			/obj/item/rcd = good_data("RCD", list(-100, -50), 700)
 		)
 	)

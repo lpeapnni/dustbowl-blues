@@ -13,7 +13,6 @@
 	price_tag = 200
 	tool_qualities = list(QUALITY_ARMOR = 100)
 	max_upgrades = 1
-	extra_allowed = list(/obj/item/tool/hammer/ironhammer)
 	stiffness = 0
 
 /obj/item/clothing/suit/armor/refresh_upgrades()

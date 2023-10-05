@@ -89,18 +89,7 @@
 	max_storage_space = 24 //holds more then normal do to being antag/bigger
 
 /obj/item/storage/toolbox/syndicate/populate_contents()
-	var/obj/item/tool/cell_tool
-
 	new /obj/item/clothing/gloves/insulated(src)
-
-	cell_tool = new /obj/item/tool/screwdriver/combi_driver(src)
-	qdel(cell_tool.cell)
-	cell_tool.cell = new /obj/item/cell/small/super(cell_tool)
-
-	cell_tool = new /obj/item/tool/crowbar/pneumatic(src)
-	qdel(cell_tool.cell)
-	cell_tool.cell = new /obj/item/cell/medium/super(cell_tool)
-
 	new /obj/item/tool/weldingtool/advanced(src)
 	new /obj/item/tool/wirecutters/armature(src)
 	new /obj/item/tool/multitool(src)

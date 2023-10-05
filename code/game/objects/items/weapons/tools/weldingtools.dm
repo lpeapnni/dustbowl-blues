@@ -1,6 +1,6 @@
 /obj/item/tool/weldingtool
 	name = "welding tool"
-	desc = "A standard portable welding torch, for all your metalworking needs."
+	desc = "A standard portable welding torch, for all your metalworking needs. You wonder how such a device even exists in this world..."
 	icon_state = "welder"
 	item_state = "welder"
 	flags = CONDUCT
@@ -86,24 +86,6 @@
 	max_fuel = 2500
 	glow_color = COLOR_BLUE_LIGHT
 	switched_on_qualities = list(QUALITY_WELDING = 100, QUALITY_CAUTERIZING = 100, QUALITY_WIRE_CUTTING = 100)
-
-/obj/item/tool/weldingtool/onestar
-	name = "\improper Greyson Positronic welding tool"
-	desc = "An old and legendary Greyson Positronic welding tool. Very powerful and reliable, but its compact design causes it to suffer from a lack of both fuel storage and efficiency, requiring regular maintenance."
-	icon_state = "one_star_welder"
-	item_state = "welder"
-	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLATINUM = 2)
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 3)
-	switched_on_qualities = list(QUALITY_WELDING = 60, QUALITY_CAUTERIZING = 25, QUALITY_WIRE_CUTTING = 25)
-	glow_color = COLOR_RED_LIGHT
-	use_fuel_cost = 0.15
-	max_fuel = 20
-	degradation = 2
-	heat = 2750
-	max_upgrades = 2
-	workspeed = 1.5
-	price_tag = 900
-	allow_greyson_mods = TRUE
 
 //Alchemy thingy
 /obj/item/tool/weldingtool/oil_burner

@@ -552,7 +552,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 		stamped = TRUE
 		var/list/options = list()
 		options["Foreman's Sledgehammer"] = list(/obj/item/tool/hammer/foremansledge)
-		options["\"Render Slayer\" Greatsword"] = list(/obj/item/tool/sword/foreman)
+		options["\"Render Slayer\" Greatsword"] = list(/obj/item/tool/sword)
 		var/choice = input(user,"Which weapon will you take?") as null|anything in options
 		if(src && choice)
 			var/list/things_to_spawn = options[choice]

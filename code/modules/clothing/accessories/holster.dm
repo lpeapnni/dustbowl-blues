@@ -187,7 +187,7 @@ Sword holsters
 	sound_out = 'sound/effects/sheathout.ogg'
 
 /obj/item/clothing/accessory/holster/saber/militiacommander/occupied
-	var/holstered_spawn = /obj/item/tool/sword/saber/militiacommander
+	var/holstered_spawn = /obj/item/tool/sword/saber
 
 /obj/item/clothing/accessory/holster/saber/militiacommander/occupied/Initialize()
 	holstered = new holstered_spawn
@@ -211,7 +211,7 @@ Sword holsters
 		add_overlay(image('icons/inventory/accessory/icon.dmi', "saber_layer"))
 
 /obj/item/clothing/accessory/holster/saber/militiasergeant/occupied
-	var/holstered_spawn = /obj/item/tool/sword/saber/militiasergeant
+	var/holstered_spawn = /obj/item/tool/sword/saber
 
 /obj/item/clothing/accessory/holster/saber/militiasergeant/occupied/Initialize()
 	holstered = new holstered_spawn
@@ -324,7 +324,7 @@ Sword holsters
 	icon_state = "saya"
 	overlay_state = "saya"
 	slot = "utility"
-	can_hold = list(/obj/item/tool/sword/katana_makeshift, /obj/item/tool/sword/katana, /obj/item/tool/sword/katana/nano, /obj/item/tool/cheap/katana) // Only straight swords.
+	can_hold = list(/obj/item/tool/sword/katana_makeshift, /obj/item/tool/sword/katana, /obj/item/tool/cheap/katana) // Only straight swords.
 
 /obj/item/clothing/accessory/holster/saber/saya/update_icon()
 	..()

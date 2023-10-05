@@ -211,7 +211,6 @@
 							/datum/design/research/item/cautery_adv,
 							/datum/design/research/item/hemostat_adv,
 							/datum/design/research/item/retractor_adv,
-							/datum/design/research/item/medsaw_circular,
 							)
 
 /datum/technology/portable_biotech

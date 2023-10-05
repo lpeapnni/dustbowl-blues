@@ -161,7 +161,7 @@
 	can_hold = list(
 		/obj/item/tool/bonesetter,
 		/obj/item/tool/cautery,
-		/obj/item/tool/saw/circular,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/retractor,
 		/obj/item/tool/scalpel,
@@ -183,7 +183,7 @@
 	if (empty) return
 	new /obj/item/tool/bonesetter(src)
 	new /obj/item/tool/cautery(src)
-	new /obj/item/tool/saw/circular(src)
+	new /obj/item/tool/saw/medical(src)
 	new /obj/item/tool/hemostat(src)
 	new /obj/item/tool/retractor(src)
 	new /obj/item/tool/scalpel(src)
@@ -203,7 +203,7 @@
 	if (empty) return
 	new /obj/item/tool/bonesetter(src)
 	new /obj/item/tool/cautery(src)
-	new /obj/item/tool/saw/circular/advanced(src)
+	new /obj/item/tool/saw/medical(src)
 	new /obj/item/tool/hemostat(src)
 	new /obj/item/tool/retractor(src)
 	new /obj/item/tool/scalpel/advanced(src)
@@ -226,7 +226,7 @@
 	matter = list(MATERIAL_PLASTIC = 12) // More slots
 	can_hold = list(
 		/obj/item/tool/bonesetter,
-		/obj/item/tool/saw/circular,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/retractor,
 		/obj/item/tool/scalpel,
@@ -245,7 +245,7 @@
 	new /obj/item/tool/retractor/adv(src)
 	new /obj/item/tool/bonesetter/adv(src)
 	new /obj/item/tool/tape_roll/bonegel(src)
-	new /obj/item/tool/saw/circular/medical(src)
+	new /obj/item/tool/saw/medical(src)
 	new /obj/item/tool/surgicaldrill/adv(src)
 	new /obj/item/reagent_containers/syringe/stim/ultra_surgeon(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
@@ -271,7 +271,7 @@
 	new /obj/item/tool/bonesetter/adv/si(src)
 	new /obj/item/tool/cautery/adv/si(src)
 	new /obj/item/tool/tape_roll/bonegel/si(src)
-	new /obj/item/tool/saw/circular/medical/si(src)
+	new /obj/item/tool/saw/medical(src)
 	new /obj/item/tool/surgicaldrill/adv/si(src)
 	new /obj/item/stack/medical/bruise_pack/advanced(src)
 

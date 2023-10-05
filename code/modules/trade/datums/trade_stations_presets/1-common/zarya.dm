@@ -98,10 +98,5 @@
 		/obj/item/tool/wirecutters = offer_data_mods("modified wirecutters (6 upgrades)", 2800, 2, OFFER_MODDED_TOOL, 6),
 		/obj/item/tool/wrench = offer_data_mods("modified wrench (6 upgrades)", 2800, 2, OFFER_MODDED_TOOL, 6),
 		/obj/item/tool/weldingtool = offer_data_mods("modified welding tool (6 upgrades)", 2800, 2, OFFER_MODDED_TOOL, 6),
-		/obj/item/tool/crowbar/onestar = offer_data("greyson crowbar", 1000, 3),
-		/obj/item/tool/pickaxe/onestar = offer_data("greyson pickaxe", 1000, 3),
-		/obj/item/tool/pickaxe/jackhammer/onestar = offer_data("greyson jackhammer", 1000, 3),
-		/obj/item/tool/screwdriver/combi_driver/onestar = offer_data("greyson combi driver", 1000, 3),
-		/obj/item/tool/weldingtool/onestar  = offer_data("greyson welding tool", 1000, 3),
 		/obj/item/tool_upgrade/augment/repair_nano = offer_data("repair nano", 5000, 1)
 	)

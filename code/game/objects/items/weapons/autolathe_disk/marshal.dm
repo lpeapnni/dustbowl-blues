@@ -14,7 +14,6 @@
 		/datum/design/autolathe/sec/electropack,
 		/datum/design/autolathe/misc/taperecorder,
 		///datum/design/autolathe/tool/tacknife,
-		/datum/design/autolathe/tool/combat_shovel,
 		/datum/design/autolathe/sec/beartrap,
 		/datum/design/autolathe/sec/silencer,
 		/datum/design/autolathe/sec/acog,
@@ -58,7 +57,6 @@
 		/datum/design/autolathe/gun/peacekeeper =3,
 		/datum/design/autolathe/gun/zwang =2,
 		//Misc
-		/datum/design/autolathe/tool/ironhammer,
 		/datum/design/autolathe/sec/stunbaton/maul,
 		/datum/design/autolathe/sec/buckler = 0,
 		/datum/design/autolathe/sec/riot,

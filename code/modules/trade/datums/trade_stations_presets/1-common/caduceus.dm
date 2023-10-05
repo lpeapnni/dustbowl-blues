@@ -41,7 +41,7 @@
 			/obj/item/tool/scalpel,
 			/obj/item/tool/retractor,
 			/obj/item/tool/bonesetter,
-			/obj/item/tool/saw/circular
+			/obj/item/tool/saw/medical
 		),
 		"Blood" = list(
 			/obj/structure/medical_stand,
@@ -110,7 +110,7 @@
 			/obj/item/tool/scalpel/laser = custom_good_amount_range(list(1, 2)),
 			/obj/item/tool/scalpel/advanced = custom_good_amount_range(list(1, 2)),
 			/obj/item/tool/tape_roll/bonegel = custom_good_amount_range(list(1, 2)),
-			/obj/item/tool/saw/circular/medical = custom_good_amount_range(list(1, 2)),
+			/obj/item/tool/saw/medical = custom_good_amount_range(list(1, 2)),
 			/obj/item/tool/hammer = custom_good_amount_range(list(1, 2)),
 			/obj/item/tool/surgicaldrill/adv = custom_good_amount_range(list(1, 2)),
 			/obj/item/modification/organ/internal/electromechanical/bone_braces = custom_good_amount_range(list(1, 2))

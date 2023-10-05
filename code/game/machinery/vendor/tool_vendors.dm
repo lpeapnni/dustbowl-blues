@@ -286,7 +286,6 @@
 					/obj/item/device/assembly/signaler = 3,
 					/obj/item/device/scanner/health = 3,
 					/obj/item/tool/scalpel = 2,
-					/obj/item/tool/saw/circular = 2,
 					/obj/item/tank/anesthetic = 2,
 					/obj/item/clothing/mask/breath/medical = 5,
 					/obj/item/tool/screwdriver = 5,

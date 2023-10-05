@@ -70,7 +70,7 @@
 				/obj/item/tool/surgicaldrill = 2,
 				/obj/item/tool/cautery = 2,
 				/obj/item/tool/retractor = 2,
-				/obj/item/tool/saw/circular = 2,
+				/obj/item/tool/saw = 2,
 				/obj/item/storage/pill_bottle/dylovene = 2,
 				/obj/item/storage/pill_bottle/tramadol = 1,
 				/obj/item/mop = 3,
