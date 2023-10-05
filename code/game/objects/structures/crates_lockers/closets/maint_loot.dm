@@ -71,8 +71,6 @@
 	new /obj/random/tool_upgrade(src)
 	new /obj/random/tool_upgrade(src)
 	new /obj/random/tool_upgrade(src)
-	new /obj/random/lathe_disk(src)
-	new /obj/random/lathe_disk/low_chance(src)
 	new /obj/random/pouch/hardcase_scrap/low_chance(src)
 	new /obj/random/pack/tech_loot/low_chance(src)
 	new /obj/random/pack/tech_loot/low_chance(src)

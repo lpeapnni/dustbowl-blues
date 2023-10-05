@@ -30,7 +30,6 @@
 	)
 	hidden_inventory = list(
 		"Premium Assorted Goods" = list(
-			/obj/item/storage/deferred/disks = custom_good_amount_range(list(2, 4)),
 			/obj/item/storage/deferred/rig = custom_good_amount_range(list(2, 4)),
 			/obj/item/storage/deferred/tools = custom_good_amount_range(list(2, 4)),
 			/obj/item/gem //THE BIG TICKET ITEM

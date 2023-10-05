@@ -44,7 +44,6 @@ They generally give more random result and can provide more divercity in spawn.
 
 /obj/random/pack/tech_loot/item_to_spawn()
 	return pickweight(list(
-					/obj/random/lathe_disk = 3,
 					/obj/random/circuitboard = 6,
 					/obj/random/knife = 6,
 					/obj/random/lowkeyrandom = 8,
@@ -121,7 +120,6 @@ They generally give more random result and can provide more divercity in spawn.
 					/obj/random/material_rare = 3,
 					/obj/random/tool/advanced = 5,
 					/obj/random/gun_normal = 2,
-					/obj/random/lathe_disk/advanced = 3,
 					/obj/item/cell/small/moebius/nuclear = 1,
 					/obj/item/cell/medium/moebius/hyper = 1,
 					/obj/random/rig = 1.5,

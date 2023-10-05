@@ -289,9 +289,7 @@ obj/structure/salvageable/server/Initialize()
 		/obj/item/computer_hardware/processor_unit/adv = 40,
 		/obj/item/computer_hardware/processor_unit/adv/small = 30,
 		/obj/item/computer_hardware/hard_drive = 60,
-		/obj/item/computer_hardware/hard_drive/advanced = 40,
-		/obj/random/lathe_disk = 50,
-		/obj/random/lathe_disk/advanced = 30,
+		/obj/item/computer_hardware/hard_drive/advanced = 40
 	)
 
 obj/structure/salvageable/personal/Initialize()
@@ -355,7 +353,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/stock_parts/micro_laser/one_star = 40,
 		/obj/item/stock_parts/matter_bin/one_star = 40,
 		/obj/item/stock_parts/matter_bin/one_star = 40,
-		/obj/random/lathe_disk/advanced/onestar = 5,
 		/obj/random/prothesis/one_star = 20,
 		/obj/item/gun_upgrade/mechanism/glass_widow = 5,
 		/obj/item/tool_upgrade/augment/randomizer = 20
@@ -384,7 +381,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/stock_parts/matter_bin/one_star = 80,
 		/obj/item/stock_parts/matter_bin/one_star = 80,
 		/obj/random/prothesis/one_star = 20,
-		/obj/random/lathe_disk/advanced/onestar = 10,
 		/obj/item/circuitboard/autolathe = 5,
 		/obj/item/stack/material/steel{amount = 10} = 60,
 		/obj/item/stack/material/glass{amount = 10} = 60,
@@ -422,8 +418,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 5
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/implant_container_os
@@ -480,8 +475,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/hard_drive/super = 50,
 		/obj/item/computer_hardware/hard_drive/super = 50,
 		/obj/item/computer_hardware/hard_drive/cluster = 50,
-		/obj/item/computer_hardware/network_card/wired = 40,
-		/obj/random/lathe_disk/advanced/onestar = 10
+		/obj/item/computer_hardware/network_card/wired = 40
 	)
 
 /obj/structure/salvageable/server_os
@@ -537,8 +531,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 25
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/console_broken_os
@@ -563,8 +556,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 15
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/os/power  //todo:make a system to directly repair to a generator

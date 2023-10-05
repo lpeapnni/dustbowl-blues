@@ -75,7 +75,6 @@
 			/obj/item/gun/energy/pulse/cassad
 		),
 		"Surplus Gun Parts & Disk for Resale" = list(
-			/obj/item/computer_hardware/hard_drive/portable/design/gun_frames/resale/high = good_data("SA Gun Frame Disk", list(1, 1), 1450),
 			/obj/item/part/gun/grip/serb,
 			/obj/item/part/gun/mechanism/autorifle,
 			/obj/item/part/gun/mechanism/smg,

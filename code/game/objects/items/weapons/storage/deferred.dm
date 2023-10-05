@@ -304,11 +304,6 @@
 // TRADE
 
 // Gambling
-/obj/item/storage/deferred/disks
-	name = "autolathe disk box"
-	desc = "A small collection of autolathe disks"
-	initial_contents = list(/obj/random/lathe_disk = 7)
-
 obj/item/storage/deferred/gun_parts
 	name = "gun part box"
 	desc = "Uppers, lowers, and everything in between"
@@ -402,13 +397,4 @@ obj/item/storage/deferred/gun_parts
 	icon_state = "eggbox"
 	initial_contents = list(
 		/obj/item/roach_egg = 12
-	)
-
-// Serb
-/obj/item/storage/deferred/serb_rifle
-	name = "SA rifle pack"
-	desc = "A small collection of SA disks"
-	initial_contents = list(
-		/obj/item/computer_hardware/hard_drive/portable/design/guns/sa_kalashnikov = 1,
-		/obj/item/computer_hardware/hard_drive/portable/design/guns/sa_pk = 1
 	)
