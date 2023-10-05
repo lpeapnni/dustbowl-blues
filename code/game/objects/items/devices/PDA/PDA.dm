@@ -518,10 +518,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 //NOTE: graphic resources are loaded on client login
 /obj/item/device/pda/attack_self(mob/user as mob)
 	user.set_machine(src)
-
-	if(active_uplink_check(user))
-		return
-
 	nano_ui_interact(user) //NanoUI requires this proc
 	return
 
@@ -672,11 +668,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/t = stripped_input(U, "Please enter new ringtone", name, ttone, 20)
 			if (in_range(src, U) && loc == U)
 				if (t)
-					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
-						to_chat(U, "The PDA softly beeps.")
-						ui.close()
-					else
-						ttone = t
+					ttone = t
 			else
 				ui.close()
 				return 0
@@ -775,8 +767,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 							difficulty += P.cartridge.access_engine
 							difficulty += P.cartridge.access_clown
 							difficulty += P.cartridge.access_janitor
-							if(P.hidden_uplink)
-								difficulty += 3
 
 						if(prob(difficulty))
 							U.show_message(SPAN_WARNING("An error flashes on your [src]."), 1)

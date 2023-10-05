@@ -232,10 +232,6 @@ var/global/list/default_medbay_channels = list(
 		if ((new_frequency < PUBLIC_LOW_FREQ || new_frequency > PUBLIC_HIGH_FREQ))
 			new_frequency = sanitize_frequency(new_frequency)
 		set_frequency(new_frequency)
-		if(hidden_uplink)
-			if(hidden_uplink.check_trigger(usr, frequency))
-				hidden_uplink.trigger(usr)
-				return
 		. = 1
 	else if (href_list["talk"])
 		ToggleBroadcast()

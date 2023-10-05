@@ -71,6 +71,3 @@
 	R.set_frequency(freq)
 	H.equip_to_slot_or_del(R, slot_l_ear)
 	return R
-
-/datum/antagonist/proc/spawn_uplink(var/mob/living/carbon/human/contractor_mob)
-	setup_uplink_source(contractor_mob, DEFAULT_TELECRYSTAL_AMOUNT)

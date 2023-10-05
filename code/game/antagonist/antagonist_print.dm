@@ -125,13 +125,6 @@
 	var/TC_uses = 0
 	var/list/purchases = list()
 
-	for(var/obj/item/device/uplink/H in world_uplinks)
-		if(H.uplink_owner && H.uplink_owner == owner)
-			TC_uses += H.used_TC
-
-			for(var/datum/uplink_item/UI in H.purchase_log)
-				purchases.Add("[H.purchase_log[UI]]x[UI.log_icon()][UI.name]")
-
 	text += " (used [TC_uses] TC)"
 	if(purchases.len)
 		text += "<br>[english_list(purchases, nothing_text = "")]"

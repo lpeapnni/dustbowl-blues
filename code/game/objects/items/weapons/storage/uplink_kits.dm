@@ -1,5 +1,5 @@
 /obj/item/storage/box/syndicate/populate_contents()
-	switch (pickweight(list("bloodyspai" = 1, "stealth" = 1, "screwed" = 1, "guns" = 1, "murder" = 1, "freedom" = 1, "hacker" = 1, /*"lordsingulo" = 1,*/ "smoothoperator" = 1)))
+	switch (pickweight(list("bloodyspai" = 1, "stealth" = 1, "screwed" = 1, "guns" = 1, "murder" = 1, "hacker" = 1, /*"lordsingulo" = 1,*/ "smoothoperator" = 1)))
 		if("bloodyspai")
 			new /obj/item/clothing/under/chameleon(src)
 			new /obj/item/clothing/mask/chameleon/voice(src)
@@ -33,13 +33,6 @@
 			new /obj/item/clothing/glasses/powered/thermal/syndi(src)
 			new /obj/item/card/emag(src)
 			new /obj/item/clothing/shoes/syndigaloshes(src)
-			return
-
-		if("freedom")
-			var/obj/item/implanter/O = new /obj/item/implanter(src)
-			O.implant = new /obj/item/implant/freedom(O)
-			var/obj/item/implanter/U = new /obj/item/implanter(src)
-			U.implant = new /obj/item/implant/uplink(U)
 			return
 
 		if("hacker")
@@ -101,17 +94,6 @@
 
 /obj/item/storage/box/syndie_kit/imp_spying/populate_contents()
 	new /obj/item/implanter/spying(src)
-
-/obj/item/storage/box/syndie_kit/imp_uplink
-	name = "boxed uplink implant (with injector)"
-	desc = "Uplink inside your head."
-
-/obj/item/storage/box/syndie_kit/imp_uplink/populate_contents()
-	//Turn off passive gain for boxed implant uplinks. To prevent exploits of gathering tons of free TC
-	var/obj/item/implanter/uplink/U1 = new /obj/item/implanter/uplink(src)
-	var/obj/item/implant/uplink/U2 = locate(/obj/item/implant/uplink) in U1
-	var/obj/item/device/uplink/hidden/U3 = locate(/obj/item/device/uplink/hidden) in U2
-	U3.passive_gain = 0
 
 /obj/item/storage/box/syndie_kit/space
 	name = "boxed voidsuit"

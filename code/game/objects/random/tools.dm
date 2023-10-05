@@ -26,7 +26,6 @@
 				/obj/item/tool/hammer/homewrecker = 10,
 				/obj/item/tool/multitool = 3,
 				/obj/item/tool/multitool/improvised = 4,
-				/obj/item/tool/multitool/uplink = 0.01, //REALLY RARE
 				/obj/item/tool/multitool/advanced = 1,
 				/obj/item/tool/saw = 4,
 				/obj/item/tool/saw/improvised = 6,
@@ -113,7 +112,6 @@
 				/obj/item/tool/hammer/deadblow = 2,
 				/obj/item/tool/tape_roll/fiber = 2,
 				/obj/item/tool/multitool/advanced = 1,
-				/obj/item/tool/multitool/uplink = 0.05, //REALLY RARE
 				//obj/item/tool/tape_roll/flextape = 1,
 				/obj/item/tool/fireaxe = 1))
 

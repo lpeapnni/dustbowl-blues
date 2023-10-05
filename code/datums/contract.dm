@@ -58,13 +58,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		if(M.current)
 			to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
 
-	for(var/obj/item/device/uplink/U in world_uplinks)
-		if(U.uplink_owner != M)
-			continue
-		U.uses += reward
-		break
-
-
 // A contract to steal a specific item - allows you to check all contents (recursively) for the target item
 /datum/antag_contract/item
 

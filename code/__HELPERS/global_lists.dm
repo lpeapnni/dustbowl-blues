@@ -73,9 +73,6 @@ var/global/list/playable_species = list("Human")    // A list of ALL playable sp
 // Posters
 GLOBAL_LIST_EMPTY(poster_designs)
 
-// Uplinks
-var/list/obj/item/device/uplink/world_uplinks = list()
-
 // Loot stash datums
 GLOBAL_LIST_EMPTY(stash_categories) //An associative list in the format category_type = weight
 
