@@ -500,7 +500,6 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	if(!stamped)
 		stamped = TRUE
 		var/list/options = list()
-		options["Recovery Team RIG"] = list(/obj/item/rig/recovery_suit/equipped)
 		options["Advanced Paramedic Armor"] = list(/obj/item/clothing/suit/armor/paramedic,/obj/item/clothing/head/helmet/faceshield/paramedic)
 		var/choice = input(user,"Which armor will you take?") as null|anything in options
 		if(src && choice)

@@ -161,20 +161,8 @@
 				// Handling errors and injection duration
 				var/mob/living/carbon/human/H = target
 				if(istype(H))
-					var/obj/item/clothing/suit/space/SS = H.get_equipped_item(slot_wear_suit)
-					var/obj/item/rig/RIG = H.get_equipped_item(slot_back)
-					if((istype(RIG) && RIG.suit_is_deployed()) || istype(SS))
-						injtime = injtime * 2
-						var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
-						if(BP_IS_ROBOTIC(affected))
-							to_chat(user, SPAN_WARNING("Injection port on [target]'s suit is refusing your [src]."))
-							// I think rig is advanced enough for this, and people will learn what causes this error
-							if(RIG)
-								playsound(src.loc, 'sound/machines/buzz-two.ogg', 30, 1 -3)
-								RIG.visible_message("\icon[RIG]\The [RIG] states \"Attention: User of this suit appears to be synthetic origin\".")
-							return
 					// check without message
-					else if(!H.can_inject(user, FALSE))
+					if(!H.can_inject(user, FALSE))
 						// lets check if user is easily fooled
 						var/obj/item/organ/external/affected = H.get_organ(user.targeted_organ)
 						if(BP_IS_LIFELIKE(affected) && user && user.stats.getStat(SKILL_MED) < SKILL_LEVEL_BASIC)

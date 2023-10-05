@@ -48,4 +48,3 @@
 	new /obj/item/device/aicard(src)
 	new /obj/item/circuitboard/teleporter(src)
 	new /obj/item/circuitboard/aicore(src)
-	new /obj/item/rig/hazmat/equipped(src)

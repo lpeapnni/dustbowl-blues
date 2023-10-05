@@ -44,7 +44,6 @@
 
 /obj/random/cloth/armor/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/suit/armor/bulletproof = 10,
-				/obj/item/clothing/suit/space/captain = 1,
 				/obj/item/clothing/suit/armor/heavy = 2,
 				/obj/item/clothing/suit/armor/heavy/riot = 4,
 				/obj/item/clothing/suit/armor/laserproof = 2,
@@ -53,11 +52,7 @@
 				/obj/item/clothing/suit/armor/platecarrier  = 10,
 				/obj/item/clothing/suit/armor/flakvest  = 5,
 				/obj/item/clothing/suit/armor/vest/handmade = 20,
-				/obj/item/clothing/suit/space/void/SCAF = 1,
 				/obj/item/clothing/suit/storage/vest/merc = 1,
-				/obj/item/clothing/suit/space/void/odst/red = 1,
-				/obj/item/clothing/suit/space/void/odst/blue = 1,
-				/obj/item/clothing/suit/space/void/odst/orange = 1,
 				/obj/item/clothing/suit/armor/vest = 20))
 
 /obj/random/cloth/armor/low_chance
@@ -123,8 +118,7 @@
 				/obj/item/clothing/suit/bio_suit/scientist = 5,
 				/obj/item/clothing/suit/bio_suit/security = 5,
 				/obj/item/clothing/suit/bio_suit/virology = 5,
-				/obj/item/clothing/suit/radiation = 30,
-				/obj/item/clothing/suit/space/bomb = 20))
+				/obj/item/clothing/suit/radiation = 30))
 
 /obj/random/cloth/hazmatsuit/low_chance
 	name = "low chance random hazmat suit"
@@ -221,10 +215,6 @@
 				/obj/item/clothing/head/helmet/faceshield/altyn/maska = 2,
 				/obj/item/clothing/head/helmet/mercenary = 2,
 				/obj/item/clothing/head/helmet/bulletproof = 2,
-				/obj/item/clothing/head/helmet/space/void/odst/red = 1,
-				/obj/item/clothing/head/helmet/space/void/odst/blue = 1,
-				/obj/item/clothing/head/helmet/space/void/odst/orange = 1,
-				/obj/item/clothing/head/helmet/space/void/SCAF = 1,
 				/obj/item/clothing/head/helmet/bulletproof/ironhammer_nvg = 1,
 				/obj/item/clothing/head/helmet/bulletproof/ironhammer_thermal = 0.3,))
 
@@ -500,6 +490,4 @@
 				/obj/item/clothing/head/helmet/laserproof/iron_lock_security = 1,
 				/obj/item/clothing/suit/armor/vest/iron_lock_security = 1,
 				/obj/item/clothing/suit/greatcoat/os = 4,
-				/obj/item/clothing/head/os_cap = 4,
-				/obj/item/clothing/head/helmet/space/os = 8,
-				/obj/item/clothing/suit/space/os = 8))
+				/obj/item/clothing/head/os_cap = 4))

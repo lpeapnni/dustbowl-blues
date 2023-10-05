@@ -81,7 +81,6 @@
 	/obj/random/cloth/armor = 1)
 	contents_list_random = list(/obj/random/gun_normal = 70,
 	/obj/random/gun_energy_cheap = 50,
-	/obj/random/voidsuit = 70,
 	/obj/random/knife = 70,
 	/obj/random/knife = 50,
 	/obj/random/knife = 60,

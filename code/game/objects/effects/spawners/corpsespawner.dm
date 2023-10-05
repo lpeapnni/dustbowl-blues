@@ -131,7 +131,6 @@
 /obj/landmark/corpse/excelsior
 	name = "Unknown"
 	corpseuniform = /obj/item/clothing/under/excelsior
-	corpsesuit = /obj/item/clothing/suit/space/void/excelsior
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsegloves = /obj/item/clothing/gloves
 	injury_level = 8
@@ -152,7 +151,6 @@
 /obj/landmark/corpse/one_star/void
 	name = "warped skeletal remains"
 	corpseuniform = /obj/item/clothing/under/os_jumpsuit
-	corpsesuit = /obj/item/clothing/suit/space/os	// Helmet won't spawn pre-equipped, but it's there
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpseradio = /obj/item/device/radio/headset
 	//corpseid = TRUE
@@ -178,7 +176,6 @@
 /obj/landmark/corpse/syndicatecommando
 	name = "Older Syndicate Commando"
 	corpseuniform = /obj/item/clothing/under/syndicate
-	corpsesuit = /obj/item/clothing/suit/space/void/merc
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsegloves = /obj/item/clothing/gloves
 	corpseradio = /obj/item/device/radio/headset
@@ -221,7 +218,6 @@
 	corpseidjob = "Technomancer"
 
 /obj/landmark/corpse/engineer/rig
-	corpsesuit = /obj/item/clothing/suit/space/void/engineering
 	corpsemask = /obj/item/clothing/mask/breath
 
 /obj/landmark/corpse/scientist
@@ -242,7 +238,6 @@
 	corpseidjob = "Guild Miner"
 
 /obj/landmark/corpse/miner/rig
-	corpsesuit = /obj/item/clothing/suit/space/void/mining
 	corpsemask = /obj/item/clothing/mask/breath
 
 /obj/landmark/corpse/security
@@ -330,12 +325,10 @@
 /obj/landmark/corpse/antagonist/syndicate/commando
 	name = "Syndicate Commando"
 	corpseuniform = /obj/item/clothing/under/syndicate
-	corpsesuit = /obj/item/clothing/suit/space/void/merc
 	corpseshoes = /obj/item/clothing/shoes/swat
 	corpsegloves = /obj/item/clothing/gloves/thick/swat
 	corpseradio = /obj/item/device/radio/headset
 	corpsemask = /obj/item/clothing/mask/gas/tactical
-	corpsehelmet = /obj/item/clothing/head/helmet/space/void/merc
 	corpseback = /obj/item/tank/jetpack/oxygen
 	corpsepocket1 = /obj/item/tank/emergency_oxygen
 	corpseid = 1

@@ -40,5 +40,4 @@
 /decl/hierarchy/outfit/job/cargo/mining/void
 	name = OUTFIT_JOB_NAME("Lonestar - Lonestar Miner Voidsuit")
 	mask = /obj/item/clothing/mask/breath
-	suit = /obj/item/clothing/suit/space/void/mining
 

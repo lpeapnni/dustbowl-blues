@@ -36,4 +36,3 @@
 /decl/hierarchy/outfit/job/engineering/engineer/void
 	name = OUTFIT_JOB_NAME("Artificer - Adept Voidsuit")
 	mask = /obj/item/clothing/mask/breath
-	suit = /obj/item/clothing/suit/space/void/engineering

@@ -96,10 +96,7 @@ var/list/global/tank_gauge_cache = list()
 /obj/item/tank/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/mob/living/carbon/location = null
 
-	if(istype(loc, /obj/item/rig))		// check for tanks in rigs
-		if(iscarbon(loc.loc))
-			location = loc.loc
-	else if(iscarbon(loc))
+	if(iscarbon(loc))
 		location = loc
 
 	var/using_internal
@@ -123,9 +120,6 @@ var/list/global/tank_gauge_cache = list()
 		if(location.internal == src)	// if tank is current internal
 			mask_check = 1
 		else if(src in location)		// or if tank is in the mobs possession
-			if(!location.internal)		// and they do not have any active internals
-				mask_check = 1
-		else if(istype(src.loc, /obj/item/rig) && (src.loc in location))	// or the rig is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
 

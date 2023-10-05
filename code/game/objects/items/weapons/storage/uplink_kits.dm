@@ -17,8 +17,6 @@
 			new /obj/effect/spawner/newbomb/timer/syndicate(src)
 			new /obj/effect/spawner/newbomb/timer/syndicate(src)
 			new /obj/item/device/powersink(src)
-			new /obj/item/clothing/suit/space/syndicate(src)
-			new /obj/item/clothing/head/helmet/space/syndicate(src)
 			new /obj/item/clothing/mask/gas/tactical(src)
 			new /obj/item/tank/emergency_oxygen/double(src)
 			return
@@ -119,7 +117,6 @@
 	name = "boxed voidsuit"
 
 /obj/item/storage/box/syndie_kit/space/populate_contents()
-	new /obj/item/clothing/suit/space/void/merc/boxed(src)
 	new /obj/item/clothing/mask/gas/tactical(src)
 
 /obj/item/storage/box/syndie_kit/chameleon
@@ -309,14 +306,6 @@
 /proc/fill_cigarre_package(var/obj/item/storage/fancy/cigarettes/C, var/list/reagents)
 	for(var/reagent in reagents)
 		C.reagents.add_reagent(reagent, reagents[reagent] * C.storage_slots)
-
-/obj/item/storage/box/syndie_kit/ewar_voice
-	name = "Electro-Warfare and Voice Synthesizer kit"
-	desc = "Kit for confounding organic and synthetic entities alike."
-
-/obj/item/storage/box/syndie_kit/ewar_voice/populate_contents()
-	new /obj/item/rig_module/electrowarfare_suite(src)
-	new /obj/item/rig_module/voice(src)
 
 /obj/item/storage/box/syndie_kit/spy_sensor
 	name = "sensor kit"

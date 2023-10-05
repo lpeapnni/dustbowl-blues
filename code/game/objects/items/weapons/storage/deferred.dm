@@ -326,12 +326,6 @@ obj/item/storage/deferred/gun_parts
 	desc = "A small collection of scientific items."
 	initial_contents = list(/obj/random/science = 7)
 
-/obj/item/storage/deferred/rig
-	name = "hardsuit box"
-	desc = "They put a RIG in a box."
-	price_tag = 200 //*5 at casino beacon
-	initial_contents = list(/obj/random/rig = 1)
-
 /obj/item/storage/deferred/toolmods
 	name = "toolmod box"
 	desc = "An assortment of some toolmods."

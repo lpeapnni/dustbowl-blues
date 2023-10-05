@@ -244,14 +244,6 @@
 			brokenmodule.make_old()
 			QDEL_NULL(src)
 
-
-/obj/item/clothing/suit/space/make_old()
-	.=..()
-	if (.)
-		if(prob(50))
-			create_breaches(pick(BRUTE, BURN), rand(10, 50))
-
-
 /obj/item/clothing/make_old()
 	.=..()
 	if (.)

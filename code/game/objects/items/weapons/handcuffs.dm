@@ -64,10 +64,6 @@
 		to_chat(user, SPAN_DANGER("\The [H] needs at least two wrists before you can cuff them together!"))
 		return 0
 
-	if(istype(H.gloves,/obj/item/clothing/gloves/rig) && !elastic) // Can't cuff someone who's in a deployed hardsuit.
-		to_chat(user, SPAN_DANGER("\The [src] won't fit around \the [H.gloves]!"))
-		return 0
-
 	user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"))
 
 	if(!do_after(user, delay, target))

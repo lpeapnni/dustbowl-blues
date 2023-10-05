@@ -223,7 +223,7 @@
 				build_delay = 50 / construction_speed
 			else if(istype(T,/obj/structure/computerframe))
 				build_cost =  10 - construction_efficiency
-				build_delay = 50 / construction_speed		
+				build_delay = 50 / construction_speed
 			else
 				build_type =  ""
 	if(!build_type)
@@ -294,14 +294,6 @@
 	return (user.Adjacent(T) && !user.stat)
 
 /obj/item/rcd/mounted/useResource(var/amount, var/mob/user, var/checkOnly)
-	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RCD can.
-	if(istype(loc,/obj/item/rig_module))
-		var/obj/item/rig_module/module = loc
-		if(module.holder && module.holder.cell)
-			if(module.holder.cell.charge >= cost)
-				if (!checkOnly)
-					module.holder.cell.use(cost)
-				return 1
 	return 0
 
 /obj/item/rcd/mounted/attackby()

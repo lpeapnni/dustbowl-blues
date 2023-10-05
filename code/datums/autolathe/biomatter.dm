@@ -175,15 +175,6 @@
 	name = "Hermes Boots"
 	build_path = /obj/item/clothing/shoes/hermes_shoes
 
-/datum/design/bioprinter/nt_clothes/NTvoid
-	name = "Angel Voidsuit"
-	build_path = /obj/item/clothing/suit/space/void/NTvoid
-
-/datum/design/bioprinter/nt_clothes/knight_rig
-	name = "Knight Hardsuit Module"
-	materials = list(MATERIAL_BIOMATTER = 100, MATERIAL_GOLD = 10, MATERIAL_SILVER = 10, MATERIAL_PLASTEEL = 100)
-	build_path = /obj/item/rig/combat/knight
-
 //[GRENADES]
 /datum/design/autolathe/grenade/nt_heatwave
 	name = "NT HG \"Inferno\""

@@ -37,21 +37,9 @@
 	// Handling errors and injection duration
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		var/obj/item/clothing/suit/space/SS = H.get_equipped_item(slot_wear_suit)
-		var/obj/item/rig/RIG = H.get_equipped_item(slot_back)
 		if(H.a_intent == I_HURT)
 			user.visible_message(SPAN_WARNING("[user] trys to inject [M] with [src]! But [M] is actively resisting"), SPAN_WARNING("You inject begin injecting [M] with [src] but they seem to be resisting."))
 			injtime += 10 //Not as good as having a real suit on
-		if((istype(RIG) && RIG.suit_is_deployed()) || istype(SS))
-			injtime += 30
-			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
-			if(BP_IS_ROBOTIC(affected))
-				to_chat(user, SPAN_WARNING("Injection port on [M]'s suit is refusing your [src]."))
-				// I think rig is advanced enough for this, and people will learn what causes this error
-				if(RIG)
-					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1 -3)
-					RIG.visible_message("\icon[RIG]\The [RIG] states \"Attention: User of this suit appears to be synthetic origin\".")
-				return
 		// check without message
 		else if(!H.can_inject(user, FALSE))
 			// lets check if user is easily fooled

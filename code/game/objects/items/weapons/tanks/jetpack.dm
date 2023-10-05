@@ -334,26 +334,6 @@
 /obj/item/tank/jetpack/ui_action_click()
 	toggle()
 
-
-
-
-/*******************************
-	Rig jetpack
-********************************/
-/obj/item/tank/jetpack/rig
-	name = "maneuvering jets"
-	var/obj/item/rig/holder
-
-//The rig jetpack uses the suit's gastank, this is set during the install proc for the rig module
-
-
-
-/obj/item/tank/jetpack/rig/operational_safety(mob/living/user)
-	if (!user || holder.loc != user)
-		return FALSE
-	return TRUE
-
-
 /****************************
 	MECHA JETPACK
 *****************************/
@@ -493,11 +473,6 @@
 		return back
 	else if (istype(s_store, /obj/item/tank/jetpack))
 		return s_store
-	else if (istype(back, /obj/item/rig))
-		var/obj/item/rig/rig = back
-		for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-			return module.jets
-
 
 /mob/living/silicon/robot/get_jetpack(mob/user)
 	return jetpack

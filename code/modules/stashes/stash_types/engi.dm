@@ -11,7 +11,6 @@
 
 	contents_list_random = list(/obj/random/tool_upgrade/rare= 30,
 	/obj/random/tool_upgrade/rare = 30,
-	/obj/random/rig/engi = 40,
 	/obj/random/tool/advanced = 30,
 	/obj/random/tool/advanced = 70,
 	/obj/random/material = 50,
@@ -32,8 +31,7 @@
 	)
 
 /datum/stash/engi/illicit_trade
-	contents_list_extra = list(/obj/random/rig/engi = 1,
-	/obj/random/pouch = 1,
+	contents_list_extra = list(/obj/random/pouch = 1,
 	/obj/item/hatton = 1,
 	/obj/item/hatton_magazine = 1,
 	)

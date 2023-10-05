@@ -6,11 +6,6 @@
 	item_cost = 3
 	path = /obj/item/gun/energy/cog
 
-/datum/uplink_item/item/void_wolf/armor
-	name = "Void Wolf Red Armor"
-	item_cost = 8
-	path = /obj/item/clothing/suit/space/void/merc/xanorath
-
 /datum/uplink_item/item/void_wolf/emporer
 	name = "Void Wolf Emporer"
 	item_cost = 16
