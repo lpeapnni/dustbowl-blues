@@ -203,6 +203,7 @@
 					/obj/item/cell/medium/super = 600,
 					/obj/item/cell/small/super = 300)
 
+/*
 /obj/machinery/vending/printomat
 	name = "Lonestar Print-Mat"
 	desc = "Everything you can imagine (not really) on a disc! Print your own gun TODAY."
@@ -251,7 +252,7 @@
 				 /obj/item/circuitboard/autolathe = 350,
 				 /obj/item/circuitboard/vending = 200,
 				 /obj/item/computer_hardware/hard_drive/portable/design/ammo_boxes_smallarms = 400)
-
+*/
 //This one's from bay12
 /obj/machinery/vending/plasmaresearch
 	name = "Toximate 3000"
@@ -286,7 +287,6 @@
 					/obj/item/device/assembly/signaler = 3,
 					/obj/item/device/scanner/health = 3,
 					/obj/item/tool/scalpel = 2,
-					/obj/item/tool/saw/circular = 2,
 					/obj/item/tank/anesthetic = 2,
 					/obj/item/clothing/mask/breath/medical = 5,
 					/obj/item/tool/screwdriver = 5,

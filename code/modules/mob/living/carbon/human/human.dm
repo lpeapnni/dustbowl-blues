@@ -104,12 +104,6 @@
 		//if(P)
 		//	stat(null, "Plasma Stored: [P.stored_plasma]/[P.max_plasma]")
 
-		if(back && istype(back,/obj/item/rig))
-			var/obj/item/rig/suit = back
-			var/cell_status = "ERROR"
-			if(suit.cell) cell_status = "[suit.cell.charge]/[suit.cell.maxcharge]"
-			stat(null, "Suit charge: [cell_status]")
-
 		var/chemvessel_efficiency = get_organ_efficiency(OP_CHEMICALS)
 		if(chemvessel_efficiency > 1)
 			stat("Chemical Storage", "[carrion_stored_chemicals]/[round(0.5 * chemvessel_efficiency)]")
@@ -1352,13 +1346,6 @@ var/list/rank_prefix = list(\
 
 
 /mob/living/carbon/human/can_stand_overridden()
-	if(wearing_rig && wearing_rig.ai_can_move_suit(check_for_ai = 1))
-		// Actually missing a leg will screw you up. Everything else can be compensated for.
-		for(var/limbcheck in list(BP_L_LEG ,BP_R_LEG))
-			var/obj/item/organ/affecting = get_organ(limbcheck)
-			if(!affecting)
-				return 0
-		return 1
 	return 0
 
 /mob/living/carbon/human/MouseDrop(var/atom/over_object)

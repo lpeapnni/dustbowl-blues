@@ -45,7 +45,6 @@
 	maxHealth = 250 //Boosted because melee given armor/shield
 	health = 250
 	icon_state = "syndicatemelee"
-	drop_items = list(/obj/item/melee/energy/sword/red, /obj/item/shield/buckler/energy)
 	attacktext = "slashed"
 	status_flags = 0
 	armor = list(
@@ -126,7 +125,7 @@
 	melee_damage_upper = 15
 	maxHealth = 100
 	health = 100
-	drop_items = list(/obj/item/tool/knife/tacknife)
+	//drop_items = list(/obj/item/tool/knife/tacknife)
 
 /mob/living/simple_animal/hostile/syndicate/melee/heavy
 	name = "\improper Mercenary heavy"
@@ -164,7 +163,7 @@
 	melee_damage_upper = 15
 	maxHealth = 100
 	health = 100
-	drop_items = list(/obj/item/tool/knife/tacknife, /obj/item/shield/buckler/energy)
+	//drop_items = list(/obj/item/tool/knife/tacknife, /obj/item/shield/buckler/energy)
 
 //space range
 /mob/living/simple_animal/hostile/syndicate/ranged/space/weak
@@ -286,7 +285,7 @@
 	maxHealth = 450 //Boosted because melee given armor/shield
 	health = 450
 	icon_state = "syndicate_stormtrooper_sword"
-	drop_items = list(/obj/item/melee/energy/sword/red, /obj/item/shield/buckler/energy)
+	drop_items = list(/obj/item/shield/buckler/energy)
 	attacktext = "slashed"
 
 //elite range

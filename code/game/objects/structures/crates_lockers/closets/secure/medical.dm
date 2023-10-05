@@ -182,8 +182,6 @@
 	new /obj/item/storage/pouch/medical_supply(src)
 	new /obj/item/clothing/shoes/reinforced/medical(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
-	new /obj/item/computer_hardware/hard_drive/portable/design/medical/advanced/cmo(src)
-	new /obj/item/computer_hardware/hard_drive/portable/design/xenobio/rd(src)
 	new /obj/item/device/defib_kit/compact/combat/adv/loaded/cbo(src)
 	new /obj/item/circuitboard/sleeper/hyper(src)
 	new /obj/item/storage/hcases/med(src)

@@ -87,7 +87,7 @@
 			P.die_off()
 
 /obj/item/tool/fireaxe/woodsman
-	name = "woodsman axe"
+	name = "lumberjack's axe"
 	desc = "Chop the wood to fuel the fire."
 	icon_state = "woodsmanaxe0"
 	wielded_icon = "woodsmanaxe1"
@@ -102,18 +102,6 @@
 	alt_mode_verbs = list("bashes", "beats", "clobbers")
 	alt_mode_sharp = FALSE
 	alt_mode_toggle = "flips the axe to its broad side"
-
-/obj/item/tool/fireaxe/militia_tomahawk
-	name = "blackshield tactical tomahawk"
-	desc = "For cutting, sawing, prying, and throwing at targets mid back-flip."
-	icon_state = "sec_tomahawk"
-	wielded_icon = "sec_tomahawk"
-	force = WEAPON_FORCE_ROBUST + 4 // Better than the cheap axe
-	throwforce = WEAPON_FORCE_LETHAL // Meant to be a throwing weapon
-	slot_flags = SLOT_BELT|SLOT_BACK
-	tool_qualities = list(QUALITY_CUTTING = 30, QUALITY_SAWING = 25, QUALITY_PRYING = 15)
-	w_class = ITEM_SIZE_NORMAL
-	price_tag = 45
 
 /obj/item/tool/fireaxe/handmade
 	name = "makeshift axe"
@@ -181,8 +169,8 @@
 	alt_mode_lossrate = 0.3
 
 //Flails
-/obj/item/tool/chainofcommand
-	name = "chain of command"
+/obj/item/tool/chain
+	name = "chain"
 	desc = "A tool used by great men to placate the frothing masses."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chain"
@@ -195,28 +183,6 @@
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	max_upgrades = 2
-	tool_qualities = list(QUALITY_HAMMERING = 5)
-
-	has_alt_mode = TRUE
-	alt_mode_damagetype = HALLOSS
-	alt_mode_verbs = list("flogged", "whipped", "lashed", "disciplined")
-	alt_mode_toggle = "loosens their hand on the grip"
-	alt_mode_lossrate = 0.7
-
-/obj/item/tool/disciplinary_action
-	name = "Disciplinary Action"
-	desc = "A long whip of steel chains used by Blackshield for when someone acts out of line."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "chain"
-	item_state = "chain"
-	flags = CONDUCT
-	slot_flags = SLOT_BELT
-	force = WEAPON_FORCE_PAINFUL
-	throwforce = WEAPON_FORCE_DANGEROUS
-	w_class = ITEM_SIZE_NORMAL
-	origin_tech = list(TECH_COMBAT = 2)
-	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
-	max_upgrades = 3
 	tool_qualities = list(QUALITY_HAMMERING = 5)
 
 	has_alt_mode = TRUE
@@ -284,107 +250,6 @@
 	armor_penetration = ARMOR_PEN_SHALLOW
 	price_tag = 40
 
-/obj/item/tool/sword/katana/nano
-	name = "\improper Soteria \"Muramasa\" katana"
-	desc = "After an extensive binge of ancient animated recordings, a scientist decided to upgrade a recovered katana."
-	icon_state = "eutactic_katana"
-	item_state = "eutactic_katana"
-	toggleable = TRUE
-
-	suitable_cell = /obj/item/cell/small
-
-	use_power_cost = 0.4
-	passive_power_cost = 0.4
-
-	switched_on_qualities = list(QUALITY_CUTTING = 25, QUALITY_SAWING = 15)
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 6)
-	switched_on_forcemult = 1.2 //40
-	price_tag = 800
-
-	has_alt_mode = FALSE
-
-/obj/item/tool/sword/katana/nano/turn_on(mob/user)
-	.=..()
-	if(.)
-		embed_mult = 0
-		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-
-/obj/item/tool/sword/katana/nano/turn_off(mob/user)
-	..()
-	embed_mult = initial(embed_mult)
-	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-
-/obj/item/tool/sword/katana/nano/update_icon()
-	..()
-	if(cell)
-		overlays += "[icon_state]_cell"
-	if(switched_on)
-		overlays += "[icon_state]_power_on"
-	else
-		overlays += "[icon_state]_power_off"
-
-/obj/item/tool/sword/katana/firebrand //Firebrand. Sprited and Implemented by Sieghardt
-	name = "Artificer Firebrand"
-	desc = "Originally the fever dream of an brave guild master looking for a better way to deal with roaches, the Firebrand ended up as a hellish implement of war. While turned off, this is a blunted hunk of metal. When turned on the Firebrand becomes a bringer of fiery doom to anyone unlucky enough to be its path."
-	icon_state = "firebrand"
-	item_state = "firebrand"
-	toggleable = TRUE
-
-	max_fuel = 100
-	use_fuel_cost = 0.5
-	passive_fuel_cost = 0.1
-	price_tag = 700
-
-	switched_on_qualities = list(QUALITY_CUTTING = 25, QUALITY_SAWING = 15, QUALITY_CAUTERIZING = 10, QUALITY_WELDING = 15)
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4)
-	force = WEAPON_FORCE_NORMAL
-	switched_on_forcemult = 3.3 //33
-	//Weaker than the Muramasa and other high end weapons, as it's not LETHAL, but sets the target on fire. 1 stack though.
-	structure_damage_factor = STRUCTURE_DAMAGE_BLUNT
-	//A heated blade can not be sharp, it's just shaped like a sword while being a blunt object. When turned off it has as much damage as other blunt implements.
-	heat = 2250
-	glow_color = COLOR_ORANGE
-	//Stronger when turned on. Will emit heat, turn its damage type to burn and set targets on fire.
-
-	has_alt_mode = FALSE
-
-/obj/item/tool/sword/katana/firebrand/is_hot()
-	if(switched_on)
-		return heat
-
-/obj/item/tool/sword/katana/firebrand/turn_on(mob/user)
-	.=..()
-	if(.)
-		embed_mult = 0
-		damtype = BURN
-		set_light(2)
-		playsound(loc, 'sound/items/welderactivate.ogg', 50, 1)
-		//Too hot to get stuck into crud.
-
-/obj/item/tool/sword/katana/firebrand/apply_hit_effect(atom/target, blocked=FALSE)
-	.=..()
-	if(iscarbon(target) && switched_on)
-		var/mob/living/carbon/M = target
-		M.adjust_fire_stacks(1)
-		M.IgniteMob()
-		//Sets the target on fire, however only 1 stack at a time rather than 4 like most incendiary ammo.
-
-/obj/item/tool/sword/katana/firebrand/turn_off(mob/user)
-	..()
-	embed_mult = initial(embed_mult)
-	damtype = initial(damtype)
-	set_light(0)
-	playsound(loc, 'sound/items/welderdeactivate.ogg', 50, 1)
-
-/obj/item/tool/sword/katana/firebrand/update_icon()
-	..()
-	if(switched_on)
-		icon_state = "firebrand_on"
-		item_state = "firebrand_on"
-	else
-		icon_state = initial(icon_state)
-		item_state = initial(item_state)
-
 /obj/item/tool/sword/saber
 	name = "decorative saber"
 	desc = "A finely made formal blade as a ornamental show of class or force. Despite being primarily for show it cuts deep and painfully."
@@ -409,23 +274,6 @@
 	alt_mode_verbs = list("bashes", "stunts", "hilts", "blunts")
 	alt_mode_toggle = "uses the broad side of their weapon"
 
-/obj/item/tool/sword/saber/militiacommander
-	name = "Officer's Saber"
-	desc = "A masterfully forged Saber to be carried by the Blackshield Commander, Despite it fact for Ceremonial use. It can also be used in combat, if they're crazy enough."
-	icon = 'icons/obj/weapons-blades.dmi'
-	icon_state = "saber"
-	item_state = "saber"
-	armor_penetration = ARMOR_PEN_SHALLOW
-	price_tag = 350
-
-/obj/item/tool/sword/saber/militiasergeant
-	name = "Sergeant's Saber"
-	desc = "An Saber made for the Senior Enlisted of Blackshield, Usually used for Ceremonial usage but can also be used in combat, Preferably used by a maniac who likes to charge into battle without helmet or armour."
-	icon_state = "cutlass"
-	item_state = "cutlass"
-	armor_penetration = ARMOR_PEN_SHALLOW
-	price_tag = 325
-
 /obj/item/tool/sword/handmade
 	name = "junkblade"
 	desc = "Hack and slash!"
@@ -439,49 +287,6 @@
 	max_upgrades = 5 // Handmade nature
 	price_tag = 100 // Made with plasteel
 
-/obj/item/tool/sword/foreman
-	name = "\"Render Slayer\" Greatsword"
-	desc = "This thing is too big to be called a sword. \
-			Too big, too thick, too heavy, and too rough, \
-			it is more like a large hunk of plasteel. \nA \
-			Foreman's weapon of choice when bashing is not enough; \
-			you have to cleave through the hordes to survive, and keep struggling."
-	icon_state = "renderslayer"
-	item_state = "renderslayer"
-	force = WEAPON_FORCE_BRUTAL + 2 // 35 damage
-	slot_flags = SLOT_BELT|SLOT_BACK
-	armor_penetration = ARMOR_PEN_MASSIVE // Sharp edge
-	effective_faction = list("deathclaw") // Called like this for a reason
-	damage_mult = 2
-	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_STEEL = 5)
-	w_class = ITEM_SIZE_BULKY
-	origin_tech = list(TECH_COMBAT = 3)
-	attack_verb = list("attacked", "CLANG'd", "slashed", "sliced", "diced", "cut")
-	hitsound = 'sound/weapons/renderslash.ogg' // Not gonna CLANG this up for the sake of our ears, but snowflake attack sound.
-	item_icons = list(
-		slot_back_str = 'icons/inventory/back/mob.dmi')
-	item_state_slots = list(
-		slot_back_str = "renderslayer"
-		)
-
-/obj/item/tool/knife/ritual/blade
-	name = "awakened blade"
-	desc = "The last stage of ascension a ritual knife, its latent powers fully awoken by the crayons' magic. \
-			Suspiciously glowing runes are drawn on its surface that glow at random intervals."
-	icon_state = "crayon_blade"
-	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_STEEL = 2, MATERIAL_DIAMOND = 1)
-	force = WEAPON_FORCE_ROBUST + 4 // 30 damage
-	armor_penetration = ARMOR_PEN_MASSIVE // More balanced than psi weapons with psi mania perk.
-	w_class = ITEM_SIZE_BULKY
-	max_upgrades = 2
-	slot_flags = SLOT_BELT|SLOT_BACK
-	hitsound = 'sound/weapons/renderslash.ogg' // Snowflake
-	item_icons = list(
-		slot_back_str = 'icons/inventory/back/mob.dmi')
-	item_state_slots = list(
-		slot_back_str = "crayon_blade"
-		)
-
 /obj/item/tool/sword/machete
 	name = "machete"
 	desc = "An explorer's best friend and trust back up plan. Or primary plan for those who like to get in there personally."
@@ -492,25 +297,6 @@
 	force = WEAPON_FORCE_ROBUST
 	w_class = ITEM_SIZE_NORMAL
 	price_tag = 120
-
-/obj/item/tool/sword/cleaver
-	name = "sun cleaver"
-	desc = "A weapon designed by the Hunting Lodge, this massive sword is especially effective against tengolos, xenomorphs, and tengolo berserkers, dealing double its normal damage with every strike."
-	icon = 'icons/obj/weapons-blades.dmi'
-	icon_state = "cleaver"
-	item_state = "cleaver_back"
-	tool_qualities = list(QUALITY_CUTTING = 30)
-	force = WEAPON_FORCE_BRUTAL
-	armor_penetration = ARMOR_PEN_SHALLOW
-	w_class = ITEM_SIZE_BULKY
-	effective_faction = list("tengo", "tengolo_berserker", "xenomorph") // Which faction the cleaver is effective against.
-	damage_mult = 2 // The damage multiplier the cleaver get when attacking that faction.
-	price_tag = 200
-	item_icons = list(
-		slot_back_str = 'icons/obj/weapons-blades.dmi')
-	item_state_slots = list(
-		slot_back_str = "cleaver_back"
-		)
 
 /obj/item/tool/sword/huntingclaw
 	name = "hunting claw"
@@ -540,50 +326,6 @@
 	attack_verb = list("clawed", "scratched", "lacerated", "slashed")
 	price_tag = 200
 
-/obj/item/tool/power_fist
-	name = "power fist"
-	desc = "A battery powered hydraulic combat gauntlet designed for extended operations where close combat and muscles matter most."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "powerfist"
-	item_state = "powerfist"
-	toggleable = TRUE
-	worksound = WORKSOUND_HAMMER
-	switched_on_forcemult = 3.3 //33
-	armor_penetration = ARMOR_PEN_MODERATE
-	w_class = ITEM_SIZE_NORMAL
-	origin_tech = list(TECH_COMBAT = 7)
-	attack_verb = list("punched", "decked", "haymakered", "uppercut")
-	degradation = 0.7
-	use_power_cost = 1
-	suitable_cell = /obj/item/cell/medium
-	switched_on_qualities = list(QUALITY_HAMMERING = 30)
-	switched_off_qualities = list(QUALITY_HAMMERING = 10)
-	hitsound = 'sound/weapons/smash.ogg'
-	price_tag = 300
-
-	has_alt_mode = TRUE
-	alt_mode_damagetype = HALLOSS
-	alt_mode_sharp = FALSE
-	alt_mode_verbs = list("bashes", "stunts", "wacks", "blunts")
-	alt_mode_toggle = "adjusts their grip to strike lightly"
-	alt_mode_lossrate = 0.9
-
-/obj/item/tool/power_fist/turn_on(mob/user)
-	if (cell && cell.charge > 0)
-		item_state = "[initial(item_state)]_on"
-		to_chat(user, SPAN_NOTICE("You switch [src] on."))
-		playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-		..()
-	else
-		item_state = initial(item_state)
-		to_chat(user, SPAN_WARNING("[src] has no power!"))
-
-/obj/item/tool/power_fist/turn_off(mob/user)
-	item_state = initial(item_state)
-	playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-	to_chat(user, SPAN_NOTICE("You switch [src] off."))
-	..()
-
 //POLEARMS
 /obj/item/tool/spear
 	icon = 'icons/obj/weapons.dmi'
@@ -591,7 +333,7 @@
 	item_state = "spear_glass"
 	wielded_icon = "spear_glass_wielded"
 	name = "shard spear"
-	desc = "A spiky bit of material tied onto a metal pole with some wire. It's an insult to spears across the galaxy - but it can still do some nasty damage and has some decent armor-piercing capabilities. Spears like these are often seen in the hands of vagrants, muggers, or desperate militias. Due to this weapon - if you could call it that - being so long, you're able to attack enemies from up to a tile away."
+	desc = "A spiky bit of material tied onto a metal pole with some wire. It's an insult to spears across the globe - but it can still do some nasty damage and has some decent armor-piercing capabilities. Spears like these are often seen in the hands of vagrants, muggers, or desperate militias. Due to this weapon - if you could call it that - being so long, you're able to attack enemies from up to a tile away."
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
 	throw_speed = 3
@@ -697,7 +439,7 @@
 //Shitty loadout weapons
 /obj/item/tool/cheap
 	name = "cheap sword"
-	desc = "A sword of acceptable quality, mass-produced by Lonestar. It's no work art, but it's sharp enough to get the job done."
+	desc = "A sword of acceptable quality. It's no work of art, but it's sharp enough to get the job done."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cheap_sword"
 	item_state = "cheap_sword"
@@ -727,7 +469,7 @@
 
 /obj/item/tool/cheap/axe
 	name = "cheap tomahawk"
-	desc = "A tomahawk of acceptable quality, mass-produced by Lonestar. Just expensive enough to be called tactical."
+	desc = "A tomahawk of acceptable quality."
 	icon_state = "cheap_axe"
 	item_state = "cheap_axe"
 	structure_damage_factor = STRUCTURE_DAMAGE_WEAK
@@ -735,7 +477,7 @@
 
 /obj/item/tool/cheap/katana
 	name = "cheap katana"
-	desc = "A katana of acceptable quality, mass-produced by Lonestar. Easily their best-selling product from this lineup."
+	desc = "A katana of acceptable quality."
 	icon_state = "katana_old"
 	item_state = "katana"
 	force = WEAPON_FORCE_DANGEROUS
@@ -743,7 +485,7 @@
 
 /obj/item/tool/cheap/spear
 	name = "cheap spear"
-	desc = "A spear of acceptable quality, mass-produced by Lonestar. Place sharp end towards enemy."
+	desc = "A spear of acceptable quality. Place sharp end towards enemy."
 	icon_state = "cheap_spear"
 	item_state = "cheap_spear"
 	w_class = ITEM_SIZE_HUGE
@@ -765,6 +507,6 @@
 
 /obj/item/tool/cheap/saber
 	name = "cheap saber"
-	desc = "A saber of acceptable quality, mass-produced by Lonestar. Probably not fit for parrying, but why not give it a try?"
+	desc = "A saber of acceptable quality. Probably not fit for parrying, but why not give it a try?"
 	icon_state = "cheap_saber"
 	item_state = "cutlass"

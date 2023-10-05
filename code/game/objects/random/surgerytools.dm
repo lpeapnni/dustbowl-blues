@@ -10,7 +10,7 @@
 				/obj/item/tool/tape_roll/bonegel,\
 				/obj/item/tool/cautery,\
 				/obj/item/tool/retractor,\
-				/obj/item/tool/saw/circular,\
+				/obj/item/tool/saw,\
 				/obj/item/tool/hemostat)
 
 /obj/random/surgery_tool/low_chance

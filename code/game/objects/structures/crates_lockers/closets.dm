@@ -498,9 +498,11 @@
 	else if(istype(I,/obj/item/card/id))
 		src.togglelock(user)
 		return
+	/*
 	else if(istype(I, /obj/item/melee/energy/blade) && secure)
 		emag_act(INFINITY, user)
 		return
+	*/
 	else
 		src.attack_hand(user)
 	return

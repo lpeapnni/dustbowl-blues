@@ -1173,10 +1173,6 @@ mob/living/carbon/human/proc/get_wings_image()
 				overlay_icon = test.icon
 		else if(test.icon_override)
 			overlay_icon = test.icon_override
-		else if(istype(test, /obj/item/rig))
-			//If this is a rig and a mob_icon is set, it will take species into account in the rig update_icon() proc.
-			var/obj/item/rig/rig = test
-			overlay_icon = rig.mob_icon
 
 		else if(test.item_icons && (slot_back_str in test.item_icons))
 			overlay_icon = test.item_icons[slot_back_str]

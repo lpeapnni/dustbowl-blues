@@ -59,15 +59,13 @@
 /obj/item/robot_module/blitzshell/New(mob/living/silicon/robot/R)
 	//modules += new /obj/item/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
 	modules += new /obj/item/gun/energy/plasma/mounted/blitz(src)
-	modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
+	//modules += new /obj/item/tool/knife/tacknife(src) //For claiming heads for assassination missions
 	modules += new /obj/item/tool/tape_roll/flextape(src) //For blinding/cuff/muting people
 	modules += new /obj/item/tool/baton/robot(src) //LTL for hostages
-	modules += new /obj/item/melee/energy/sword(src) // Lethal option, they can get 1 clicked with a flash
 	//Objective stuff
 	modules += new /obj/item/storage/bsdm/permanent(src) //for sending off item contracts
 	modules += new /obj/item/gripper/antag(src) //For picking up item contracts
 	modules += new /obj/item/reagent_containers/syringe/blitzshell(src) //Blood extraction
-	modules += new /obj/item/device/drone_uplink(src)
 	//Misc equipment
 	modules += new /obj/item/card/id/syndicate(src) //This is our access. Scan cards to get better access
 	modules += new /obj/item/tool/multitool/hacktool(src) //Limited getto access untill they can steal ID's
@@ -176,17 +174,3 @@
 		to_chat(user, SPAN_WARNING("Error: No charges remaining."))
 		return
 	..()
-
-/obj/item/device/drone_uplink
-	name = "Drone Bounty Uplink"
-	icon_state = "uplink_access"
-
-/obj/item/device/drone_uplink/New()
-	..()
-	hidden_uplink = new(src, telecrystals = 25)
-
-/obj/item/device/drone_uplink/attack_self(mob/user)
-	if(hidden_uplink)
-		if(user.mind && hidden_uplink.uplink_owner != user.mind)
-			hidden_uplink.uplink_owner = user.mind
-		hidden_uplink.trigger(user)

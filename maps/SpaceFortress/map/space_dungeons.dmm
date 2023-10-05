@@ -8321,15 +8321,11 @@
 /area/awaymission/spacebattle/syndicate7)
 "Qw" = (
 /obj/structure/closet,
-/obj/item/melee/energy/sword/pirate,
 /obj/item/card/emag,
 /obj/item/gun/energy/ionrifle,
 /obj/item/material/harpoon,
 /obj/item/gun/energy/sniperrifle,
 /obj/item/card/emag,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
 /obj/item/cell/medium/high,
 /obj/item/cell/medium/high,
 /obj/item/cell/medium/high,

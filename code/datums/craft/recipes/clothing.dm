@@ -118,30 +118,6 @@
 		list(/obj/item/stack/cable_coil, 2)
 	)
 
-/datum/craft_recipe/clothing/riggedvoidsuit_helmet
-	name = "makeshift armored void suit helmet"
-	result = /obj/item/clothing/head/space/void/riggedvoidsuit
-	steps = list(
-		list(/obj/item/clothing, 1, time = 30),
-		list(CRAFT_MATERIAL, 6, MATERIAL_STEEL),
-		list(CRAFT_MATERIAL, 4, MATERIAL_PLASTIC),
-		list(CRAFT_MATERIAL, 3, MATERIAL_GLASS),
-		list(/obj/item/stack/cable_coil, 2),
-		list(QUALITY_ADHESIVE, 15, "time" = 60)
-	)
-
-/datum/craft_recipe/clothing/riggedvoidsuit
-	name = "makeshift armored void suit"
-	result = /obj/item/clothing/suit/space/void/riggedvoidsuit
-	steps = list(
-		list(/obj/item/clothing/under, 1),
-		list(CRAFT_MATERIAL, 10, MATERIAL_PLASTEEL),
-		list(CRAFT_MATERIAL, 20, MATERIAL_PLASTIC),
-		list(QUALITY_ADHESIVE, 15, "time" = 60),
-		list(CRAFT_MATERIAL, 10, MATERIAL_GLASS),
-		list(QUALITY_WELDING, 10, 20)
-	)
-
 /datum/craft_recipe/clothing/scavengerarmor
 	name = "scavenger armor"
 	result = /obj/item/clothing/suit/storage/scavengerarmor

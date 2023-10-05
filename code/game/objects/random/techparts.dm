@@ -40,18 +40,7 @@
 				/obj/item/stock_parts/subspace/crystal = 3,
 				/obj/item/stock_parts/subspace/filter = 3,
 				/obj/item/stock_parts/subspace/transmitter = 3,
-				/obj/item/stock_parts/subspace/treatment = 3,
-				/obj/item/computer_hardware/hard_drive/portable/design/misc = 3,
-				/obj/item/computer_hardware/hard_drive/portable/design/components = 3,
-				/obj/item/computer_hardware/hard_drive/portable/design/adv_tools = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/circuits = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/logistics = 1,
-				/obj/item/computer_hardware/hard_drive/portable/design/robustcells = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/medical = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/computer = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/guns/cheap_guns = 2,
-				/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = 3,
-				/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo = 2))
+				/obj/item/stock_parts/subspace/treatment = 3))
 
 /obj/random/techpart/low_chance
 	name = "low chance random techpart"

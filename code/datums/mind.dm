@@ -257,34 +257,8 @@
 			if("undress")
 				for(var/obj/item/W in current)
 					current.drop_from_inventory(W)
-			if("takeuplink")
-				take_uplink()
-				memory = null//Remove any memory they may have had.
-			if("crystals")
-				if (usr.client.holder.rights & R_FUN)
-					var/obj/item/device/uplink/hidden/suplink = find_syndicate_uplink()
-					var/crystals
-					if (suplink)
-						crystals = suplink.uses
-					crystals = input("Amount of telecrystals for [key]", "Operative uplink", crystals) as null|num
-					if (!isnull(crystals))
-						if (suplink)
-							suplink.uses = crystals
 
 	edit_memory()
-
-/datum/mind/proc/find_syndicate_uplink()
-	var/list/L = current.get_contents()
-	for (var/obj/item/I in L)
-		if (I.hidden_uplink)
-			return I.hidden_uplink
-	return null
-
-/datum/mind/proc/take_uplink()
-	var/obj/item/device/uplink/hidden/H = find_syndicate_uplink()
-	if(H)
-		qdel(H)
-
 
 // check whether this mind's mob has been brigged for the given duration
 // have to call this periodically for the duration to work properly

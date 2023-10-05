@@ -36,6 +36,7 @@
 	allowed_organs = list(BP_R_ARM, BP_L_ARM)
 	holding_type = /obj/item/tool/armblade/claws
 
+/*
 /obj/item/organ_module/active/simple/armblade/energy_blade
 	name = "energy armblade"
 	desc = "An energy blade designed to be inserted into an arm. Gives you a nice advantage in a brawl while being maximum cool."
@@ -44,15 +45,7 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	matter = list(MATERIAL_PLASTEEL = 16, MATERIAL_SILVER = 10, MATERIAL_GOLD = 3, )
 	holding_type = /obj/item/melee/energy/blade/organ_module
-
-/obj/item/organ_module/active/simple/armblade/bs_tomahawk
-	name = "Embedded Blackshield Tomahawk"
-	desc = "A Tactical Tomahawk designed to be inserted into an arm. Gives you a nice advantage in CQC."
-	verb_name = "Deploy Tomahawk"
-	icon_state = "armblade"
-	matter = list(MATERIAL_STEEL = 16)
-	allowed_organs = list(BP_R_ARM, BP_L_ARM)
-	holding_type = /obj/item/tool/fireaxe/militia_tomahawk
+*/
 
 /obj/item/organ_module/active/simple/armblade/energy_blade/deploy(mob/living/carbon/human/H, obj/item/organ/external/E)
 	..()

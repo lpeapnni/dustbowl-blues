@@ -237,12 +237,6 @@
 			S = i
 			break
 
-		else if(istype(i, /obj/item/rig))
-			var/obj/item/rig/R = i
-			if(R.storage)
-				S = R.storage.container
-				break
-
 	if(S && (!istype(S, /obj/item/storage/backpack) || S:worn_check()))
 		equip_to_from_bag(get_active_hand(), S)
 

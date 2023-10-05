@@ -61,7 +61,6 @@
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
-	src.modules += new /obj/item/melee/energy/sword(src)
 	src.modules += new /obj/item/tool/weldingtool/robotic(src)
 	src.modules += new /obj/item/tool/multitool/robotic(src)
 	src.modules += new /obj/item/tool/robotic_omni_engi(src)

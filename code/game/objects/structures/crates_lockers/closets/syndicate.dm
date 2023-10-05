@@ -13,8 +13,6 @@
 	new /obj/item/tank/jetpack/oxygen(src)
 	new /obj/item/clothing/mask/gas/tactical(src)
 	new /obj/item/clothing/under/syndicate(src)
-	new /obj/item/clothing/head/helmet/space/void/merc(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
 	new /obj/item/tool/crowbar(src)
 	new /obj/item/cell/large/high(src)
 	new /obj/item/card/id/syndicate(src)
@@ -31,9 +29,7 @@
 /obj/structure/closet/syndicate/suit/populate_contents()
 	new /obj/item/tank/jetpack/oxygen(src)
 	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/clothing/suit/space/void/merc(src)
 	new /obj/item/clothing/mask/gas/tactical(src)
-	new /obj/item/clothing/head/helmet/space/void/merc(src)
 
 
 /obj/structure/closet/syndicate/nuclear
@@ -57,6 +53,4 @@
 	new /obj/item/pinpointer/nukeop(src)
 	new /obj/item/pinpointer/nukeop(src)
 	new /obj/item/pinpointer/nukeop(src)
-	var/obj/item/device/radio/uplink/U = new(src)
-	U.hidden_uplink.uses = 40
 	return

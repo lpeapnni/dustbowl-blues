@@ -808,14 +808,6 @@ obj/screen/fire/DEADelize()
 						nicename = list("right hand", "left hand", "back")
 						tankcheck = list(C.r_hand, C.l_hand, C.back)
 
-					// Rigs are a fucking pain since they keep an air tank in nullspace.
-					if(istype(C.back,/obj/item/rig))
-						var/obj/item/rig/rig = C.back
-						if(rig.air_supply)
-							from = "in"
-							nicename |= "hardsuit"
-							tankcheck |= rig.air_supply
-
 					for(var/i=1, i<tankcheck.len+1, ++i)
 						if(istype(tankcheck[i], /obj/item/tank))
 							var/obj/item/tank/t = tankcheck[i]
@@ -1343,11 +1335,6 @@ obj/screen/fire/DEADelize()
 	if(istype(H.glasses, /obj/item/clothing/glasses))
 		var/obj/item/clothing/glasses/G = H.glasses
 		if (G.active && G.screenOverlay)//check here need if someone want call this func directly
-			add_overlay(G.screenOverlay)
-
-	if(istype(H.wearing_rig,/obj/item/rig))
-		var/obj/item/clothing/glasses/G = H.wearing_rig.getCurrentGlasses()
-		if (G && H.wearing_rig.visor.active)
 			add_overlay(G.screenOverlay)
 
 //-----------------------toggle_invetory------------------------------

@@ -95,27 +95,18 @@
 	LEGACY_SEND_SIGNAL(user, COMSIG_EMPTY_POCKETS, src)
 // Remove all splints.
 /mob/living/carbon/human/proc/remove_splints(var/mob/living/user)
-
-	var/can_reach_splints = 1
-	if(istype(wear_suit,/obj/item/clothing/suit/space))
-		var/obj/item/clothing/suit/space/suit = wear_suit
-		if(suit.supporting_limbs && suit.supporting_limbs.len)
-			to_chat(user, SPAN_WARNING("You cannot remove the splints - [src]'s [suit] is in the way."))
-			can_reach_splints = 0
-
-	if(can_reach_splints)
-		var/removed_splint
-		for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM, BP_CHEST, BP_GROIN, BP_HEAD))
-			var/obj/item/organ/external/o = get_organ(organ)
-			if (o && o.status & ORGAN_SPLINTED)
-				var/obj/item/W = new /obj/item/stack/medical/splint(get_turf(src), 1)
-				o.status &= ~ORGAN_SPLINTED
-				W.add_fingerprint(user)
-				removed_splint = 1
-		if(removed_splint)
-			visible_message(SPAN_DANGER("\The [user] removes \the [src]'s splints!"))
-		else
-			to_chat(user, SPAN_WARNING("\The [src] has no splints to remove."))
+	var/removed_splint
+	for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM, BP_CHEST, BP_GROIN, BP_HEAD))
+		var/obj/item/organ/external/o = get_organ(organ)
+		if (o && o.status & ORGAN_SPLINTED)
+			var/obj/item/W = new /obj/item/stack/medical/splint(get_turf(src), 1)
+			o.status &= ~ORGAN_SPLINTED
+			W.add_fingerprint(user)
+			removed_splint = 1
+	if(removed_splint)
+		visible_message(SPAN_DANGER("\The [user] removes \the [src]'s splints!"))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] has no splints to remove."))
 
 // Set internals on or off.
 /mob/living/carbon/human/proc/toggle_internals(var/mob/living/user)

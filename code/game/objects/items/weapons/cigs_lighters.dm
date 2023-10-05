@@ -651,9 +651,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		name = "empty [initial(name)]"
 
 /obj/item/clothing/mask/smokable/pipe/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/melee/energy/sword))
-		return
-
 	..()
 
 	if (istype(W, /obj/item/reagent_containers/food/snacks))

@@ -132,7 +132,6 @@
 	new /obj/random/tool_upgrade/rare/low_chance(src)
 	new /obj/random/powercell/low_chance(src)
 	new /obj/random/circuitboard/low_chance(src)
-	new /obj/random/lathe_disk/low_chance(src)
 	new /obj/random/gun_parts/low(src)
 	new /obj/random/gun_parts/low(src)
 	if(prob(20))

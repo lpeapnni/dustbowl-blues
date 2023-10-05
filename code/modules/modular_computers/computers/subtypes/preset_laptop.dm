@@ -100,7 +100,6 @@
 	hard_drive.store_file(new/datum/computer_file/program/access_decrypter())
 	hard_drive.store_file(new/datum/computer_file/program/ntnet_dos())
 	hard_drive.store_file(new/datum/computer_file/program/revelation())
-	hard_drive.store_file(new/datum/computer_file/program/uplink())
 	hard_drive.store_file(new/datum/computer_file/program/card_mod())
 	hard_drive.store_file(new/datum/computer_file/program/shield_control())
 	hard_drive.store_file(new/datum/computer_file/program/crew_manifest())

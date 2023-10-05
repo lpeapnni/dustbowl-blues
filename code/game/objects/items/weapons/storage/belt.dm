@@ -125,7 +125,6 @@
 	)
 
 /obj/item/storage/belt/utility/roboticist/populate_contents()
-	new /obj/item/tool/screwdriver/electric(src)
 	new /obj/item/tool/wrench/big_wrench(src)
 	new /obj/item/tool/plasma_torch/loaded(src)
 	new /obj/item/tool/crowbar(src)
@@ -196,13 +195,9 @@
 	storage_slots = 12
 
 /obj/item/storage/belt/utility/opifex/full/populate_contents()
-	new /obj/item/tool/crowbar/pneumatic(src)
 	new /obj/item/tool/hammer/deadblow(src)
 	new /obj/item/tool/multitool/advanced(src)
-	new /obj/item/tool/saw/circular/advanced(src)
-	new /obj/item/tool/screwdriver/electric(src)
 	new /obj/item/stack/cable_coil/random(src)
-	new /obj/item/tool/shovel/power(src)
 	new /obj/item/tool/tape_roll/fiber(src)
 	new /obj/item/tool/weldingtool/advanced(src)
 	new /obj/item/tool/wirecutters/armature(src)
@@ -271,8 +266,8 @@
 		/obj/item/tool/cautery/adv,
 		/obj/item/tool/retractor,
 		/obj/item/tool/retractor/adv,
-		/obj/item/tool/saw/circular,
-		/obj/item/tool/saw/circular/medical,
+		/obj/item/tool/saw,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/hemostat/adv,
 		/obj/item/reagent_containers/pill,
@@ -325,7 +320,6 @@
 		/obj/item/melee,
 		/obj/item/device/radio,
 		/obj/item/tool/knife,
-		/obj/item/tool/shovel/combat,
 		/obj/item/gun/projectile/mk58,
 		/obj/item/gun/projectile/makarov,
 		/obj/item/gun/projectile/clarissa,
@@ -390,7 +384,6 @@
 /obj/item/storage/belt/security/tactical/marshalert
 
 /obj/item/storage/belt/security/tactical/marshalert/populate_contents()
-	new /obj/item/tool/shovel/combat(src)
 	new /obj/item/gun/energy/gun/martin(src)
 	new /obj/item/cell/small(src)
 	new /obj/item/cell/small(src)
@@ -537,11 +530,8 @@
 	max_w_class = ITEM_SIZE_NORMAL
 
 /obj/item/storage/belt/webbing/artificer/ert/populate_contents()
-	new /obj/item/tool/crowbar/pneumatic(src)
 	new /obj/item/tool/hammer/deadblow(src)
 	new /obj/item/tool/multitool/advanced(src)
-	new /obj/item/tool/screwdriver/electric(src)
-	new /obj/item/tool/shovel/power(src)
 	new /obj/item/tool/tape_roll/fiber(src)
 	new /obj/item/tool/baton/arcwelder(src)
 	new /obj/item/tool/wirecutters/armature(src)

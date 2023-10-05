@@ -266,8 +266,6 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/hammer/powered_hammer(src)
 		if("CHAINSAW")
 			new /obj/item/tool/saw/chain(src)
 
@@ -453,8 +451,6 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/hammer/powered_hammer(src)
 		if("CHAINSAW")
 			new /obj/item/tool/saw/chain(src)
 
@@ -516,8 +512,6 @@
 	new /obj/item/device/radio/headset/heads/foreman(src)
 	new /obj/item/clothing/accessory/cape/prospie(src)
 	new /obj/item/clothing/accessory/halfcape/foreman(src)
-	new /obj/item/computer_hardware/hard_drive/portable/design/scav/forman(src)
-	new /obj/item/computer_hardware/hard_drive/portable/design/guns/vector(src)
 	switch(bag_cache)
 		if("INDUSTRIAL")
 			if(prob(80))
@@ -600,10 +594,8 @@
 			new /obj/item/tool/sword/machete(src)
 		if("KATANA")
 			new /obj/item/tool/sword/katana(src)
-		if("PHAMMER")
-			new /obj/item/tool/power_fist(src)
 		if("CHAINSAW")
-			new /obj/item/tool/saw/hyper(src)
+			new /obj/item/tool/saw/chain(src)
 
 
 	//Regular spawns

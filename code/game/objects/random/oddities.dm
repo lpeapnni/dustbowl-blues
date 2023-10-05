@@ -35,19 +35,3 @@
 				/obj/item/gun_upgrade/mechanism/brass_kit = 1,
 				//Misc - things that are not a "gun" but still good for this
 				/obj/item/soap/bluespase = 0.5))
-
-/obj/random/uplink/low_chance
-	name = "really really really low chance random uplink"
-	icon_state = "techloot-grey-low"
-	spawn_nothing_percentage = 95
-
-/obj/random/uplink
-	name = "random uplink"
-	icon_state = "techloot-grey"
-
-/obj/random/uplink/item_to_spawn()
-	return pickweight(list(
-				/obj/item/device/radio/uplink = 1,
-				/obj/item/tool/multitool/uplink = 1,
-				/obj/item/implant/uplink = 1,
-				/obj/item/device/radio/headset/uplink = 1))

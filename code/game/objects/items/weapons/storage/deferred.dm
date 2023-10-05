@@ -99,7 +99,7 @@
 	item_state = "combat_surgery_kit"
 	initial_contents = list(
 		/obj/item/tool/bonesetter/adv,
-		/obj/item/tool/saw/circular/medical,
+		/obj/item/tool/saw/medical,
 		/obj/item/tool/hemostat/adv,
 		/obj/item/tool/retractor/adv,
 		/obj/item/tool/scalpel/laser,
@@ -111,7 +111,7 @@
 		)
 	can_hold = list(
 		/obj/item/tool/bonesetter,
-		/obj/item/tool/saw/circular,
+		/obj/item/tool/saw,
 		/obj/item/tool/hemostat,
 		/obj/item/tool/retractor,
 		/obj/item/tool/scalpel,
@@ -304,11 +304,6 @@
 // TRADE
 
 // Gambling
-/obj/item/storage/deferred/disks
-	name = "autolathe disk box"
-	desc = "A small collection of autolathe disks"
-	initial_contents = list(/obj/random/lathe_disk = 7)
-
 obj/item/storage/deferred/gun_parts
 	name = "gun part box"
 	desc = "Uppers, lowers, and everything in between"
@@ -330,12 +325,6 @@ obj/item/storage/deferred/gun_parts
 	name = "scientific things box"
 	desc = "A small collection of scientific items."
 	initial_contents = list(/obj/random/science = 7)
-
-/obj/item/storage/deferred/rig
-	name = "hardsuit box"
-	desc = "They put a RIG in a box."
-	price_tag = 200 //*5 at casino beacon
-	initial_contents = list(/obj/random/rig = 1)
 
 /obj/item/storage/deferred/toolmods
 	name = "toolmod box"
@@ -402,13 +391,4 @@ obj/item/storage/deferred/gun_parts
 	icon_state = "eggbox"
 	initial_contents = list(
 		/obj/item/roach_egg = 12
-	)
-
-// Serb
-/obj/item/storage/deferred/serb_rifle
-	name = "SA rifle pack"
-	desc = "A small collection of SA disks"
-	initial_contents = list(
-		/obj/item/computer_hardware/hard_drive/portable/design/guns/sa_kalashnikov = 1,
-		/obj/item/computer_hardware/hard_drive/portable/design/guns/sa_pk = 1
 	)

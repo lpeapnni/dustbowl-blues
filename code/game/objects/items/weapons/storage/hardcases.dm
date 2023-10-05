@@ -134,7 +134,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 /obj/item/storage/hcases/preimer/populate_contents()
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/tool/knife/dagger/ceremonial(src)
+	// new /obj/item/tool/knife/dagger/ceremonial(src)
 
 
 
@@ -227,7 +227,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 	new /obj/item/clothing/accessory/badge/holo/co(src)
 
 /obj/item/storage/hcases/ammo/blackmarket/serg
@@ -238,7 +238,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 
 /obj/item/storage/hcases/ammo/blackmarket/medspec
@@ -249,7 +249,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 /obj/item/storage/hcases/ammo/blackmarket/trooper
 	exspand_when_spawned = FALSE //No exspanding cheats
@@ -259,7 +259,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	new /obj/item/device/lighting/toggleable/flashlight/seclite(src)
 	new /obj/item/cell/small/high(src)
 	new /obj/item/gun/energy/gun/martin/preloaded(src)
-	new /obj/item/tool/knife/boot/blackshield(src)
+	// new /obj/item/tool/knife/boot/blackshield(src)
 
 /obj/item/storage/hcases/ammo/excel
 	icon_state = "ammo_case_excel"
@@ -500,7 +500,6 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	if(!stamped)
 		stamped = TRUE
 		var/list/options = list()
-		options["Recovery Team RIG"] = list(/obj/item/rig/recovery_suit/equipped)
 		options["Advanced Paramedic Armor"] = list(/obj/item/clothing/suit/armor/paramedic,/obj/item/clothing/head/helmet/faceshield/paramedic)
 		var/choice = input(user,"Which armor will you take?") as null|anything in options
 		if(src && choice)
@@ -552,7 +551,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 		stamped = TRUE
 		var/list/options = list()
 		options["Foreman's Sledgehammer"] = list(/obj/item/tool/hammer/foremansledge)
-		options["\"Render Slayer\" Greatsword"] = list(/obj/item/tool/sword/foreman)
+		options["\"Render Slayer\" Greatsword"] = list(/obj/item/tool/sword)
 		var/choice = input(user,"Which weapon will you take?") as null|anything in options
 		if(src && choice)
 			var/list/things_to_spawn = options[choice]

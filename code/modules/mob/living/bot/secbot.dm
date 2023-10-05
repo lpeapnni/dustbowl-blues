@@ -261,10 +261,6 @@
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		var/cuff = 1
-		if(ishuman(C))
-			var/mob/living/carbon/human/H = C
-			if(istype(H.back, /obj/item/rig) && istype(H.gloves,/obj/item/clothing/gloves/rig))
-				cuff = 0
 		if(!C.lying || C.handcuffed || arrest_type)
 			cuff = 0
 		if(!cuff)

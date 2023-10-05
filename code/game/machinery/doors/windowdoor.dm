@@ -202,6 +202,7 @@
 		return
 
 	//Emags and ninja swords? You may pass.
+	/*
 	if (istype(I, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
 			var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
@@ -211,6 +212,7 @@
 			playsound(src.loc, 'sound/weapons/blade1.ogg', 50, 1)
 			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return 1
+	*/
 
 	if (usr.a_intent != I_HURT)
 		var/tool_type = I.get_tool_type(user, usable_qualities, src)

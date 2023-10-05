@@ -17,7 +17,6 @@
 /datum/antagonist/contractor/Topic(href, href_list)
 	if (..())
 		return
-	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
 
 /datum/antagonist/contractor/can_become_antag(var/datum/mind/player)
 	return ishuman(player.current) && ..(player)
@@ -33,8 +32,6 @@
 
 	if(!..())
 		return FALSE
-
-	spawn_uplink(owner.current)
 	give_codewords()
 
 	return TRUE

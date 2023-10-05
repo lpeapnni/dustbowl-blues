@@ -27,8 +27,6 @@ GLOBAL_LIST_INIT(chameleon_blacklist, list(
 	/obj/item/clothing/head/armor,
 	/obj/item/clothing/head/surgery,
 	/obj/item/clothing/head/collectable,
-	/obj/item/clothing/suit/space,
-	/obj/item/clothing/head/space,
 	/obj/item/clothing/suit/armor/laserproof,
 	/obj/item/clothing/suit/storage/vest,
 	/obj/item/clothing/suit/storage,

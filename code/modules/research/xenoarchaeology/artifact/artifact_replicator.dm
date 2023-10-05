@@ -48,7 +48,6 @@
 	/obj/item/tool/crowbar,\
 	/obj/item/clipboard,\
 	/obj/item/cell/large,\
-	/obj/item/tool/saw/circular,\
 	/obj/item/tool/hatchet,\
 	/obj/item/handcuffs,\
 	/obj/item/tool/hemostat,\

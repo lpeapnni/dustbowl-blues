@@ -131,10 +131,6 @@
 	if(istype(HC))
 		breakouttime = HC.breakouttime - src.stats.getSpecial(SPECIAL_S) * 10
 
-	var/mob/living/carbon/human/H = src
-	if(istype(H) && H.gloves && istype(H.gloves,/obj/item/clothing/gloves/rig))
-		breakouttime /= 2
-
 	visible_message(
 		SPAN_DANGER("\The [src] attempts to remove \the [HC]!"),
 		SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [breakouttime / 10] seconds and you need to stand still)")

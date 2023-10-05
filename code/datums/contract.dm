@@ -8,7 +8,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a jetpack" = /obj/item/tank/jetpack,
 		"a premier's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Guild Master's advanced voidsuit control module" = /obj/item/rig/ce,
 		"the colony blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
@@ -19,7 +18,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a steward's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an marshal hardsuit control module" = /obj/item/rig/combat/ironhammer
 	))
 
 /datum/antag_contract
@@ -59,13 +57,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		M.contracts_completed++
 		if(M.current)
 			to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
-
-	for(var/obj/item/device/uplink/U in world_uplinks)
-		if(U.uplink_owner != M)
-			continue
-		U.uses += reward
-		break
-
 
 // A contract to steal a specific item - allows you to check all contents (recursively) for the target item
 /datum/antag_contract/item
@@ -235,7 +226,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a jetpack" = /obj/item/tank/jetpack,
 		"a premier's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the GM advanced voidsuit control module" = /obj/item/rig/ce,
 		"the station blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
@@ -247,7 +237,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the premier's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Ironhammer hardsuit control module" = /obj/item/rig/combat/ironhammer
 	)
 
 /datum/antag_contract/item/steal/New()

@@ -59,10 +59,6 @@
 		var/obj/item/circuitboard/mecha/B = used_atom
 		usr.drop_from_inventory(B, holder) //B for Board
 
-	else if(istype(used_atom, /obj/item/rig_module/vision))
-		var/obj/item/rig_module/vision/V = used_atom
-		usr.drop_from_inventory(V, holder) //V for vision
-
 	return 1
 
 /datum/construction/reversible/mecha/action(atom/used_atom,mob/user as mob)

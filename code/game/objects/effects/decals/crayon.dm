@@ -237,7 +237,6 @@ obj/item/scroll/sealed
 		/obj/item/tool/knife/ritual, // This means both the knife and sickle...
 		/obj/item/paper/alchemy_recipes,
 		/obj/item/device/camera_film)
-	cant_hold = list(/obj/item/tool/knife/ritual/blade) // ...but not the sword. No cheating!
 
 /obj/item/scroll/proc/ScrollBurn()
 	var/mob/living/M = loc

@@ -1707,11 +1707,6 @@
 /area/colony/exposedsun/crashed_shop/workshop)
 "MB" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
-/obj/item/melee/energy/sword/pirate,
 /obj/random/melee,
 /obj/random/melee,
 /turf/simulated/floor/wood_old,

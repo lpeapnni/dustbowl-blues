@@ -35,72 +35,9 @@
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 3)
 
-/obj/item/tool/hammer/powered_hammer
-	name = "powered sledgehammer"
-	desc = "Used for applying excessive blunt force to a surface."
-	icon_state = "powered_hammer"
-	item_state = "powered_hammer"
-	wielded_icon = "powered_hammer_on"
-	switched_on_forcemult = 2.2 //33 total
-	structure_damage_factor = STRUCTURE_DAMAGE_BREACHING
-	w_class = ITEM_SIZE_BULKY
-	slot_flags = SLOT_BELT|SLOT_BACK
-	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLASTEEL = 6, MATERIAL_PLASTIC = 1)
-	price_tag = 340
-	switched_on_qualities = list(QUALITY_HAMMERING = 45)
-	switched_off_qualities = list(QUALITY_HAMMERING = 30)
-	toggleable = TRUE
-	armor_penetration = ARMOR_PEN_EXTREME // Retains AP when turned off - it's a hammer.
-	degradation = 0.7
-	use_power_cost = 2
-	suitable_cell = /obj/item/cell/medium
-	max_upgrades = 4
-	item_icons = list(
-		slot_back_str = 'icons/obj/tools.dmi')
-	item_state_slots = list(
-		slot_back_str = "onehammer_back"
-		)
-
-/obj/item/tool/hammer/powered_hammer/turn_on(mob/user)
-
-	if (cell && cell.charge >= 1)
-		item_state = "[initial(item_state)]_on"
-		to_chat(user, SPAN_NOTICE("You switch [src] on."))
-		playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-		..()
-	else
-		item_state = initial(item_state)
-		to_chat(user, SPAN_WARNING("[src]'s battery is dead or missing."))
-
-/obj/item/tool/hammer/powered_hammer/turn_off(mob/user)
-	item_state = initial(item_state)
-	playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-	to_chat(user, SPAN_NOTICE("You switch [src] off."))
-	..()
-
-/obj/item/tool/hammer/powered_hammer/onestar_hammer
-	name = "Greyson sledgehammer"
-	desc = "Used for applying immeasurable blunt force to anything in your way."
-	icon_state = "onehammer"
-	item_state = "onehammer"
-	wielded_icon = "onehammer_on"
-	switched_on_forcemult = 2.6 // 39 total
-	armor_penetration = ARMOR_PEN_EXTREME // Retains AP when turned off - it's a hammer.
-	structure_damage_factor = STRUCTURE_DAMAGE_DESTRUCTIVE
-	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLATINUM = 3, MATERIAL_DIAMOND = 3)
-	price_tag = 860
-	switched_on_qualities = list(QUALITY_HAMMERING = 60)
-	switched_off_qualities = list(QUALITY_HAMMERING = 35)
-	toggleable = TRUE
-	degradation = 2
-	use_power_cost = 1.5
-	workspeed = 1.5
-	max_upgrades = 2
-	allow_greyson_mods = TRUE
-
 /obj/item/tool/hammer/foremansledge
 	name = "foreman's sledgehammer"
-	desc = "Once a tool used to nail rivets, now a tool used to crush skulls. The signature weapon of the prospector's foreman."
+	desc = "Once a tool used to nail rivets, now a tool used to crush skulls."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sledgehammer"
 	item_state = "sledgehammer0"
@@ -135,25 +72,6 @@
 	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
 	max_upgrades = 5
 	price_tag = 15
-
-/obj/item/tool/hammer/ironhammer
-	name = "Seinemetall Defense \"Ironhammer\" Breaching Hammer"
-	desc = "A modified sledgehammer produced by Seinemetall Defense GmbH for police forces across Sol space."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "iron_hammer"
-	item_state = "iron_hammer"
-	wielded_icon = "iron_hammer_wielded"
-	w_class = ITEM_SIZE_HUGE
-	armor_penetration = ARMOR_PEN_DEEP
-	slot_flags = SLOT_BELT|SLOT_BACK
-	force = WEAPON_FORCE_LETHAL
-	structure_damage_factor = STRUCTURE_DAMAGE_BORING
-	tool_qualities = list(QUALITY_HAMMERING = 40, QUALITY_PRYING = 1)
-	matter = list(MATERIAL_STEEL = 30, MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 15)
-
-/obj/item/tool/hammer/ironhammer/attack()
-	..()
-	usr.setClickCooldown(DEFAULT_LONG_COOLDOWN)
 
 /obj/item/tool/hammer/mace
 	name = "mace"
@@ -203,84 +121,3 @@
 	item_state = "dumbbell"
 	tool_qualities = list(QUALITY_HAMMERING = 15)
 	matter = list(MATERIAL_STEEL = 5)
-
-/obj/item/tool/hammer/charge
-	name = "rocket hammer"
-	desc = "After many issues with scientists trying to hammer a nail, one bright individual wondered what could be achieved by attaching a stellar-grade ship engine to the back."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "chargehammer"
-	wielded_icon = "chargehammer1"
-	item_state = "chargehammer0"
-	w_class = ITEM_SIZE_HUGE
-	switched_on_forcemult = 2.2
-	armor_penetration = ARMOR_PEN_EXTREME // Retains AP when turned off - it's a hammer.
-	structure_damage_factor = STRUCTURE_DAMAGE_BREACHING
-	switched_on_qualities = list(QUALITY_HAMMERING = 60)
-	switched_off_qualities = list(QUALITY_HAMMERING = 35)
-	toggleable = TRUE
-	slot_flags = SLOT_BELT|SLOT_BACK
-	suitable_cell = /obj/item/cell/medium
-	use_power_cost = 15
-	price_tag = 420 // Has a rocket engine on it.
-	var/datum/effect/effect/system/trail/T
-	var/last_launch
-
-/obj/item/tool/hammer/charge/turn_on(mob/user)
-
-	if (cell && cell.charge >= 1)
-		item_state = "[initial(item_state)]-on"
-		icon_state = "[initial(icon_state)]_on"
-		if(wielded)
-			item_state = "chargehammer1-on"
-		to_chat(user, SPAN_NOTICE("You switch [src] on."))
-		playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-		..()
-	else
-		item_state = initial(item_state)
-		to_chat(user, SPAN_WARNING("[src]'s battery is dead or missing."))
-
-/obj/item/tool/hammer/charge/turn_off(mob/user)
-	item_state = initial(item_state)
-	icon_state = initial(icon_state)
-	if(wielded)
-		item_state = "chargehammer1"
-	playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
-	to_chat(user, SPAN_NOTICE("You switch [src] off."))
-	..()
-
-/obj/item/tool/hammer/charge/New()
-	..()
-	T = new /datum/effect/effect/system/trail/fire()
-	T.set_up(src)
-
-/obj/item/tool/hammer/charge/Destroy()
-	QDEL_NULL(T)
-	return ..()
-
-/obj/item/tool/hammer/charge/afterattack(atom/target, mob/user, proximity_flag, params)
-	if(!switched_on || world.time < last_launch + 3 SECONDS)
-		return
-	var/cost = use_power_cost*get_dist(target, user)
-	if(user.check_gravity())
-		cost *= (user.mob_size/10)
-
-	if(cell?.checked_use(cost))
-		if(!wielded)
-			var/drop_prob = 50
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				drop_prob *= H.stats.getMult(SPECIAL_S, SPECIAL_LEVEL_GREAT)
-			if(prob(drop_prob))
-				to_chat(user, SPAN_WARNING("\The [src] launches from your grasp!"))
-				user.drop_item(src)
-				T.start()
-				playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
-				throw_at(target, get_dist(target, user), 1, user)
-				T.stop()
-				last_launch = world.time
-				return
-		last_launch = world.time
-		T.start()
-		playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
-		user.throw_at(target, get_dist(target, user), 1, user)
-		T.stop()

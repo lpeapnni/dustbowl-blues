@@ -169,7 +169,6 @@ obj/structure/salvageable/computer/Initialize()
 		/obj/item/implant/freedom = 5,
 		/obj/item/implant/tracking = 10,
 		/obj/item/implant/chem = 10,
-		/obj/item/implant/uplink = 0.001,
 		/obj/item/organ/external/robotic/l_arm = 20,
 		/obj/item/organ/external/robotic/r_arm = 20,
 		/obj/item/organ/external/robotic/l_leg = 20,
@@ -211,7 +210,6 @@ obj/structure/salvageable/implant_container/Initialize()
 		/obj/item/stack/material/glass{amount = 5} = 90,
 		/obj/item/trash/material/circuit = 60,
 		/obj/item/trash/material/metal = 60,
-		/obj/item/implant/uplink = 0.01,
 		/obj/item/computer_hardware/network_card = 40,
 		/obj/item/computer_hardware/network_card = 40,
 		/obj/item/computer_hardware/processor_unit = 40,
@@ -244,7 +242,6 @@ obj/structure/salvageable/data/Initialize()
 		/obj/item/stack/material/glass{amount = 5} = 90,
 		/obj/item/trash/material/circuit = 60,
 		/obj/item/trash/material/metal = 60,
-		/obj/item/implant/uplink = 0.01,
 		/obj/item/computer_hardware/network_card = 40,
 		/obj/item/computer_hardware/network_card = 40,
 		/obj/item/computer_hardware/processor_unit = 40,
@@ -279,7 +276,6 @@ obj/structure/salvageable/server/Initialize()
 		/obj/item/stack/material/glass{amount = 5} = 70,
 		/obj/item/trash/material/circuit = 60,
 		/obj/item/trash/material/metal = 60,
-		/obj/item/implant/uplink = 0.0001,
 		/obj/item/computer_hardware/network_card = 60,
 		/obj/item/computer_hardware/network_card/advanced = 40,
 		/obj/item/computer_hardware/network_card/wired = 40,
@@ -289,9 +285,7 @@ obj/structure/salvageable/server/Initialize()
 		/obj/item/computer_hardware/processor_unit/adv = 40,
 		/obj/item/computer_hardware/processor_unit/adv/small = 30,
 		/obj/item/computer_hardware/hard_drive = 60,
-		/obj/item/computer_hardware/hard_drive/advanced = 40,
-		/obj/random/lathe_disk = 50,
-		/obj/random/lathe_disk/advanced = 30,
+		/obj/item/computer_hardware/hard_drive/advanced = 40
 	)
 
 obj/structure/salvageable/personal/Initialize()
@@ -305,7 +299,6 @@ obj/structure/salvageable/personal/Initialize()
 	salvageable_parts = list(
 		/obj/item/stock_parts/console_screen = 90,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
-		/obj/item/implant/uplink = 0.05,
 		/obj/item/computer_hardware/processor_unit/adv = 60,
 		/obj/item/computer_hardware/hard_drive/cluster = 50,
 		/obj/item/computer_hardware/hard_drive/portable/advanced/shady = 50,
@@ -355,7 +348,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/stock_parts/micro_laser/one_star = 40,
 		/obj/item/stock_parts/matter_bin/one_star = 40,
 		/obj/item/stock_parts/matter_bin/one_star = 40,
-		/obj/random/lathe_disk/advanced/onestar = 5,
 		/obj/random/prothesis/one_star = 20,
 		/obj/item/gun_upgrade/mechanism/glass_widow = 5,
 		/obj/item/tool_upgrade/augment/randomizer = 20
@@ -383,9 +375,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/stock_parts/micro_laser/one_star = 70,
 		/obj/item/stock_parts/matter_bin/one_star = 80,
 		/obj/item/stock_parts/matter_bin/one_star = 80,
-		/obj/random/tool/advanced/onestar = 45,
 		/obj/random/prothesis/one_star = 20,
-		/obj/random/lathe_disk/advanced/onestar = 10,
 		/obj/item/circuitboard/autolathe = 5,
 		/obj/item/stack/material/steel{amount = 10} = 60,
 		/obj/item/stack/material/glass{amount = 10} = 60,
@@ -414,7 +404,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 40,
 		/obj/item/scrap_lump = 40,
 		/obj/item/scrap_lump = 30,
-		/obj/item/implant/uplink = 0.0001,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
 		/obj/item/stack/material/glass{amount = 5} = 90,
 		/obj/item/stock_parts/capacitor/one_star = 60,
@@ -423,8 +412,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 5
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/implant_container_os
@@ -444,7 +432,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/implant/freedom = 20,
 		/obj/item/implant/tracking = 30,
 		/obj/item/implant/chem = 30,
-		/obj/item/implant/uplink = 0.01,
 		/obj/item/organ/external/robotic/l_arm = 20,
 		/obj/item/organ/external/robotic/r_arm = 20,
 		/obj/item/organ/external/robotic/l_leg = 20,
@@ -473,7 +460,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 50,
 		/obj/item/scrap_lump = 50,
 		/obj/item/scrap_lump = 30,
-		/obj/item/implant/uplink = 0.001,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
 		/obj/item/stack/material/glass{amount = 5} = 90,
 		/obj/item/computer_hardware/processor_unit/adv = 60,
@@ -481,8 +467,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/hard_drive/super = 50,
 		/obj/item/computer_hardware/hard_drive/super = 50,
 		/obj/item/computer_hardware/hard_drive/cluster = 50,
-		/obj/item/computer_hardware/network_card/wired = 40,
-		/obj/random/lathe_disk/advanced/onestar = 10
+		/obj/item/computer_hardware/network_card/wired = 40
 	)
 
 /obj/structure/salvageable/server_os
@@ -496,7 +481,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 50,
 		/obj/item/scrap_lump = 50,
 		/obj/item/scrap_lump = 30,
-		/obj/item/implant/uplink = 0.001,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
 		/obj/item/stack/material/glass{amount = 5} = 90,
 		/obj/item/computer_hardware/network_card/wired = 40,
@@ -529,7 +513,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 20,
 		/obj/item/scrap_lump = 20,
 		/obj/item/scrap_lump = 10,
-		/obj/item/implant/uplink = 0.05,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
 		/obj/item/stock_parts/console_screen = 80,
 		/obj/item/stock_parts/capacitor/one_star = 60,
@@ -538,8 +521,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 25
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/console_broken_os
@@ -555,7 +537,6 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/scrap_lump = 40,
 		/obj/item/scrap_lump = 40,
 		/obj/item/scrap_lump = 30,
-		/obj/item/implant/uplink = 0.003,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
 		/obj/item/stock_parts/console_screen = 80,
 		/obj/item/stock_parts/capacitor/one_star = 60,
@@ -564,8 +545,7 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/computer_hardware/processor_unit/super = 40,
 		/obj/item/computer_hardware/card_slot = 40,
 		/obj/item/computer_hardware/card_slot = 40,
-		/obj/item/computer_hardware/network_card/advanced = 40,
-		/obj/random/lathe_disk/advanced/onestar = 15
+		/obj/item/computer_hardware/network_card/advanced = 40
 	)
 
 /obj/structure/salvageable/os/power  //todo:make a system to directly repair to a generator

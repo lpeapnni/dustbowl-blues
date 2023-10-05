@@ -117,11 +117,7 @@
 	return
 
 /obj/item/device/mmi/relaymove(var/mob/user, var/direction)
-	if(user.stat || user.stunned)
-		return
-	var/obj/item/rig/rig = src.get_rig()
-	if(rig)
-		rig.forced_move(direction, user)
+	return
 
 /obj/item/device/mmi/Destroy()
 	if(isrobot(loc))
